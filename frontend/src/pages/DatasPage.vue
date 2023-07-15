@@ -1,5 +1,10 @@
 <template>
   <q-list v-if="$route.path === '/datas'">
+    <q-btn
+      style="width: 100%"
+      label="Add data"
+      @click="$router.push('/datas/add')"
+    />
     <EssentialData
       v-for="link in essentialLinks"
       :key="link.title"

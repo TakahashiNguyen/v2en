@@ -7,7 +7,7 @@
         <form @submit.prevent="submitForm">
           <div class="form-group">
             <label for="emailOrUsername" class="form-label"
-              >Email or Phone</label
+              >Username</label
             >
             <input
               id="emailOrUsername"
