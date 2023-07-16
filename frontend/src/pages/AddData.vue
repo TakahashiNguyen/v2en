@@ -57,7 +57,7 @@ export default defineComponent({
     },
     dataProcessor: {
       type: Function,
-      require: true,
+      required: true,
     },
   },
 
@@ -81,7 +81,7 @@ export default defineComponent({
         };
         const response = (await execute(variables)).data.addData;
 
-        await props.dataProcessor(response);
+        await props.dataProcessor();
         router.push('/datas/' + response.id);
       } catch (error) {
         console.error(error);

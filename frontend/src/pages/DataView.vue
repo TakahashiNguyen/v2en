@@ -1,9 +1,18 @@
 <template>
   <div class="user-profile">
-    <div class="user-info">
+    <div v-if="error" class="user-indo">
+      <h2>Data is deleted or doesn't exist</h2>
+      <p>{{ error.message }}</p>
+    </div>
+    <div v-else class="user-info">
       <h2>{{ data.translator }}</h2>
       <p>Origin: {{ data.origin }}</p>
       <p>Translated: {{ data.translated }}</p>
+    </div>
+
+    <div v-if="!error" class="button-container">
+      <q-btn class="button" label="Delete data" @click="execute()" />
+      <q-btn class="button" label="Button 2" />
     </div>
   </div>
 </template>
@@ -11,7 +20,7 @@
 <script lang="ts">
 import gql from 'graphql-tag';
 import router from 'src/router';
-import { useQuery } from 'villus';
+import { useMutation, useQuery } from 'villus';
 import { defineComponent } from 'vue';
 
 const GET_DATA = gql`
@@ -21,9 +30,14 @@ const GET_DATA = gql`
       origin
       translated
       translator
-      hashValue
       verified
     }
+  }
+`;
+
+const DELETE_DATA = gql`
+  mutation RemoveData($removeDataId: Float!) {
+    removeData(id: $removeDataId)
   }
 `;
 
@@ -37,20 +51,43 @@ export default defineComponent({
       type: [Object, String],
       required: true,
     },
+    dataProcessor: {
+      type: Function,
+      required: true,
+    },
   },
   async setup(props) {
     if (!props.user) router.push('/login');
 
-    const { execute } = useQuery({
+    const { error, data } = await useQuery({
       query: GET_DATA,
       variables: {
         dataId: props.id,
       },
-    });
+    }).execute();
 
-    const { error, data } = await execute();
+    const { execute } = useMutation(DELETE_DATA);
+    const deleteData = async () => {
+      await execute({
+        removeDataId: data.data.id,
+      });
+      await props.dataProcessor();
+      router.back();
+    };
 
-    return { error: error, data: data.data };
+    return { error: error, data: data?.data, execute: deleteData };
   },
 });
 </script>
+
+<style scoped>
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.button {
+  width: 50%;
+}
+</style>

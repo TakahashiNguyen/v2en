@@ -45,7 +45,7 @@ export class DataResolver {
 	async removeData(@Args('id') id: number) {
 		const data = await this.dataService.findDataOneBy({ id: id });
 		if (data instanceof Data) {
-			this.dataService.removeData({ hashValue: data.hashValue });
+			await this.dataService.removeData({ hashValue: data.hashValue });
 			return 'Data removed';
 		} else return new GraphQLError("Data isn't existed");
 	}
