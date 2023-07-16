@@ -5,18 +5,14 @@
       label="Add data"
       @click="$router.push('/datas/add')"
     />
-    <EssentialData
-      v-for="link in essentialLinks"
-      :key="link.title"
-      v-bind="link"
-    />
+    <EssentialData v-for="link in essentialLinks" :key="link" v-bind="link" />
   </q-list>
 
-  <router-view :user="$props.user" :id="id" />
+  <router-view :user="user" :id="id" :dataProcessor="dataProcessor" />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import EssentialData from '../components/EssentialData.vue';
 import router from 'src/router';
 import gql from 'graphql-tag';
@@ -56,11 +52,20 @@ export default defineComponent({
   async setup(props) {
     if (!props.user) router.push('/login');
 
+    const essentialLinks = ref([]);
+
     const { execute } = useQuery({ query: DATAS_QUERY });
-    const linksList = (await execute()).data.datas;
+
+    const dataProcessor = async (response: any) => {
+      const result = await execute();
+      essentialLinks.value = result.data.datas;
+      if (response) essentialLinks.value = { ...result.data.datas, response };
+    };
+    await dataProcessor();
 
     return {
-      essentialLinks: linksList,
+      essentialLinks,
+      dataProcessor,
     };
   },
 });

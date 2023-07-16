@@ -55,9 +55,15 @@ export default defineComponent({
       type: [Object, String],
       required: true,
     },
+    dataProcessor: {
+      type: Function,
+      require: true,
+    },
   },
 
-  setup() {
+  async setup(props) {
+    if (!props.user) router.push('/login');
+
     const originField = ref('');
     const translatedField = ref('');
 
@@ -75,6 +81,7 @@ export default defineComponent({
         };
         const response = (await execute(variables)).data.addData;
 
+        await props.dataProcessor(response);
         router.push('/datas/' + response.id);
       } catch (error) {
         console.error(error);
