@@ -56,7 +56,7 @@ export default defineComponent({
 
     const { execute } = useQuery({ query: DATAS_QUERY });
 
-    const dataProcessor = async (response: any) => {
+    const dataProcessor = async (response: unknown) => {
       const result = await execute();
       essentialLinks.value = result.data.datas;
       if (response) essentialLinks.value = { ...result.data.datas, response };
