@@ -27,8 +27,9 @@ export class DataResolver {
 	@Mutation(() => Data)
 	async addData(
 		@Args('newData') newData: DataInput,
+		id?: number,
 	): Promise<Data | unknown> {
-		let data = await Data.fromDataInput(newData);
+		let data = await Data.fromDataInput(newData, id);
 		if (
 			(await this.dataService.findDataOneBy({
 				hashValue: data.hashValue,
@@ -55,8 +56,8 @@ export class DataResolver {
 		@Args('id') id: number,
 		@Args('newData') newData: DataInput,
 	) {
-		this.removeData(id);
-		this.addData(newData);
+		await this.removeData(id);
+		await this.addData(newData, id);
 		return 'Data modified';
 	}
 }

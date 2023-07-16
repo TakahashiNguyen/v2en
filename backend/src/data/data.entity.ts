@@ -13,19 +13,22 @@ export class Data {
 		translated = '',
 		translator = '',
 		verified = false,
+		id?: number,
 	) {
+		this.id = id;
 		this.origin = origin;
 		this.translated = translated;
 		this.translator = translator;
 		this.verified = verified;
 	}
 
-	static async fromDataInput(data: DataInput) {
+	static async fromDataInput(data: DataInput, id?: number) {
 		return new Data(
 			data.origin,
 			data.translated,
 			data.translator,
 			data.verified,
+			id,
 		);
 	}
 
