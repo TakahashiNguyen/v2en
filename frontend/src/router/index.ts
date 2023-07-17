@@ -5,15 +5,8 @@ import {
   createWebHistory,
 } from 'vue-router';
 import routes from './routes';
-
-/*
- * If not building with SSR mode, you can
- * directly export the Router instantiation;
- *
- * The function below can be async too; either use
- * async/await or return a Promise which resolves
- * with the Router instance.
- */
+import { TOKEN_MUTATION, graphqlUrl } from 'src/graphql';
+import { cache, useClient, useMutation, fetch } from 'villus';
 
 const createHistory = process.env.SERVER
   ? createMemoryHistory
@@ -24,13 +17,35 @@ const createHistory = process.env.SERVER
 const router = createRouter({
   scrollBehavior: () => ({ left: 0, top: 0 }),
   routes,
-
-  // Leave this as is and make changes in quasar.conf.js instead!
-  // quasar.conf.js -> build -> vueRouterMode
-  // quasar.conf.js -> build -> publicPath
   history: createHistory(
     process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE
   ),
+});
+
+export const userMutation = async (token: string | null) => {
+  const { execute } = useMutation(TOKEN_MUTATION, {
+    client: useClient({
+      url: graphqlUrl,
+      use: [cache(), fetch()],
+    }),
+  });
+  try {
+    if (!token) return '';
+    const response = await execute({ token: token });
+    return response.data.checkToken;
+  } catch (error) {
+    return '';
+  }
+};
+
+router.beforeEach(async (to, from, next) => {
+  const isAuthenticated = await userMutation(localStorage.getItem('token'));
+
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    next('/login');
+  } else {
+    next();
+  }
 });
 
 export default router;

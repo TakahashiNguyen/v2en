@@ -18,28 +18,10 @@
 </template>
 
 <script lang="ts">
-import gql from 'graphql-tag';
+import { DELETE_DATA, GET_DATA } from 'src/graphql';
 import router from 'src/router';
 import { useMutation, useQuery } from 'villus';
 import { defineComponent } from 'vue';
-
-const GET_DATA = gql`
-  query Data($dataId: Float!) {
-    data(id: $dataId) {
-      id
-      origin
-      translated
-      translator
-      verified
-    }
-  }
-`;
-
-const DELETE_DATA = gql`
-  mutation RemoveData($removeDataId: Float!) {
-    removeData(id: $removeDataId)
-  }
-`;
 
 export default defineComponent({
   methods: {
@@ -52,18 +34,12 @@ export default defineComponent({
       type: Number,
       required: true,
     },
-    user: {
-      type: [Object, String],
-      required: true,
-    },
     dataProcessor: {
       type: Function,
       required: true,
     },
   },
   async setup(props) {
-    if (!props.user) router.push('/login');
-
     const { error, data } = await useQuery({
       query: GET_DATA,
       variables: {

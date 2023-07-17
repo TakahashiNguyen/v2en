@@ -9,7 +9,6 @@
 </template>
 
 <script lang="ts">
-import router from 'src/router';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -20,8 +19,6 @@ export default defineComponent({
     },
   },
   setup(props) {
-    if (!props['user']) router.push('/login');
-
     return {
       userDisplay: {
         name: props.user['username'],
