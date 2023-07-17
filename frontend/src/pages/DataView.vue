@@ -12,7 +12,7 @@
 
     <div v-if="!error" class="button-container">
       <q-btn class="button" label="Delete data" @click="execute()" />
-      <q-btn class="button" label="Button 2" />
+      <q-btn class="button" label="Modify data" @click="modifyDataRouter(id)" />
     </div>
   </div>
 </template>
@@ -42,6 +42,11 @@ const DELETE_DATA = gql`
 `;
 
 export default defineComponent({
+  methods: {
+    modifyDataRouter(id: number) {
+      router.push('/datas/modifying/' + id);
+    },
+  },
   props: {
     id: {
       type: Number,

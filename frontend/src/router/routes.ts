@@ -27,12 +27,18 @@ const routes: RouteRecordRaw[] = [
             component: () => import('../pages/AddData.vue'),
           },
           {
+            path: 'modifying/:id',
+            component: () => import('../pages/AddData.vue'),
+            props: true,
+          },
+          {
             path: ':id',
-            name: 'dataViewer',
             component: () => import('../pages/DataView.vue'),
           },
         ],
-        props: (route) => ({ id: Number(route.params.id) }),
+        props: (route) => ({
+          id: Number(route.params.id),
+        }),
       },
     ],
   },
