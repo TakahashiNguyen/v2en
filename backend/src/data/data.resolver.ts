@@ -1,10 +1,11 @@
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { DataService } from './data.service';
-import { NotFoundException } from '@nestjs/common';
 import { Data } from './data.entity';
 import { PubSub } from 'graphql-subscriptions';
 import { DataInput } from './data.dto';
 import { GraphQLError } from 'graphql';
+import { UseGuards } from '@nestjs/common';
+import { AuthGuard } from 'src/user/auth.guard';
 
 const pubSub = new PubSub();
 
@@ -14,6 +15,7 @@ export class DataResolver {
 
 	// Queries:Section: Data
 	@Query(() => [Data])
+	@UseGuards(AuthGuard)
 	datas(): Promise<Data[]> {
 		return this.dataService.findDataAll();
 	}
