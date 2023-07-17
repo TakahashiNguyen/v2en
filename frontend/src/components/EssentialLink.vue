@@ -16,7 +16,6 @@ import { defineComponent } from 'vue';
 import router from 'src/router';
 
 export default defineComponent({
-  name: 'EssentialLink',
   props: {
     title: {
       type: String,

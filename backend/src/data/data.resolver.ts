@@ -4,6 +4,7 @@ import { NotFoundException } from '@nestjs/common';
 import { Data } from './data.entity';
 import { PubSub } from 'graphql-subscriptions';
 import { DataInput } from './data.dto';
+import { GraphQLError } from 'graphql';
 
 const pubSub = new PubSub();
 
@@ -11,38 +12,52 @@ const pubSub = new PubSub();
 export class DataResolver {
 	constructor(private readonly dataService: DataService) {}
 
-	@Query(() => Data)
-	async data(@Args('id') id: number): Promise<Data> {
-		const data = await this.dataService.findOneBy({
-			id: id,
-		});
-		if (!data) {
-			throw new NotFoundException(id);
-		}
-		return data;
-	}
-
+	// Queries:Section: Data
 	@Query(() => [Data])
 	datas(): Promise<Data[]> {
-		return this.dataService.findAll();
+		return this.dataService.findDataAll();
 	}
 
+	@Query(() => Data)
+	async data(@Args('id') id: number): Promise<Data | Error> {
+		return await this.dataService.findDataOneBy({ id: id });
+	}
+
+	// Mutations:Section: Data
 	@Mutation(() => Data)
 	async addData(
 		@Args('newData') newData: DataInput,
+		id?: number,
 	): Promise<Data | unknown> {
-		try {
-			let data = await Data.fromDataInput(newData, this.dataService);
+		let data = await Data.fromDataInput(newData, id);
+		if (
+			(await this.dataService.findDataOneBy({
+				hashValue: data.hashValue,
+			})) instanceof Error
+		) {
 			data = await this.dataService.createData(data);
 			pubSub.publish('dataAdded', { dataAdded: data });
 			return data;
-		} catch (e) {
-			return e;
 		}
+		return new GraphQLError('Data already existed');
 	}
 
-	@Subscription(() => Data)
-	dataAdded() {
-		return pubSub.asyncIterator('dataAdded');
+	@Mutation(() => String)
+	async removeData(@Args('id') id: number) {
+		const data = await this.dataService.findDataOneBy({ id: id });
+		if (data instanceof Data) {
+			await this.dataService.removeData({ hashValue: data.hashValue });
+			return 'Data removed';
+		} else return new GraphQLError("Data isn't existed");
+	}
+
+	@Mutation(() => String)
+	async modifyData(
+		@Args('id') id: number,
+		@Args('newData') newData: DataInput,
+	) {
+		await this.removeData(id);
+		await this.addData(newData, id);
+		return 'Data modified';
 	}
 }

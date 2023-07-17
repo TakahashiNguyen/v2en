@@ -18,6 +18,28 @@ const routes: RouteRecordRaw[] = [
         path: '/signup',
         component: () => import('../pages/SignUp.vue'),
       },
+      {
+        path: '/datas',
+        component: () => import('../pages/DatasPage.vue'),
+        children: [
+          {
+            path: 'add',
+            component: () => import('../pages/AddData.vue'),
+          },
+          {
+            path: 'modifying/:id',
+            component: () => import('../pages/AddData.vue'),
+            props: true,
+          },
+          {
+            path: ':id',
+            component: () => import('../pages/DataView.vue'),
+          },
+        ],
+        props: (route) => ({
+          id: Number(route.params.id),
+        }),
+      },
     ],
   },
 

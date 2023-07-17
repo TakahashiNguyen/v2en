@@ -43,8 +43,8 @@ type DataObject {
 }
 
 type Query {
-  data(id: Float!): DataObject!
   datas: [DataObject!]!
+  data(id: Float!): DataObject!
 }
 
 type Mutation {
@@ -53,6 +53,8 @@ type Mutation {
   LogOut(username: String!, token: String!): String!
   checkToken(token: String!): UserOutput!
   addData(newData: DataInput!): DataObject!
+  removeData(id: Float!): String!
+  modifyData(id: Float!, newData: DataInput!): String!
 }
 
 input UserInput {
@@ -71,18 +73,14 @@ input LoginInput {
 
 input DataInput {
   """the origin of sentence"""
-  origin: String! = ""
+  origin: String!
 
   """the translated of sentence"""
-  translated: String! = ""
+  translated: String!
 
   """the sentence's translator"""
-  translator: String! = ""
+  translator: String!
 
   """confirm that data is verified by authorizer"""
-  verified: Boolean! = false
-}
-
-type Subscription {
-  dataAdded: DataObject!
+  verified: Boolean!
 }
