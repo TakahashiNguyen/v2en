@@ -67,10 +67,12 @@ export default defineComponent({
           variables: {
             dataId: props.id,
           },
+          cachePolicy: 'network-only',
         }).execute()
-      ).data.data;
-      originField = ref(modifiedData?.origin);
-      translatedField = ref(modifiedData?.translated);
+      ).data;
+      if (!modifiedData) router.push('/datas');
+      originField = ref(modifiedData?.data.origin);
+      translatedField = ref(modifiedData?.data.translated);
       execute = useMutation(MODIFY_DATA).execute;
     }
 

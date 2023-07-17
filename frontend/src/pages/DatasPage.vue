@@ -35,10 +35,10 @@ export default defineComponent({
     const essentialLinks = ref([]);
 
     const dataProcessor = async () => {
-      const { data } = await useQuery({ query: DATAS_QUERY }).execute({
+      const { error, data } = await useQuery({ query: DATAS_QUERY }).execute({
         cachePolicy: 'network-only',
       });
-      essentialLinks.value = data.datas;
+      if (!error) essentialLinks.value = data.datas;
     };
     await dataProcessor();
 

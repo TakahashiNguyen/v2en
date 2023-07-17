@@ -18,7 +18,7 @@ const jwtConstants = {
 		JwtModule.register({
 			global: true,
 			secret: jwtConstants.secret,
-			signOptions: { expiresIn: '60s', algorithm: 'HS256' },
+			signOptions: { expiresIn: '120s', algorithm: 'HS256' },
 		}),
 	],
 })

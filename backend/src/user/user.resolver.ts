@@ -8,8 +8,6 @@ import { Session } from './session.entity';
 import { TokenExpiredError } from 'jsonwebtoken';
 import { GraphQLError, GraphQLString } from 'graphql';
 
-const pubSub = new PubSub();
-
 @Resolver(() => UserOutput)
 export class UserResolver {
 	constructor(private readonly service: UserService) {}
@@ -20,7 +18,6 @@ export class UserResolver {
 		@Args('newUser') newUser: UserInput,
 	): Promise<string | Error> {
 		const data = await this.service.createUser(User.fromUserInput(newUser));
-		pubSub.publish('dataAdded', { dataAdded: data });
 		return this.LogIn(LoginInput.fromUserInput(newUser));
 	}
 
@@ -76,7 +73,7 @@ export class UserResolver {
 				} catch (err) {
 					if (err instanceof TokenExpiredError) {
 						this.service.removeSession(session);
-						const token = this.service.createToken(user);
+						token = this.service.createToken(user);
 						await this.service.createSession(
 							new Session(token, user),
 						);

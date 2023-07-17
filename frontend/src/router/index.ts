@@ -22,6 +22,15 @@ const router = createRouter({
   ),
 });
 
+export async function authPlugin({ opContext }) {
+  const user = await userMutation(localStorage.getItem('token'));
+  if (user) {
+    if (opContext) opContext.headers.Authorization = 'Bearer ' + user.token;
+    localStorage.setItem('token', user.token);
+  }
+  return user;
+}
+
 export const userMutation = async (token: string | null) => {
   const { execute } = useMutation(TOKEN_MUTATION, {
     client: createClient({
@@ -39,7 +48,7 @@ export const userMutation = async (token: string | null) => {
 };
 
 router.beforeEach(async (to, from, next) => {
-  const isAuthenticated = await userMutation(localStorage.getItem('token'));
+  const isAuthenticated = await authPlugin({ opContext: null });
 
   if (to.meta.requiresAuth && !isAuthenticated) next('/login');
   else next();

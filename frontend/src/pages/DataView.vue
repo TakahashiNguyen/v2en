@@ -40,16 +40,20 @@ export default defineComponent({
     },
   },
   async setup(props) {
-    const { error, data } = await useQuery({
-      query: GET_DATA,
-      variables: {
-        dataId: props.id,
-      },
-      cachePolicy: 'network-only',
-    }).execute();
+    const getData = async () => {
+      return await useQuery({
+        query: GET_DATA,
+        variables: {
+          dataId: props.id,
+        },
+        cachePolicy: 'network-only',
+      }).execute();
+    };
+    const { error, data } = await getData();
 
     const { execute } = useMutation(DELETE_DATA);
     const deleteData = async () => {
+      let data = (await getData()).data;
       await execute({
         removeDataId: data.data.id,
       });

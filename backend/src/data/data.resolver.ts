@@ -21,12 +21,14 @@ export class DataResolver {
 	}
 
 	@Query(() => Data)
+	@UseGuards(AuthGuard)
 	async data(@Args('id') id: number): Promise<Data | Error> {
 		return await this.dataService.findDataOneBy({ id: id });
 	}
 
 	// Mutations:Section: Data
 	@Mutation(() => Data)
+	@UseGuards(AuthGuard)
 	async addData(
 		@Args('newData') newData: DataInput,
 		id?: number,
@@ -45,6 +47,7 @@ export class DataResolver {
 	}
 
 	@Mutation(() => String)
+	@UseGuards(AuthGuard)
 	async removeData(@Args('id') id: number) {
 		const data = await this.dataService.findDataOneBy({ id: id });
 		if (data instanceof Data) {
@@ -54,6 +57,7 @@ export class DataResolver {
 	}
 
 	@Mutation(() => String)
+	@UseGuards(AuthGuard)
 	async modifyData(
 		@Args('id') id: number,
 		@Args('newData') newData: DataInput,
