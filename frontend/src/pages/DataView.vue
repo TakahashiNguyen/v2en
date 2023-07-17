@@ -69,6 +69,7 @@ export default defineComponent({
       variables: {
         dataId: props.id,
       },
+      cachePolicy: 'network-only',
     }).execute();
 
     const { execute } = useMutation(DELETE_DATA);
