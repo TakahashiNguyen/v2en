@@ -13,6 +13,7 @@
               type="text"
               class="form-control"
               required
+              data-cy="username"
             />
           </div>
           <div class="form-group">
@@ -23,9 +24,16 @@
               type="password"
               class="form-control"
               required
+              data-cy="password"
             />
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Login</button>
+          <button
+            type="submit"
+            class="btn btn-primary btn-block"
+            data-cy="userLogin"
+          >
+            Login
+          </button>
         </form>
         <div class="forgot-password">
           <a href="#">Forgot your password?</a>

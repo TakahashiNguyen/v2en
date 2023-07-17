@@ -13,6 +13,7 @@
                 type="text"
                 class="form-control"
                 required
+                data-cy="firstName"
               />
             </div>
             <div class="col">
@@ -23,6 +24,7 @@
                 type="text"
                 class="form-control"
                 required
+                data-cy="lastName"
               />
             </div>
           </div>
@@ -35,6 +37,7 @@
                 type="date"
                 class="form-control"
                 required
+                data-cy="birthDay"
               />
             </div>
             <div class="col">
@@ -44,6 +47,7 @@
                 v-model="gender"
                 class="form-control"
                 required
+                data-cy="genderSelect"
               >
                 <option value="">Select Gender</option>
                 <option value="male">Male</option>
@@ -60,6 +64,7 @@
               type="text"
               class="form-control"
               required
+              data-cy="username"
             />
           </div>
           <div class="form-group">
@@ -70,6 +75,7 @@
               type="password"
               class="form-control"
               required
+              data-cy="password"
             />
           </div>
           <div class="form-group">
@@ -80,13 +86,14 @@
                 type="checkbox"
                 class="form-check-input"
                 required
+                data-cy="termAgreement"
               />
               <label for="terms" class="form-check-label">
                 I agree to the terms and conditions
               </label>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">
+          <button type="submit" class="btn btn-primary btn-block" data-cy="userSignup">
             Sign up
           </button>
         </form>
