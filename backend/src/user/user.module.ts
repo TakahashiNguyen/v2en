@@ -13,10 +13,13 @@ const jwtConstants = {
 
 @Module({
 	providers: [UserResolver, UserService, IsUserNameExistedConstraint],
-	imports: [TypeOrmModule.forFeature([User, Session]), JwtModule.register({
-		global: true,
-		secret: jwtConstants.secret,
-		signOptions: { expiresIn: '60s', algorithm: 'HS256' },
-	}),],
+	imports: [
+		TypeOrmModule.forFeature([User, Session]),
+		JwtModule.register({
+			global: true,
+			secret: jwtConstants.secret,
+			signOptions: { expiresIn: '120s', algorithm: 'HS256' },
+		}),
+	],
 })
-export class UserModule { }
+export class UserModule {}

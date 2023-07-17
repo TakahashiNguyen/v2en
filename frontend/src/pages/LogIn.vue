@@ -6,9 +6,7 @@
         <h2 class="account-subtitle">We're so excited to see you again!</h2>
         <form @submit.prevent="submitForm">
           <div class="form-group">
-            <label for="emailOrUsername" class="form-label"
-              >Username</label
-            >
+            <label for="emailOrUsername" class="form-label">Username</label>
             <input
               id="emailOrUsername"
               v-model="emailOrUsername"
@@ -39,22 +37,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import gql from 'graphql-tag';
 import { useMutation } from 'villus';
 import router from 'src/router';
-
-const LOGIN_MUTATION = gql`
-  mutation AddUser($loginUser: LoginInput!) {
-    LogIn(loginUser: $loginUser) {
-      username
-      familyName
-      givenName
-      gender
-      birthDay
-      token
-    }
-  }
-`;
+import { LOGIN_MUTATION } from 'src/graphql';
 
 export default defineComponent({
   props: {
@@ -82,8 +67,7 @@ export default defineComponent({
         };
         const response = await execute(variables);
 
-        const user = response.data.LogIn;
-        localStorage.setItem('token', user.token);
+        localStorage.setItem('token', response.data.LogIn);
 
         window.location.reload();
       } catch (error) {

@@ -28,6 +28,7 @@
 import { defineComponent, ref } from 'vue';
 import EssentialLink from '../components/EssentialLink.vue';
 import router from 'src/router';
+import { authPlugin } from 'src/router';
 
 export default defineComponent({
   components: {
@@ -47,7 +48,7 @@ export default defineComponent({
 
   async setup(props) {
     const leftDrawerOpen = ref(false);
-    const user = await props.userMutation(localStorage.getItem('token'));
+    const user = await authPlugin({ opContext: null });
 
     const userLinks =
       user instanceof Object

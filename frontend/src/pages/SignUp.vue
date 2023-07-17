@@ -98,21 +98,8 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { useMutation } from 'villus';
-import gql from 'graphql-tag';
 import router from 'src/router';
-
-const SIGN_UP_MUTATION = gql`
-  mutation AddUser($newUser: UserInput!) {
-    addUser(newUser: $newUser) {
-      username
-      familyName
-      givenName
-      gender
-      birthDay
-      token
-    }
-  }
-`;
+import { SIGN_UP_MUTATION } from 'src/graphql';
 
 export default defineComponent({
   props: {
@@ -149,8 +136,7 @@ export default defineComponent({
         };
         const response = await execute(variables);
 
-        const user = response.data.addUser;
-        localStorage.setItem('token', user.token);
+        localStorage.setItem('token', response.data.addUser);
 
         window.location.reload();
       } catch (error) {

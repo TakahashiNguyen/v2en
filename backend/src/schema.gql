@@ -48,8 +48,8 @@ type Query {
 }
 
 type Mutation {
-  addUser(newUser: UserInput!): UserOutput!
-  LogIn(loginUser: LoginInput!): UserOutput!
+  addUser(newUser: UserInput!): String!
+  LogIn(loginUser: LoginInput!): String!
   LogOut(username: String!, token: String!): String!
   checkToken(token: String!): UserOutput!
   addData(newData: DataInput!): DataObject!

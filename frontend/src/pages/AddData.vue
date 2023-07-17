@@ -33,38 +33,9 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import router from 'src/router';
-import gql from 'graphql-tag';
 import { useMutation, useQuery } from 'villus';
 import { useRoute } from 'vue-router';
-
-const ADD_DATA = gql`
-  mutation AddData($newData: DataInput!) {
-    addData(newData: $newData) {
-      id
-      origin
-      translated
-      translator
-      hashValue
-      verified
-    }
-  }
-`;
-const MODIFY_DATA = gql`
-  mutation ModifyData($modifyDataId: Float!, $newData: DataInput!) {
-    modifyData(id: $modifyDataId, newData: $newData)
-  }
-`;
-const GET_DATA = gql`
-  query Data($dataId: Float!) {
-    data(id: $dataId) {
-      id
-      origin
-      translated
-      translator
-      verified
-    }
-  }
-`;
+import { ADD_DATA, GET_DATA, MODIFY_DATA } from 'src/graphql';
 
 export default defineComponent({
   props: {
@@ -83,7 +54,6 @@ export default defineComponent({
   },
 
   async setup(props) {
-    if (!props.user) router.push('/login');
     const route = useRoute();
 
     let originField = ref('');
@@ -97,10 +67,12 @@ export default defineComponent({
           variables: {
             dataId: props.id,
           },
+          cachePolicy: 'network-only',
         }).execute()
-      ).data.data;
-      originField = ref(modifiedData?.origin);
-      translatedField = ref(modifiedData?.translated);
+      ).data;
+      if (!modifiedData) router.push('/datas');
+      originField = ref(modifiedData?.data.origin);
+      translatedField = ref(modifiedData?.data.translated);
       execute = useMutation(MODIFY_DATA).execute;
     }
 
