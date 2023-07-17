@@ -4,6 +4,7 @@
       style="width: 100%"
       label="Add data"
       @click="$router.push('/datas/add')"
+      data-cy="addDataButton"
     />
     <EssentialData v-for="link in essentialLinks" :key="link" v-bind="link" />
   </q-list>
