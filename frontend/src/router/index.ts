@@ -41,11 +41,8 @@ export const userMutation = async (token: string | null) => {
 router.beforeEach(async (to, from, next) => {
   const isAuthenticated = await userMutation(localStorage.getItem('token'));
 
-  if (to.meta.requiresAuth && !isAuthenticated) {
-    next('/login');
-  } else {
-    next();
-  }
+  if (to.meta.requiresAuth && !isAuthenticated) next('/login');
+  else next();
 });
 
 export default router;
