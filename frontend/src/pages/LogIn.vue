@@ -67,8 +67,7 @@ export default defineComponent({
         };
         const response = await execute(variables);
 
-        const user = response.data.LogIn;
-        localStorage.setItem('token', user.token);
+        localStorage.setItem('token', response.data.LogIn);
 
         window.location.reload();
       } catch (error) {

@@ -16,15 +16,8 @@ export const TOKEN_MUTATION = gql`
 `;
 
 export const LOGIN_MUTATION = gql`
-  mutation AddUser($loginUser: LoginInput!) {
-    LogIn(loginUser: $loginUser) {
-      username
-      familyName
-      givenName
-      gender
-      birthDay
-      token
-    }
+  mutation LogIn($loginUser: LoginInput!) {
+    LogIn(loginUser: $loginUser)
   }
 `;
 
@@ -36,14 +29,7 @@ export const LOGOUT_MUTATION = gql`
 
 export const SIGN_UP_MUTATION = gql`
   mutation AddUser($newUser: UserInput!) {
-    addUser(newUser: $newUser) {
-      username
-      familyName
-      givenName
-      gender
-      birthDay
-      token
-    }
+    addUser(newUser: $newUser)
   }
 `;
 

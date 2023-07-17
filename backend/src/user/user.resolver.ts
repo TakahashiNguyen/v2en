@@ -15,19 +15,19 @@ export class UserResolver {
 	constructor(private readonly service: UserService) {}
 
 	// Mutations:Section: User
-	@Mutation(() => UserOutput)
+	@Mutation(() => String)
 	async addUser(
 		@Args('newUser') newUser: UserInput,
-	): Promise<UserOutput | Error> {
+	): Promise<string | Error> {
 		const data = await this.service.createUser(User.fromUserInput(newUser));
 		pubSub.publish('dataAdded', { dataAdded: data });
 		return this.LogIn(LoginInput.fromUserInput(newUser));
 	}
 
-	@Mutation(() => UserOutput)
+	@Mutation(() => String)
 	async LogIn(
 		@Args('loginUser') loginUser: LoginInput,
-	): Promise<UserOutput | Error> {
+	): Promise<string | Error> {
 		const user = await this.service.findUserOneBy({
 			username: loginUser.username,
 			hashedPassword: Md5.hashStr(loginUser.password),
@@ -36,7 +36,7 @@ export class UserResolver {
 			const token = this.service.createToken(user);
 			const session = new Session(token, user);
 			await this.service.createSession(session);
-			return UserOutput.fromUser(user, token);
+			return token;
 		}
 		return new GraphQLError('Incorrect username or password.');
 	}

@@ -136,8 +136,7 @@ export default defineComponent({
         };
         const response = await execute(variables);
 
-        const user = response.data.addUser;
-        localStorage.setItem('token', user.token);
+        localStorage.setItem('token', response.data.addUser);
 
         window.location.reload();
       } catch (error) {
