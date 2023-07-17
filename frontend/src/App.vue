@@ -9,8 +9,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { useMutation } from 'villus';
-import { LOGOUT_MUTATION } from './graphql';
+import { useClient, useMutation, fetch, cache } from 'villus';
+import { LOGOUT_MUTATION, graphqlUrl } from './graphql';
 import { userMutation } from './router';
 
 export default defineComponent({
@@ -21,7 +21,10 @@ export default defineComponent({
     },
   },
   setup() {
-    userMutation('');
+    useClient({
+      url: graphqlUrl,
+      use: [cache(), fetch()],
+    });
     return { userMutation: userMutation };
   },
 });

@@ -6,7 +6,7 @@ import {
 } from 'vue-router';
 import routes from './routes';
 import { TOKEN_MUTATION, graphqlUrl } from 'src/graphql';
-import { cache, useClient, useMutation, fetch } from 'villus';
+import { cache, useMutation, fetch, createClient } from 'villus';
 
 const createHistory = process.env.SERVER
   ? createMemoryHistory
@@ -24,7 +24,7 @@ const router = createRouter({
 
 export const userMutation = async (token: string | null) => {
   const { execute } = useMutation(TOKEN_MUTATION, {
-    client: useClient({
+    client: createClient({
       url: graphqlUrl,
       use: [cache(), fetch()],
     }),
