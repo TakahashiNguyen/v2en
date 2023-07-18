@@ -6,13 +6,13 @@
     </div>
     <div v-else class="user-info">
       <h2>{{ data.translator }}</h2>
-      <p>Origin: {{ data.origin }}</p>
-      <p>Translated: {{ data.translated }}</p>
+      <p data-cy="originField">Origin: {{ data.origin }}</p>
+      <p data-cy="translatedField">Translated: {{ data.translated }}</p>
     </div>
 
     <div v-if="!error" class="button-container">
-      <q-btn class="button" label="Delete data" @click="execute()" />
-      <q-btn class="button" label="Modify data" @click="modifyDataRouter(id)" />
+      <q-btn data-cy="deleteButton" class="button" label="Delete data" @click="execute()" />
+      <q-btn data-cy="modifyButton" class="button" label="Modify data" @click="modifyDataRouter(id)" />
     </div>
   </div>
 </template>

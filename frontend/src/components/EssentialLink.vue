@@ -1,5 +1,11 @@
 <template>
-  <q-item clickable tag="a" target="_blank" @click="eFunction()">
+  <q-item
+    clickable
+    tag="a"
+    target="_blank"
+    @click="eFunction()"
+    :data-cy="buttonName"
+  >
     <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>
@@ -39,6 +45,9 @@ export default defineComponent({
       default: '',
       optional: true,
     },
+  },
+  setup(props) {
+    return { buttonName: props.title + 'Button' };
   },
 });
 </script>

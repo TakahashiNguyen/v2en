@@ -7,8 +7,9 @@ import { IsUserNameExistedConstraint } from './user.validator';
 import { Session } from './session.entity';
 import { JwtModule } from '@nestjs/jwt';
 
-const jwtConstants = {
+export const jwtConstants = {
 	secret: 'DO NOT USE THIS VALUE. INSTEAD, CREATE A COMPLEX SECRET AND KEEP IT SAFE OUTSIDE OF THE SOURCE CODE.',
+	timeout: '120s',
 };
 
 @Module({
@@ -18,7 +19,10 @@ const jwtConstants = {
 		JwtModule.register({
 			global: true,
 			secret: jwtConstants.secret,
-			signOptions: { expiresIn: '120s', algorithm: 'HS256' },
+			signOptions: {
+				expiresIn: jwtConstants.timeout,
+				algorithm: 'HS256',
+			},
 		}),
 	],
 })

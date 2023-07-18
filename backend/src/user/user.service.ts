@@ -17,6 +17,10 @@ export class UserService {
 	) {}
 
 	// Section: User
+	async findAll(): Promise<User[]> {
+		return await this.dataSource.find();
+	}
+
 	async findUserOneBy(args: FindOptionsWhere<User>): Promise<User | Error> {
 		return (
 			(await this.dataSource.manager.findOneBy(User, args)) ??
@@ -36,7 +40,7 @@ export class UserService {
 
 	// Section: Session
 	async createSession(newSession: Session) {
-		this.sessionSource.manager.save(Session, newSession);
+		await this.sessionSource.manager.save(Session, newSession);
 	}
 
 	async findSession(args: FindOptionsWhere<Session>) {
@@ -44,7 +48,7 @@ export class UserService {
 	}
 
 	async removeSession(session: Session) {
-		this.sessionSource.manager.remove(Session, session);
+		await this.sessionSource.manager.remove(Session, session);
 	}
 
 	// Section: Token

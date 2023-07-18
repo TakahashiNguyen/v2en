@@ -2,11 +2,10 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { User } from './user.entity';
 import { UserService } from './user.service';
 import { LoginInput, UserInput, UserOutput } from './user.dto';
-import { PubSub } from 'graphql-subscriptions';
 import { Md5 } from 'ts-md5';
 import { Session } from './session.entity';
 import { TokenExpiredError } from 'jsonwebtoken';
-import { GraphQLError, GraphQLString } from 'graphql';
+import { GraphQLError } from 'graphql';
 
 @Resolver(() => UserOutput)
 export class UserResolver {
@@ -17,8 +16,8 @@ export class UserResolver {
 	async addUser(
 		@Args('newUser') newUser: UserInput,
 	): Promise<string | Error> {
-		const data = await this.service.createUser(User.fromUserInput(newUser));
-		return this.LogIn(LoginInput.fromUserInput(newUser));
+		await this.service.createUser(User.fromUserInput(newUser));
+		return await this.LogIn(LoginInput.fromUserInput(newUser));
 	}
 
 	@Mutation(() => String)
@@ -50,7 +49,7 @@ export class UserResolver {
 				token: token,
 			});
 			if (session) {
-				this.service.removeSession(session);
+				await this.service.removeSession(session);
 				return 'User logged out';
 			}
 		}

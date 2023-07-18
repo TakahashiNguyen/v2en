@@ -1,7 +1,7 @@
 <template>
   <div class="user-profile">
     <div class="user-info">
-      <h2>{{ userDisplay.name }}</h2>
+      <h2 data-cy="userName">{{ userDisplay.name }}</h2>
       <p>Birthday: {{ userDisplay.birthday }}</p>
       <p>Gender: {{ userDisplay.gender }}</p>
     </div>

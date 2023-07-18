@@ -11,6 +11,7 @@
               type="text"
               class="form-control"
               required
+              data-cy="originFieldInput"
             />
           </div>
           <div class="form-group">
@@ -21,9 +22,10 @@
               type="text"
               class="form-control"
               required
+              data-cy="translatedFieldInput"
             />
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Add</button>
+          <button data-cy="dataSummit" type="submit" class="btn btn-primary btn-block">Add</button>
         </form>
       </div>
     </div>

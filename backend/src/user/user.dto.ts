@@ -10,13 +10,15 @@ export class UserInput {
 		familyName = '',
 		givenName = '',
 		gender = '',
-		birthDay: Date = new Date(0, 0, 0),
+		password = Math.random().toString(36).substring(2, 18),
+		birthDay: Date = new Date('1999-12-31'),
 	) {
 		this.username = username;
 		this.familyName = familyName;
 		this.givenName = givenName;
 		this.gender = gender;
 		this.birthDay = birthDay;
+		this.password = password;
 	}
 
 	@IsUserNameExisted({ message: 'username is existed' })
@@ -29,13 +31,13 @@ export class UserInput {
 	@Field(() => String, { nullable: false })
 	givenName: string;
 
-	private _birthDay!: string;
+	private _birthDay?: string;
 	@Field(() => Date)
 	get birthDay(): string {
-		return this._birthDay
-	};
+		return this._birthDay ?? '1999-12-31';
+	}
 	set birthDay(value: Date) {
-		this._birthDay = value.toISOString();
+		this._birthDay = value.toISOString().substring(0, 10);
 	}
 
 	@Field(() => String, { nullable: false })
@@ -51,12 +53,9 @@ export class UserInput {
 
 @InputType('LoginInput')
 export class LoginInput {
-	constructor(
-		username = '',
-		password = ''
-	) {
+	constructor(username = '', password = '') {
 		this.username = username;
-		this.password = password
+		this.password = password;
 	}
 
 	static fromUserInput(user: UserInput) {
@@ -83,7 +82,7 @@ export class UserOutput {
 		givenName = '',
 		gender = '',
 		birthDay: Date = new Date(0, 0, 0),
-		token: string = ''
+		token: string = '',
 	) {
 		this.username = username;
 		this.familyName = familyName;
@@ -99,8 +98,8 @@ export class UserOutput {
 			user.familyName,
 			user.givenName,
 			user.gender,
-			new Date(user.birthDay ?? '0/0/0'),
-			token
+			new Date(user.birthDay ?? '2000-01-01'),
+			token,
 		);
 	}
 
