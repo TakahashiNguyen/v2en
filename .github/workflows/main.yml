@@ -58,4 +58,4 @@ jobs:
 
       - name: Run the frontend tests
         working-directory: ./frontend
-        run: npm run --prefix ../backend start & npm run test:e2e:ci
+        run: npm run --prefix ../backend start &> /dev/null & npm run test:e2e:ci
