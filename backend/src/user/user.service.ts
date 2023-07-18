@@ -40,7 +40,7 @@ export class UserService {
 
 	// Section: Session
 	async createSession(newSession: Session) {
-		this.sessionSource.manager.save(Session, newSession);
+		await this.sessionSource.manager.save(Session, newSession);
 	}
 
 	async findSession(args: FindOptionsWhere<Session>) {

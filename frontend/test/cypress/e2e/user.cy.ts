@@ -35,7 +35,7 @@ export class userFunc {
     cy.get(this.obj('SignupButton')).click();
     cy.get(this.obj('firstName')).type(this.firstName);
     cy.get(this.obj('lastName')).type(this.lastName);
-    cy.get(this.obj('birthDay')).type('1999-12-31');
+    cy.get(this.obj('birthDay')).type('2000-01-01');
     cy.get(this.obj('genderSelect')).select('other');
     cy.get(this.obj('username')).type(this.randomUserName);
     cy.get(this.obj('password')).type(this.password);

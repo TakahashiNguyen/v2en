@@ -1,12 +1,19 @@
 import { Repository } from 'typeorm';
-import { UserService } from './user.service';
 import { User } from './user.entity';
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { AppModule } from '../app.module';
+import { UserResolver } from './user.resolver';
+import { UserInput } from './user.dto';
 
-describe('UserService', () => {
-	let service: UserService;
+const username = Math.random().toString(36).substring(2, 10);
+const firstname = Math.random().toString(36).substring(2, 10);
+const lastname = Math.random().toString(36).substring(2, 10);
+const password = Math.random().toString(36).substring(2, 10);
+let token;
+
+describe('UserResolver', () => {
+	let resolver: UserResolver;
 	let repository: Repository<User>;
 
 	beforeEach(async () => {
@@ -14,19 +21,30 @@ describe('UserService', () => {
 			imports: [AppModule],
 		}).compile();
 
-		service = module.get<UserService>(UserService);
+		resolver = module.get<UserResolver>(UserResolver);
 		repository = module.get<Repository<User>>(getRepositoryToken(User));
 	});
 
 	it('should be defined', () => {
-		expect(service).toBeDefined();
+		expect(resolver).toBeDefined();
 	});
 
-	describe('Method findAll', () => {
-		it('it should return 2 items', async () => {
+	describe('User', () => {
+		it('Sign up', async () => {
 			jest.spyOn(repository, 'find').mockResolvedValueOnce(ITEMS);
-			const result = await service.findAll();
-			expect(result.length).toEqual(2);
+
+			token = await resolver.addUser(
+				new UserInput(
+					username,
+					firstname,
+					lastname,
+					'',
+					password,
+					new Date('2006-02-06'),
+				),
+			);
+
+			expect(typeof token).toMatch('string');
 		});
 	});
 });
