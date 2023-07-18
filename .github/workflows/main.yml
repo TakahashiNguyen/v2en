@@ -43,19 +43,19 @@ jobs:
             ${{ runner.os }}-
 
       # Install required deps for action
-      - name: Install Dependencies
+      - name: Install Backend Dependencies
         working-directory: ./backend
+        run: npm install
+
+      - name: Install Frontend Dependencies
+        working-directory: ./frontend
         run: npm install
 
       # Finally, run our tests
       - name: Run the backend tests
         working-directory: ./backend
-        run: npm test
-
-      - name: Install Dependencies
-        working-directory: ./frontend
-        run: npm install
+        run: npm test      
 
       - name: Run the frontend tests
         working-directory: ./frontend
-        run: npm run test:e2e:ci
+        run: npm run --prefix ../backend start & npm run test:e2e:ci
