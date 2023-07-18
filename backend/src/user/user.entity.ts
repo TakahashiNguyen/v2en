@@ -1,6 +1,12 @@
 import { ObjectType } from '@nestjs/graphql';
 import { Md5 } from 'ts-md5';
-import { Column, Entity, JoinColumn, JoinTable, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+	Column,
+	Entity,
+	JoinColumn,
+	OneToMany,
+	PrimaryGeneratedColumn,
+} from 'typeorm';
 import { UserInput } from './user.dto';
 import { Session } from './session.entity';
 
@@ -58,7 +64,7 @@ export class User {
 		this.hashedPassword = Md5.hashStr(value);
 	}
 
-	@OneToMany(() => Session, session => session.user, { cascade: true })
+	@OneToMany(() => Session, (session) => session.user, { cascade: true })
 	@JoinColumn({ name: 'user_id' })
-	sessions!: Session[];
+	sessions?: Session[];
 }

@@ -17,6 +17,10 @@ export class UserService {
 	) {}
 
 	// Section: User
+	async findAll(): Promise<User[]> {
+		return await this.dataSource.find();
+	}
+
 	async findUserOneBy(args: FindOptionsWhere<User>): Promise<User | Error> {
 		return (
 			(await this.dataSource.manager.findOneBy(User, args)) ??

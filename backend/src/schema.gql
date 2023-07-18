@@ -16,7 +16,7 @@ type UserObject {
   birthDay: String
   gender: String
   hashedPassword: String!
-  sessions: [Session!]!
+  sessions: [Session!]
 }
 
 type UserOutput {

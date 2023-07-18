@@ -5,9 +5,7 @@ import { PubSub } from 'graphql-subscriptions';
 import { DataInput } from './data.dto';
 import { GraphQLError } from 'graphql';
 import { UseGuards } from '@nestjs/common';
-import { AuthGuard } from 'src/user/auth.guard';
-
-const pubSub = new PubSub();
+import { AuthGuard } from '../user/auth.guard';
 
 @Resolver(() => Data)
 export class DataResolver {
@@ -40,7 +38,6 @@ export class DataResolver {
 			})) instanceof Error
 		) {
 			data = await this.dataService.createData(data);
-			pubSub.publish('dataAdded', { dataAdded: data });
 			return data;
 		}
 		return new GraphQLError('Data already existed');
