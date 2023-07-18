@@ -22,10 +22,9 @@ export class dataFunc extends userFunc {
     cy.get(this.obj('leftDrawer')).click();
     cy.get(this.obj('DatasButton')).click();
     cy.get(this.obj('addDataButton')).click();
-    cy.get(this.obj('originField')).type(this.origin);
-    cy.get(this.obj('translatedField')).type(this.translated);
+    cy.get(this.obj('originFieldInput')).type(this.origin);
+    cy.get(this.obj('translatedFieldInput')).type(this.translated);
     cy.get(this.obj('dataSummit')).click();
-    cy.url();
     cy.contains(this.obj('originField'), `Origin: ${this.origin}`).should(
       'exist'
     );
@@ -33,23 +32,35 @@ export class dataFunc extends userFunc {
       this.obj('translatedField'),
       `Translated: ${this.translated}`
     ).should('exist');
+
+    cy.get(this.obj('leftDrawer')).click();
+    cy.get(this.obj('DatasButton')).click();
+    cy.get(this.obj(this.origin + this.translated + 'Button'))
+      .should('exist')
+      .click();
   }
 
-  public deleteData() {
-    this.addData();
+  public deleteData(allowAddData = true) {
+    if (allowAddData) this.addData();
     cy.get(this.obj('deleteButton')).click();
+    cy.get(this.obj('leftDrawer')).click();
+    cy.get(this.obj('DatasButton')).click();
+
+    cy.get(this.obj(this.origin + this.translated + 'Button')).should(
+      'not.exist'
+    );
   }
 
   public modifyData() {
     this.addData();
+
     cy.get(this.obj('modifyButton')).click();
     const oldorigin = this.origin;
     const oldtranslated = this.translated;
     this.initValueData();
-    cy.get(this.obj('originField')).type(this.origin);
-    cy.get(this.obj('translatedField')).type(this.translated);
+    cy.get(this.obj('originFieldInput')).type(this.origin);
+    cy.get(this.obj('translatedFieldInput')).type(this.translated);
     cy.get(this.obj('dataSummit')).click();
-    cy.url();
     cy.contains(
       this.obj('originField'),
       `Origin: ${oldorigin + this.origin}`
@@ -58,6 +69,15 @@ export class dataFunc extends userFunc {
       this.obj('translatedField'),
       `Translated: ${oldtranslated + this.translated}`
     ).should('exist');
+
+    this.origin = oldorigin + this.origin;
+    this.translated = oldtranslated + this.translated;
+    cy.get(this.obj('leftDrawer')).click();
+    cy.get(this.obj('DatasButton')).click();
+    cy.get(this.obj(this.origin + this.translated + 'Button'))
+      .should('exist')
+      .click();
+    this.deleteData(false);
   }
 }
 
