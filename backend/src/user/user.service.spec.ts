@@ -4,7 +4,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { AppModule } from '../app.module';
 import { UserResolver } from './user.resolver';
-import { UserInput } from './user.dto';
+import { LoginInput, UserInput } from './user.dto';
 
 const username = Math.random().toString(36).substring(2, 10);
 const firstname = Math.random().toString(36).substring(2, 10);
@@ -31,8 +31,6 @@ describe('UserResolver', () => {
 
 	describe('User', () => {
 		it('Sign up', async () => {
-			jest.spyOn(repository, 'find').mockResolvedValueOnce(ITEMS);
-
 			token = await resolver.addUser(
 				new UserInput(
 					username,
@@ -43,6 +41,12 @@ describe('UserResolver', () => {
 					new Date('2006-02-06'),
 				),
 			);
+
+			expect(typeof token).toMatch('string');
+		});
+
+		it('Log in', async () => {
+			token = await resolver.LogIn(new LoginInput(username, password));
 
 			expect(typeof token).toMatch('string');
 		});
