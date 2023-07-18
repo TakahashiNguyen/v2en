@@ -48,7 +48,7 @@ export class UserService {
 	}
 
 	async removeSession(session: Session) {
-		this.sessionSource.manager.remove(Session, session);
+		await this.sessionSource.manager.remove(Session, session);
 	}
 
 	// Section: Token

@@ -10,7 +10,7 @@ const username = Math.random().toString(36).substring(2, 10);
 const firstname = Math.random().toString(36).substring(2, 10);
 const lastname = Math.random().toString(36).substring(2, 10);
 const password = Math.random().toString(36).substring(2, 10);
-let token;
+let token: string | Error;
 
 describe('UserResolver', () => {
 	let resolver: UserResolver;
@@ -49,6 +49,15 @@ describe('UserResolver', () => {
 			token = await resolver.LogIn(new LoginInput(username, password));
 
 			expect(typeof token).toMatch('string');
+		});
+
+		it('Log out', async () => {
+			let msg = await resolver.LogOut(
+				username,
+				typeof token === 'string' ? token : '',
+			);
+
+			expect(msg).toMatch('User logged out');
 		});
 	});
 });
