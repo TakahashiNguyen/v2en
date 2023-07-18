@@ -1,5 +1,5 @@
-name: Backend testing
-run-name: ${{ github.actor }} is testing backend
+name: Testing
+run-name: ${{ github.actor }} is testing fullstack
 on: push
 jobs:
   test:
@@ -48,6 +48,14 @@ jobs:
         run: npm install
 
       # Finally, run our tests
-      - name: Run the tests
+      - name: Run the backend tests
         working-directory: ./backend
         run: npm test
+
+      - name: Install Dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Run the frontend tests
+        working-directory: ./frontend
+        run: npm run test:e2e:ci
