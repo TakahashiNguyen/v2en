@@ -11,6 +11,7 @@ jobs:
           # The MySQL docker container requires these environment variables to be set
           # so we can create and migrate the test database.
           # See: https://hub.docker.com/_/mysql
+          MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: typegraphql
           MYSQL_USER: admin
           MYSQL_PASSWORD: Vanh@Mysql2006
