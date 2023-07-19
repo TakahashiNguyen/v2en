@@ -62,7 +62,7 @@ export default defineComponent({
       optional: true,
     },
   },
-  setup(props, ctx) {
+  setup(props) {
     return {
       dataName: props.origin + props.translated + 'Button',
     };
