@@ -12,13 +12,8 @@ export class TodoResolver {
 	// Queries:Section: Todo
 	@Query(() => [TodoObj])
 	@UseGuards(UserAuthGuard)
-	async todos(
-		obj: any,
-		args: any,
-		context: any,
-		info: any,
-	): Promise<Todo[] | Error> {
-		const token = context.req.headers.authorization.split(' ')[1];
+	async todos(@Context('headers') headers: any): Promise<Todo[] | Error> {
+		const token = headers.authorization.split(' ')[1];
 		return await this.service.findTodoByUser(token);
 	}
 

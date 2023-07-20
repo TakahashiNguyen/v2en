@@ -19,7 +19,9 @@ export class TodoService {
 	// Section: Find
 	async findTodoByUser(token: string): Promise<Todo[] | Error> {
 		try {
-			const session = await this.userService.findSession({ token: token });
+			const session = await this.userService.findSession({
+				token: token,
+			});
 			if (session instanceof UserSession) {
 				const user = await this.userService.findUserOneBy({
 					id: session.user.id,
@@ -48,7 +50,9 @@ export class TodoService {
 		token: string,
 	): Promise<Todo | Error> {
 		try {
-			const session = await this.userService.findSession({ token: token });
+			const session = await this.userService.findSession({
+				token: token,
+			});
 			if (session instanceof UserSession) {
 				const user = await this.userService.findUserOneBy(session.user);
 				if (user instanceof User) {

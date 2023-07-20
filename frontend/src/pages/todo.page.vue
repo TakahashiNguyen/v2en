@@ -1,10 +1,14 @@
 <template>
   <div>
     <h1>Todo List</h1>
-    <div v-for="(todo, index) in todos" :key="index">
-      <input type="checkbox" v-model="todo.completed" />
-      <span :class="{ completed: todo.completed }">{{ todo.text }}</span>
-      <button @click="deleteTodo(index)">Delete</button>
+    <div v-if="isDone">
+      <div v-for="(todo, index) in data.todos" :key="index">
+        <input type="checkbox" v-model="todo.finished" />
+        <span :class="{ completed: todo.finished }">{{
+          todo.jobDescription
+        }}</span>
+        <button @click="deleteTodo(index)">Delete</button>
+      </div>
     </div>
     <form @submit.prevent="addTodo">
       <input type="text" v-model="newTodoText" />
@@ -20,29 +24,30 @@ import { TODO_GET, TODO_ADD } from 'src/graphql';
 
 export default defineComponent({
   async setup() {
-    const { data } = useQuery({
+    const { data, isDone, execute } = useQuery({
       query: TODO_GET,
       cachePolicy: 'network-only',
     });
     const newTodoText = ref('');
 
     return {
-      todos: data.value,
+      data: data,
+      isDone: isDone,
       newTodoText: newTodoText,
+      todoQueryExecute: execute,
     };
   },
   methods: {
     async addTodo() {
       if (this.newTodoText.trim() !== '') {
-        const newTodo = (
-          await useMutation(TODO_ADD, {}).execute({
-            newTodo: {
-              jobDescription: this.newTodoText.trim(),
-              deadline: '06-02-2006',
-              finished: false,
-            },
-          })
-        ).data;
+        await useMutation(TODO_ADD, {}).execute({
+          newTodo: {
+            jobDescription: this.newTodoText.trim(),
+            deadline: '06-02-2006',
+            finished: false,
+          },
+        });
+        await this.todoQueryExecute();
         this.newTodoText = '';
       }
     },
