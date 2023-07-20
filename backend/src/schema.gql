@@ -2,21 +2,35 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Session {
+type UserSession {
   id: Float!
   token: String!
   user: UserObject!
 }
 
+type Todo {
+  id: Float!
+  jobDescription: String!
+  deadline: DateTime!
+  finished: Boolean!
+  user: UserObject!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type UserObject {
-  id: Float
+  id: Float!
   username: String!
   familyName: String!
   givenName: String!
   birthDay: String
   gender: String
   hashedPassword: String!
-  sessions: [Session!]
+  sessions: [UserSession!]
+  todoList: [Todo!]
 }
 
 type UserOutput {
@@ -27,11 +41,6 @@ type UserOutput {
   birthDay: DateTime!
   token: String!
 }
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
 
 type DataObject {
   id: Float
@@ -63,7 +72,7 @@ input UserInput {
   givenName: String! = ""
   birthDay: DateTime!
   gender: String! = ""
-  password: String! = "nyt7tm4rrh"
+  password: String! = "9zo8pbc92gm"
 }
 
 input LoginInput {

@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 import { UserInput } from './user.dto';
 import { UserSession } from './user.session.entity';
+import { Todo } from 'src/todo/todo.entity';
 
 @ObjectType('UserObject')
 @Entity()
@@ -41,7 +42,7 @@ export class User {
 	}
 
 	@PrimaryGeneratedColumn('uuid')
-	id?: number;
+	id!: number;
 
 	@Column('text')
 	username: string;
@@ -67,4 +68,8 @@ export class User {
 	@OneToMany(() => UserSession, (session) => session.user, { cascade: true })
 	@JoinColumn({ name: 'user_id' })
 	sessions?: UserSession[];
+
+	@OneToMany(() => Todo, (todo) => todo.user, { cascade: true })
+	@JoinColumn({ name: 'userTodoList' })
+	todoList?: Todo[];
 }
