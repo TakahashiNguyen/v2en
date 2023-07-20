@@ -41,48 +41,61 @@ export class UserResolver {
 	async LogOut(
 		@Args('username') username: string,
 		@Args('token') token: string,
-	) {
-		const user = await this.service.findUserOneBy({ username: username });
-		if (user instanceof User) {
-			const session = await this.service.findSession({
-				user: user,
-				token: token,
+	): Promise<String | Error> {
+		try {
+			const user = await this.service.findUserOneBy({
+				username: username,
 			});
-			if (session) {
-				await this.service.removeSession(session);
-				return 'User logged out';
-			}
+			if (user instanceof User) {
+				const session = await this.service.findSession({
+					user: user,
+					token: token,
+				});
+				if (session instanceof UserSession) {
+					await this.service.removeSession(session);
+					return 'User logged out';
+				} else throw session;
+			} else throw user;
+		} catch (error) {
+			if (error instanceof Error) return error;
 		}
 		return new GraphQLError('User already logged out.');
 	}
 
 	// Mutations:Section: Token
+	// TODO: test try...catch
 	@Mutation(() => UserOutput)
 	async checkToken(
 		@Args('token') token: string,
 	): Promise<UserOutput | Error> {
-		const session = await this.service.findSession({ token: token });
-		if (session) {
-			const user = await this.service.findUserOneBy({
-				id: session.user.id,
-			});
-			if (user instanceof User) {
-				try {
-					this.service.checkToken(token);
-				} catch (err) {
-					if (err instanceof TokenExpiredError) {
-						this.service.removeSession(session);
-						token = this.service.createToken(user);
-						await this.service.createSession(
-							new UserSession(token, user),
-						);
-					} else {
-						return new GraphQLError('Error verifying token:' + err);
+		try {
+			const session = await this.service.findSession({ token: token });
+			if (session instanceof UserSession) {
+				const user = await this.service.findUserOneBy({
+					id: session.user.id,
+				});
+				if (user instanceof User) {
+					try {
+						this.service.checkToken(token);
+					} catch (err) {
+						if (err instanceof TokenExpiredError) {
+							this.service.removeSession(session);
+							token = this.service.createToken(user);
+							await this.service.createSession(
+								new UserSession(token, user),
+							);
+						} else {
+							return new GraphQLError(
+								'Error while verifying token: ' + err,
+							);
+						}
 					}
-				}
-				return UserOutput.fromUser(user, token);
-			}
+					return UserOutput.fromUser(user, token);
+				} else throw user;
+			} else throw session;
+		} catch (error) {
+			if (error instanceof Error) return error;
 		}
-		return new GraphQLError('Invalid token');
+		return new GraphQLError('Something went wrong');
 	}
 }

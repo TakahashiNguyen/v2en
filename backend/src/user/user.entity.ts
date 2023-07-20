@@ -66,7 +66,7 @@ export class User {
 	}
 
 	@OneToMany(() => UserSession, (session) => session.user, { cascade: true })
-	@JoinColumn({ name: 'user_id' })
+	@JoinColumn({ name: 'userID' })
 	sessions?: UserSession[];
 
 	@OneToMany(() => Todo, (todo) => todo.user, { cascade: true })

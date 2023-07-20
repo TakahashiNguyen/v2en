@@ -1,4 +1,4 @@
-import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { DataService } from './data.service';
 import { Data } from './data.entity';
 import { DataInput } from './data.dto';
@@ -29,15 +29,14 @@ export class DataResolver {
 	async addData(
 		@Args('newData') newData: DataInput,
 		id?: number,
-	): Promise<Data | unknown> {
+	): Promise<Data | Error> {
 		let data = await Data.fromDataInput(newData, id);
 		if (
 			(await this.dataService.findDataOneBy({
 				hashValue: data.hashValue,
 			})) instanceof Error
 		) {
-			data = await this.dataService.createData(data);
-			return data;
+			return await this.dataService.createData(data);
 		}
 		return new GraphQLError('Data already existed');
 	}

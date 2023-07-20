@@ -23,32 +23,38 @@ export class UserService {
 
 	async findUserOneBy(args: FindOptionsWhere<User>): Promise<User | Error> {
 		return (
-			(await this.dataSource.manager.findOneBy(User, args)) ??
+			(await this.dataSource.findOneBy(args)) ??
 			new GraphQLError('User not found')
 		);
 	}
 
 	async createUser(createUserInput: User): Promise<User> {
-		const data = this.dataSource.manager.create(User, createUserInput);
-		return await this.dataSource.manager.save(User, data);
+		const data = this.dataSource.create(createUserInput);
+		return await this.dataSource.save(data);
 	}
 
-	async removeUser(arg: FindOptionsWhere<User>): Promise<void> {
+	async removeUser(arg: FindOptionsWhere<User>): Promise<void | Error> {
 		const data = await this.findUserOneBy(arg);
-		await this.dataSource.manager.remove(User, data);
+		if (data instanceof User) await this.dataSource.remove(data);
+		return new GraphQLError('user not found');
 	}
 
 	// Section: UserSession
 	async createSession(newSession: UserSession) {
-		await this.sessionSource.manager.save(UserSession, newSession);
+		await this.sessionSource.save(newSession);
 	}
 
-	async findSession(args: FindOptionsWhere<UserSession>) {
-		return await this.sessionSource.manager.findOneBy(UserSession, args);
+	async findSession(
+		args: FindOptionsWhere<UserSession>,
+	): Promise<UserSession | Error> {
+		return (
+			(await this.sessionSource.findOneBy(args)) ??
+			new GraphQLError('Session not found')
+		);
 	}
 
 	async removeSession(session: UserSession) {
-		await this.sessionSource.manager.remove(UserSession, session);
+		await this.sessionSource.remove(session);
 	}
 
 	// Section: Token

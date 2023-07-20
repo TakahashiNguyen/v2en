@@ -51,7 +51,7 @@ export class UserInput {
 	password?: string;
 }
 
-@InputType('LoginInput')
+@InputType()
 export class LoginInput {
 	constructor(username = '', password = '') {
 		this.username = username;
@@ -74,7 +74,7 @@ export class LoginInput {
 }
 
 @Entity()
-@ObjectType('UserOutput')
+@ObjectType()
 export class UserOutput {
 	constructor(
 		username = '',
