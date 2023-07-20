@@ -2,11 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Todo } from './todo.entity';
 import { FindOptionsWhere, Repository } from 'typeorm';
-import { User } from 'src/user/user.entity';
-import { UserService } from 'src/user/user.service';
+import { User } from '../user/user.entity';
+import { UserService } from '../user/user.service';
 import { GraphQLError } from 'graphql';
 import { TodoObj } from './todo.dto';
-import { UserSession } from 'src/user/user.session.entity';
+import { UserSession } from '../user/user.session.entity';
 
 @Injectable()
 export class TodoService {

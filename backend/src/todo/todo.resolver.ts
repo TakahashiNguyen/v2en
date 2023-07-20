@@ -2,7 +2,7 @@ import { Args, Resolver, Query, Mutation, Context } from '@nestjs/graphql';
 import { TodoService } from './todo.service';
 import { UseGuards } from '@nestjs/common';
 import { Todo } from './todo.entity';
-import { UserAuthGuard } from 'src/user/user.guard';
+import { UserAuthGuard } from '../user/user.guard';
 import { TodoObj } from './todo.dto';
 
 @Resolver(() => Todo)

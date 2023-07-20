@@ -22,7 +22,7 @@ export const jwtConstants = {
 		UserAuthGuard,
 	],
 	imports: [
-		TypeOrmModule.forFeature([User, UserSession, Todo]),
+		TypeOrmModule.forFeature([User, UserSession]),
 		JwtModule.register({
 			global: true,
 			secret: jwtConstants.secret,

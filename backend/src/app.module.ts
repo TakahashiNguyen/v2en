@@ -31,6 +31,7 @@ export const myConnectionOptions = async (
 	imports: [
 		UserModule,
 		DataModule,
+		TodoModule,
 		ConfigModule.forRoot({
 			isGlobal: true,
 		}),
@@ -47,7 +48,6 @@ export const myConnectionOptions = async (
 			installSubscriptionHandlers: true,
 			context: ({ req }: any) => ({ headers: req.headers }),
 		}),
-		TodoModule,
 	],
 	controllers: [AppController],
 	providers: [AppService],
