@@ -63,7 +63,7 @@ input UserInput {
   givenName: String! = ""
   birthDay: DateTime!
   gender: String! = ""
-  password: String! = "im64b6rd2cj"
+  password: String! = "nyt7tm4rrh"
 }
 
 input LoginInput {
