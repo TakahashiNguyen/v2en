@@ -6,7 +6,7 @@ import { UserService } from './user.service';
 import { IsUserNameExistedConstraint } from './user.validator';
 import { UserSession } from './user.session.entity';
 import { JwtModule } from '@nestjs/jwt';
-import { Todo } from 'src/todo/todo.entity';
+import { Todo } from '../todo/todo.entity';
 
 export const jwtConstants = {
 	secret: 'DO NOT USE THIS VALUE. INSTEAD, CREATE A COMPLEX SECRET AND KEEP IT SAFE OUTSIDE OF THE SOURCE CODE.',
@@ -26,5 +26,6 @@ export const jwtConstants = {
 			},
 		}),
 	],
+	exports: [UserService],
 })
 export class UserModule {}

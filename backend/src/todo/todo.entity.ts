@@ -1,5 +1,5 @@
 import { ObjectType } from '@nestjs/graphql';
-import { User } from 'src/user/user.entity';
+import { User } from '../user/user.entity';
 import {
 	Column,
 	Entity,

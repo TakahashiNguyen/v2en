@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import { UserInput } from './user.dto';
 import { UserSession } from './user.session.entity';
-import { Todo } from 'src/todo/todo.entity';
+import { Todo } from '../todo/todo.entity';
 
 @ObjectType('UserObject')
 @Entity()

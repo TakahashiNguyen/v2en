@@ -42,7 +42,7 @@ type UserOutput {
   token: String!
 }
 
-type DataObject {
+type Data {
   id: Float
   origin: String!
   translated: String!
@@ -52,8 +52,8 @@ type DataObject {
 }
 
 type Query {
-  datas: [DataObject!]!
-  data(id: Float!): DataObject!
+  datas: [Data!]!
+  data(id: Float!): Data!
 }
 
 type Mutation {
@@ -61,7 +61,7 @@ type Mutation {
   LogIn(loginUser: LoginInput!): String!
   LogOut(username: String!, token: String!): String!
   checkToken(token: String!): UserOutput!
-  addData(newData: DataInput!): DataObject!
+  addData(newData: DataInput!): Data!
   removeData(id: Float!): String!
   modifyData(id: Float!, newData: DataInput!): String!
 }
@@ -72,7 +72,7 @@ input UserInput {
   givenName: String! = ""
   birthDay: DateTime!
   gender: String! = ""
-  password: String! = "9zo8pbc92gm"
+  password: String! = "d106vvfmujs"
 }
 
 input LoginInput {
