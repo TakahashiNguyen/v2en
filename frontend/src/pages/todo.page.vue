@@ -14,16 +14,19 @@
 </template>
 
 <script lang="ts">
+import { useQuery } from 'villus';
 import { defineComponent } from 'vue';
+import { TODO_GET } from 'src/graphql';
 
 export default defineComponent({
   async setup() {
+    const { data } = useQuery({
+      query: TODO_GET,
+      cachePolicy: 'network-only',
+    });
+
     return {
-      todos: [
-        { text: 'Learn Quasar', completed: false },
-        { text: 'Build a todo app', completed: false },
-        { text: 'Deploy to production', completed: false },
-      ],
+      todos: data.value,
       newTodoText: '',
     };
   },

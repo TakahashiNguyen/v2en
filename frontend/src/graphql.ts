@@ -81,3 +81,23 @@ export const ADD_DATA = gql`
     }
   }
 `;
+
+export const TODO_GET = gql`
+  query Query {
+    todos {
+      jobDescription
+      deadline
+      finished
+    }
+  }
+`;
+
+export const TODO_ADD = gql`
+  mutation AddTodo($newTodo: TodoInput!) {
+    addTodo(newTodo: $newTodo) {
+      jobDescription
+      deadline
+      finished
+    }
+  }
+`;
