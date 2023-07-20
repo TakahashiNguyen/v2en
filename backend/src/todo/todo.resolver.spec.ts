@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TodoResolver } from './todo.resolver';
-import { AppModule } from 'src/app.module';
+import { AppModule } from '../app.module';
 
 describe('TodoResolver', () => {
 	let resolver: TodoResolver;
