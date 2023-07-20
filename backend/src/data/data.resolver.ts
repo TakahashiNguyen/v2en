@@ -1,7 +1,6 @@
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { DataService } from './data.service';
 import { Data } from './data.entity';
-import { PubSub } from 'graphql-subscriptions';
 import { DataInput } from './data.dto';
 import { GraphQLError } from 'graphql';
 import { UseGuards } from '@nestjs/common';

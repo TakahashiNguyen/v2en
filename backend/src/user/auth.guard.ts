@@ -16,6 +16,7 @@ export class AuthGuard extends NestAuthGuard('jwt') {
 	) {
 		super();
 	}
+
 	canActivate(context: ExecutionContext) {
 		const ctx = GqlExecutionContext.create(context);
 		const { req } = ctx.getContext();
