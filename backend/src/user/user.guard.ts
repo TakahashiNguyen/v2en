@@ -10,9 +10,7 @@ import { UserService } from './user.service';
 
 @Injectable()
 export class UserAuthGuard extends NestAuthGuard('jwt') {
-	constructor(
-		private readonly service: UserService,
-	) {
+	constructor(private readonly service: UserService) {
 		super();
 	}
 
