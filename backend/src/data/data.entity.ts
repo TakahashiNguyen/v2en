@@ -2,11 +2,9 @@ import { ObjectType } from '@nestjs/graphql';
 import { Md5 } from 'ts-md5';
 import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 import { DataInput } from './data.dto';
-import { Injectable } from '@nestjs/common';
 
 @Entity()
-@ObjectType('DataObject')
-@Injectable()
+@ObjectType()
 export class Data {
 	constructor(
 		origin = '',

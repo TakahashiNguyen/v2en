@@ -67,6 +67,12 @@ export default defineComponent({
               },
             },
             {
+              title: 'Todos',
+              eFunction: () => {
+                router.push({ path: '/todos' });
+              },
+            },
+            {
               title: 'Datas',
               eFunction: () => {
                 router.push({ path: '/datas' });

@@ -1,6 +1,5 @@
 import { Inject, Injectable, forwardRef } from '@nestjs/common';
 import {
-	ValidationArguments,
 	ValidationOptions,
 	ValidatorConstraint,
 	ValidatorConstraintInterface,

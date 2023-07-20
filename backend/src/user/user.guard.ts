@@ -1,19 +1,11 @@
-import {
-	ExecutionContext,
-	Inject,
-	Injectable,
-	forwardRef,
-} from '@nestjs/common';
+import { ExecutionContext, Injectable } from '@nestjs/common';
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { AuthGuard as NestAuthGuard } from '@nestjs/passport';
 import { UserService } from './user.service';
 
 @Injectable()
-export class AuthGuard extends NestAuthGuard('jwt') {
-	constructor(
-		@Inject(forwardRef(() => UserService))
-		private readonly service: UserService,
-	) {
+export class UserAuthGuard extends NestAuthGuard('jwt') {
+	constructor(private readonly service: UserService) {
 		super();
 	}
 

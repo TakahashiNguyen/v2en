@@ -61,22 +61,3 @@ describe('UserResolver', () => {
 		});
 	});
 });
-
-const ITEMS: User[] = [
-	{
-		id: 1,
-		username: 'dahfiuahfoiudsahdfoiu',
-		familyName: 'lmao',
-		givenName: 'bruh',
-		hashedPassword: 'iufdaoifugaoifugdsaoifhua',
-		password: 'oiudgasfoigdafoiag',
-	},
-	{
-		id: 2,
-		username: 'dahfiuaqerqerhfoiudsahdfoiu',
-		familyName: 'lmao',
-		givenName: 'bruh',
-		hashedPassword: 'iufdaoifugaoifugdsaoifhua',
-		password: 'oiudgasfoigdafoiag',
-	},
-];

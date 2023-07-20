@@ -2,7 +2,7 @@ import { FindOptionsWhere, Repository } from 'typeorm';
 import { User } from './user.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Session } from './session.entity';
+import { UserSession } from './user.session.entity';
 import { JwtService } from '@nestjs/jwt';
 import { GraphQLError } from 'graphql';
 
@@ -11,8 +11,8 @@ export class UserService {
 	constructor(
 		@InjectRepository(User)
 		private dataSource: Repository<User>,
-		@InjectRepository(Session)
-		private sessionSource: Repository<Session>,
+		@InjectRepository(UserSession)
+		private sessionSource: Repository<UserSession>,
 		private jwtService: JwtService,
 	) {}
 
@@ -23,32 +23,38 @@ export class UserService {
 
 	async findUserOneBy(args: FindOptionsWhere<User>): Promise<User | Error> {
 		return (
-			(await this.dataSource.manager.findOneBy(User, args)) ??
+			(await this.dataSource.findOneBy(args)) ??
 			new GraphQLError('User not found')
 		);
 	}
 
 	async createUser(createUserInput: User): Promise<User> {
-		const data = this.dataSource.manager.create(User, createUserInput);
-		return await this.dataSource.manager.save(User, data);
+		const data = this.dataSource.create(createUserInput);
+		return await this.dataSource.save(data);
 	}
 
-	async removeUser(arg: FindOptionsWhere<User>): Promise<void> {
+	async removeUser(arg: FindOptionsWhere<User>): Promise<void | Error> {
 		const data = await this.findUserOneBy(arg);
-		await this.dataSource.manager.remove(User, data);
+		if (data instanceof User) await this.dataSource.remove(data);
+		return new GraphQLError('user not found');
 	}
 
-	// Section: Session
-	async createSession(newSession: Session) {
-		await this.sessionSource.manager.save(Session, newSession);
+	// Section: UserSession
+	async createSession(newSession: UserSession) {
+		await this.sessionSource.save(newSession);
 	}
 
-	async findSession(args: FindOptionsWhere<Session>) {
-		return await this.sessionSource.manager.findOneBy(Session, args);
+	async findSession(
+		args: FindOptionsWhere<UserSession>,
+	): Promise<UserSession | Error> {
+		return (
+			(await this.sessionSource.findOneBy(args)) ??
+			new GraphQLError('Session not found')
+		);
 	}
 
-	async removeSession(session: Session) {
-		await this.sessionSource.manager.remove(Session, session);
+	async removeSession(session: UserSession) {
+		await this.sessionSource.remove(session);
 	}
 
 	// Section: Token

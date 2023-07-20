@@ -8,28 +8,30 @@ import { GraphQLError } from 'graphql';
 export class DataService {
 	constructor(
 		@InjectRepository(Data)
-		private dataSource: Repository<Data>,
+		private source: Repository<Data>,
 	) {}
 
-	// Section: Data
+	// Section: find
 	async findDataAll(): Promise<Data[]> {
-		return await this.dataSource.manager.find(Data);
+		return await this.source.find();
 	}
 
 	async findDataOneBy(args: FindOptionsWhere<Data>): Promise<Data | Error> {
 		return (
-			(await this.dataSource.manager.findOneBy(Data, args)) ??
+			(await this.source.findOneBy(args)) ??
 			new GraphQLError('Data not found')
 		);
 	}
 
+	// Section: Editor
 	async createData(createDataInput: Data): Promise<Data> {
-		const data = this.dataSource.manager.create(Data, createDataInput);
-		return await this.dataSource.manager.save(Data, data);
+		const data = this.source.create(createDataInput);
+		return await this.source.save(data);
 	}
 
-	async removeData(arg: FindOptionsWhere<Data>): Promise<void> {
+	async removeData(arg: FindOptionsWhere<Data>): Promise<void | Error> {
 		const data = await this.findDataOneBy(arg);
-		await this.dataSource.manager.remove(Data, data);
+		if (data instanceof Error) return data;
+		await this.source.remove(data);
 	}
 }
