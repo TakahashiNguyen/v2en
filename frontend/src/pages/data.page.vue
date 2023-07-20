@@ -11,8 +11,18 @@
     </div>
 
     <div v-if="!error" class="button-container">
-      <q-btn data-cy="deleteButton" class="button" label="Delete data" @click="execute()" />
-      <q-btn data-cy="modifyButton" class="button" label="Modify data" @click="modifyDataRouter(id)" />
+      <q-btn
+        data-cy="deleteButton"
+        class="button"
+        label="Delete data"
+        @click="deleteData()"
+      />
+      <q-btn
+        data-cy="modifyButton"
+        class="button"
+        label="Modify data"
+        @click="modifyDataRouter(id)"
+      />
     </div>
   </div>
 </template>
@@ -27,6 +37,13 @@ export default defineComponent({
   methods: {
     modifyDataRouter(id: number) {
       router.push('/datas/modifying/' + id);
+    },
+    async deleteData() {
+      await this.execute({
+        removeDataId: this.data.id,
+      });
+      await this.$props.dataProcessor();
+      router.back();
     },
   },
   props: {
@@ -50,18 +67,9 @@ export default defineComponent({
       }).execute();
     };
     const { error, data } = await getData();
-
     const { execute } = useMutation(DELETE_DATA);
-    const deleteData = async () => {
-      let data = (await getData()).data;
-      await execute({
-        removeDataId: data.data.id,
-      });
-      await props.dataProcessor();
-      router.back();
-    };
 
-    return { error: error, data: data?.data, execute: deleteData };
+    return { error: error, data: data?.data, execute: execute };
   },
 });
 </script>
