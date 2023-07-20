@@ -1,11 +1,7 @@
-import { injectQuasarDevServerConfig } from '@quasar/quasar-app-extension-testing-e2e-cypress/cct-dev-server';
 import { defineConfig } from 'cypress';
 
 export default defineConfig({
-  fixturesFolder: 'test/cypress/fixtures',
-  screenshotsFolder: 'test/cypress/screenshots',
-  videosFolder: 'test/cypress/videos',
-  video: true,
+  video: false,
   e2e: {
     // setupNodeEvents(on, config) {},
     baseUrl: 'http://localhost:9000/',
