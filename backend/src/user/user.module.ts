@@ -14,7 +14,12 @@ export const jwtConstants = {
 };
 
 @Module({
-	providers: [UserResolver, UserService, IsUserNameExistedConstraint],
+	providers: [
+		UserResolver,
+		UserService,
+		IsUserNameExistedConstraint,
+		UserService,
+	],
 	imports: [
 		TypeOrmModule.forFeature([User, UserSession, Todo]),
 		JwtModule.register({

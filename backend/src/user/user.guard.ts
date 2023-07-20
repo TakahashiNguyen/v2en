@@ -11,7 +11,6 @@ import { UserService } from './user.service';
 @Injectable()
 export class UserAuthGuard extends NestAuthGuard('jwt') {
 	constructor(
-		@Inject(forwardRef(() => UserService))
 		private readonly service: UserService,
 	) {
 		super();
