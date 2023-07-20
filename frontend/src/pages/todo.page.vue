@@ -14,9 +14,9 @@
 </template>
 
 <script lang="ts">
-import { useQuery } from 'villus';
-import { defineComponent } from 'vue';
-import { TODO_GET } from 'src/graphql';
+import { useMutation, useQuery } from 'villus';
+import { defineComponent, ref } from 'vue';
+import { TODO_GET, TODO_ADD } from 'src/graphql';
 
 export default defineComponent({
   async setup() {
@@ -24,16 +24,25 @@ export default defineComponent({
       query: TODO_GET,
       cachePolicy: 'network-only',
     });
+    const newTodoText = ref('');
 
     return {
       todos: data.value,
-      newTodoText: '',
+      newTodoText: newTodoText,
     };
   },
   methods: {
-    addTodo() {
+    async addTodo() {
       if (this.newTodoText.trim() !== '') {
-        this.todos.push({ text: this.newTodoText, completed: false });
+        const newTodo = (
+          await useMutation(TODO_ADD, {}).execute({
+            newTodo: {
+              jobDescription: this.newTodoText.trim(),
+              deadline: '06-02-2006',
+              finished: false,
+            },
+          })
+        ).data;
         this.newTodoText = '';
       }
     },

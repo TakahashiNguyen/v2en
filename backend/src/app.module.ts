@@ -45,7 +45,6 @@ export const myConnectionOptions = async (
 			playground: false,
 			plugins: [ApolloServerPluginLandingPageLocalDefault()],
 			installSubscriptionHandlers: true,
-			context: (req: any) => ({ headers: req.headers }),
 		}),
 		TodoModule,
 	],

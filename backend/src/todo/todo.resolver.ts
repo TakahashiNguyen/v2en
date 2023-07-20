@@ -1,4 +1,4 @@
-import { Args, Resolver, Query, Mutation } from '@nestjs/graphql';
+import { Args, Resolver, Query, Mutation, Context } from '@nestjs/graphql';
 import { TodoService } from './todo.service';
 import { UseGuards } from '@nestjs/common';
 import { Todo } from './todo.entity';
@@ -27,12 +27,9 @@ export class TodoResolver {
 	@UseGuards(UserAuthGuard)
 	async addTodo(
 		@Args('newTodo') newTodo: TodoObj,
-		obj: any,
-		args: any,
-		context: any,
-		info: any,
+		@Context('headers') headers: any,
 	): Promise<TodoObj | Error> {
-		const token = context.req.headers.authorization.split(' ')[1];
+		const token = headers.authorization.split(' ')[1];
 		return await this.service.createTodo(newTodo, token);
 	}
 }
