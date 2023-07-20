@@ -38,6 +38,7 @@
 	"devDependencies": {
 		"@nestjs/cli": "^10.1.7",
 		"@nestjs/testing": "^10.1.0",
+		"@types/jest": "^29.5.3",
 		"@types/jsonwebtoken": "^9.0.2",
 		"@types/node": "^20.4.1",
 		"@typescript-eslint/eslint-plugin": "^5.61.0",
