@@ -45,6 +45,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/todos',
         component: () => import('../pages/todo.page.vue'),
+        meta: { requiresAuth: true },
       },
     ],
   },

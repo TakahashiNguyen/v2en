@@ -14,8 +14,10 @@
 </template>
 
 <script lang="ts">
-export default {
-  data() {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  async setup() {
     return {
       todos: [
         { text: 'Learn Quasar', completed: false },
@@ -36,7 +38,7 @@ export default {
       this.todos.splice(index, 1);
     },
   },
-};
+});
 </script>
 
 <style>
