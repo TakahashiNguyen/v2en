@@ -8,7 +8,11 @@
       <h1>Todo List</h1>
       <div v-if="isDone">
         <div v-for="(todo, index) in data.todos" :key="index">
-          <input type="checkbox" v-model="todo.finished" />
+          <input
+            type="checkbox"
+            v-model="todo.finished"
+            @click="updateTodo(todo.id)"
+          />
           <span :class="{ completed: todo.finished }">{{
             todo.jobDescription
           }}</span>
@@ -26,7 +30,7 @@
 <script lang="ts">
 import { useMutation, useQuery } from 'villus';
 import { defineComponent, ref } from 'vue';
-import { TODO_GET, TODO_ADD, TODO_REMOVE } from 'src/graphql';
+import { TODO_GET, TODO_ADD, TODO_REMOVE, TODO_UPDATE } from 'src/graphql';
 
 export default defineComponent({
   async setup() {
@@ -61,6 +65,13 @@ export default defineComponent({
     },
     async deleteTodo(index: string) {
       const { error } = await useMutation(TODO_REMOVE, {}).execute({
+        todoId: index,
+      });
+      await this.todoQueryExecute();
+      if (error) this.error = error;
+    },
+    async updateTodo(index: string) {
+      const { error } = await useMutation(TODO_UPDATE).execute({
         todoId: index,
       });
       await this.todoQueryExecute();

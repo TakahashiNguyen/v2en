@@ -42,4 +42,17 @@ export class TodoResolver {
 			headers.authorization.split(' ')[1],
 		);
 	}
+
+	@Mutation(() => String)
+	@UseGuards(UserAuthGuard)
+	async updateTodo(
+		@Args('todoID') todoID: string,
+		@Context('headers') headers: any,
+	): Promise<string | Error> {
+		await this.service.updateTodo(
+			todoID,
+			headers.authorization.split(' ')[1],
+		);
+		return 'success';
+	}
 }

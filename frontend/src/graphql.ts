@@ -108,3 +108,9 @@ export const TODO_REMOVE = gql`
     removeTodo(todoID: $todoId)
   }
 `;
+
+export const TODO_UPDATE = gql`
+  mutation UpdateTodo($todoId: String!) {
+    updateTodo(todoID: $todoId)
+  }
+`;

@@ -88,4 +88,26 @@ export class TodoService {
 		}
 		return new GraphQLError('Something went wrong');
 	}
+
+	async updateTodo(todoId: string, token: string): Promise<void | Error> {
+		try {
+			const session = await this.userService.findSession({
+				token: token,
+			});
+			if (session instanceof UserSession) {
+				const user = await this.userService.findUserOneBy(session.user);
+				if (user instanceof User) {
+					const todo = await this.findTodoOneBy({ id: todoId });
+					if (todo instanceof Todo && todo.user.id === user.id) {
+						todo.finished = !todo.finished;
+						await this.source.save(todo);
+					}
+					return new GraphQLError('Todo not existed');
+				} else throw user;
+			} else throw session;
+		} catch (error) {
+			if (error instanceof Error) return error;
+		}
+		return new GraphQLError('Something went wrong');
+	}
 }
