@@ -4,7 +4,7 @@ import { ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 @Entity()
-export class Session {
+export class UserSession {
     constructor(token: string, user: User) {
         this.token = token;
         this.user = user;

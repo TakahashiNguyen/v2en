@@ -4,7 +4,7 @@ import { User } from './user.entity';
 import { UserResolver } from './user.resolver';
 import { UserService } from './user.service';
 import { IsUserNameExistedConstraint } from './user.validator';
-import { Session } from './session.entity';
+import { UserSession } from './user.session.entity';
 import { JwtModule } from '@nestjs/jwt';
 
 export const jwtConstants = {
@@ -15,7 +15,7 @@ export const jwtConstants = {
 @Module({
 	providers: [UserResolver, UserService, IsUserNameExistedConstraint],
 	imports: [
-		TypeOrmModule.forFeature([User, Session]),
+		TypeOrmModule.forFeature([User, UserSession]),
 		JwtModule.register({
 			global: true,
 			secret: jwtConstants.secret,

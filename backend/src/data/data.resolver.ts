@@ -4,7 +4,7 @@ import { Data } from './data.entity';
 import { DataInput } from './data.dto';
 import { GraphQLError } from 'graphql';
 import { UseGuards } from '@nestjs/common';
-import { AuthGuard } from '../user/auth.guard';
+import { UserAuthGuard } from '../user/user.guard';
 
 @Resolver(() => Data)
 export class DataResolver {
@@ -12,20 +12,20 @@ export class DataResolver {
 
 	// Queries:Section: Data
 	@Query(() => [Data])
-	@UseGuards(AuthGuard)
+	@UseGuards(UserAuthGuard)
 	datas(): Promise<Data[]> {
 		return this.dataService.findDataAll();
 	}
 
 	@Query(() => Data)
-	@UseGuards(AuthGuard)
+	@UseGuards(UserAuthGuard)
 	async data(@Args('id') id: number): Promise<Data | Error> {
 		return await this.dataService.findDataOneBy({ id: id });
 	}
 
 	// Mutations:Section: Data
 	@Mutation(() => Data)
-	@UseGuards(AuthGuard)
+	@UseGuards(UserAuthGuard)
 	async addData(
 		@Args('newData') newData: DataInput,
 		id?: number,
@@ -43,7 +43,7 @@ export class DataResolver {
 	}
 
 	@Mutation(() => String)
-	@UseGuards(AuthGuard)
+	@UseGuards(UserAuthGuard)
 	async removeData(@Args('id') id: number) {
 		const data = await this.dataService.findDataOneBy({ id: id });
 		if (data instanceof Data) {
@@ -53,7 +53,7 @@ export class DataResolver {
 	}
 
 	@Mutation(() => String)
-	@UseGuards(AuthGuard)
+	@UseGuards(UserAuthGuard)
 	async modifyData(
 		@Args('id') id: number,
 		@Args('newData') newData: DataInput,

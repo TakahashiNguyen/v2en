@@ -8,7 +8,7 @@ import {
 	PrimaryGeneratedColumn,
 } from 'typeorm';
 import { UserInput } from './user.dto';
-import { Session } from './session.entity';
+import { UserSession } from './user.session.entity';
 
 @ObjectType('UserObject')
 @Entity()
@@ -64,7 +64,7 @@ export class User {
 		this.hashedPassword = Md5.hashStr(value);
 	}
 
-	@OneToMany(() => Session, (session) => session.user, { cascade: true })
+	@OneToMany(() => UserSession, (session) => session.user, { cascade: true })
 	@JoinColumn({ name: 'user_id' })
-	sessions?: Session[];
+	sessions?: UserSession[];
 }

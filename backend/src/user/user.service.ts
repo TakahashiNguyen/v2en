@@ -2,7 +2,7 @@ import { FindOptionsWhere, Repository } from 'typeorm';
 import { User } from './user.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Session } from './session.entity';
+import { UserSession } from './user.session.entity';
 import { JwtService } from '@nestjs/jwt';
 import { GraphQLError } from 'graphql';
 
@@ -11,8 +11,8 @@ export class UserService {
 	constructor(
 		@InjectRepository(User)
 		private dataSource: Repository<User>,
-		@InjectRepository(Session)
-		private sessionSource: Repository<Session>,
+		@InjectRepository(UserSession)
+		private sessionSource: Repository<UserSession>,
 		private jwtService: JwtService,
 	) {}
 
@@ -38,17 +38,17 @@ export class UserService {
 		await this.dataSource.manager.remove(User, data);
 	}
 
-	// Section: Session
-	async createSession(newSession: Session) {
-		await this.sessionSource.manager.save(Session, newSession);
+	// Section: UserSession
+	async createSession(newSession: UserSession) {
+		await this.sessionSource.manager.save(UserSession, newSession);
 	}
 
-	async findSession(args: FindOptionsWhere<Session>) {
-		return await this.sessionSource.manager.findOneBy(Session, args);
+	async findSession(args: FindOptionsWhere<UserSession>) {
+		return await this.sessionSource.manager.findOneBy(UserSession, args);
 	}
 
-	async removeSession(session: Session) {
-		await this.sessionSource.manager.remove(Session, session);
+	async removeSession(session: UserSession) {
+		await this.sessionSource.manager.remove(UserSession, session);
 	}
 
 	// Section: Token

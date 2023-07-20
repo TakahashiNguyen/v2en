@@ -9,6 +9,7 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { join } from 'path';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
+import { TodoModule } from './todo/todo.module';
 
 export const myConnectionOptions = async (
 	configService: ConfigService,
@@ -46,6 +47,7 @@ export const myConnectionOptions = async (
 			installSubscriptionHandlers: true,
 			context: (req: any) => ({ headers: req.headers }),
 		}),
+		TodoModule,
 	],
 	controllers: [AppController],
 	providers: [AppService],

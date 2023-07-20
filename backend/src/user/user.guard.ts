@@ -9,7 +9,7 @@ import { AuthGuard as NestAuthGuard } from '@nestjs/passport';
 import { UserService } from './user.service';
 
 @Injectable()
-export class AuthGuard extends NestAuthGuard('jwt') {
+export class UserAuthGuard extends NestAuthGuard('jwt') {
 	constructor(
 		@Inject(forwardRef(() => UserService))
 		private readonly service: UserService,

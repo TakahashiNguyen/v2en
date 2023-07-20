@@ -3,7 +3,7 @@ import { User } from './user.entity';
 import { UserService } from './user.service';
 import { LoginInput, UserInput, UserOutput } from './user.dto';
 import { Md5 } from 'ts-md5';
-import { Session } from './session.entity';
+import { UserSession } from './user.session.entity';
 import { TokenExpiredError } from 'jsonwebtoken';
 import { GraphQLError } from 'graphql';
 
@@ -30,7 +30,7 @@ export class UserResolver {
 		});
 		if (user instanceof User) {
 			const token = this.service.createToken(user);
-			const session = new Session(token, user);
+			const session = new UserSession(token, user);
 			await this.service.createSession(session);
 			return token;
 		}
@@ -74,7 +74,7 @@ export class UserResolver {
 						this.service.removeSession(session);
 						token = this.service.createToken(user);
 						await this.service.createSession(
-							new Session(token, user),
+							new UserSession(token, user),
 						);
 					} else {
 						return new GraphQLError('Error verifying token:' + err);
