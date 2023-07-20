@@ -44,7 +44,6 @@ export class TodoService {
 	}
 
 	// Section: Editor
-	// TODO: test try...catch
 	async createTodo(
 		createTodoInput: TodoObj,
 		token: string,

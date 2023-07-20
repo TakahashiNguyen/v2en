@@ -63,7 +63,6 @@ export class UserResolver {
 	}
 
 	// Mutations:Section: Token
-	// TODO: test try...catch
 	@Mutation(() => UserOutput)
 	async checkToken(
 		@Args('token') token: string,
