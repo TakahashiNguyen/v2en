@@ -34,7 +34,7 @@ export class Todo {
 	}
 
 	@PrimaryGeneratedColumn('uuid')
-	id!: number;
+	id!: string;
 
 	@Column('longtext')
 	jobDescription!: string;

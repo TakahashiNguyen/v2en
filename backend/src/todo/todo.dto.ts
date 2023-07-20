@@ -15,6 +15,9 @@ export class TodoObj {
 		this.finished = finished;
 	}
 
+	@Field(() => String, { nullable: true })
+	id?: string;
+
 	@Field(() => String)
 	jobDescription: string;
 

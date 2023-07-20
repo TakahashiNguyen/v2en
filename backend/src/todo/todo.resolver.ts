@@ -13,8 +13,9 @@ export class TodoResolver {
 	@Query(() => [TodoObj])
 	@UseGuards(UserAuthGuard)
 	async todos(@Context('headers') headers: any): Promise<Todo[] | Error> {
-		const token = headers.authorization.split(' ')[1];
-		return await this.service.findTodoByUser(token);
+		return await this.service.findTodoByUser(
+			headers.authorization.split(' ')[1],
+		);
 	}
 
 	// Mutations:Section: Todo
@@ -23,8 +24,22 @@ export class TodoResolver {
 	async addTodo(
 		@Args('newTodo') newTodo: TodoObj,
 		@Context('headers') headers: any,
-	): Promise<TodoObj | Error> {
-		const token = headers.authorization.split(' ')[1];
-		return await this.service.createTodo(newTodo, token);
+	): Promise<Todo | Error> {
+		return await this.service.createTodo(
+			newTodo,
+			headers.authorization.split(' ')[1],
+		);
+	}
+
+	@Mutation(() => String)
+	@UseGuards(UserAuthGuard)
+	async removeTodo(
+		@Args('todoID') todoID: string,
+		@Context('headers') headers: any,
+	): Promise<string | Error> {
+		return await this.service.removeTodo(
+			todoID,
+			headers.authorization.split(' ')[1],
+		);
 	}
 }

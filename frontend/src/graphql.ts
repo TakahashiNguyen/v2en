@@ -83,8 +83,9 @@ export const ADD_DATA = gql`
 `;
 
 export const TODO_GET = gql`
-  query Query {
+  query Todos {
     todos {
+      id
       jobDescription
       deadline
       finished
@@ -99,5 +100,11 @@ export const TODO_ADD = gql`
       deadline
       finished
     }
+  }
+`;
+
+export const TODO_REMOVE = gql`
+  mutation Mutation($todoId: String!) {
+    removeTodo(todoID: $todoId)
   }
 `;
