@@ -25,7 +25,13 @@
               data-cy="translatedFieldInput"
             />
           </div>
-          <button data-cy="dataSummit" type="submit" class="btn btn-primary btn-block">Add</button>
+          <button
+            data-cy="dataSummit"
+            type="submit"
+            class="btn btn-primary btn-block"
+          >
+            Add
+          </button>
         </form>
       </div>
     </div>
@@ -52,6 +58,7 @@ export default defineComponent({
     id: {
       type: String,
       required: true,
+      default: '',
     },
   },
 
@@ -81,7 +88,7 @@ export default defineComponent({
     const submitForm = async () => {
       try {
         const variables = {
-          modifyDataId: props.id,
+          modifyDataId: route.path.includes('/datas/modifying') ? props.id : '',
           newData: {
             origin: originField.value,
             translated: translatedField.value,

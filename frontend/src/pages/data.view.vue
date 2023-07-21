@@ -1,19 +1,30 @@
 <template>
-  <q-list v-if="$route.path === '/datas'">
-    <q-btn
-      style="width: 100%"
-      label="Add data"
-      @click="$router.push('/datas/add')"
-      data-cy="addDataButton"
-    />
-    <EssentialData v-for="link in essentialLinks" :key="link" v-bind="link" />
-  </q-list>
-
-  <router-view :user="user" :id="id" :dataProcessor="dataProcessor" />
+  <div v-if="error" class="user-indo">
+    <h2>Something went wrong</h2>
+    <p>{{ error.message }}</p>
+  </div>
+  <div v-else>
+    <q-list v-if="$route.path === '/datas'">
+      <q-btn
+        style="width: 100%"
+        label="Add data"
+        @click="$router.push('/datas/add')"
+        data-cy="addDataButton"
+      />
+      <div v-if="isDone">
+        <EssentialData
+          v-for="link in essentialLinks.datas"
+          :key="link"
+          v-bind="link"
+        />
+      </div>
+    </q-list>
+    <router-view :user="user" :id="id" :dataProcessor="dataProcessor" />
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 import EssentialData from '../components/EssentialData.vue';
 import { useQuery } from 'villus';
 import { DATAS_QUERY } from 'src/graphql';
@@ -33,19 +44,16 @@ export default defineComponent({
   },
 
   async setup() {
-    const essentialLinks = ref([]);
-
-    const dataProcessor = async () => {
-      const { error, data } = await useQuery({ query: DATAS_QUERY }).execute({
-        cachePolicy: 'network-only',
-      });
-      if (!error) essentialLinks.value = data.datas;
-    };
-    await dataProcessor();
+    const { error, data, execute, isDone } = useQuery({
+      query: DATAS_QUERY,
+      cachePolicy: 'network-only',
+    });
 
     return {
-      essentialLinks,
-      dataProcessor,
+      essentialLinks: data,
+      error: error,
+      isDone: isDone,
+      dataProcessor: execute,
     };
   },
 });
