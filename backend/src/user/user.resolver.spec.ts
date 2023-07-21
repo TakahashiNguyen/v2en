@@ -1,7 +1,4 @@
-import { Repository } from 'typeorm';
-import { User } from './user.entity';
 import { Test, TestingModule } from '@nestjs/testing';
-import { getRepositoryToken } from '@nestjs/typeorm';
 import { AppModule } from '../app.module';
 import { UserResolver } from './user.resolver';
 import { LoginInput, UserInput } from './user.dto';
@@ -14,7 +11,6 @@ let token: string | Error;
 
 describe('UserResolver', () => {
 	let resolver: UserResolver;
-	let repository: Repository<User>;
 	// Section:Define:
 	beforeEach(async () => {
 		const module: TestingModule = await Test.createTestingModule({
@@ -22,7 +18,6 @@ describe('UserResolver', () => {
 		}).compile();
 
 		resolver = module.get<UserResolver>(UserResolver);
-		repository = module.get<Repository<User>>(getRepositoryToken(User));
 	});
 
 	it('should be defined', () => {
