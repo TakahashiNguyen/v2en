@@ -7,19 +7,14 @@
     <div v-else>
       <h1>Todo List</h1>
       <div v-if="isDone">
-        <div v-for="(todo, index) in data.todos" :key="index">
-          <input
-            type="checkbox"
-            v-model="todo.finished"
-            @click="updateTodo(todo.id)"
-          />
-          <span :class="{ completed: todo.finished }" data-cy="todoFieldJob">{{
-            todo.jobDescription
-          }}</span>
-          <button @click="deleteTodo(todo.id)" data-cy="todoDeleteButton">
-            Delete
-          </button>
-        </div>
+        <todoTag
+          v-for="todo in data.todos"
+          :key="todo"
+          v-bind="todo"
+          :delete-todo="deleteTodo"
+          :update-todo="updateTodo"
+        >
+        </todoTag>
       </div>
       <form @submit.prevent="addTodo">
         <input type="text" v-model="newTodoText" data-cy="todoTextField" />
@@ -33,8 +28,12 @@
 import { useMutation, useQuery } from 'villus';
 import { defineComponent, ref } from 'vue';
 import { TODO_GET, TODO_ADD, TODO_REMOVE, TODO_UPDATE } from 'src/graphql';
+import todoTag from 'src/components/todo.tag.vue';
 
 export default defineComponent({
+  components: {
+    todoTag,
+  },
   async setup() {
     const { data, isDone, execute, error } = useQuery({
       query: TODO_GET,
