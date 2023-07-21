@@ -3,10 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { UserResolver } from './user.resolver';
 import { UserService } from './user.service';
-import { IsUserNameExistedConstraint } from './user.validator';
 import { UserSession } from './user.session.entity';
 import { JwtModule } from '@nestjs/jwt';
 import { UserAuthGuard } from './user.guard';
+import { IsUserNameExistedConstraint } from './user.validator';
 
 export const jwtConstants = {
 	secret: 'DO NOT USE THIS VALUE. INSTEAD, CREATE A COMPLEX SECRET AND KEEP IT SAFE OUTSIDE OF THE SOURCE CODE.',
@@ -17,8 +17,8 @@ export const jwtConstants = {
 	providers: [
 		UserResolver,
 		UserService,
-		IsUserNameExistedConstraint,
 		UserAuthGuard,
+		IsUserNameExistedConstraint,
 	],
 	imports: [
 		TypeOrmModule.forFeature([User, UserSession]),

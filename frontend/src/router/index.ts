@@ -22,7 +22,7 @@ const router = createRouter({
   ),
 });
 
-export async function authPlugin({ opContext }) {
+export async function authPlugin({ opContext }: any) {
   const user = await userMutation(localStorage.getItem('token'));
   if (user) {
     if (opContext) opContext.headers.Authorization = 'Bearer ' + user.token;

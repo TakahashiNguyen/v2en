@@ -50,7 +50,7 @@ export default defineComponent({
       required: true,
     },
     id: {
-      type: Number,
+      type: String,
       required: true,
     },
   },

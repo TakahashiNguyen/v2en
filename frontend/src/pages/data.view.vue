@@ -24,7 +24,7 @@ export default defineComponent({
   },
 
   props: {
-    id: { type: Number },
+    id: { type: String },
 
     user: {
       type: [Object, String],

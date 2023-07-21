@@ -38,7 +38,7 @@ const routes: RouteRecordRaw[] = [
           },
         ],
         props: route => ({
-          id: Number(route.params.id),
+          id: String(route.params.id),
         }),
         meta: { requiresAuth: true },
       },

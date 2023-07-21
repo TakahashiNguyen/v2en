@@ -35,7 +35,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   methods: {
-    modifyDataRouter(id: number) {
+    modifyDataRouter(id: string) {
       router.push('/datas/modifying/' + id);
     },
     async deleteData() {
@@ -48,7 +48,7 @@ export default defineComponent({
   },
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true,
     },
     dataProcessor: {
