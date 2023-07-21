@@ -9,7 +9,7 @@ import { TodoObj } from './todo.dto';
 export class TodoResolver {
 	constructor(private readonly service: TodoService) {}
 
-	// Queries:Section: Todo
+	// Queries:Section:_Todo
 	@Query(() => [TodoObj])
 	@UseGuards(UserAuthGuard)
 	async todos(@Context('headers') headers: any): Promise<Todo[] | Error> {
@@ -18,7 +18,7 @@ export class TodoResolver {
 		);
 	}
 
-	// Mutations:Section: Todo
+	// Mutations:Section:_Todo
 	@Mutation(() => TodoObj)
 	@UseGuards(UserAuthGuard)
 	async addTodo(

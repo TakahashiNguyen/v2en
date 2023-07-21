@@ -3,7 +3,10 @@
     clickable
     tag="a"
     target="_blank"
-    @click="eFunction()"
+    @click="
+      eFunction();
+      leftDrawer();
+    "
     :data-cy="buttonName"
   >
     <q-item-section v-if="icon" avatar>
@@ -44,6 +47,10 @@ export default defineComponent({
       type: String,
       default: '',
       optional: true,
+    },
+    leftDrawer: {
+      type: Function,
+      required: true,
     },
   },
   setup(props) {

@@ -16,7 +16,7 @@ export class UserService {
 		private jwtService: JwtService,
 	) {}
 
-	// Section: User
+	// Section:_User
 	async findAll(): Promise<User[]> {
 		return await this.dataSource.find();
 	}
@@ -39,7 +39,7 @@ export class UserService {
 		return new GraphQLError('user not found');
 	}
 
-	// Section: UserSession
+	// Section:_UserSession
 	async createSession(newSession: UserSession) {
 		await this.sessionSource.save(newSession);
 	}
@@ -57,7 +57,7 @@ export class UserService {
 		await this.sessionSource.remove(session);
 	}
 
-	// Section: Token
+	// Section:_Token
 	createToken(user: User) {
 		return this.jwtService.sign({
 			create: Date.now(),

@@ -1,8 +1,8 @@
 import { userFunc } from './user.cy';
 
 export class dataFunc extends userFunc {
-  public origin;
-  public translated;
+  public origin = '';
+  public translated = '';
   constructor() {
     super();
   }
@@ -32,16 +32,17 @@ export class dataFunc extends userFunc {
       this.obj('translatedField'),
       `Translated: ${this.translated}`
     ).should('exist');
+  }
+
+  public deleteData(allowAddData = true) {
+    if (allowAddData) this.addData();
 
     cy.get(this.obj('leftDrawer')).click();
     cy.get(this.obj('DatasButton')).click();
     cy.get(this.obj(this.origin + this.translated + 'Button'))
       .should('exist')
       .click();
-  }
 
-  public deleteData(allowAddData = true) {
-    if (allowAddData) this.addData();
     cy.get(this.obj('deleteButton')).click();
     cy.get(this.obj('leftDrawer')).click();
     cy.get(this.obj('DatasButton')).click();
@@ -53,6 +54,12 @@ export class dataFunc extends userFunc {
 
   public modifyData() {
     this.addData();
+
+    cy.get(this.obj('leftDrawer')).click();
+    cy.get(this.obj('DatasButton')).click();
+    cy.get(this.obj(this.origin + this.translated + 'Button'))
+      .should('exist')
+      .click();
 
     cy.get(this.obj('modifyButton')).click();
     const oldorigin = this.origin;
@@ -72,12 +79,21 @@ export class dataFunc extends userFunc {
 
     this.origin = oldorigin + this.origin;
     this.translated = oldtranslated + this.translated;
+
+    this.deleteData(false);
+  }
+
+  public cleanup() {
+    this.initDataAddFunc();
     cy.get(this.obj('leftDrawer')).click();
     cy.get(this.obj('DatasButton')).click();
-    cy.get(this.obj(this.origin + this.translated + 'Button'))
-      .should('exist')
+    cy.get(this.obj('addDataButton'))
+      .should('be.visible')
+      .next()
+      .find("[role='listitem']")
+      .last()
       .click();
-    this.deleteData(false);
+    cy.get(this.obj('deleteButton')).click();
   }
 }
 
@@ -98,5 +114,9 @@ describe('Data', () => {
 
   it('modify Data', () => {
     data.modifyData();
+  });
+
+  it('clean up', () => {
+    data.cleanup();
   });
 });

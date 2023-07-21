@@ -11,7 +11,7 @@ export class DataService {
 		private source: Repository<Data>,
 	) {}
 
-	// Section: find
+	// Section:_Find
 	async findDataAll(): Promise<Data[]> {
 		return await this.source.find();
 	}
@@ -23,7 +23,7 @@ export class DataService {
 		);
 	}
 
-	// Section: Editor
+	// Section:_Editor
 	async createData(createDataInput: Data): Promise<Data> {
 		const data = this.source.create(createDataInput);
 		return await this.source.save(data);

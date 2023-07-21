@@ -26,7 +26,7 @@ import router from 'src/router';
 export default defineComponent({
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true,
     },
 
@@ -52,7 +52,7 @@ export default defineComponent({
 
     eFunction: {
       type: Function,
-      default: (id: number) => router.push('/datas/' + id),
+      default: (id: string) => router.push('/datas/' + id),
       optional: true,
     },
 

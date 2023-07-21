@@ -46,7 +46,7 @@ export const DATAS_QUERY = gql`
 `;
 
 export const GET_DATA = gql`
-  query Data($dataId: Float!) {
+  query Data($dataId: String!) {
     data(id: $dataId) {
       id
       origin
@@ -58,13 +58,13 @@ export const GET_DATA = gql`
 `;
 
 export const DELETE_DATA = gql`
-  mutation RemoveData($removeDataId: Float!) {
+  mutation RemoveData($removeDataId: String!) {
     removeData(id: $removeDataId)
   }
 `;
 
 export const MODIFY_DATA = gql`
-  mutation ModifyData($modifyDataId: Float!, $newData: DataInput!) {
+  mutation ModifyData($modifyDataId: String!, $newData: DataInput!) {
     modifyData(id: $modifyDataId, newData: $newData)
   }
 `;

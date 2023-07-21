@@ -1,4 +1,4 @@
-import { Inject, Injectable, forwardRef } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import {
 	ValidationOptions,
 	ValidatorConstraint,
@@ -24,10 +24,7 @@ export function IsUserNameExisted(validationOptions?: ValidationOptions) {
 export class IsUserNameExistedConstraint
 	implements ValidatorConstraintInterface
 {
-	constructor(
-		@Inject(forwardRef(() => UserService))
-		private readonly userService: UserService,
-	) {}
+	constructor(private readonly userService: UserService) {}
 
 	async validate(value: any): Promise<boolean> {
 		return !(
@@ -50,7 +47,6 @@ export function IsPasswordCorrent(validationOptions?: ValidationOptions) {
 }
 
 @ValidatorConstraint({ async: true })
-@Injectable()
 export class IsPasswordCorrentConstraint
 	implements ValidatorConstraintInterface
 {

@@ -11,7 +11,7 @@ import { GraphQLError } from 'graphql';
 export class UserResolver {
 	constructor(private readonly service: UserService) {}
 
-	// Mutations:Section: User
+	// Section:Mutations:_User
 	@Mutation(() => String)
 	async addUser(
 		@Args('newUser') newUser: UserInput,
@@ -62,7 +62,7 @@ export class UserResolver {
 		return new GraphQLError('User already logged out.');
 	}
 
-	// Mutations:Section: Token
+	// Section:Mutations:_Token
 	@Mutation(() => UserOutput)
 	async checkToken(
 		@Args('token') token: string,
