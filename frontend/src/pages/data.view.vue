@@ -4,7 +4,7 @@
     <p>{{ error.message }}</p>
   </div>
   <div v-else>
-    <q-list v-if="$route.path === '/datas'">
+    <q-list v-if="$route.path === '/datas'" data-cy="dataList">
       <q-btn
         style="width: 100%"
         label="Add data"

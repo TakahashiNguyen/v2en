@@ -13,15 +13,17 @@
             v-model="todo.finished"
             @click="updateTodo(todo.id)"
           />
-          <span :class="{ completed: todo.finished }">{{
+          <span :class="{ completed: todo.finished }" data-cy="todoFieldJob">{{
             todo.jobDescription
           }}</span>
-          <button @click="deleteTodo(todo.id)">Delete</button>
+          <button @click="deleteTodo(todo.id)" data-cy="todoDeleteButton">
+            Delete
+          </button>
         </div>
       </div>
       <form @submit.prevent="addTodo">
-        <input type="text" v-model="newTodoText" />
-        <button type="submit">Add</button>
+        <input type="text" v-model="newTodoText" data-cy="todoTextField" />
+        <button type="submit" data-cy="todoSubmitButton">Add</button>
       </form>
     </div>
   </div>

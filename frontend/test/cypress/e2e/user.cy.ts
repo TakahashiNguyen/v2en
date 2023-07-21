@@ -48,6 +48,7 @@ export class userFunc {
   }
 
   public userLoginFunc() {
+    if (!this.isSignUp) this.userSignupFunc();
     cy.get(this.obj('leftDrawer')).click();
     cy.get(this.obj('LoginButton')).click();
     cy.get(this.obj('username')).type(this.randomUserName);
@@ -55,6 +56,7 @@ export class userFunc {
     cy.get(this.obj('userLogin')).click();
     cy.url().should('include', '/profile');
     cy.contains(this.obj('userName'), this.randomUserName).should('exist');
+    return true;
   }
 
   public userLogoutFunc() {
