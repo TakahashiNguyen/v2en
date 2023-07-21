@@ -6,7 +6,6 @@ import { UserService } from './user.service';
 import { IsUserNameExistedConstraint } from './user.validator';
 import { UserSession } from './user.session.entity';
 import { JwtModule } from '@nestjs/jwt';
-import { Todo } from '../todo/todo.entity';
 import { UserAuthGuard } from './user.guard';
 
 export const jwtConstants = {

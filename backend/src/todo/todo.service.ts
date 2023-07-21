@@ -16,7 +16,7 @@ export class TodoService {
 		private readonly userService: UserService,
 	) {}
 
-	// Section: Find
+	// Section:_Find
 	async findTodoByUser(token: string): Promise<Todo[] | Error> {
 		try {
 			const session = await this.userService.findSession({
@@ -43,7 +43,7 @@ export class TodoService {
 		);
 	}
 
-	// Section: Editor
+	// Section:_Editor
 	async createTodo(
 		createTodoInput: TodoObj,
 		token: string,

@@ -10,7 +10,7 @@ import { UserAuthGuard } from '../user/user.guard';
 export class DataResolver {
 	constructor(private readonly dataService: DataService) {}
 
-	// Queries:Section: Data
+	// Queries:Section:_Data
 	@Query(() => [Data])
 	@UseGuards(UserAuthGuard)
 	datas(): Promise<Data[]> {
@@ -19,16 +19,16 @@ export class DataResolver {
 
 	@Query(() => Data)
 	@UseGuards(UserAuthGuard)
-	async data(@Args('id') id: number): Promise<Data | Error> {
+	async data(@Args('id') id: string): Promise<Data | Error> {
 		return await this.dataService.findDataOneBy({ id: id });
 	}
 
-	// Mutations:Section: Data
+	// Mutations:Section:_Data
 	@Mutation(() => Data)
 	@UseGuards(UserAuthGuard)
 	async addData(
 		@Args('newData') newData: DataInput,
-		id?: number,
+		id?: string,
 	): Promise<Data | Error> {
 		let data = await Data.fromDataInput(newData, id);
 		if (
@@ -43,7 +43,7 @@ export class DataResolver {
 
 	@Mutation(() => String)
 	@UseGuards(UserAuthGuard)
-	async removeData(@Args('id') id: number) {
+	async removeData(@Args('id') id: string) {
 		const data = await this.dataService.findDataOneBy({ id: id });
 		if (data instanceof Data) {
 			await this.dataService.removeData({ hashValue: data.hashValue });
@@ -54,7 +54,7 @@ export class DataResolver {
 	@Mutation(() => String)
 	@UseGuards(UserAuthGuard)
 	async modifyData(
-		@Args('id') id: number,
+		@Args('id') id: string,
 		@Args('newData') newData: DataInput,
 	) {
 		await this.removeData(id);

@@ -1,6 +1,6 @@
 import { ObjectType } from '@nestjs/graphql';
 import { Md5 } from 'ts-md5';
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { DataInput } from './data.dto';
 
 @Entity()
@@ -11,7 +11,7 @@ export class Data {
 		translated = '',
 		translator = '',
 		verified = false,
-		id?: number,
+		id?: string,
 	) {
 		this.id = id;
 		this.origin = origin;
@@ -20,7 +20,7 @@ export class Data {
 		this.verified = verified;
 	}
 
-	static async fromDataInput(data: DataInput, id?: number) {
+	static async fromDataInput(data: DataInput, id?: string) {
 		return new Data(
 			data.origin,
 			data.translated,
@@ -30,9 +30,8 @@ export class Data {
 		);
 	}
 
-	@PrimaryGeneratedColumn()
-	@PrimaryColumn('int')
-	id?: number;
+	@PrimaryGeneratedColumn('uuid')
+	id?: string;
 
 	@Column('longtext')
 	origin: string;
