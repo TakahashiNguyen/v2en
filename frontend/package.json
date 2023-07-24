@@ -9,6 +9,8 @@
     "prestart": "echo \"export const graphqlUrl = 'http://$(hostname -i):2564/graphql'\" > ./src/url.ts",
     "prestart:android": "npm run prestart",
     "pretest": "echo \"export const graphqlUrl = 'http://$(hostname -i):2564/graphql'\" > ./src/url.ts",
+    "pretest:e2e": "npm run pretest",
+    "pretest:e2e:ci": "npm run pretest",
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,css,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"See package.json => scripts for available tests.\" && exit 0",
