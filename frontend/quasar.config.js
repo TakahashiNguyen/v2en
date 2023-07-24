@@ -28,7 +28,7 @@ module.exports = configure(function (/* ctx */) {
     },
 
     devServer: {
-      open: true, // opens browser window automatically
+      open: false, // opens browser window automatically
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',

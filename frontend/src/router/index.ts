@@ -5,8 +5,9 @@ import {
   createWebHistory,
 } from 'vue-router';
 import routes from './routes';
-import { TOKEN_MUTATION, graphqlUrl } from 'src/graphql';
+import { TOKEN_MUTATION } from 'src/graphql';
 import { cache, useMutation, fetch, createClient } from 'villus';
+import { graphqlUrl } from 'src/url';
 
 const createHistory = process.env.SERVER
   ? createMemoryHistory
