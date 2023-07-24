@@ -93,7 +93,11 @@
               </label>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary btn-block" data-cy="userSignup">
+          <button
+            type="submit"
+            class="btn btn-primary btn-block"
+            data-cy="userSignup"
+          >
             Sign up
           </button>
         </form>

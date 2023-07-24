@@ -6,16 +6,19 @@
   "author": "takahashinguyen <vietuk.nguyen.git@icloud.com>",
   "private": true,
   "scripts": {
+    "prestart": "echo \"export const graphqlUrl = 'http://$(hostname -i):2564/graphql'\" > ./src/url.ts",
+    "prestart:android": "npm run prestart",
+    "pretest": "echo \"export const graphqlUrl = 'http://$(hostname -i):2564/graphql'\" > ./src/url.ts",
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,css,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"See package.json => scripts for available tests.\" && exit 0",
-    "dev": "quasar dev",
+    "start": "quasar dev",
+    "start:android": "quasar dev -m capacitor -T android",
     "build": "quasar build",
     "test:e2e": "cross-env NODE_ENV=test start-test \"quasar dev\" http-get://localhost:9000 \"cypress open --e2e\"",
     "test:e2e:ci": "cross-env NODE_ENV=test start-test \"quasar dev\" http-get://localhost:9000 \"cypress run --e2e\"",
     "test:component": "cross-env NODE_ENV=test cypress open --component",
-    "test:component:ci": "cross-env NODE_ENV=test cypress run --component",
-    "android": "quasar dev -m capacitor -T android"
+    "test:component:ci": "cross-env NODE_ENV=test cypress run --component"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
@@ -23,7 +26,9 @@
     "cross-env": "^7.0.3",
     "graphql": "^14.7.0",
     "graphql-tag": "^2.12.6",
+    "os": "^0.1.2",
     "quasar": "^2.12.2",
+    "request-ip": "^3.3.0",
     "villus": "^1.0.0-alpha.4",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0"
