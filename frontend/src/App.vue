@@ -10,8 +10,9 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useClient, useMutation, cache, defaultPlugins } from 'villus';
-import { LOGOUT_MUTATION, graphqlUrl } from './graphql';
+import { LOGOUT_MUTATION } from './graphql';
 import { authPlugin, userMutation } from './router';
+import { graphqlUrl } from './url';
 
 export default defineComponent({
   methods: {

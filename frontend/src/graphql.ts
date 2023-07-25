@@ -1,7 +1,5 @@
 import gql from 'graphql-tag';
 
-export const graphqlUrl = 'http://[::1]:3000/graphql';
-
 export const TOKEN_MUTATION = gql`
   mutation CheckToken($token: String!) {
     checkToken(token: $token) {
