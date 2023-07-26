@@ -1,83 +1,76 @@
-import 'package:vrouter/vrouter.dart';
+import 'package:frontend_new/pages/notfound.dart';
 import '../layouts/main.layout.dart';
-import '../pages/my.github.dart';
-import '../pages/user.login.dart';
-import '../pages/user.signup.dart';
-import '../pages/user.page.dart';
-import '../pages/data.view.dart';
-import '../pages/data.editor.dart';
-import '../pages/data.page.dart';
-import '../pages/todo.page.dart';
-import '../pages/404.dart';
+import 'package:flutter/material.dart';
+import 'package:vrouter/vrouter.dart';
 
-List<VRouteElement> routes = [
-  VWidget(
-    path: '/',
-    widget: MainLayout(),
-    children: [
-      VWidget(
-        path: '',
-        widget: MyGithub(),
-      ),
-      VWidget(
-        path: '/login',
-        widget: UserLogin(),
-      ),
-      VWidget(
-        path: '/signup',
-        widget: UserSignup(),
-      ),
-      VGuard(
-        path: '/profile',
-        component: UserPage(),
-        beforeEnter: (vRedirector) async {
-          // check if user is authenticated
-          // if not, redirect to login page
-        },
-      ),
-      VWidget(
-        path: '/datas',
-        widget: DataView(),
-        children: [
-          VWidget(
-            path: 'add',
-            widget: DataEditor(),
+void main() {
+  runApp(
+    VRouter(
+      debugShowCheckedModeBanner: false,
+      routes: [
+        VNester(
+          path: '/',
+          widgetBuilder: (child) => MainLayout(
+            logoutMutation: () {},
+            userMutation: () {},
+            child: child,
           ),
-          VWidget(
-            path: 'modifying/:id',
-            widget: DataEditor(),
-            props: (vParameters) {
-              return {'id': vParameters.pathParameters['id']!};
-            },
-          ),
-          VWidget(
-            path: ':id',
-            widget: DataPage(),
-            props: (vParameters) {
-              return {'id': vParameters.pathParameters['id']!};
-            },
-          ),
-        ],
-        props: (vParameters) {
-          return {'id': vParameters.pathParameters['id']!};
-        },
-        beforeEnter: (vRedirector) async {
-          // check if user is authenticated
-          // if not, redirect to login page
-        },
+          nestedRoutes: [
+            VWidget(path: null, widget: HomeScreen()),
+            VWidget(path: 'settings', widget: SettingsScreen()),
+          ],
+        ),
+        VWidget(path: '/:catchAll(.*)*', widget: const Error404Page())
+      ],
+    ),
+  );
+}
+
+abstract class BaseWidget extends StatelessWidget {
+  String get title;
+
+  String get buttonText;
+
+  String get to;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(title),
+            SizedBox(height: 50),
+            ElevatedButton(
+              onPressed: () => context.vRouter.to(to),
+              child: Text(buttonText),
+            ),
+          ],
+        ),
       ),
-      VWidget(
-        path: '/todos',
-        widget: TodoPage(),
-        beforeEnter: (vRedirector) async {
-          // check if user is authenticated
-          // if not, redirect to login page
-        },
-      ),
-    ],
-  ),
-  VWidget(
-    path: '/:catchAll(.*)*',
-    widget: NotFound(),
-  ),
-];
+    );
+  }
+}
+
+class HomeScreen extends BaseWidget {
+  @override
+  String get title => 'Home';
+
+  @override
+  String get buttonText => 'Go to Settings';
+
+  @override
+  String get to => '/settings';
+}
+
+class SettingsScreen extends BaseWidget {
+  @override
+  String get title => 'Settings';
+
+  @override
+  String get buttonText => 'Go to Home';
+
+  @override
+  String get to => '/';
+}

@@ -1,82 +1,114 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../components/link.drawer.element.dart';
 
 class MainLayout extends StatelessWidget {
-  final List<Map<String, dynamic>> essentialLinks;
-  final bool leftDrawerOpen;
-  final Function toggleLeftDrawer;
-  final dynamic user;
+  final Function userMutation;
+  final Function logoutMutation;
+  final Widget child;
 
-  MainLayout({
-    required this.essentialLinks,
-    required this.leftDrawerOpen,
-    required this.toggleLeftDrawer,
-    required this.user,
-  });
+  const MainLayout(
+      {super.key,
+      required this.userMutation,
+      required this.logoutMutation,
+      required this.child});
 
   @override
   Widget build(BuildContext context) {
+    final leftDrawerOpen = false.obs;
+    // final user = authPlugin(opContext: null);
+
+    final userLinks = true is Object
+        ? [
+            {
+              'title': 'Profile',
+              'eFunction': () {
+                Get.toNamed('/profile');
+              },
+            },
+            {
+              'title': 'Todos',
+              'eFunction': () {
+                Get.toNamed('/todos');
+              },
+            },
+            {
+              'title': 'Datas',
+              'eFunction': () {
+                Get.toNamed('/datas');
+              },
+            },
+            {
+              'title': 'LogOut',
+              'eFunction': () async {
+                // localStorage.removeItem('token');
+                // await logoutMutation(user['username'], user['token']);
+                Get.offAllNamed('/login');
+              },
+            },
+          ]
+        : [
+            {
+              'title': 'Login',
+              'eFunction': () {
+                Get.toNamed('/login');
+              },
+            },
+            {
+              'title': 'Signup',
+              'eFunction': () {
+                Get.toNamed('/signup');
+              },
+            },
+          ];
+
+    final linksList = [
+      {
+        'title': 'Github',
+        'caption': 'github.com/takahashinguyen',
+        'icon': 'code',
+      },
+      ...userLinks,
+    ];
+
     return Scaffold(
-      body: Column(
-        children: [
-          AppBar(
-            backgroundColor: Colors.blue,
-            title: Row(
-              children: [
-                IconButton(
-                  icon: Icon(Icons.menu),
-                  onPressed: toggleLeftDrawer,
-                ),
-              ],
-            ),
-          ),
-          Drawer(
-            child: ListView(
-              children: [
-                ListTile(
-                  title: Text(
-                    'v2en',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  tileColor: Colors.grey[200],
-                ),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: essentialLinks.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(essentialLinks[index]['title']),
-                      onTap: () {
-                        essentialLinks[index]['eFunction']();
-                        toggleLeftDrawer();
-                      },
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Container(
-              child: RouterView(user: user),
-            ),
-          ),
-        ],
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
       ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            ListTile(
+              title: const Text(
+                'v2en',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              tileColor: Colors.grey[200],
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: linksList.length,
+              itemBuilder: (context, index) {
+                return EssentialLink(
+                  title: linksList[index]['title'] as String,
+                  icon: linksList[index]['icon'] as String,
+                  eFunction: linksList[index]['eFunction'] as Function,
+                  leftDrawer: () {
+                    leftDrawerOpen.value = false;
+                  },
+                  caption: '',
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      body: child,
     );
   }
 }
 
-class RouterView extends StatelessWidget {
-  final dynamic user;
-
-  RouterView({required this.user});
-
-  @override
-  Widget build(BuildContext context) {
-    // Implement your router view logic here
-    return Container();
-  }
-}
+authPlugin({required opContext}) {}
