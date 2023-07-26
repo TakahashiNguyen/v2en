@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:vrouter/vrouter.dart';
 
 class Error404Page extends StatelessWidget {
   const Error404Page({super.key});
@@ -29,7 +29,7 @@ class Error404Page extends StatelessWidget {
               ),
               const SizedBox(height: 20.0),
               ElevatedButton(
-                onPressed: () => Get.offAllNamed('/'),
+                onPressed: () => context.vRouter.to('/'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   elevation: 0.0,

@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../components/link.drawer.element.dart';
 
 class MainLayout extends StatelessWidget {
   final Function userMutation;
   final Function logoutMutation;
   final Widget child;
 
-  const MainLayout(
-      {super.key,
-      required this.userMutation,
-      required this.logoutMutation,
-      required this.child});
+  const MainLayout({
+    Key? key,
+    required this.userMutation,
+    required this.logoutMutation,
+    required this.child,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final leftDrawerOpen = false.obs;
     // final user = authPlugin(opContext: null);
 
     final userLinks = true is Object
@@ -68,7 +67,20 @@ class MainLayout extends StatelessWidget {
         'caption': 'github.com/takahashinguyen',
         'icon': 'code',
       },
-      ...userLinks,
+      ...userLinks
+    ];
+
+    final listLink = <ListTile>[
+      for (Map<String, dynamic> e in linksList)
+        ListTile(
+          onTap: () {
+            (e['eFunction'] ?? () {})();
+          },
+          title: Text(e['title'] ?? ''),
+          subtitle: Text(e['caption'] ?? ''),
+          leading: const Icon(Icons.home),
+          tileColor: Colors.grey[200],
+        )
     ];
 
     return Scaffold(
@@ -77,32 +89,16 @@ class MainLayout extends StatelessWidget {
       ),
       drawer: Drawer(
         child: ListView(
-          children: [
-            ListTile(
-              title: const Text(
+          children: <Widget>[
+            const ListTile(
+              title: Text(
                 'v2en',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              tileColor: Colors.grey[200],
             ),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: linksList.length,
-              itemBuilder: (context, index) {
-                return EssentialLink(
-                  title: linksList[index]['title'] as String,
-                  icon: linksList[index]['icon'] as String,
-                  eFunction: linksList[index]['eFunction'] as Function,
-                  leftDrawer: () {
-                    leftDrawerOpen.value = false;
-                  },
-                  caption: '',
-                );
-              },
-            ),
+            ...listLink
           ],
         ),
       ),

@@ -61,7 +61,7 @@ class HomeScreen extends BaseWidget {
   String get buttonText => 'Go to Settings';
 
   @override
-  String get to => '/settings';
+  String get to => '/settins';
 }
 
 class SettingsScreen extends BaseWidget {
