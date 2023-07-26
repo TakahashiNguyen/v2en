@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vrouter/vrouter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/services.dart';
 
 class MainLayout extends StatelessWidget {
   final Function userMutation;
@@ -16,6 +17,9 @@ class MainLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: [SystemUiOverlay.top]);
+
     final user = authPlugin(opContext: null);
 
     final userLink = [
@@ -50,6 +54,7 @@ class MainLayout extends StatelessWidget {
                   final prefs = await SharedPreferences.getInstance();
                   await prefs.remove('token');
                   // await logoutMutation(user['username'], user['token']);
+                  // ignore: use_build_context_synchronously
                   context.vRouter.to('/login');
                 },
               },
