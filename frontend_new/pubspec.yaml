@@ -39,6 +39,7 @@ dependencies:
   url_launcher: ^6.1.12
   vrouter: ^1.2.1
   get: ^4.6.5
+  shared_preferences: ^2.2.0
 
 dev_dependencies:
   flutter_test:

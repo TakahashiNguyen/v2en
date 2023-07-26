@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:vrouter/vrouter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MainLayout extends StatelessWidget {
   final Function userMutation;
@@ -15,70 +16,69 @@ class MainLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final user = authPlugin(opContext: null);
+    final user = authPlugin(opContext: null);
 
-    final userLinks = true is Object
-        ? [
-            {
-              'title': 'Profile',
-              'eFunction': () {
-                Get.toNamed('/profile');
-              },
-            },
-            {
-              'title': 'Todos',
-              'eFunction': () {
-                Get.toNamed('/todos');
-              },
-            },
-            {
-              'title': 'Datas',
-              'eFunction': () {
-                Get.toNamed('/datas');
-              },
-            },
-            {
-              'title': 'LogOut',
-              'eFunction': () async {
-                // localStorage.removeItem('token');
-                // await logoutMutation(user['username'], user['token']);
-                Get.offAllNamed('/login');
-              },
-            },
-          ]
-        : [
-            {
-              'title': 'Login',
-              'eFunction': () {
-                Get.toNamed('/login');
-              },
-            },
-            {
-              'title': 'Signup',
-              'eFunction': () {
-                Get.toNamed('/signup');
-              },
-            },
-          ];
-
-    final linksList = [
+    final userLink = [
       {
         'title': 'Github',
         'caption': 'github.com/takahashinguyen',
-        'icon': 'code',
+        'icon': Icons.code,
       },
-      ...userLinks
+      ...user is Object
+          ? [
+              {
+                'title': 'Profile',
+                'eFunction': () {
+                  context.vRouter.to('/profile');
+                },
+              },
+              {
+                'title': 'Todos',
+                'eFunction': () {
+                  context.vRouter.to('/todos');
+                },
+              },
+              {
+                'title': 'Datas',
+                'eFunction': () {
+                  context.vRouter.to('/datas');
+                },
+              },
+              {
+                'title': 'LogOut',
+                'eFunction': () async {
+                  final prefs = await SharedPreferences.getInstance();
+                  await prefs.remove('token');
+                  // await logoutMutation(user['username'], user['token']);
+                  context.vRouter.to('/login');
+                },
+              },
+            ]
+          : [
+              {
+                'title': 'Login',
+                'eFunction': () {
+                  context.vRouter.to('/login');
+                },
+              },
+              {
+                'title': 'Signup',
+                'eFunction': () {
+                  context.vRouter.to('/signup');
+                },
+              },
+            ]
     ];
 
     final listLink = <ListTile>[
-      for (Map<String, dynamic> e in linksList)
+      for (Map<String, dynamic> e in userLink)
         ListTile(
           onTap: () {
             (e['eFunction'] ?? () {})();
           },
           title: Text(e['title'] ?? ''),
           subtitle: Text(e['caption'] ?? ''),
-          leading: const Icon(Icons.home),
+          leading: (Icon(e['icon'] as IconData?)),
           tileColor: Colors.grey[200],
         )
     ];
