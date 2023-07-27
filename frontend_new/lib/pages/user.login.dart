@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_new/graphql.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vrouter/vrouter.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  final GraphQLClient gqlCli;
+  final SharedPreferences prefs;
+  const LoginPage({Key? key, required this.gqlCli, required this.prefs})
+      : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 
@@ -12,8 +20,25 @@ class _LoginPageState extends State<LoginPage> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  void _submitForm() {
-    // TODO: Implement authentication logic
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void _submitForm() async {
+    final String username = _usernameController.text;
+    final String password = _passwordController.text;
+
+    final QueryResult result =
+        await widget.gqlCli.mutate(loginMutation(username, password));
+
+    if (result.hasException) {
+      print(result.exception.toString());
+    } else {
+      widget.prefs.setString('token', result.data?["LogIn"]);
+      // ignore: use_build_context_synchronously
+      context.vRouter.to('/');
+    }
   }
 
   @override

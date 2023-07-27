@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:vrouter/vrouter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
+import '../main.dart';
 
 class MainLayout extends StatelessWidget {
   final Function userMutation;
   final Function logoutMutation;
   final Widget child;
+  final GraphQLClient gqlCli;
+  final SharedPreferences prefs;
 
-  const MainLayout({
-    Key? key,
-    required this.userMutation,
-    required this.logoutMutation,
-    required this.child,
-  }) : super(key: key);
+  const MainLayout(
+      {Key? key,
+      required this.userMutation,
+      required this.logoutMutation,
+      required this.child,
+      required this.gqlCli,
+      required this.prefs})
+      : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
+  Future<Widget> fetchData(BuildContext context) async {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.top]);
 
-    final user = authPlugin(opContext: null);
+    final user = await authPlugin(prefs, gqlCli);
 
     final userLink = [
       {
@@ -31,7 +36,7 @@ class MainLayout extends StatelessWidget {
           context.vRouter.to('/');
         }
       },
-      ...user is Object
+      ...user.runtimeType != bool
           ? [
               {
                 'title': 'Profile',
@@ -113,6 +118,25 @@ class MainLayout extends StatelessWidget {
       body: child,
     );
   }
-}
 
-authPlugin({required opContext}) {}
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<Widget>(
+      future: fetchData(context),
+      builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          // While waiting for the future to complete, show a loading indicator
+          return const CircularProgressIndicator();
+        } else if (snapshot.hasError) {
+          // If an error occurred, show an error message
+        }
+        return snapshot.data ??
+            const Scaffold(
+              body: Column(
+                children: [Text('Something went wrong.')],
+              ),
+            );
+      },
+    );
+  }
+}
