@@ -108,3 +108,11 @@ QueryOptions<Object?> dataQuery(String id) {
   }
 """), fetchPolicy: FetchPolicy.networkOnly, variables: {'dataId': id});
 }
+
+MutationOptions<Object?> dataRemoveMutation(String id) {
+  return MutationOptions(document: gql("""
+  mutation RemoveData(\$removeDataId: String!) {
+    removeData(id: \$removeDataId)
+  }
+"""), variables: {'removeDataId': id});
+}

@@ -4,7 +4,9 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:vrouter/vrouter.dart';
 
 class DataDetailPage extends StatefulWidget {
-  const DataDetailPage({super.key});
+  final GraphQLClient gqlCli;
+
+  const DataDetailPage({super.key, required this.gqlCli});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -65,10 +67,10 @@ class _DataDetailPageState extends State<DataDetailPage> {
                 child: const Text('Modify'),
               ),
               ElevatedButton(
-                onPressed: () {
-                  // Implement the logic to delete the data
-                  // Use the Mutation widget to execute the mutation
-                  Navigator.pop(context);
+                onPressed: () async {
+                  await widget.gqlCli.mutate(dataRemoveMutation(id));
+                  // ignore: use_build_context_synchronously
+                  context.vRouter.to('/datas');
                 },
                 child: const Text('Delete'),
               ),
