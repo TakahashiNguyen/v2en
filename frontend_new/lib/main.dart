@@ -1,5 +1,6 @@
 import 'package:frontend_new/graphql.dart';
 import 'package:frontend_new/pages/user.login.dart';
+import 'package:frontend_new/pages/user.page.dart';
 import 'package:frontend_new/pages/user.signup.dart';
 import 'package:frontend_new/pages/welcome.page.dart';
 import 'package:frontend_new/pages/notfound.dart';
@@ -38,7 +39,11 @@ void main() async {
         VWidget(
             path: '/login', widget: LoginPage(gqlCli: gqlCli, prefs: prefs)),
         VWidget(
-            path: '/signup', widget: RegisterPage(gqlCli: gqlCli, prefs: prefs))
+            path: '/signup',
+            widget: RegisterPage(gqlCli: gqlCli, prefs: prefs)),
+        VWidget(
+            path: '/profile',
+            widget: UserProfile(userDynamic: authPlugin(prefs, gqlCli)))
       ],
     ),
     VWidget(path: '/:catchAll(.*)*', widget: const Error404Page())
