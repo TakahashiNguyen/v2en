@@ -31,12 +31,8 @@ void main() async {
   runApp(VRouter(debugShowCheckedModeBanner: false, routes: [
     VNester(
       path: '/',
-      widgetBuilder: (child) => MainLayout(
-          logoutMutation: () {},
-          userMutation: () {},
-          gqlCli: gqlCli,
-          prefs: prefs,
-          child: child),
+      widgetBuilder: (child) =>
+          MainLayout(gqlCli: gqlCli, prefs: prefs, child: child),
       nestedRoutes: [
         VWidget(path: null, widget: const WelcomePage()),
         VWidget(

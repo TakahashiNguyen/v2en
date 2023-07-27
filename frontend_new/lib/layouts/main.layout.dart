@@ -3,19 +3,16 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:vrouter/vrouter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
+import '../graphql.dart';
 import '../main.dart';
 
 class MainLayout extends StatelessWidget {
-  final Function userMutation;
-  final Function logoutMutation;
   final Widget child;
   final GraphQLClient gqlCli;
   final SharedPreferences prefs;
 
   const MainLayout(
       {Key? key,
-      required this.userMutation,
-      required this.logoutMutation,
       required this.child,
       required this.gqlCli,
       required this.prefs})
@@ -59,9 +56,10 @@ class MainLayout extends StatelessWidget {
               {
                 'title': 'LogOut',
                 'eFunction': () async {
-                  final prefs = await SharedPreferences.getInstance();
+                  final user = await authPlugin(prefs, gqlCli);
+                  await gqlCli
+                      .mutate(logoutMutation(user['username'], user['token']));
                   await prefs.remove('token');
-                  // await logoutMutation(user['username'], user['token']);
                   // ignore: use_build_context_synchronously
                   context.vRouter.to('/login');
                 },
