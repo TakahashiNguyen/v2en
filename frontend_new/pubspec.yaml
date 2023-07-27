@@ -39,6 +39,7 @@ dependencies:
   http: ^1.1.0
   dependency_validator: ^3.0.0
   webview_flutter: ^4.2.2
+  graphql_flutter: ^5.2.0-beta.5
 
 dev_dependencies:
   flutter_test:

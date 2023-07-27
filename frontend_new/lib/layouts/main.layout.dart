@@ -27,6 +27,9 @@ class MainLayout extends StatelessWidget {
         'title': 'Github',
         'caption': 'github.com/takahashinguyen',
         'icon': Icons.code,
+        'eFunction': () {
+          context.vRouter.to('/');
+        }
       },
       ...user is Object
           ? [
