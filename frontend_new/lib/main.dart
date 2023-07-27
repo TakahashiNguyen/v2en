@@ -55,7 +55,8 @@ void main() async {
           nestedRoutes: [
             VWidget(path: null, widget: const CircularProgressIndicator()),
             VWidget(path: 'add', widget: DataEditor(gqlCli: gqlCli)),
-            VWidget(path: ':id', widget: DataDetailPage(gqlCli: gqlCli))
+            VWidget(path: ':id', widget: DataDetailPage(gqlCli: gqlCli)),
+            
           ],
         )
       ],

@@ -3,10 +3,12 @@ import 'package:frontend_new/graphql.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:vrouter/vrouter.dart';
 
+// ignore: must_be_immutable
 class DataEditor extends StatelessWidget {
   final TextEditingController originController = TextEditingController();
   final TextEditingController translatedController = TextEditingController();
   final GraphQLClient gqlCli;
+  late String id;
 
   DataEditor({super.key, required this.gqlCli});
 
@@ -16,14 +18,20 @@ class DataEditor extends StatelessWidget {
     String translated = translatedController.text;
 
     // Perform necessary actions with the form data
-    await gqlCli.mutate(dataAddMutation(origin, translated));
+    final data = await gqlCli.mutate(dataAddMutation(origin, translated));
     originController.text = translatedController.text = '';
     // ignore: use_build_context_synchronously
-    context.vRouter.to('/datas');
+    context.vRouter.to('/datas/${data.data!['addData']['id']}');
   }
 
-  @override
-  Widget build(BuildContext context) {
+  void initState() async {
+    final data = (await gqlCli.query(dataQuery(id))).data?['data'] ?? '';
+    originController.text = data != '' ? data['origin'] : '';
+    translatedController.text = data != '' ? data['translated'] : '';
+  }
+
+  Future<Widget> fetchData(BuildContext context) async {
+    id = context.vRouter.pathParameters['id'] ?? '';
     return Scaffold(
       body: Center(
         child: SizedBox(
@@ -65,5 +73,25 @@ class DataEditor extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GraphQLProvider(
+        client: ValueNotifier(gqlCli),
+        child: FutureBuilder<Widget>(
+          future: fetchData(context),
+          builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            }
+            return snapshot.data ??
+                const Scaffold(
+                  body: Column(
+                    children: [Text('Something went wrong.')],
+                  ),
+                );
+          },
+        ));
   }
 }
