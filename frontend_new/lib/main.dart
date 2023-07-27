@@ -16,10 +16,15 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 authPlugin(SharedPreferences prefs, GraphQLClient gqlCli) async {
   final token = prefs.get('token');
   final QueryResult user =
-      await gqlCli.mutate(tokenMutation(token != null ? token as String : ''));
+      await GraphQLClient(link: HttpLink(graphqlURL), cache: GraphQLCache())
+          .mutate(tokenMutation(token != null ? token as String : ''));
   if (!user.hasException) {
     prefs.setString('token', user.data?['checkToken']['token']);
     return user.data?['checkToken'];
+  } else if (user.exception?.raw?[0]['message'] == 'Session not found' &&
+      token != null) {
+    prefs.remove('token');
+    return await authPlugin(prefs, gqlCli);
   }
   return false;
 }
@@ -28,10 +33,10 @@ void main() async {
   final HttpLink httpLink = HttpLink(graphqlURL);
   final prefs = await SharedPreferences.getInstance();
   final AuthLink authLink = AuthLink(getToken: () async {
-    final token = (await authPlugin(prefs,
-            GraphQLClient(link: httpLink, cache: GraphQLCache())))?['token'] ??
-        '';
-    return 'Bearer $token';
+    final user = await authPlugin(
+        prefs, GraphQLClient(link: httpLink, cache: GraphQLCache()));
+    if (user is Map) return 'Bearer ${user['token']}';
+    return '';
   });
   final Link link = authLink.concat(httpLink);
   final GraphQLClient gqlCli = GraphQLClient(link: link, cache: GraphQLCache());
