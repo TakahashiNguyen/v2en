@@ -155,3 +155,11 @@ MutationOptions<Object?> todoUpdateMutation(String id) {
   }
 """), variables: {'todoId': id});
 }
+
+MutationOptions<Object?> todoRemoveMutation(String id) {
+  return MutationOptions(document: gql("""
+  mutation Mutation(\$todoId: String!) {
+    removeTodo(todoID: \$todoId)
+  }
+"""), variables: {'todoId': id});
+}

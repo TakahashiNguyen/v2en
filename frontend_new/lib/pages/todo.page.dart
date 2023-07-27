@@ -85,24 +85,25 @@ class TodoTag extends StatelessWidget {
   final GraphQLClient gqlCli;
   final Future<QueryResult<Object?>?> Function()? refetch;
 
-  const TodoTag(
-      {Key? key,
-      required this.todo,
-      required this.id,
-      required this.deadline,
-      required this.finished,
-      required this.gqlCli,
-      required this.refetch})
-      : super(key: key);
+  const TodoTag({
+    Key? key,
+    required this.todo,
+    required this.id,
+    required this.deadline,
+    required this.finished,
+    required this.gqlCli,
+    required this.refetch,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.all(8),
-        margin: const EdgeInsets.symmetric(vertical: 4),
-        decoration: BoxDecoration(
-            color: Colors.blue, borderRadius: BorderRadius.circular(8)),
-        child: Row(children: [
+      padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.symmetric(vertical: 4),
+      decoration: BoxDecoration(
+          color: Colors.blue, borderRadius: BorderRadius.circular(8)),
+      child: Row(
+        children: [
           InkWell(
             child: Icon(
               (finished) ? Icons.check_circle : Icons.circle,
@@ -114,9 +115,26 @@ class TodoTag extends StatelessWidget {
             },
           ),
           const SizedBox(width: 8),
-          Text(todo,
-              style: const TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.bold))
-        ]));
+          Text(
+            todo,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const Spacer(),
+          InkWell(
+            child: const Icon(
+              Icons.delete,
+              color: Colors.white,
+            ),
+            onTap: () async {
+              await gqlCli.mutate(todoRemoveMutation(id));
+              refetch!();
+            },
+          ),
+        ],
+      ),
+    );
   }
 }
