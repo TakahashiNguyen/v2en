@@ -147,3 +147,11 @@ MutationOptions<Object?> todoAddMutation(String jobDetailed) {
     },
   });
 }
+
+MutationOptions<Object?> todoUpdateMutation(String id) {
+  return MutationOptions(document: gql("""
+  mutation UpdateTodo(\$todoId: String!) {
+    updateTodo(todoID: \$todoId)
+  }
+"""), variables: {'todoId': id});
+}

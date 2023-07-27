@@ -41,7 +41,12 @@ class _TodoPageState extends State<TodoPage> {
                               for (final todo in result.data?['todos'])
                                 TodoTag(
                                     key: ValueKey(todo),
-                                    todo: todo['jobDescription'])
+                                    todo: todo['jobDescription'],
+                                    id: todo['id'],
+                                    deadline: todo['deadline'],
+                                    finished: todo['finished'],
+                                    gqlCli: widget.gqlCli,
+                                    refetch: refetch),
                             ])
                           else
                             const CircularProgressIndicator(),
@@ -63,7 +68,7 @@ class _TodoPageState extends State<TodoPage> {
                                   await widget.gqlCli.mutate(todoAddMutation(
                                       newTodoTextController.text));
                                   newTodoTextController.text = '';
-                                  refetch!();
+                                  await refetch!();
                                 },
                                 child: const Text('Add'))
                           ]))
@@ -74,8 +79,21 @@ class _TodoPageState extends State<TodoPage> {
 
 class TodoTag extends StatelessWidget {
   final String todo;
+  final String id;
+  final String deadline;
+  final bool finished;
+  final GraphQLClient gqlCli;
+  final Future<QueryResult<Object?>?> Function()? refetch;
 
-  const TodoTag({Key? key, required this.todo}) : super(key: key);
+  const TodoTag(
+      {Key? key,
+      required this.todo,
+      required this.id,
+      required this.deadline,
+      required this.finished,
+      required this.gqlCli,
+      required this.refetch})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -85,9 +103,15 @@ class TodoTag extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.blue, borderRadius: BorderRadius.circular(8)),
         child: Row(children: [
-          const Icon(
-            Icons.check_circle,
-            color: Colors.white,
+          InkWell(
+            child: Icon(
+              (finished) ? Icons.check_circle : Icons.circle,
+              color: Colors.white,
+            ),
+            onTap: () async {
+              await gqlCli.mutate(todoUpdateMutation(id));
+              refetch!();
+            },
           ),
           const SizedBox(width: 8),
           Text(todo,

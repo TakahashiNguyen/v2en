@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class UserProfile extends StatelessWidget {
   final dynamic userDynamic;
+  final GraphQLClient gqlCli;
+  final SharedPreferences prefs;
 
-  const UserProfile({Key? key, required this.userDynamic}) : super(key: key);
+  const UserProfile(
+      {Key? key,
+      required this.userDynamic,
+      required this.gqlCli,
+      required this.prefs})
+      : super(key: key);
 
   Future<Widget> fetchData(BuildContext context) async {
-    final user = await userDynamic;
+    final user = await userDynamic(prefs, gqlCli);
     final userDisplay = {
       'name': user['username'],
       'birthday': user['birthDay'],

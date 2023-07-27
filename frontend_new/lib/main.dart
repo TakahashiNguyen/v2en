@@ -54,7 +54,7 @@ void main() async {
             path: 'signup', widget: RegisterPage(gqlCli: gqlCli, prefs: prefs)),
         VWidget(
             path: 'profile',
-            widget: UserProfile(userDynamic: authPlugin(prefs, gqlCli))),
+            widget: UserProfile(userDynamic: authPlugin, gqlCli:gqlCli, prefs:prefs)),
         VNester(
           path: 'datas',
           widgetBuilder: (child) => DataView(gqlCli: gqlCli, child: child),
