@@ -61,8 +61,7 @@ class _DataDetailPageState extends State<DataDetailPage> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  // Implement the logic to modify the data
-                  // Use the Mutation widget to execute the mutation
+                  context.vRouter.to('/datas/modified/$id');
                 },
                 child: const Text('Modify'),
               ),

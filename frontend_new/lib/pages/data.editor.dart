@@ -24,14 +24,13 @@ class DataEditor extends StatelessWidget {
     context.vRouter.to('/datas/${data.data!['addData']['id']}');
   }
 
-  void initState() async {
-    final data = (await gqlCli.query(dataQuery(id))).data?['data'] ?? '';
-    originController.text = data != '' ? data['origin'] : '';
-    translatedController.text = data != '' ? data['translated'] : '';
-  }
 
   Future<Widget> fetchData(BuildContext context) async {
     id = context.vRouter.pathParameters['id'] ?? '';
+    final data = (await gqlCli.query(dataQuery(id))).data?['data'] ?? '';
+    originController.text = data != '' ? data['origin'] : '';
+    translatedController.text = data != '' ? data['translated'] : '';
+
     return Scaffold(
       body: Center(
         child: SizedBox(

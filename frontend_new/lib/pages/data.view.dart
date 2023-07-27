@@ -64,17 +64,22 @@ class _DataViewState extends State<DataView> {
               // ignore: use_build_context_synchronously
               child: context.vRouter.path == '/datas'
                   ? Column(children: [
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          fixedSize: MaterialStateProperty.all(
-                              const Size(double.infinity, 48)),
-                        ),
-                        onPressed: () {
-                          context.vRouter.to('${context.vRouter.path}/add');
-                        },
-                        child: const Text('Add data'),
-                      ),
-                      ...dataList
+                      Expanded(
+                          flex: 0,
+                          child: ElevatedButton(
+                              style: ButtonStyle(
+                                fixedSize: MaterialStateProperty.all(
+                                    const Size(double.infinity, 48)),
+                              ),
+                              onPressed: () {
+                                context.vRouter
+                                    .to('${context.vRouter.path}/add');
+                              },
+                              child: const Text('Add data'))),
+                      Expanded(
+                          child: SingleChildScrollView(
+                              physics: const AlwaysScrollableScrollPhysics(),
+                              child: Column(children: dataList)))
                     ])
                   : Container(child: widget.child),
             ),
