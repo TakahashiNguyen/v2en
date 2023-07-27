@@ -39,19 +39,19 @@ class MainLayout extends StatelessWidget {
                 'title': 'Profile',
                 'eFunction': () {
                   context.vRouter.to('/profile');
-                },
+                }
               },
               {
                 'title': 'Todos',
                 'eFunction': () {
                   context.vRouter.to('/todos');
-                },
+                }
               },
               {
                 'title': 'Datas',
                 'eFunction': () {
                   context.vRouter.to('/datas');
-                },
+                }
               },
               {
                 'title': 'LogOut',
@@ -62,75 +62,75 @@ class MainLayout extends StatelessWidget {
                   await prefs.remove('token');
                   // ignore: use_build_context_synchronously
                   context.vRouter.to('/login');
-                },
-              },
+                }
+              }
             ]
           : [
               {
                 'title': 'Login',
                 'eFunction': () {
                   context.vRouter.to('/login');
-                },
+                }
               },
               {
                 'title': 'Signup',
                 'eFunction': () {
                   context.vRouter.to('/signup');
-                },
-              },
+                }
+              }
             ]
     ];
 
     final listLink = <ListTile>[
       for (Map<String, dynamic> e in userLink)
         ListTile(
-          onTap: () {
-            (e['eFunction'] ?? () {})();
-          },
-          title: Text(e['title'] ?? ''),
-          subtitle: Text(e['caption'] ?? ''),
-          leading: (Icon(e['icon'] as IconData?)),
-        )
+            onTap: () {
+              (e['eFunction'] ?? () {})();
+            },
+            title: Text(e['title'] ?? ''),
+            subtitle: Text(e['caption'] ?? ''),
+            leading: (Icon(e['icon'] as IconData?)))
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            const ListTile(
-              title: Text(
-                'v2en',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+        ),
+        drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              const ListTile(
+                title: Text(
+                  'v2en',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            ...listLink
-          ],
+              ...listLink
+            ],
+          ),
         ),
-      ),
-      body: child,
-    );
+        body: child);
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Widget>(
-      future: fetchData(context),
-      builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
-        }
-        return snapshot.data ??
-            const Scaffold(
-              body: Column(
-                children: [Text('Something went wrong.')],
-              ),
-            );
-      },
-    );
+    return GraphQLProvider(
+        client: ValueNotifier(gqlCli),
+        child: FutureBuilder<Widget>(
+          future: fetchData(context),
+          builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            }
+            return snapshot.data ??
+                const Scaffold(
+                  body: Column(
+                    children: [Text('Something went wrong.')],
+                  ),
+                );
+          },
+        ));
   }
 }

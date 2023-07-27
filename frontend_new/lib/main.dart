@@ -1,5 +1,6 @@
 import 'package:frontend_new/graphql.dart';
 import 'package:frontend_new/pages/data.editor.dart';
+import 'package:frontend_new/pages/data.page.dart';
 import 'package:frontend_new/pages/data.view.dart';
 import 'package:frontend_new/pages/user.login.dart';
 import 'package:frontend_new/pages/user.page.dart';
@@ -53,7 +54,8 @@ void main() async {
           widgetBuilder: (child) => DataView(gqlCli: gqlCli, child: child),
           nestedRoutes: [
             VWidget(path: null, widget: const CircularProgressIndicator()),
-            VWidget(path: 'add', widget: DataEditor(gqlCli: gqlCli))
+            VWidget(path: 'add', widget: DataEditor(gqlCli: gqlCli)),
+            VWidget(path: ':id', widget: const DataDetailPage())
           ],
         )
       ],

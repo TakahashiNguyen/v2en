@@ -56,7 +56,7 @@ MutationOptions<Object?> logoutMutation(String username, String token) {
 """), variables: {'username': username, 'token': token});
 }
 
-QueryOptions<Object?> dataQuery() {
+QueryOptions<Object?> datasQuery() {
   return QueryOptions(
     document: gql("""
   query Query {
@@ -93,4 +93,18 @@ MutationOptions<Object?> dataAddMutation(String origin, String translated) {
       'verified': false,
     }
   });
+}
+
+QueryOptions<Object?> dataQuery(String id) {
+  return QueryOptions(document: gql("""
+  query Data(\$dataId: String!) {
+    data(id: \$dataId) {
+      id
+      origin
+      translated
+      translator
+      verified
+    }
+  }
+"""), fetchPolicy: FetchPolicy.networkOnly, variables: {'dataId': id});
 }

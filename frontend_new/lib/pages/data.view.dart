@@ -25,7 +25,7 @@ class _DataViewState extends State<DataView> {
   }
 
   Future<Widget> fetchData(BuildContext context) async {
-    final qdata = (await widget.gqlCli.query(dataQuery()));
+    final qdata = (await widget.gqlCli.query(datasQuery()));
     var dataList = <ListTile>[];
 
     if (!qdata.hasException) {
