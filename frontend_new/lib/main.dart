@@ -1,5 +1,6 @@
 import 'package:frontend_new/graphql.dart';
 import 'package:frontend_new/pages/user.login.dart';
+import 'package:frontend_new/pages/user.signup.dart';
 import 'package:frontend_new/pages/welcome.page.dart';
 import 'package:frontend_new/pages/notfound.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,40 +24,27 @@ void main() async {
   final HttpLink httpLink = HttpLink(graphqlURL);
   final prefs = await SharedPreferences.getInstance();
   final token = prefs.get('token');
-  final AuthLink authLink = AuthLink(
-    getToken: () => 'Bearer $token',
-  );
+  final AuthLink authLink = AuthLink(getToken: () => 'Bearer $token');
   final Link link = authLink.concat(httpLink);
-  final GraphQLClient gqlCli = GraphQLClient(
-    link: link,
-    cache: GraphQLCache(),
-  );
+  final GraphQLClient gqlCli = GraphQLClient(link: link, cache: GraphQLCache());
 
-  runApp(
-    VRouter(
-      debugShowCheckedModeBanner: false,
-      routes: [
-        VNester(
-          path: '/',
-          widgetBuilder: (child) => MainLayout(
-            logoutMutation: () {},
-            userMutation: () {},
-            gqlCli: gqlCli,
-            prefs: prefs,
-            child: child,
-          ),
-          nestedRoutes: [
-            VWidget(path: null, widget: const WelcomePage()),
-            VWidget(
-                path: '/login',
-                widget: LoginPage(
-                  gqlCli: gqlCli,
-                  prefs: prefs,
-                ))
-          ],
-        ),
-        VWidget(path: '/:catchAll(.*)*', widget: const Error404Page())
+  runApp(VRouter(debugShowCheckedModeBanner: false, routes: [
+    VNester(
+      path: '/',
+      widgetBuilder: (child) => MainLayout(
+          logoutMutation: () {},
+          userMutation: () {},
+          gqlCli: gqlCli,
+          prefs: prefs,
+          child: child),
+      nestedRoutes: [
+        VWidget(path: null, widget: const WelcomePage()),
+        VWidget(
+            path: '/login', widget: LoginPage(gqlCli: gqlCli, prefs: prefs)),
+        VWidget(
+            path: '/signup', widget: RegisterPage(gqlCli: gqlCli, prefs: prefs))
       ],
     ),
-  );
+    VWidget(path: '/:catchAll(.*)*', widget: const Error404Page())
+  ]));
 }
