@@ -32,9 +32,7 @@ class _LoginPageState extends State<LoginPage> {
     final QueryResult result =
         await widget.gqlCli.mutate(loginMutation(username, password));
 
-    if (result.hasException) {
-      print(result.exception.toString());
-    } else {
+    if (!result.hasException) {
       widget.prefs.setString('token', result.data?["LogIn"]);
       // ignore: use_build_context_synchronously
       context.vRouter.to('/');

@@ -55,3 +55,17 @@ MutationOptions<Object?> logoutMutation(String username, String token) {
   }
 """), variables: {'username': username, 'token': token});
 }
+
+QueryOptions<Object?> dataQuery() {
+  return QueryOptions(document: gql("""
+  query Query {
+    datas {
+      id
+      origin
+      translated
+      translator
+      verified
+    }
+  }
+"""));
+}

@@ -38,10 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
     final QueryResult result = await widget.gqlCli.mutate(registerMutation(
         username, password, lastName, firstName, gender, birthday));
 
-    if (result.hasException) {
-      // Handle error
-      print(result.exception.toString());
-    } else {
+    if (!result.hasException) {
       widget.prefs.setString('token', result.data?['addUser']);
       final user = await authPlugin(widget.prefs, widget.gqlCli);
       if (user.runtimeType != Null) {

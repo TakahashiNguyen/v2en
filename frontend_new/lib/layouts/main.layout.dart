@@ -123,10 +123,7 @@ class MainLayout extends StatelessWidget {
       future: fetchData(context),
       builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          // While waiting for the future to complete, show a loading indicator
           return const CircularProgressIndicator();
-        } else if (snapshot.hasError) {
-          // If an error occurred, show an error message
         }
         return snapshot.data ??
             const Scaffold(
