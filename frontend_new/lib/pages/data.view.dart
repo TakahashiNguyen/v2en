@@ -67,7 +67,7 @@ class _DataViewState extends State<DataView> {
                               const Size(double.infinity, 48)),
                         ),
                         onPressed: () {
-                          // Implement the equivalent of $router.push('/datas/add') in Dart
+                          context.vRouter.to('${context.vRouter.path}/add');
                         },
                         child: const Text('Add data'),
                       ),

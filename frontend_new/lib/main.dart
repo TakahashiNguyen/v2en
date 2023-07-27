@@ -1,4 +1,5 @@
 import 'package:frontend_new/graphql.dart';
+import 'package:frontend_new/pages/data.editor.dart';
 import 'package:frontend_new/pages/data.view.dart';
 import 'package:frontend_new/pages/user.login.dart';
 import 'package:frontend_new/pages/user.page.dart';
@@ -41,19 +42,18 @@ void main() async {
           MainLayout(gqlCli: gqlCli, prefs: prefs, child: child),
       nestedRoutes: [
         VWidget(path: null, widget: const WelcomePage()),
+        VWidget(path: 'login', widget: LoginPage(gqlCli: gqlCli, prefs: prefs)),
         VWidget(
-            path: '/login', widget: LoginPage(gqlCli: gqlCli, prefs: prefs)),
+            path: 'signup', widget: RegisterPage(gqlCli: gqlCli, prefs: prefs)),
         VWidget(
-            path: '/signup',
-            widget: RegisterPage(gqlCli: gqlCli, prefs: prefs)),
-        VWidget(
-            path: '/profile',
+            path: 'profile',
             widget: UserProfile(userDynamic: authPlugin(prefs, gqlCli))),
         VNester(
-          path: '/datas',
+          path: 'datas',
           widgetBuilder: (child) => DataView(gqlCli: gqlCli, child: child),
           nestedRoutes: [
-            VWidget(path: null, widget: const CircularProgressIndicator())
+            VWidget(path: null, widget: const CircularProgressIndicator()),
+            VWidget(path: 'add', widget: DataEditor(gqlCli: gqlCli))
           ],
         )
       ],
