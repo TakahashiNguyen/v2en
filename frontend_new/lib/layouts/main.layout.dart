@@ -90,7 +90,6 @@ class MainLayout extends StatelessWidget {
           title: Text(e['title'] ?? ''),
           subtitle: Text(e['caption'] ?? ''),
           leading: (Icon(e['icon'] as IconData?)),
-          tileColor: Colors.grey[200],
         )
     ];
 

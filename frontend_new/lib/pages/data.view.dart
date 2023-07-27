@@ -32,6 +32,9 @@ class _DataViewState extends State<DataView> {
       dataList = <ListTile>[
         for (Map<String, dynamic> e in qdata.data?['datas'])
           ListTile(
+            onTap: () {
+              context.vRouter.to('${context.vRouter.path}/${e['id']}');
+            },
             title: Text(e['origin'] + ' >> ' + e['translated']),
             subtitle: Text(
                 // ignore: prefer_interpolation_to_compose_strings
