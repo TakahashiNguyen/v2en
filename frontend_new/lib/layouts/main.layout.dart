@@ -44,7 +44,7 @@ class MainLayout extends StatelessWidget {
               {
                 'title': 'Todos',
                 'eFunction': () {
-                  context.vRouter.to('/todos');
+                  context.vRouter.to('/todo');
                 }
               },
               {

@@ -2,6 +2,7 @@ import 'package:frontend_new/graphql.dart';
 import 'package:frontend_new/pages/data.editor.dart';
 import 'package:frontend_new/pages/data.page.dart';
 import 'package:frontend_new/pages/data.view.dart';
+import 'package:frontend_new/pages/todo.page.dart';
 import 'package:frontend_new/pages/user.login.dart';
 import 'package:frontend_new/pages/user.page.dart';
 import 'package:frontend_new/pages/user.signup.dart';
@@ -63,7 +64,8 @@ void main() async {
             VWidget(path: ':id', widget: DataDetailPage(gqlCli: gqlCli)),
             VWidget(path: 'modified/:id', widget: DataEditor(gqlCli: gqlCli))
           ],
-        )
+        ),
+        VWidget(path: 'todo', widget: TodoPage(gqlCli: gqlCli))
       ],
     ),
     VWidget(path: '/:catchAll(.*)*', widget: const Error404Page())

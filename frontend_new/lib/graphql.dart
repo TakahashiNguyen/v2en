@@ -116,3 +116,34 @@ MutationOptions<Object?> dataRemoveMutation(String id) {
   }
 """), variables: {'removeDataId': id});
 }
+
+QueryOptions<Object?> todosQuery() {
+  return QueryOptions(document: gql("""
+  query Todos {
+    todos {
+      id
+      jobDescription
+      deadline
+      finished
+    }
+  }
+"""), fetchPolicy: FetchPolicy.networkOnly);
+}
+
+MutationOptions<Object?> todoAddMutation(String jobDetailed) {
+  return MutationOptions(document: gql("""
+  mutation AddTodo(\$newTodo: TodoInput!) {
+    addTodo(newTodo: \$newTodo) {
+      jobDescription
+      deadline
+      finished
+    }
+  }
+"""), variables: {
+    'newTodo': {
+      'jobDescription': jobDetailed,
+      'deadline': '06-02-2006',
+      'finished': false,
+    },
+  });
+}
