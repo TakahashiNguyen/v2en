@@ -24,7 +24,6 @@ class DataEditor extends StatelessWidget {
     context.vRouter.to('/datas/${data.data!['addData']['id']}');
   }
 
-
   Future<Widget> fetchData(BuildContext context) async {
     id = context.vRouter.pathParameters['id'] ?? '';
     final data = (await gqlCli.query(dataQuery(id))).data?['data'] ?? '';
@@ -76,21 +75,19 @@ class DataEditor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GraphQLProvider(
-        client: ValueNotifier(gqlCli),
-        child: FutureBuilder<Widget>(
-          future: fetchData(context),
-          builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
-            }
-            return snapshot.data ??
-                const Scaffold(
-                  body: Column(
-                    children: [Text('Something went wrong.')],
-                  ),
-                );
-          },
-        ));
+    return FutureBuilder<Widget>(
+      future: fetchData(context),
+      builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        }
+        return snapshot.data ??
+            const Scaffold(
+              body: Column(
+                children: [Text('Something went wrong.')],
+              ),
+            );
+      },
+    );
   }
 }

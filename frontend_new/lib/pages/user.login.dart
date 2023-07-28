@@ -1,12 +1,16 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:frontend_new/graphql.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vrouter/vrouter.dart';
+import 'package:local_auth/local_auth.dart';
 
 class LoginPage extends StatefulWidget {
   final GraphQLClient gqlCli;
   final SharedPreferences prefs;
+
   const LoginPage({Key? key, required this.gqlCli, required this.prefs})
       : super(key: key);
 
@@ -39,8 +43,9 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Future<Widget> fetchData(BuildContext context) async {
+    final LocalAuthentication auth = LocalAuthentication();
+    final canBiometrics = !Platform.isLinux && await auth.isDeviceSupported();
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -78,18 +83,32 @@ class _LoginPageState extends State<LoginPage> {
                     },
                   ),
                   const SizedBox(height: 20),
-                  TextFormField(
-                    controller: _passwordController,
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                      labelText: 'Password',
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your password';
-                      }
-                      return null;
-                    },
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: _passwordController,
+                          obscureText: true,
+                          decoration: const InputDecoration(
+                            labelText: 'Password',
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your password';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      if (canBiometrics)
+                        InkWell(
+                          child: const Icon(
+                            Icons.face_outlined,
+                            color: Colors.blue,
+                          ),
+                          onTap: () async {},
+                        ),
+                    ],
                   ),
                   const SizedBox(height: 40),
                   ElevatedButton(
@@ -113,6 +132,24 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<Widget>(
+      future: fetchData(context),
+      builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        }
+        return snapshot.data ??
+            const Scaffold(
+              body: Column(
+                children: [Text('Something went wrong.')],
+              ),
+            );
+      },
     );
   }
 }
