@@ -45,7 +45,13 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<Widget> fetchData(BuildContext context) async {
     final LocalAuthentication auth = LocalAuthentication();
-    final canBiometrics = !Platform.isLinux && await auth.isDeviceSupported();
+    final canBiometrics = !Platform.isLinux && await auth.canCheckBiometrics;
+    var isFace = false;
+    if (canBiometrics) {
+      final List<BiometricType> availableBiometrics =
+          await auth.getAvailableBiometrics();
+      isFace = availableBiometrics.contains(BiometricType.face);
+    }
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -102,11 +108,13 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       if (canBiometrics)
                         InkWell(
-                          child: const Icon(
-                            Icons.face_outlined,
+                          child: Icon(
+                            (isFace) ? Icons.face_outlined : Icons.fingerprint,
                             color: Colors.blue,
                           ),
-                          onTap: () async {},
+                          onTap: () async {
+                            // TODO: face detect
+                          },
                         ),
                     ],
                   ),

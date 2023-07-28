@@ -1,6 +1,6 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-const graphqlURL = 'http://127.0.0.1:2564/graphql';
+const graphqlURL = 'http://192.168.50.220:2564/graphql';
 
 MutationOptions<Object?> loginMutation(String username, String password) {
   return MutationOptions(document: gql("""
