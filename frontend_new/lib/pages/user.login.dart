@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
-  late String? userFace;
+  late String userFace = '';
 
   @override
   void initState() {
@@ -43,7 +43,9 @@ class _LoginPageState extends State<LoginPage> {
 
   void _submitForm() async {
     final String username = _usernameController.text;
-    final String password = userFace ?? _passwordController.text;
+    final String password = userFace == ''
+        ? 'UserPasswordAuthencation ${_passwordController.text}'
+        : userFace;
 
     final QueryResult result =
         await widget.gqlCli.mutate(loginMutation(username, password));

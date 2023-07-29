@@ -53,6 +53,16 @@ export class IsPasswordCorrentConstraint
 	constructor() {}
 
 	async validate(value: string): Promise<boolean> {
-		return value.length >= 8 && value.replace(/[^0-9]/g, '').length > 3;
+		if (value.split(' ').length > 2) return false;
+		const type = value.split(' ')[0];
+		const password = value.split(' ')[1];
+		if (
+			type != 'UserPasswordAuthencation' &&
+			type != 'UserFaceAuthencation'
+		)
+			return false;
+		return (
+			password.length >= 8 && password.replace(/[^0-9]/g, '').length > 3
+		);
 	}
 }

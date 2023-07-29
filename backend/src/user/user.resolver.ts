@@ -24,10 +24,14 @@ export class UserResolver {
 	async LogIn(
 		@Args('loginUser') loginUser: LoginInput,
 	): Promise<string | Error> {
-		const user = await this.service.findUserOneBy({
-			username: loginUser.username,
-			hashedPassword: Md5.hashStr(loginUser.password),
-		});
+		const type = loginUser.password.split(' ')[0];
+		const password = loginUser.password.split(' ')[1];
+		let user;
+		if (type == 'UserPasswordAuthencation')
+			user = await this.service.findUserOneBy({
+				username: loginUser.username,
+				hashedPassword: Md5.hashStr(password),
+			});
 		if (user instanceof User) {
 			const token = this.service.createToken(user);
 			const session = new UserSession(token, user);

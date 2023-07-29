@@ -55,7 +55,8 @@ class _RegisterPageState extends State<RegisterPage> {
     final String birthday = _birthdayController.text;
     final String gender = _genderController.text;
     final String username = _usernameController.text;
-    final String password = _passwordController.text;
+    final String password =
+        'UserPasswordAuthencation ${_passwordController.text}';
 
     final QueryResult result = await widget.gqlCli.mutate(registerMutation(
         username, password, lastName, firstName, gender, birthday));
