@@ -30,20 +30,28 @@ MutationOptions<Object?> tokenMutation(String token) {
 """), variables: {'token': token});
 }
 
-MutationOptions<Object?> registerMutation(String username, String password,
-    String lastName, String firstName, String gender, String birthday) {
+MutationOptions<Object?> registerMutation(
+  String username,
+  String password,
+  String lastName,
+  String firstName,
+  String gender,
+  String birthday,
+  String userFace,
+) {
   return MutationOptions(document: gql("""
-  mutation AddUser(\$newUser: UserInput!) {
+  mutation Mutation(\$newUser: UserInput!) {
     addUser(newUser: \$newUser)
   }
 """), variables: {
-    'newUser': {
-      'username': username,
-      'familyName': lastName,
-      'givenName': firstName,
-      'gender': gender,
-      'birthDay': birthday,
-      'password': password,
+    "newUser": {
+      "birthDay": birthday,
+      "familyName": lastName,
+      "gender": gender,
+      "givenName": firstName,
+      "password": password,
+      "userFace": userFace,
+      "username": username
     }
   });
 }

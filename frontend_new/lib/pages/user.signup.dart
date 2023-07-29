@@ -45,7 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
   setImage(Uint8List? imageFile, int type) {
     if (imageFile == null) return;
     setState(() {
-      userFace = 'UserFaceAuthencation ${base64Encode(imageFile)}';
+      userFace = base64Encode(imageFile);
     });
   }
 
@@ -59,7 +59,7 @@ class _RegisterPageState extends State<RegisterPage> {
         'UserPasswordAuthencation ${_passwordController.text}';
 
     final QueryResult result = await widget.gqlCli.mutate(registerMutation(
-        username, password, lastName, firstName, gender, birthday));
+        username, password, lastName, firstName, gender, birthday, userFace));
 
     if (!result.hasException) {
       widget.prefs.setString('token', result.data?['addUser']);

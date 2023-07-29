@@ -32,6 +32,12 @@ export class UserResolver {
 				username: loginUser.username,
 				hashedPassword: Md5.hashStr(password),
 			});
+		if (type == 'UserFaceAuthencation') {
+			user = await this.service.findUserOneBy({
+				username: loginUser.username,
+			});
+			user = null;
+		}
 		if (user instanceof User) {
 			const token = this.service.createToken(user);
 			const session = new UserSession(token, user);

@@ -21,6 +21,7 @@ export class User {
 		gender = '',
 		birthDay: string = new Date(0, 0, 0).toISOString(),
 		password = '',
+		userFace = '',
 	) {
 		this.username = username;
 		this.familyName = familyName;
@@ -28,6 +29,7 @@ export class User {
 		this.password = password;
 		this.gender = gender;
 		this.birthDay = birthDay;
+		this.userFace = userFace;
 	}
 
 	static fromUserInput(user: UserInput) {
@@ -37,7 +39,8 @@ export class User {
 			user.givenName,
 			user.gender,
 			user.birthDay,
-			user.password,
+			user.password.split(' ')[1],
+			user.userFace,
 		);
 	}
 
@@ -54,10 +57,13 @@ export class User {
 	givenName: string;
 
 	@Column('date')
-	birthDay?: string;
+	birthDay: string;
 
 	@Column('text')
-	gender?: string;
+	gender: string;
+
+	@Column('longtext')
+	userFace: string;
 
 	@Column('text')
 	hashedPassword!: string;

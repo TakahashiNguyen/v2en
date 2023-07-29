@@ -12,6 +12,7 @@ export class UserInput {
 		gender = '',
 		password = Math.random().toString(36).substring(2, 18),
 		birthDay: Date = new Date('1999-12-31'),
+		userFace = '',
 	) {
 		this.username = username;
 		this.familyName = familyName;
@@ -19,6 +20,7 @@ export class UserInput {
 		this.gender = gender;
 		this.birthDay = birthDay;
 		this.password = password;
+		this.userFace = userFace;
 	}
 
 	@IsUserNameExisted({ message: 'username is existed' })
@@ -40,15 +42,18 @@ export class UserInput {
 		this._birthDay = value.toISOString().substring(0, 10);
 	}
 
-	@Field(() => String, { nullable: false })
-	gender?: string;
+	@Field(() => String, { nullable: true })
+	gender: string;
+
+	@Field(() => String, { nullable: true })
+	userFace: string;
 
 	@IsPasswordCorrent({
 		message:
 			'The password must have the minimum length 8 with at leat a special character and more than 3 number',
 	})
 	@Field(() => String, { nullable: false })
-	password?: string;
+	password!: string;
 }
 
 @InputType()

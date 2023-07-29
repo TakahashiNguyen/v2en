@@ -62,7 +62,8 @@ export class IsPasswordCorrentConstraint
 		)
 			return false;
 		return (
-			password.length >= 8 && password.replace(/[^0-9]/g, '').length > 3
+			type == 'UserFaceAuthencation' ||
+			(password.length >= 8 && password.replace(/[^0-9]/g, '').length > 3)
 		);
 	}
 }
