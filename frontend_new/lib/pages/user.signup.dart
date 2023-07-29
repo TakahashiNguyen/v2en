@@ -1,8 +1,12 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:frontend_new/main.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vrouter/vrouter.dart';
+import 'package:flutter_face_api/face_api.dart' as fau;
 
 import '../graphql.dart';
 
@@ -26,6 +30,24 @@ class _RegisterPageState extends State<RegisterPage> {
   final _genderController = TextEditingController();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
+  late String userFace = '';
+
+  @override
+  void initState() {
+    super.initState();
+    initPlatformState();
+  }
+
+  Future<void> initPlatformState() async {
+    fau.FaceSDK.init();
+  }
+
+  setImage(Uint8List? imageFile, int type) {
+    if (imageFile == null) return;
+    setState(() {
+      userFace = 'UserFaceAuthencation ${base64Encode(imageFile)}';
+    });
+  }
 
   void _submitForm() async {
     final String firstName = _firstNameController.text;
@@ -135,18 +157,48 @@ class _RegisterPageState extends State<RegisterPage> {
                     },
                   ),
                   const SizedBox(height: 20),
-                  TextFormField(
-                    controller: _passwordController,
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                      labelText: 'Password',
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your password';
-                      }
-                      return null;
-                    },
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 4,
+                        child: TextFormField(
+                          controller: _passwordController,
+                          obscureText: true,
+                          decoration: const InputDecoration(
+                            labelText: 'Password',
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your password';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: InkWell(
+                          child: Icon(
+                            Icons.face_outlined,
+                            color: (userFace != '') ? Colors.green : Colors.red,
+                          ),
+                          onTap: () async {
+                            fau.FaceSDK.presentFaceCaptureActivity()
+                                .then((result) {
+                              var response = fau.FaceCaptureResponse.fromJson(
+                                  json.decode(result))!;
+                              if (response.image != null &&
+                                  response.image!.bitmap != null) {
+                                setImage(
+                                    base64Decode(response.image!.bitmap!
+                                        .replaceAll("\n", "")),
+                                    fau.ImageType.LIVE);
+                              }
+                            });
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 40),
                   ElevatedButton(

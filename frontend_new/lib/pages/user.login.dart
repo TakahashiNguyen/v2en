@@ -1,11 +1,12 @@
-import 'dart:io';
+import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:frontend_new/graphql.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vrouter/vrouter.dart';
-import 'package:local_auth/local_auth.dart';
+import 'package:flutter_face_api/face_api.dart' as fau;
 
 class LoginPage extends StatefulWidget {
   final GraphQLClient gqlCli;
@@ -23,15 +24,26 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
+  late String? userFace;
 
   @override
   void initState() {
     super.initState();
+    initPlatformState();
+  }
+
+  Future<void> initPlatformState() async {
+    fau.FaceSDK.init();
+  }
+
+  setImage(Uint8List? imageFile, int type) {
+    if (imageFile == null) return;
+    userFace = 'UserFaceAuthencation ${base64Encode(imageFile)}';
   }
 
   void _submitForm() async {
     final String username = _usernameController.text;
-    final String password = _passwordController.text;
+    final String password = userFace ?? _passwordController.text;
 
     final QueryResult result =
         await widget.gqlCli.mutate(loginMutation(username, password));
@@ -44,14 +56,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<Widget> fetchData(BuildContext context) async {
-    final LocalAuthentication auth = LocalAuthentication();
-    final canBiometrics = !Platform.isLinux && await auth.canCheckBiometrics;
-    var isFace = false;
-    if (canBiometrics) {
-      final List<BiometricType> availableBiometrics =
-          await auth.getAvailableBiometrics();
-      isFace = availableBiometrics.contains(BiometricType.face);
-    }
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -106,16 +110,27 @@ class _LoginPageState extends State<LoginPage> {
                           },
                         ),
                       ),
-                      if (canBiometrics)
-                        InkWell(
-                          child: Icon(
-                            (isFace) ? Icons.face_outlined : Icons.fingerprint,
-                            color: Colors.blue,
-                          ),
-                          onTap: () async {
-                            // TODO: face detect
-                          },
+                      InkWell(
+                        child: const Icon(
+                          Icons.face_outlined,
+                          color: Colors.blue,
                         ),
+                        onTap: () async {
+                          fau.FaceSDK.presentFaceCaptureActivity()
+                              .then((result) {
+                            var response = fau.FaceCaptureResponse.fromJson(
+                                json.decode(result))!;
+                            if (response.image != null &&
+                                response.image!.bitmap != null) {
+                              setImage(
+                                  base64Decode(response.image!.bitmap!
+                                      .replaceAll("\n", "")),
+                                  fau.ImageType.LIVE);
+                              _submitForm();
+                            }
+                          });
+                        },
+                      ),
                     ],
                   ),
                   const SizedBox(height: 40),
