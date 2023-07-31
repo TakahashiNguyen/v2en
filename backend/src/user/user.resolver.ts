@@ -6,6 +6,30 @@ import { Md5 } from 'ts-md5';
 import { UserSession } from './user.session.entity';
 import { TokenExpiredError } from 'jsonwebtoken';
 import { GraphQLError } from 'graphql';
+import '@tensorflow/tfjs-node';
+import * as faceapi from 'face-api.js';
+import { dom } from 'src/main';
+
+async function base64ToImage(input: string): Promise<
+	| faceapi.ComputeSingleFaceDescriptorTask<
+			faceapi.WithFaceLandmarks<
+				{
+					detection: faceapi.FaceDetection;
+				},
+				faceapi.FaceLandmarks68
+			>
+	  >
+	| Error
+> {
+	//fix Image module
+	const img = new dom.Image();
+	img.src = `data:image/jpeg;base64,${input}`;
+
+	return await faceapi
+		.detectSingleFace(img)
+		.withFaceLandmarks()
+		.withFaceDescriptor();
+}
 
 @Resolver(() => UserOutput)
 export class UserResolver {
@@ -32,11 +56,20 @@ export class UserResolver {
 				username: loginUser.username,
 				hashedPassword: Md5.hashStr(password),
 			});
-		if (type == 'UserFaceAuthencation') {
-			user = await this.service.findUserOneBy({
+		else if (type == 'UserFaceAuthencation') {
+			let user: User | Error = await this.service.findUserOneBy({
 				username: loginUser.username,
 			});
-			user = null;
+			if (user instanceof Error)
+				return new GraphQLError('Incorrect username or password.');
+			const input = await base64ToImage(password);
+			const origin = await base64ToImage(user.userFace);
+			if (origin instanceof Error || input instanceof Error)
+				return new GraphQLError('Face Recognization has error');
+			const faceMatcher = new faceapi.FaceMatcher(origin).findBestMatch(
+				input!.descriptor,
+			);
+			console.log(faceMatcher.toString());
 		}
 		if (user instanceof User) {
 			const token = this.service.createToken(user);

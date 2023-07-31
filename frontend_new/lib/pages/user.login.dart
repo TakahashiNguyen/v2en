@@ -36,11 +36,6 @@ class _LoginPageState extends State<LoginPage> {
     fau.FaceSDK.init();
   }
 
-  setImage(Uint8List? imageFile, int type) {
-    if (imageFile == null) return;
-    userFace = 'UserFaceAuthencation ${base64Encode(imageFile)}';
-  }
-
   void _submitForm() async {
     final String username = _usernameController.text;
     final String password = userFace == ''
@@ -124,10 +119,8 @@ class _LoginPageState extends State<LoginPage> {
                                 json.decode(result))!;
                             if (response.image != null &&
                                 response.image!.bitmap != null) {
-                              setImage(
-                                  base64Decode(response.image!.bitmap!
-                                      .replaceAll("\n", "")),
-                                  fau.ImageType.LIVE);
+                              userFace =
+                                  'UserFaceAuthencation ${response.image!.bitmap!}';
                               _submitForm();
                             }
                           });
