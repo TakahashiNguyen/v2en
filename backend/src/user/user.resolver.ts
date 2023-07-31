@@ -10,22 +10,12 @@ import '@tensorflow/tfjs-node';
 import * as faceapi from 'face-api.js';
 import { dom } from 'src/main';
 
-async function base64ToImage(input: string): Promise<
-	| faceapi.ComputeSingleFaceDescriptorTask<
-			faceapi.WithFaceLandmarks<
-				{
-					detection: faceapi.FaceDetection;
-				},
-				faceapi.FaceLandmarks68
-			>
-	  >
-	| Error
-> {
+async function base64ToImage(input: string) {
 	//fix Image module
 	const img = new dom.Image();
 	img.src = `data:image/jpeg;base64,${input}`;
 
-	return await faceapi
+	return faceapi
 		.detectSingleFace(img)
 		.withFaceLandmarks()
 		.withFaceDescriptor();

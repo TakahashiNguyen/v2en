@@ -7,7 +7,9 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { initializeTransactionalContext } from 'typeorm-transactional';
 import * as bodyParser from 'body-parser';
 import * as faceapi from 'face-api.js';
+import * as tf from '@tensorflow/tfjs';
 import { JSDOM } from 'jsdom';
+import '@tensorflow/tfjs-backend-webgl';
 
 export const dom = new JSDOM('').window;
 async function bootstrap() {
@@ -17,9 +19,18 @@ async function bootstrap() {
 	});
 
 	//face-api.js init
-	await faceapi.loadFaceDetectionModel(
+	tf.setBackend('webgl');
+	await tf.ready();
+	await faceapi.nets.ssdMobilenetv1.loadFromUri(
 		'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/ssd_mobilenetv1_model-weights_manifest.json',
 	);
+	await faceapi.nets.tinyFaceDetector.loadFromUri(
+		'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/tiny_face_detector_model-weights_manifest.json',
+	);
+	await faceapi.nets.faceLandmark68Net.loadFromUri(
+		'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/face_landmark_68_model-weights_manifest.json',
+	);
+	console.log(faceapi.nets);
 
 	//Image DOM element load
 	faceapi.env.monkeyPatch({
