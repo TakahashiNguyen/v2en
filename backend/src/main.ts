@@ -5,37 +5,38 @@ import { useContainer } from 'class-validator';
 import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { initializeTransactionalContext } from 'typeorm-transactional';
-import * as bodyParser from 'body-parser';
-import * as faceapi from 'face-api.js';
-import * as tf from '@tensorflow/tfjs';
+import * as tfLib from '@tensorflow/tfjs-node-gpu';
+import * as faceapiLib from '@vladmandic/face-api/dist/face-api.node-gpu';
+import * as canvasLib from 'canvas';
 import { JSDOM } from 'jsdom';
-import '@tensorflow/tfjs-backend-webgl';
+
+export const canvas = canvasLib;
+export const faceapi = faceapiLib;
+export const tf = tfLib;
 
 export const dom = new JSDOM('').window;
+export const modelPath = 'src/model';
+export const optionsSSDMobileNet = new faceapi.SsdMobilenetv1Options({
+	minConfidence: 0.5,
+	maxResults: 1,
+});
+
+export async function initModels() {
+	await tf.ready();
+	await faceapi.nets.ssdMobilenetv1.loadFromDisk(modelPath);
+	await faceapi.nets.faceLandmark68Net.loadFromDisk(modelPath);
+	await faceapi.nets.faceExpressionNet.loadFromDisk(modelPath);
+	await faceapi.nets.faceRecognitionNet.loadFromDisk(modelPath);
+	faceapi.env.monkeyPatch({ Canvas: dom.HTMLCanvasElement, FileReader: dom.FileReader, Image: dom.HTMLImageElement });
+}
+
 async function bootstrap() {
 	initializeTransactionalContext();
 	const app = await NestFactory.create<NestExpressApplication>(AppModule, {
 		cors: true,
 	});
 
-	//face-api.js init
-	tf.setBackend('webgl');
-	await tf.ready();
-	await faceapi.nets.ssdMobilenetv1.loadFromUri(
-		'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/ssd_mobilenetv1_model-weights_manifest.json',
-	);
-	await faceapi.nets.tinyFaceDetector.loadFromUri(
-		'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/tiny_face_detector_model-weights_manifest.json',
-	);
-	await faceapi.nets.faceLandmark68Net.loadFromUri(
-		'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/face_landmark_68_model-weights_manifest.json',
-	);
-	console.log(faceapi.nets);
-
-	//Image DOM element load
-	faceapi.env.monkeyPatch({
-		Image: dom.HTMLImageElement,
-	});
+	await initModels();
 
 	//CORS fix
 	useContainer(app.select(AppModule), { fallbackOnErrors: true });
@@ -48,9 +49,8 @@ async function bootstrap() {
 	app.useGlobalPipes(new ValidationPipe({}));
 
 	//Allow large request
-	const dataSize = '25mb';
-	app.use(bodyParser.json({ limit: dataSize }));
-	app.use(bodyParser.urlencoded({ limit: dataSize, extended: true }));
+	const dataSize = '10mb';
+	app.useBodyParser('json', { limit: dataSize });
 
 	await app.listen(2564, '0.0.0.0', async () => {
 		console.info(`Application is running on: ${await app.getUrl()}`);
