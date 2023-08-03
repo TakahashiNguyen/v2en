@@ -1,7 +1,7 @@
 import { ObjectType } from '@nestjs/graphql';
 import { Md5 } from 'ts-md5';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { DataInput } from './data.dto';
+import { DataInput } from './data.dto.mjs';
 
 @Entity()
 @ObjectType()
@@ -21,13 +21,7 @@ export class Data {
 	}
 
 	static async fromDataInput(data: DataInput, id?: string) {
-		return new Data(
-			data.origin,
-			data.translated,
-			data.translator,
-			data.verified,
-			id,
-		);
+		return new Data(data.origin, data.translated, data.translator, data.verified, id);
 	}
 
 	@PrimaryGeneratedColumn('uuid')

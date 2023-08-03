@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { UserModule } from './user/user.module';
-import { DataModule } from './data/data.module';
+import { AppController } from './app.controller.mjs';
+import { AppService } from './app.service.mjs';
+import { UserModule } from './user/user.module.mjs';
+import { DataModule } from './data/data.module.mjs';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { join } from 'path';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
-import { TodoModule } from './todo/todo.module';
+import { TodoModule } from './todo/todo.module.mjs';
 
 export const myConnectionOptions = async (
 	configService: ConfigService,

@@ -1,15 +1,9 @@
 import { ObjectType } from '@nestjs/graphql';
 import { Md5 } from 'ts-md5';
-import {
-	Column,
-	Entity,
-	JoinColumn,
-	OneToMany,
-	PrimaryGeneratedColumn,
-} from 'typeorm';
-import { UserInput } from './user.dto';
-import { UserSession } from './user.session.entity';
-import { Todo } from '../todo/todo.entity';
+import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { UserInput } from './user.dto.mjs';
+import { UserSession } from './user.session.entity.mjs';
+import { Todo } from '../todo/todo.entity.mjs';
 
 @ObjectType('UserObject')
 @Entity()

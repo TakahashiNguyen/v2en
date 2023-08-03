@@ -1,7 +1,7 @@
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
-import { User } from './user.entity';
+import { User } from './user.entity.mjs';
 import { Entity } from 'typeorm';
-import { IsPasswordCorrent, IsUserNameExisted } from './user.validator';
+import { IsPasswordCorrent, IsUserNameExisted } from './user.validator.mjs';
 
 @InputType('UserInput')
 export class UserInput {

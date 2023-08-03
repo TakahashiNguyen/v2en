@@ -1,10 +1,10 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { DataService } from './data.service';
-import { Data } from './data.entity';
-import { DataInput } from './data.dto';
+import { DataService } from './data.service.mjs';
+import { Data } from './data.entity.mjs';
+import { DataInput } from './data.dto.mjs';
 import { GraphQLError } from 'graphql';
 import { UseGuards } from '@nestjs/common';
-import { UserAuthGuard } from '../user/user.guard';
+import { UserAuthGuard } from '../user/user.guard.mjs';
 
 @Resolver(() => Data)
 export class DataResolver {
@@ -53,10 +53,7 @@ export class DataResolver {
 
 	@Mutation(() => String)
 	@UseGuards(UserAuthGuard)
-	async modifyData(
-		@Args('id') id: string,
-		@Args('newData') newData: DataInput,
-	) {
+	async modifyData(@Args('id') id: string, @Args('newData') newData: DataInput) {
 		await this.removeData(id);
 		await this.addData(newData, id);
 		return 'Data modified';

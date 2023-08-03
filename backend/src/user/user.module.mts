@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './user.entity';
-import { UserResolver } from './user.resolver';
-import { UserService } from './user.service';
-import { UserSession } from './user.session.entity';
+import { User } from './user.entity.mjs';
+import { UserResolver } from './user.resolver.mjs';
+import { UserService } from './user.service.mjs';
+import { UserSession } from './user.session.entity.mjs';
 import { JwtModule } from '@nestjs/jwt';
-import { UserAuthGuard } from './user.guard';
-import { IsUserNameExistedConstraint } from './user.validator';
-import { UserController } from './user.controller';
+import { UserAuthGuard } from './user.guard.mjs';
+import { IsUserNameExistedConstraint } from './user.validator.mjs';
+import { UserController } from './user.controller.mjs';
 
 export const jwtConstants = {
 	secret: 'DO NOT USE THIS VALUE. INSTEAD, CREATE A COMPLEX SECRET AND KEEP IT SAFE OUTSIDE OF THE SOURCE CODE.',
@@ -15,12 +15,7 @@ export const jwtConstants = {
 };
 
 @Module({
-	providers: [
-		UserResolver,
-		UserService,
-		UserAuthGuard,
-		IsUserNameExistedConstraint,
-	],
+	providers: [UserResolver, UserService, UserAuthGuard, IsUserNameExistedConstraint],
 	imports: [
 		TypeOrmModule.forFeature([User, UserSession]),
 		JwtModule.register({

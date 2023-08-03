@@ -1,12 +1,12 @@
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
-import { User } from './user.entity';
-import { UserService } from './user.service';
-import { LoginInput, UserInput, UserOutput } from './user.dto';
+import { User } from './user.entity.mjs';
+import { UserService } from './user.service.mjs';
+import { LoginInput, UserInput, UserOutput } from './user.dto.mjs';
 import { Md5 } from 'ts-md5';
-import { UserSession } from './user.session.entity';
-import { TokenExpiredError } from 'jsonwebtoken';
+import { UserSession } from './user.session.entity.mjs';
+const { TokenExpiredError } = await import('jsonwebtoken');
 import { GraphQLError } from 'graphql';
-import { dom, faceapi, optionsSSDMobileNet } from 'src/main';
+import { dom, faceapi, optionsSSDMobileNet } from '../main.mjs';
 
 async function faceDescriptor(input: string) {
 	const img = dom.Image(0);
@@ -15,26 +15,23 @@ async function faceDescriptor(input: string) {
 	return await faceapi
 		.detectSingleFace(img, optionsSSDMobileNet)
 		.withFaceLandmarks()
-		.withFaceDescriptor().run();
+		.withFaceDescriptor()
+		.run();
 }
 
 @Resolver(() => UserOutput)
 export class UserResolver {
-	constructor(private readonly service: UserService) { }
+	constructor(private readonly service: UserService) {}
 
 	// Section:Mutations:_User
 	@Mutation(() => String)
-	async addUser(
-		@Args('newUser') newUser: UserInput,
-	): Promise<string | Error> {
+	async addUser(@Args('newUser') newUser: UserInput): Promise<string | Error> {
 		await this.service.createUser(User.fromUserInput(newUser));
 		return await this.LogIn(LoginInput.fromUserInput(newUser));
 	}
 
 	@Mutation(() => String)
-	async LogIn(
-		@Args('loginUser') loginUser: LoginInput,
-	): Promise<string | Error> {
+	async LogIn(@Args('loginUser') loginUser: LoginInput): Promise<string | Error> {
 		const type = loginUser.password.split(' ')[0];
 		const password = loginUser.password.split(' ')[1];
 		let user;
@@ -90,9 +87,7 @@ export class UserResolver {
 
 	// Section:Mutations:_Token
 	@Mutation(() => UserOutput)
-	async checkToken(
-		@Args('token') token: string,
-	): Promise<UserOutput | Error> {
+	async checkToken(@Args('token') token: string): Promise<UserOutput | Error> {
 		try {
 			const session = await this.service.findSession({ token: token });
 			if (session instanceof UserSession) {

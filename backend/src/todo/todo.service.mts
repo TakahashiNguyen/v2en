@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Todo } from './todo.entity';
+import { Todo } from './todo.entity.mjs';
 import { FindOptionsWhere, Repository } from 'typeorm';
-import { User } from '../user/user.entity';
-import { UserService } from '../user/user.service';
+import { User } from '../user/user.entity.mjs';
+import { UserService } from '../user/user.service.mjs';
 import { GraphQLError } from 'graphql';
-import { TodoObj } from './todo.dto';
-import { UserSession } from '../user/user.session.entity';
+import { TodoObj } from './todo.dto.mjs';
+import { UserSession } from '../user/user.session.entity.mjs';
 
 @Injectable()
 export class TodoService {
@@ -37,17 +37,11 @@ export class TodoService {
 	}
 
 	async findTodoOneBy(args: FindOptionsWhere<Todo>): Promise<Todo | Error> {
-		return (
-			(await this.source.findOneBy(args)) ??
-			new GraphQLError('Todo not found')
-		);
+		return (await this.source.findOneBy(args)) ?? new GraphQLError('Todo not found');
 	}
 
 	// Section:_Editor
-	async createTodo(
-		createTodoInput: TodoObj,
-		token: string,
-	): Promise<Todo | Error> {
+	async createTodo(createTodoInput: TodoObj, token: string): Promise<Todo | Error> {
 		try {
 			const session = await this.userService.findSession({
 				token: token,

@@ -1,17 +1,11 @@
-import {
-	Entity,
-	PrimaryGeneratedColumn,
-	Column,
-	ManyToOne,
-	JoinColumn,
-} from 'typeorm';
-import { User } from './user.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { User } from './user.entity.mjs';
 import { ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 @Entity()
 export class UserSession {
-	constructor(token: string, user: User) {
+	constructor(token: string, user: Awaited<User>) {
 		this.token = token;
 		this.user = user;
 	}
@@ -24,5 +18,5 @@ export class UserSession {
 
 	@ManyToOne(() => User, (user) => user.sessions, { eager: true })
 	@JoinColumn({ name: 'userID' })
-	user!: User;
+	user!: Awaited<User>;
 }

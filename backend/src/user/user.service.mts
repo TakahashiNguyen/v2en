@@ -1,8 +1,8 @@
 import { FindOptionsWhere, Repository } from 'typeorm';
-import { User } from './user.entity';
+import { User } from './user.entity.mjs';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserSession } from './user.session.entity';
+import { UserSession } from './user.session.entity.mjs';
 import { JwtService } from '@nestjs/jwt';
 import { GraphQLError } from 'graphql';
 
@@ -23,8 +23,7 @@ export class UserService {
 
 	async findUserOneBy(args: FindOptionsWhere<User>): Promise<User | Error> {
 		return (
-			(await this.dataSource.findOneBy(args)) ??
-			new GraphQLError('User not found')
+			(await this.dataSource.findOneBy(args)) ?? new GraphQLError('User not found')
 		);
 	}
 
@@ -44,9 +43,7 @@ export class UserService {
 		await this.sessionSource.save(newSession);
 	}
 
-	async findSession(
-		args: FindOptionsWhere<UserSession>,
-	): Promise<UserSession | Error> {
+	async findSession(args: FindOptionsWhere<UserSession>): Promise<UserSession | Error> {
 		return (
 			(await this.sessionSource.findOneBy(args)) ??
 			new GraphQLError('Session not found')
@@ -62,8 +59,7 @@ export class UserService {
 		return this.jwtService.sign({
 			create: Date.now(),
 			username: user.username,
-			userStr:
-				user.givenName + user.familyName + user.gender + user.birthDay,
+			userStr: user.givenName + user.familyName + user.gender + user.birthDay,
 			id: user.id,
 		});
 	}

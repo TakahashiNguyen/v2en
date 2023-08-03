@@ -1,9 +1,9 @@
 import { Args, Resolver, Query, Mutation, Context } from '@nestjs/graphql';
-import { TodoService } from './todo.service';
+import { TodoService } from './todo.service.mjs';
 import { UseGuards } from '@nestjs/common';
-import { Todo } from './todo.entity';
-import { UserAuthGuard } from '../user/user.guard';
-import { TodoObj } from './todo.dto';
+import { Todo } from './todo.entity.mjs';
+import { UserAuthGuard } from '../user/user.guard.mjs';
+import { TodoObj } from './todo.dto.mjs';
 
 @Resolver(() => Todo)
 export class TodoResolver {
@@ -13,9 +13,7 @@ export class TodoResolver {
 	@Query(() => [TodoObj])
 	@UseGuards(UserAuthGuard)
 	async todos(@Context('headers') headers: any): Promise<Todo[] | Error> {
-		return await this.service.findTodoByUser(
-			headers.authorization.split(' ')[1],
-		);
+		return await this.service.findTodoByUser(headers.authorization.split(' ')[1]);
 	}
 
 	// Mutations:Section:_Todo
@@ -37,10 +35,7 @@ export class TodoResolver {
 		@Args('todoID') todoID: string,
 		@Context('headers') headers: any,
 	): Promise<string | Error> {
-		return await this.service.removeTodo(
-			todoID,
-			headers.authorization.split(' ')[1],
-		);
+		return await this.service.removeTodo(todoID, headers.authorization.split(' ')[1]);
 	}
 
 	@Mutation(() => String)
@@ -49,10 +44,7 @@ export class TodoResolver {
 		@Args('todoID') todoID: string,
 		@Context('headers') headers: any,
 	): Promise<string | Error> {
-		await this.service.updateTodo(
-			todoID,
-			headers.authorization.split(' ')[1],
-		);
+		await this.service.updateTodo(todoID, headers.authorization.split(' ')[1]);
 		return 'success';
 	}
 }

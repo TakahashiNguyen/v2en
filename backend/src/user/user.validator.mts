@@ -5,8 +5,8 @@ import {
 	ValidatorConstraintInterface,
 	registerDecorator,
 } from 'class-validator';
-import { UserService } from './user.service';
-import { User } from './user.entity';
+import { UserService } from './user.service.mjs';
+import { User } from './user.entity.mjs';
 
 export function IsUserNameExisted(validationOptions?: ValidationOptions) {
 	return function (object: any, propertyName: string) {
@@ -21,9 +21,7 @@ export function IsUserNameExisted(validationOptions?: ValidationOptions) {
 
 @ValidatorConstraint({ async: true })
 @Injectable()
-export class IsUserNameExistedConstraint
-	implements ValidatorConstraintInterface
-{
+export class IsUserNameExistedConstraint implements ValidatorConstraintInterface {
 	constructor(private readonly userService: UserService) {}
 
 	async validate(value: any): Promise<boolean> {
@@ -47,19 +45,14 @@ export function IsPasswordCorrent(validationOptions?: ValidationOptions) {
 }
 
 @ValidatorConstraint({ async: true })
-export class IsPasswordCorrentConstraint
-	implements ValidatorConstraintInterface
-{
+export class IsPasswordCorrentConstraint implements ValidatorConstraintInterface {
 	constructor() {}
 
 	async validate(value: string): Promise<boolean> {
 		if (value.split(' ').length > 2) return false;
 		const type = value.split(' ')[0];
 		const password = value.split(' ')[1];
-		if (
-			type != 'UserPasswordAuthencation' &&
-			type != 'UserFaceAuthencation'
-		)
+		if (type != 'UserPasswordAuthencation' && type != 'UserFaceAuthencation')
 			return false;
 		return (
 			type == 'UserFaceAuthencation' ||

@@ -1,5 +1,5 @@
 import { FindOptionsWhere, Repository } from 'typeorm';
-import { Data } from './data.entity';
+import { Data } from './data.entity.mjs';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { GraphQLError } from 'graphql';
@@ -17,10 +17,7 @@ export class DataService {
 	}
 
 	async findDataOneBy(args: FindOptionsWhere<Data>): Promise<Data | Error> {
-		return (
-			(await this.source.findOneBy(args)) ??
-			new GraphQLError('Data not found')
-		);
+		return (await this.source.findOneBy(args)) ?? new GraphQLError('Data not found');
 	}
 
 	// Section:_Editor

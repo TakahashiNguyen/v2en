@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppModule } from '../app.module';
-import { UserResolver } from './user.resolver';
-import { LoginInput, UserInput } from './user.dto';
+import { AppModule } from '../app.module.mjs';
+import { UserResolver } from './user.resolver.mjs';
+import { LoginInput, UserInput } from './user.dto.mjs';
 
 const username = Math.random().toString(36).substring(2, 10);
 const firstname = Math.random().toString(36).substring(2, 10);

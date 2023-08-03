@@ -1,13 +1,7 @@
 import { ObjectType } from '@nestjs/graphql';
-import { User } from '../user/user.entity';
-import {
-	Column,
-	Entity,
-	JoinColumn,
-	ManyToOne,
-	PrimaryGeneratedColumn,
-} from 'typeorm';
-import { TodoObj } from './todo.dto';
+import { User } from '../user/user.entity.mjs';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { TodoObj } from './todo.dto.mjs';
 
 @ObjectType()
 @Entity()
@@ -16,7 +10,7 @@ export class Todo {
 		jobDescription: string = '',
 		deadline: Date = new Date('1890-05-19'),
 		finished: boolean = false,
-		user: User = new User(),
+		user: Awaited<User> = new User(),
 	) {
 		this.jobDescription = jobDescription;
 		this.deadline = deadline;
@@ -25,12 +19,7 @@ export class Todo {
 	}
 
 	static fromInput(todo: TodoObj, user: User) {
-		return new Todo(
-			todo.jobDescription,
-			todo.deadline,
-			todo.finished,
-			user,
-		);
+		return new Todo(todo.jobDescription, todo.deadline, todo.finished, user);
 	}
 
 	@PrimaryGeneratedColumn('uuid')
@@ -47,5 +36,5 @@ export class Todo {
 
 	@ManyToOne(() => User, (user) => user.todoList, { eager: true })
 	@JoinColumn({ name: 'userTodoList' })
-	user!: User;
+	user!: Awaited<User>;
 }

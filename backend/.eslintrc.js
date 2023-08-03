@@ -30,5 +30,6 @@ module.exports = {
 		'@typescript-eslint/explicit-function-return-type': 'on',
 		'@typescript-eslint/no-explicit-any': 'off',
 		'unused-imports/no-unused-imports': 'error',
+		'@typescript-eslint/no-var-requires': 'off',
 	},
 };
