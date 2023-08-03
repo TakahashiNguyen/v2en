@@ -1,10 +1,10 @@
-import { ObjectType } from '@nestjs/graphql';
+import { Field, ObjectType } from '@nestjs/graphql';
 import { Md5 } from 'ts-md5';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { DataInput } from './data.dto.mjs';
 
 @Entity()
-@ObjectType()
+@ObjectType('DataOutput')
 export class Data {
 	constructor(
 		origin = '',
@@ -24,6 +24,7 @@ export class Data {
 		return new Data(data.origin, data.translated, data.translator, data.verified, id);
 	}
 
+	@Field(() => String)
 	@PrimaryGeneratedColumn('uuid')
 	id?: string;
 
