@@ -8,13 +8,14 @@ import { initializeTransactionalContext } from 'typeorm-transactional';
 import * as tfLib from '@tensorflow/tfjs-node-gpu';
 import * as faceapiLib from '@vladmandic/face-api/dist/face-api.node-gpu.js';
 import * as canvasLib from 'canvas';
-import { JSDOM } from 'jsdom';
+import { JSDOM, VirtualConsole } from 'jsdom';
 
 export const canvas = canvasLib;
 export const faceapi = faceapiLib;
 export const tf = tfLib;
 export const ejs = await import('ejs');
-export const dom = new JSDOM('').window;
+export const jsdom = JSDOM;
+export const vConsole = VirtualConsole;
 export const modelPath = 'src/model';
 export const optionsSSDMobileNet = new faceapi.SsdMobilenetv1Options({
 	minConfidence: 0.5,
@@ -23,14 +24,14 @@ export const optionsSSDMobileNet = new faceapi.SsdMobilenetv1Options({
 
 export async function initModels() {
 	await tf.ready();
+	const jsdom = new JSDOM();
 	await faceapi.nets.ssdMobilenetv1.loadFromDisk(modelPath);
 	await faceapi.nets.faceLandmark68Net.loadFromDisk(modelPath);
 	await faceapi.nets.faceExpressionNet.loadFromDisk(modelPath);
 	await faceapi.nets.faceRecognitionNet.loadFromDisk(modelPath);
 	faceapi.env.monkeyPatch({
-		Canvas: dom.HTMLCanvasElement,
-		FileReader: dom.FileReader,
-		Image: dom.HTMLImageElement,
+		Canvas: jsdom.window.HTMLCanvasElement,
+		Image: jsdom.window.HTMLImageElement,
 	});
 }
 

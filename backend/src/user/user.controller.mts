@@ -1,12 +1,12 @@
 import { Controller, Get, Res } from '@nestjs/common';
 import { Response } from 'express';
-import { dom, ejs } from '../main.mjs';
+import { jsdom, ejs } from '../main.mjs';
 
 @Controller('user')
 export class UserController {
 	@Get('image')
 	async getBrowserSite(@Res() res: Response) {
-		const img = new dom.Image();
+		const img = new jsdom().window.Image();
 		img.onload = () => {
 			console.log('Image loaded');
 		};
