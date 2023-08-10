@@ -6,25 +6,14 @@ import { Md5 } from 'ts-md5';
 import { UserSession } from './user.session.entity.mjs';
 const { TokenExpiredError } = await import('jsonwebtoken');
 import { GraphQLError } from 'graphql';
-import { jsdom, faceapi, optionsSSDMobileNet, vConsole } from '../main.mjs';
+import { jsdom, faceapi, optionsSSDMobileNet, vConsole, tf } from '../main.mjs';
 
 async function faceDescriptor(input: string) {
-	const html = new jsdom(
-		`<!DOCTYPE html><body><img src="${`data:image/jpeg;base64,${input}`}" /></body>`,
-		{
-			virtualConsole: new vConsole().sendTo(console, { omitJSDOMErrors: true }),
-			pretendToBeVisual: true,
-		},
-	);
-	const img = html.window.document.querySelector('img');
-
-	if (img instanceof HTMLImageElement)
-		return await faceapi
-			.detectSingleFace(img, optionsSSDMobileNet)
-			.withFaceLandmarks()
-			.withFaceDescriptor()
-			.run();
-	return null
+	return await faceapi
+		.detectSingleFace(await faceapi.fetchBase64(input), optionsSSDMobileNet)
+		.withFaceLandmarks()
+		.withFaceDescriptor()
+		.run();
 }
 
 @Resolver(() => UserOutput)

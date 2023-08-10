@@ -5,10 +5,10 @@ import { useContainer } from 'class-validator';
 import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { initializeTransactionalContext } from 'typeorm-transactional';
-import * as tfLib from '@tensorflow/tfjs-node-gpu';
-import * as faceapiLib from '@vladmandic/face-api/dist/face-api.node-gpu.js';
+import * as faceapiLib from '@takahashinguyen/face-api/dist/face-api.node-gpu.js';
 import * as canvasLib from 'canvas';
 import { JSDOM, VirtualConsole } from 'jsdom';
+import * as tfLib from '@tensorflow/tfjs-node-gpu';
 
 export const canvas = canvasLib;
 export const faceapi = faceapiLib;
