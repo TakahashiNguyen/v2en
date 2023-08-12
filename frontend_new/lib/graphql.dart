@@ -1,6 +1,6 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-const graphqlURL = 'http://127.0.0.1:2564/graphql';
+const graphqlURL = 'http://192.168.1.12:2564/graphql';
 
 MutationOptions<Object?> loginMutation(String username, String password) {
   return MutationOptions(document: gql("""
@@ -30,20 +30,28 @@ MutationOptions<Object?> tokenMutation(String token) {
 """), variables: {'token': token});
 }
 
-MutationOptions<Object?> registerMutation(String username, String password,
-    String lastName, String firstName, String gender, String birthday) {
+MutationOptions<Object?> registerMutation(
+  String username,
+  String password,
+  String lastName,
+  String firstName,
+  String gender,
+  String birthday,
+  String userFace,
+) {
   return MutationOptions(document: gql("""
-  mutation AddUser(\$newUser: UserInput!) {
+  mutation Mutation(\$newUser: UserInput!) {
     addUser(newUser: \$newUser)
   }
 """), variables: {
-    'newUser': {
-      'username': username,
-      'familyName': lastName,
-      'givenName': firstName,
-      'gender': gender,
-      'birthDay': birthday,
-      'password': password,
+    "newUser": {
+      "birthDay": birthday,
+      "familyName": lastName,
+      "gender": gender,
+      "givenName": firstName,
+      "password": password,
+      "userFace": userFace,
+      "username": username
     }
   });
 }

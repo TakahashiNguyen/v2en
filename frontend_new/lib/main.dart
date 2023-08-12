@@ -31,6 +31,8 @@ authPlugin(SharedPreferences prefs, GraphQLClient gqlCli) async {
 }
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   final HttpLink httpLink = HttpLink(graphqlURL);
   final prefs = await SharedPreferences.getInstance();
   final AuthLink authLink = AuthLink(getToken: () async {
@@ -54,7 +56,8 @@ void main() async {
             path: 'signup', widget: RegisterPage(gqlCli: gqlCli, prefs: prefs)),
         VWidget(
             path: 'profile',
-            widget: UserProfile(userDynamic: authPlugin, gqlCli:gqlCli, prefs:prefs)),
+            widget: UserProfile(
+                userDynamic: authPlugin, gqlCli: gqlCli, prefs: prefs)),
         VNester(
           path: 'datas',
           widgetBuilder: (child) => DataView(gqlCli: gqlCli, child: child),

@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TodoResolver } from './todo.resolver';
-import { AppModule } from '../app.module';
+import { TodoResolver } from './todo.resolver.mjs';
+import { AppModule } from '../app.module.mjs';
 
 const username = Math.random().toString(36).substring(2, 10);
 const firstname = Math.random().toString(36).substring(2, 10);

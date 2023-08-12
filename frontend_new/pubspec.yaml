@@ -39,6 +39,9 @@ dependencies:
   dependency_validator: ^3.0.0
   graphql_flutter: ^5.2.0-beta.5
   local_auth: ^2.1.6
+  flutter_face_api: ^5.2.0
+  flutter_face_core: ^5.2.0
+  image: ^4.0.17
 
 dev_dependencies:
   flutter_test:

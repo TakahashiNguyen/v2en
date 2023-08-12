@@ -1,11 +1,11 @@
-import 'dart:io';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:frontend_new/graphql.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vrouter/vrouter.dart';
-import 'package:local_auth/local_auth.dart';
+import 'package:flutter_face_api/face_api.dart' as fau;
 
 class LoginPage extends StatefulWidget {
   final GraphQLClient gqlCli;
@@ -23,15 +23,23 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
+  late String userFace = '';
 
   @override
   void initState() {
     super.initState();
+    initPlatformState();
+  }
+
+  Future<void> initPlatformState() async {
+    fau.FaceSDK.init();
   }
 
   void _submitForm() async {
     final String username = _usernameController.text;
-    final String password = _passwordController.text;
+    final String password = userFace == ''
+        ? 'UserPasswordAuthencation ${_passwordController.text}'
+        : userFace;
 
     final QueryResult result =
         await widget.gqlCli.mutate(loginMutation(username, password));
@@ -44,8 +52,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<Widget> fetchData(BuildContext context) async {
-    final LocalAuthentication auth = LocalAuthentication();
-    final canBiometrics = !Platform.isLinux && await auth.isDeviceSupported();
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -100,14 +106,25 @@ class _LoginPageState extends State<LoginPage> {
                           },
                         ),
                       ),
-                      if (canBiometrics)
-                        InkWell(
-                          child: const Icon(
-                            Icons.face_outlined,
-                            color: Colors.blue,
-                          ),
-                          onTap: () async {},
+                      InkWell(
+                        child: const Icon(
+                          Icons.face_outlined,
+                          color: Colors.blue,
                         ),
+                        onTap: () async {
+                          fau.FaceSDK.presentFaceCaptureActivity()
+                              .then((result) {
+                            var response = fau.FaceCaptureResponse.fromJson(
+                                json.decode(result))!;
+                            if (response.image != null &&
+                                response.image!.bitmap != null) {
+                              userFace =
+                                  'UserFaceAuthencation ${response.image!.bitmap!}';
+                              _submitForm();
+                            }
+                          });
+                        },
+                      ),
                     ],
                   ),
                   const SizedBox(height: 40),

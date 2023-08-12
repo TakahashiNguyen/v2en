@@ -1,12 +1,15 @@
-FROM tensorflow/tensorflow:2.13.0rc1-gpu-jupyter
+FROM tensorflow/tensorflow:latest-gpu-jupyter
 
+# init section
 WORKDIR /home
 ARG TZ="Asia/ho_chi_minh"
 ARG DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-c"] 
 USER root
 
-RUN apt update && apt -y install curl ca-certificates libcublas-12-1 libcublas-dev-12-1 \
+RUN apt update && apt -y install curl ca-certificates \ 
+    # necessary nvidia's package
+    libcublas-12-1 libcublas-dev-12-1 nvidia-cuda-toolkit \
     # fixed slow apt download: https://github.com/NobodyXu/apt-fast-docker/blob/master/Dockerfile
     software-properties-common
 RUN add-apt-repository ppa:apt-fast/stable
