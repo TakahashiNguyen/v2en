@@ -9,11 +9,10 @@ import { GraphQLError } from "graphql";
 import { jsdom, faceapi, optionsSSDMobileNet, vConsole, tf } from "../main.mjs";
 
 async function faceDescriptor(input: string) {
-	return await faceapi
+	return (await faceapi
 		.detectSingleFace(await faceapi.fetchBase64(input), optionsSSDMobileNet)
 		.withFaceLandmarks()
-		.withFaceDescriptor()
-		.run();
+		.withFaceDescriptor())!.descriptor;
 }
 
 @Resolver(() => UserOutput)
@@ -38,15 +37,22 @@ export class UserResolver {
 				hashedPassword: Md5.hashStr(password),
 			});
 		else if (type == "UserFaceAuthencation") {
-			let user: User | Error = await this.service.findUserOneBy({
+			let temp_user: User | Error = await this.service.findUserOneBy({
 				username: loginUser.username,
 			});
-			if (user instanceof Error)
+			let distance: number;
+			if (temp_user instanceof Error)
 				return new GraphQLError("Incorrect username or password.");
-			const input = await faceDescriptor(password);
-			const origin = await faceDescriptor(user.userFace);
-
-			return new GraphQLError("Face Recognization has error");
+			try {
+				const input = await faceDescriptor(password);
+				const origin = await faceDescriptor(temp_user.userFace);
+				distance = faceapi.euclideanDistance(input, origin);
+			} catch {
+				return new GraphQLError("Face Recognization has error");
+			}
+			if (distance > 0.75) {
+				user = temp_user;
+			}
 		}
 		if (user instanceof User) {
 			const token = this.service.createToken(user);

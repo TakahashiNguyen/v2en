@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:2.13.0rc1-gpu-jupyter
+FROM tensorflow/tensorflow:latest-gpu-jupyter
 
 # init section
 WORKDIR /home
