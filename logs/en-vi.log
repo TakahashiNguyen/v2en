@@ -1,0 +1,1126 @@
+2023-08-14 10:48:31,863 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 10:48:56,239 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 10:49:10,050 - httpx - INFO
+HTTP Request: GET https://en.wiktionary.org/wiki/%E2%80%99 "HTTP/1.1 200 OK"
+2023-08-14 11:03:07,836 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:03:28,427 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:03:38,840 - httpx - INFO
+HTTP Request: GET https://en.wiktionary.org/wiki/%E2%80%99 "HTTP/1.1 200 OK"
+2023-08-14 11:05:59,839 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:06:28,638 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:06:38,289 - httpx - INFO
+HTTP Request: GET https://en.wiktionary.org/wiki/%E2%80%99 "HTTP/1.1 200 OK"
+2023-08-14 11:06:39,355 - root - WARNING
+addSent's result:
+	Execution time: 42.20241805899991 seconds
+	Memory consumption: 0.85931396484375 MB
+2023-08-14 11:06:50,106 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:07:06,163 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:07:12,563 - httpx - INFO
+HTTP Request: GET https://en.wiktionary.org/wiki/portraiture "HTTP/1.1 200 OK"
+2023-08-14 11:07:13,978 - root - WARNING
+addSent's result:
+	Execution time: 34.62272439499998 seconds
+	Memory consumption: 0.9334373474121094 MB
+2023-08-14 11:07:20,547 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:07:24,674 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.103000143615645e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:25,358 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.252999921547598e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:26,247 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 9.218714375000218 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:26,623 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 9.615769226000111 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:26,832 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 10.367713187999925 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:27,158 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 10.19991671899993 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:27,356 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 10.294021014999998 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:27,458 - root - WARNING
+translatorsTrans's result:
+	Execution time: 12.825944080999989 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:29,989 - root - WARNING
+transIntoList's result:
+	Execution time: 15.356211953999946 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:33,396 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.526199993255432e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:33,593 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.5280001965438714e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:33,607 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.6409976909999386 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:33,680 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.625230203000001 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:33,686 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.213500013363955e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:33,751 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.500000154119334e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,054 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.9570164279998608 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,082 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.215000096039148e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,089 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.8715151599999444 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,094 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.1405610930000876 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,094 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.8568220539998492 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,163 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.001000085438136e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,244 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.2396890969998822 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,285 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.9955961550001575 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,346 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 3.948300013689732e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,363 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.9403068980000171 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,370 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.1360034029999042 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,404 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.9741688000001432 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,423 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.4979781730000923 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,598 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.4251343360001556 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:34,759 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.552999937208369e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:35,046 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.001075749999927 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:35,132 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.741000106558204e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:35,205 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.1431826089999504 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:35,539 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.154088272999843 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:35,595 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.995999910941464e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:35,670 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.561999953191844e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:35,853 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.646397965999995 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:35,961 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.8562005410001348 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:36,132 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.9436404680000123 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:36,137 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.527999969170196e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:36,191 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.570999974224833e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:36,355 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 3.050100008294976e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:36,571 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.0545184909999534 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:36,762 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.5777846959999806 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:36,940 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.922280206000096 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:36,965 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.4037747950001176 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:36,981 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.485999958589673e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:37,109 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.0404520090000915 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:37,109 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.707299998088274e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:37,261 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:07:37,261 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.8689060929998504 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:37,277 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.8216434660000687 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:37,296 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.846000021847431e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:37,421 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.485395907000111 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:37,421 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.437000027086469e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:37,652 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.970000074739801e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:37,663 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.180175918000032 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:38,068 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.62163815599979 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:38,431 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.436797147000107 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:38,436 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.285805654000114 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:38,644 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.121951777000049 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:38,734 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 9.00300005923782e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:39,720 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 6.1971359189999475 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:41,367 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.130999847504427e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:41,994 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 8.960214858999962 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:43,224 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 10.282895555000096 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:43,554 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 9.153999826594372e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:44,221 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 10.747837063999896 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:44,304 - root - WARNING
+translatorsTrans's result:
+	Execution time: 14.289388318999954 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:47,854 - root - WARNING
+transIntoList's result:
+	Execution time: 17.83932374599999 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:48,698 - root - WARNING
+addSent's result:
+	Execution time: 34.71967021800015 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:53,466 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 4.6602999873357476e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:53,604 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 9.970000064640772e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:53,921 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.725999921603943e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:53,945 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.8788350660001925 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:53,945 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.866000037713093e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,023 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.8784959289998824 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,140 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.421000080081285e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,250 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.1898202220002077 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,325 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.8003500550000808 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,347 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.9066692979999971 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,364 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.150196287999961 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,463 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.3658808420000241 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,487 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.3484361719999924 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,522 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 9.795999858397408e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,620 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.2832849749997877 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,778 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.9336964159999752 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,814 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.1544178220001413 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,815 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.330000132948044e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,836 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.486217975000045 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:54,945 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.2943558259999008 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:55,104 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.805607339000062 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:55,497 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.064599996425386e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:55,578 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.0286838160000116 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:55,851 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.91699995311501e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:55,861 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.1619999794638716e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:56,055 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.9034908819999146 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:56,081 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.754690331999882 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:56,239 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.637999947794015e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:56,253 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 4.2617000190148246e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:56,265 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.0190241800000877 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:56,683 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.263000159378862e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:56,689 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.738000027122325e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:56,856 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.5214668380001513 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:57,245 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.415470669000115 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:57,545 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.446732619999921 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:57,601 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.293044008999914 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:57,794 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 8.42100007503177e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:57,800 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.7120001858711476e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:57,806 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.68793117999985 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:57,841 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.9195708959998683 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:58,327 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.639906385999893 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:58,557 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.42900010664016e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:58,594 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.3901920870000595 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:58,600 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.9838999833154958e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:58,655 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.3589999424730195e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:58,685 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.956999984846334e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:58,771 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.184999963603332e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:58,961 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.912128446999986 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:59,342 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 6.07138582399989 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:59,358 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:07:59,358 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.786049776999789 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:59,486 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.576748276999979 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:59,660 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.981446149000021 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:59,744 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 6.666468928999848 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:07:59,751 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.857792511999833 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:00,054 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.477999932030798e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:00,132 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 6.3631383739998455 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:00,929 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 7.206078625000146 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:03,354 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 10.299469096000166 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:03,559 - root - WARNING
+translatorsTrans's result:
+	Execution time: 13.998612408000099 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:11,009 - root - WARNING
+transIntoList's result:
+	Execution time: 21.44850301700012 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:17,825 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 8.170999990397831e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:18,322 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 4.882899997937784e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:18,414 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.390842924999788 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:18,526 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.9588153329998477 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:18,646 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.1299999869152089e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:18,661 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.598797986999898 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:18,867 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.1487750549999873 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:18,906 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.0080095920000076 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:18,993 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.9753510479999932 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:19,043 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.878000021970365e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:19,068 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.739000016546925e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:19,092 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.5636130790001062 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:19,261 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.001000201649731e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:19,506 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.2182104160001472 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:19,507 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.5005020700000387 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:19,668 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.5442013889999089 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:19,719 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.6065659450000567 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:19,745 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.808189369000047 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:19,793 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.6480317829998512 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:19,794 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.49768469799983 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:19,825 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.000321146000033 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:20,117 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.362000021908898e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:20,149 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.048000043141656e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:20,206 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.6829999266483355e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:20,436 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.354999984774622e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:20,683 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.4800184289999834 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:20,759 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.907054318000064 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:20,821 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.9568999960029032e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:20,960 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.8760000431211665e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:20,971 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.060845219999919 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:20,982 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.3057151460000114 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:21,332 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 2.082000014524965e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:21,360 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.8022987130000274 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:21,417 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.5909665359999963 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:21,468 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.987725533999992 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:21,508 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 8.203000106732361e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:21,587 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.831569404999982 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:21,817 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 2.743499999269261e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:22,053 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.365081575999966 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:22,193 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 3.713599994625838e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:22,271 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.923999879087205e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:22,306 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.809455508999918 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:22,326 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.1201000006622053e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:22,615 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:08:22,615 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.366757839999991 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:22,858 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.246885017000068 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:23,065 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 6.063919695000095 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:23,106 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.2995025609998265 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:23,163 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.074999984979513e-06 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:23,163 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.848687585999869 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:23,344 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.776331821999975 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:23,901 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.486994213000116 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:24,618 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 6.022961445999954 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:25,562 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.48879998960183e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:25,579 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.511300001766358e-05 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:27,165 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 8.66766042800009 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:27,355 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 10.300452788999792 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:28,955 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 10.428829611000083 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:29,241 - root - WARNING
+translatorsTrans's result:
+	Execution time: 18.23167906499998 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:36,403 - root - WARNING
+transIntoList's result:
+	Execution time: 25.39394732300002 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:40,055 - root - WARNING
+addSent's result:
+	Execution time: 51.3567669250001 seconds
+	Memory consumption: 1.0551261901855469 MB
+2023-08-14 11:08:47,728 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.2269999842828838e-05 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:48,173 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.0541999927227153e-05 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:48,388 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.120000080045429e-06 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:48,409 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 8.982999815998483e-06 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:48,466 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 0.9372264020000785 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:48,666 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.217000074888347e-06 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:48,762 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.4108294469999692 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:48,854 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.2010769369999252 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:48,860 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.0980791779998071 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:48,866 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 8.394999895244837e-06 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:49,038 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.6088897380000162 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:49,038 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.7210652740000114 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:49,171 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.1839973940000164 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:49,317 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.6264164540000365 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:49,357 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.4004214670001147 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:49,508 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.5111999800865306e-05 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:49,583 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.5263501489998816 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:49,611 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.7456978799998524 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:49,640 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 1.5489613450001798 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:49,664 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.1961826530000508 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:49,876 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.1464999943200382e-05 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:49,883 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.295544333999942 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:50,016 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.2688803189998907 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:50,058 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.8170001011603745e-06 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:50,067 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.6688559120000264 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:50,086 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.184999963603332e-06 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:50,341 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.3156518429998414 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:50,422 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.071738636999953 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:50,698 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.9536259259998587 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:50,815 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.638000170118175e-06 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:50,964 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.297948260000112 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:51,065 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.880000111981644e-06 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:51,096 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.644289224999966 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:51,203 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 2.9605161039999075 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:51,395 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 3.9350140500000634 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:51,510 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 3.545000004123722e-05 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:51,612 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.0003999932450824e-05 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:51,973 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 6.338999810395762e-06 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:51,989 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.3569999740000185 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:51,999 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.270031737999943 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:52,158 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 5.577999900197028e-06 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:52,391 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.2535999985630042e-05 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:52,816 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 2.3779000002832618e-05 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:52,881 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 4.716297062999956 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:53,207 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 1.3869999975213432e-05 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:53,237 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.888063236999869 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:53,244 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.565267260000155 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:53,516 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.380146402000037 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:53,835 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.57438979199992 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:53,979 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 5.747855917000152 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:54,139 - root - WARNING
+_extracted_from_translatorsTrans_13's result:
+	Execution time: 7.225999979709741e-06 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:54,374 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 6.103621205000081 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:08:54,375 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:08:54,396 - root - WARNING
+translatorsTransSub's result:
+	Execution time: 6.362144067000145 seconds
+	Memory consumption: 1.1168746948242188 MB
+2023-08-14 11:09:21,142 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:09:45,545 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:10:02,089 - httpx - INFO
+HTTP Request: GET https://en.wiktionary.org/wiki/%E2%80%99 "HTTP/1.1 200 OK"
+2023-08-14 11:10:03,020 - root - WARNING
+addSent's result:
+	Execution time: 46.44397299100001 seconds
+	Memory consumption: 0.8792266845703125 MB
+2023-08-14 11:15:05,427 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:15:30,653 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:15:42,921 - httpx - INFO
+HTTP Request: GET https://en.wiktionary.org/wiki/%E2%80%99 "HTTP/1.1 200 OK"
+2023-08-14 11:15:44,457 - root - WARNING
+addSent's result:
+	Execution time: 42.71458758199992 seconds
+	Memory consumption: 0.885955810546875 MB
+2023-08-14 11:16:18,918 - root - CRITICAL
+__________________________________________________
+	Expectation while createOBJ
+	Error type: <class 'gspread.exceptions.APIError'>
+	{'code': 400, 'message': 'Invalid value at \'data.values[0]\' (type.googleapis.com/google.protobuf.ListValue), "there is no reason why these portraits should look alike . "\nInvalid value at \'data.values[1]\' (type.googleapis.com/google.protobuf.ListValue), "chẳng có lý do gì để 3 tấm chân dung này lại giống nhau đến thế . "', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.BadRequest', 'fieldViolations': [{'field': 'data.values[0]', 'description': 'Invalid value at \'data.values[0]\' (type.googleapis.com/google.protobuf.ListValue), "there is no reason why these portraits should look alike . "'}, {'field': 'data.values[1]', 'description': 'Invalid value at \'data.values[1]\' (type.googleapis.com/google.protobuf.ListValue), "chẳng có lý do gì để 3 tấm chân dung này lại giống nhau đến thế . "'}]}]}
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:19:48,892 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:20:09,504 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ChunkedEncodingError'>
+	('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-14 11:20:22,620 - httpx - INFO
+HTTP Request: GET https://en.wiktionary.org/wiki/%E2%80%99 "HTTP/1.1 200 OK"
+2023-08-14 11:20:24,485 - root - WARNING
+addSent's result:
+	Execution time: 39.461796798999785 seconds
+	Memory consumption: 0.9096412658691406 MB

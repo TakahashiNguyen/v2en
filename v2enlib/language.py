@@ -267,22 +267,8 @@ def addSent(input_sent: InputSent, first_dictionary, second_dictionary):
             is_agree = True
             is_error = False
         if is_agree and not is_error:
-            table_command = """
-                INSERT INTO {}(Source, Target, Verify)
-                VALUES(?,?,?)
-            """
-            cmds = [
-                [
-                    table_command.format(const.table_name),
-                    (input_sent.first, input_sent.second, 1),
-                ]
-            ] + [
-                [
-                    table_command.format(const.table_name),
-                    e.SQLFormat(),
-                ]
-                for e in trans_data
-                if e.isAdd
+            cmds = [[(input_sent.first, input_sent.second, 1)]] + [
+                [e.SQLFormat()] for e in trans_data if e.isAdd
             ]
         if is_error:
             first_dump_sent, second_dump_sent = input_sent.first, input_sent.second
