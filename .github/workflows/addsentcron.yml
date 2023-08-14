@@ -41,3 +41,6 @@ jobs:
 
       - name: Execute Python script # run main.py
         run: . ./.venv/bin/activate && python addsent.py --amount-exe 1 --ci_cd --disable-thread
+
+      - name: Print errors
+        run: cat ./logs/*.log
