@@ -28,7 +28,11 @@
             "console": "integratedTerminal",
             "justMyCode": true,
             "subProcess": true,
-            "args": ["--disable-thread", "--ci_cd", "--amount-exe", "10"]
+            "args": [
+                "--ci_cd",
+                "--amount-exe",
+                "10"
+            ]
         }
     ]
 }

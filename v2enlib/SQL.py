@@ -17,7 +17,7 @@ googleSheet = client.open("Moon'sVoiceDatabase")
 def createOBJ(obj):
     try:
         if obj[0] and obj[1] and obj[2]:
-            googleSheet.worksheet("sentences").insert_row([obj[0], obj[1]], index=1)
+            googleSheet.worksheet("sentences").append_row([obj[0], obj[1]])
     except Exception as e:
         utils.printError(createOBJ.__name__, e, False)
 
