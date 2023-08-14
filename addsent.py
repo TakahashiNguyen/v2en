@@ -12,7 +12,6 @@ try:
     allow_GUI = cfg["v2en"]["allow"]["GUI"]
     first_lang = target[:2]
     second_lang = target[-2:]
-    table_name = cfg["sqlite"]["table_name"]
     safe_execute = cfg["v2en"]["safe_execute"]
     allowFalseTranslation = cfg["v2en"]["allow"]["FalseTranslation"]
     if allow_GUI:
@@ -73,7 +72,6 @@ class ExitButton:
 
 
 def saveFiles(
-    sql_connection,
     saveIN,
     saveOU,
     first_dump_sents,
@@ -83,7 +81,6 @@ def saveFiles(
     first_dictionary,
     second_dictionary,
 ):
-    sql_connection.commit()
     language.saveDictionary(first_dictionary_path, first_dictionary)
     language.saveDictionary(second_dictionary_path, second_dictionary)
     with open(first_path, "w") as file:
@@ -98,9 +95,7 @@ def saveFiles(
             f.write(f"{sent}\n")
 
 
-def safeExecute(
-    saveIN, saveOU, sql_connection, first_dictionary, second_dictionary, fargs
-):
+def safeExecute(saveIN, saveOU, first_dictionary, second_dictionary, fargs):
     false_count, first_dump_sents, second_dump_sents, exe_count = 0, [], [], 0
     global main_execute
     while main_execute:
@@ -137,9 +132,11 @@ def safeExecute(
             false_count += -false_count if e[3] else 1
             numberAddedTrans += e[4]
             if false_count > false_allow and main_execute and not allowFalseTranslation:
-                utils.printError("mainModule", Exception("Too many fatal translation!"), True)
+                utils.printError(
+                    "mainModule", Exception("Too many fatal translation!"), True
+                )
                 main_execute = False
-        SQL.createOBJPool(cmds, sql_connection)
+        SQL.createOBJPool(cmds)
 
         second_dump_sents += second_dump_sent
         first_dump_sents += first_dump_sent
@@ -154,7 +151,6 @@ def safeExecute(
         if exe_count == fargs.amount_exe:
             break
     saveFiles(
-        sql_connection,
         saveIN,
         saveOU,
         first_dump_sents,
@@ -180,8 +176,6 @@ def main(fargs):
     first_dictionary = language.loadDictionary(first_dictionary_path)
     second_dictionary = language.loadDictionary(second_dictionary_path)
     signal.signal(signal.SIGINT, signalHandler)
-    sql_connection = SQL.getSQLCursor(cfg["sqlite"]["path"])
-    SQL.createSQLtable(sql_connection, table_name)
 
     with open(first_path, "r") as first_file:
         with open(second_path, "r") as second_file:
@@ -193,7 +187,6 @@ def main(fargs):
             safeExecute,
             saveIN=saveIN,
             saveOU=saveOU,
-            sql_connection=sql_connection,
             first_dictionary=first_dictionary,
             second_dictionary=second_dictionary,
             fargs=fargs,
@@ -212,20 +205,20 @@ if __name__ == "__main__":
         default=0,
     )
     parser.add_argument(
-        '--ci_cd',
+        "--ci_cd",
         type=bool,
-        help='run addsent.py on ci/cd environment',
-        nargs='?',
+        help="run addsent.py on ci/cd environment",
+        nargs="?",
         default=False,
-        const=True
+        const=True,
     )
     parser.add_argument(
-        '--disable-thread',
+        "--disable-thread",
         type=bool,
-        help='disable thread feature for addsent.py',
-        nargs='?',
+        help="disable thread feature for addsent.py",
+        nargs="?",
         default=False,
-        const=True
+        const=True,
     )
     fargs = parser.parse_args()
     if fargs.disable_thread:
