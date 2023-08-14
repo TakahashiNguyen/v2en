@@ -39,7 +39,7 @@ jobs:
       - name: Execute Python script # run main.py
         run: . ./.venv/bin/activate && python addsent.py --amount-exe 100 --ci_cd --disable-thread
 
-      - name: commit files
+      - name: Commit changes
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: main

@@ -25,7 +25,7 @@ class InputSent:
         return bool(self.first and self.second)
 
     def SQLFormat(self) -> tuple:
-        return (self.first, self.second, 1 if self.isAdd else 0)
+        return self.first, self.second, bool(self.isAdd)
 
 
 # * executors

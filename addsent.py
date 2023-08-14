@@ -130,7 +130,6 @@ def safeExecute(saveIN, saveOU, first_dictionary, second_dictionary, fargs):
                 second_dump_sent.append(e[1])
             cmds.extend(i for i in e[2] if i)
             false_count += -false_count if e[3] else 1
-            numberAddedTrans += e[4]
             if false_count > false_allow and main_execute and not allowFalseTranslation:
                 utils.printError(
                     "mainModule", Exception("Too many fatal translation!"), True
@@ -144,7 +143,7 @@ def safeExecute(saveIN, saveOU, first_dictionary, second_dictionary, fargs):
         saveIN = saveIN[num_sent:]
 
         print(
-            f"\t\t(mainModule) time consume: {(time.time()-time_start):0,.2f} ({numberAddedTrans})",
+            f"\t\t(mainModule) time consume: {(time.time()-time_start):0,.2f} ({len(cmds)})",
         )
         del cmds, first_dump_sent, second_dump_sent
         gc.collect()
