@@ -135,6 +135,7 @@ def safeExecute(saveIN, saveOU, first_dictionary, second_dictionary, fargs):
                     "mainModule", Exception("Too many fatal translation!"), True
                 )
                 main_execute = False
+        cmds = [list(x) for x in {tuple(x) for x in cmds}]
         SQL.createOBJPool(cmds)
 
         second_dump_sents += second_dump_sent

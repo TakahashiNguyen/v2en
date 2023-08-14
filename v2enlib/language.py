@@ -19,7 +19,7 @@ class InputSent:
         self.first = first or "N/A"
         self.second = second or "N/A"
         self.accurate = accurate
-        self.isAdd = accurate > const.accept_percentage
+        self.isAdd: bool = accurate > const.accept_percentage
 
     def isValid(self) -> bool:
         return bool(self.first and self.second)
@@ -267,7 +267,7 @@ def addSent(input_sent: InputSent, first_dictionary, second_dictionary):
             is_agree = True
             is_error = False
         if is_agree and not is_error:
-            cmds = [[(input_sent.first, input_sent.second, 1)]] + [
+            cmds = [[(input_sent.first, input_sent.second, True)]] + [
                 [e.SQLFormat()] for e in trans_data if e.isAdd
             ]
         if is_error:
