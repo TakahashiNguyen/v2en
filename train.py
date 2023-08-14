@@ -5,8 +5,6 @@ from v2enlib import utils, ai, SQL
 try:
     with open("config.yml", "r") as f:
         cfg = yaml.safe_load(f)
-    table_name = cfg["sqlite"]["table_name"]
-    conn = SQL.getSQLCursor(cfg["sqlite"]["path"])
     cfg = cfg["training"]
     val_cache_path = cfg["val_cache_path"]
     model_shape_path = cfg["model_shape_path"]
