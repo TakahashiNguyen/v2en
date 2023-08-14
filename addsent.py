@@ -137,7 +137,9 @@ def safeExecute(
             false_count += -false_count if e[3] else 1
             numberAddedTrans += e[4]
             if false_count > false_allow and main_execute and not allowFalseTranslation:
-                utils.printError("mainModule", Exception("Too many fatal translation!"), True)
+                utils.printError(
+                    "mainModule", Exception("Too many fatal translation!"), True
+                )
                 main_execute = False
         SQL.createOBJPool(cmds, sql_connection)
 
@@ -212,20 +214,20 @@ if __name__ == "__main__":
         default=0,
     )
     parser.add_argument(
-        '--ci_cd',
+        "--ci_cd",
         type=bool,
-        help='run addsent.py on ci/cd environment',
-        nargs='?',
+        help="run addsent.py on ci/cd environment",
+        nargs="?",
         default=False,
-        const=True
+        const=True,
     )
     parser.add_argument(
-        '--disable-thread',
+        "--disable-thread",
         type=bool,
-        help='disable thread feature for addsent.py',
-        nargs='?',
+        help="disable thread feature for addsent.py",
+        nargs="?",
         default=False,
-        const=True
+        const=True,
     )
     fargs = parser.parse_args()
     if fargs.disable_thread:
