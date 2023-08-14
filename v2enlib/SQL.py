@@ -1,30 +1,41 @@
 import sqlite3, v2enlib.utils as utils
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 
 
-scope = [
-    "https://spreadsheets.google.com/feeds",
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive",
-]
-creds = ServiceAccountCredentials.from_json_keyfile_name("client_secret.json", scope)
-client = gspread.authorize(creds)
-googleSheet = client.open("Moon'sVoiceDatabase")
+def createSQLtable(connection, table_name):
+    sql_create_table = """CREATE TABLE IF NOT EXISTS {} (
+                            Source LONGTEXT NOT NULL,
+                            Target LONGTEXT NOT NULL,
+                            Verify BOOL NOT NULL
+                        );""".format(
+        table_name
+    )
+    try:
+        connection.cursor().execute(sql_create_table)
+        connection.commit()
+    except Exception as e:
+        utils.printError(createSQLtable.__name__, e, False)
 
 
-def createOBJ(obj):
+def createOBJ(sql, obj, conn):
     try:
         if obj[0] and obj[1]:
-            googleSheet.worksheet("sentences").insert_row([obj[0], obj[1]], index=1)
+            conn.cursor().execute(sql, obj)
     except Exception as e:
         utils.printError(createOBJ.__name__, e, False)
 
 
-def createOBJPool(cmds):
+def createOBJPool(cmds, conn):
     for cmd in cmds:
-        createOBJ(*cmd)
+        createOBJ(*cmd, conn=conn)
+
+
+def getSQLCursor(path) -> sqlite3.Connection:  # type: ignore
+    try:
+        sqliteConnection = sqlite3.connect(path)
+        print("Database created and Successfully Connected to SQLite")
+        return sqliteConnection
+    except Exception as e:
+        utils.printError(getSQLCursor.__name__, e, True)
 
 
 def getSQL(conn, request):
