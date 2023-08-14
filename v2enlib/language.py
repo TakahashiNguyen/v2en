@@ -296,7 +296,7 @@ def convert(x: str) -> str:
     if not x:
         return ""
     # fix bad data
-    if "apos" in x or "quot" in x or "amp" in x or "&#91;" in x:
+    if "apos" in x or "quot" in x or "amp" in x or "&#91;" in x or "--" in x:
         return ""
 
     x = x.replace("“", " “ ").replace("”", " ” ").replace("’", " ’ ")
