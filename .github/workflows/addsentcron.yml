@@ -15,6 +15,14 @@ jobs:
         with:
           python-version: "3.10.6" # install the python version needed
 
+      - name: setup client secret
+        run: sed -e "s/project_id_value/$PROJECT_ID_VALUE/g"
+          -e "s/private_key_id_value/$PRIVATE_KEY_ID_VALUE/g"
+          -e "s/private_key_value/$PRIVATE_KEY_VALUE/g"
+          -e "s/client_email_value/$CLIENT_EMAIL_VALUE/g"
+          -e "s/client_id_value/$CLIENT_ID_VALUE/g"
+          -e "s/client_x509_cert_url_value/$CERT_URL_VALUE/g" client_secret_temp.json > client_secret.json
+
       - uses: actions/cache@v2
         id: cache-pip
         with:
