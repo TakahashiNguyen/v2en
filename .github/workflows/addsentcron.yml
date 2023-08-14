@@ -1,10 +1,10 @@
-name: run addsent.py
+name: Execute addsent.py
 
 on:
   workflow_dispatch:
 
 jobs:
-  execute_python_file:
+  execute_python_script:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo content
