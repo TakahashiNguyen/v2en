@@ -12,7 +12,6 @@ try:
     resource_allow = cfg["v2en"]["allow"]["resource"]
     thread_alow = cfg["v2en"]["thread"]["allow"]
     thread_limit = cfg["v2en"]["thread"]["limit"]
-    table_name = cfg["sqlite"]["table_name"]
     trans_timeout = cfg["v2en"]["trans_timeout"]
     initial_sparsity = cfg["training"]["initial_sparsity"]
     final_sparsity = cfg["training"]["final_sparsity"]
