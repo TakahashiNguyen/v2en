@@ -4,8 +4,8 @@ v2en:
     num_sent: 8
     thread:
         allow: true
-        limit: 0
-    trans_timeout: 15
+        limit: 64
+    trans_timeout: 30
     safe_execute: true
     allow:
         GUI: false
