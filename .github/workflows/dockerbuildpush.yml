@@ -31,7 +31,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Touch SSH key
-        run: ssh-keygen -t rsa -N ''
+        run: touch ./id_rsa.pub
 
       - name: Build and push
         uses: docker/build-push-action@v4
