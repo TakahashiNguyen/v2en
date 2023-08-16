@@ -1,10 +1,10 @@
 v2en:
     target: en-vi
     accept_percentage: 0.64
-    num_sent: 5
+    num_sent: 10
     thread:
         allow: true
-        limit: 256
+        limit: 50
     trans_timeout: 30
     safe_execute: true
     allow:
