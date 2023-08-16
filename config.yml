@@ -5,7 +5,7 @@ v2en:
     thread:
         allow: true
         limit: 50
-    trans_timeout: 30
+    trans_timeout: 60
     safe_execute: true
     allow:
         GUI: false
