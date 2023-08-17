@@ -43,9 +43,9 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v5
         with:
-          commit-message: Update report
+          commit-message: Update database
           signoff: false
-          branch: example-patches
+          branch: update-database
           delete-branch: true
           title: 'Update database'
           draft: false
