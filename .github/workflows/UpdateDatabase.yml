@@ -5,6 +5,7 @@ on:
 
 jobs:
   execute_python_script:
+    name: Update database
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo content
