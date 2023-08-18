@@ -3,19 +3,9 @@ name: Confirm Database Update
 on:
   pull_request:
     types:
-      - labeled
-      - synchronize
       - opened
-      - edited
-      - ready_for_review
-      - unlocked
-  pull_request_review:
-    types:
-      - submitted
-  check_suite:
-    types:
-      - completed
-  status: 
+      - assigned
+  status:
 jobs:
   automerge:
     name: Merge update action
@@ -23,7 +13,7 @@ jobs:
     steps:
       - id: automerge
         name: Merge update
-        if : github.event.state == 'success'
+        if: github.event.state == 'success'
         uses: "pascalgn/automerge-action@v0.15.6"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
