@@ -289,7 +289,7 @@ def addSent(input_sent: InputSent, first_dictionary, second_dictionary):
             )
     del trans_data
     gc.collect()
-    return first_dump_sent, second_dump_sent, cmds, is_agree, len(print_data) - 1
+    return first_dump_sent, second_dump_sent, cmds, is_agree
 
 
 def convert(x: str) -> str:
