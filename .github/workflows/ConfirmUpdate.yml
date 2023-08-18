@@ -15,13 +15,15 @@ on:
   check_suite:
     types:
       - completed
-  status: {}
+  status: 
 jobs:
   automerge:
+    name: Merge update action
     runs-on: ubuntu-latest
     steps:
       - id: automerge
-        name: automerge
+        name: Merge update
+        if : github.event.state == 'success'
         uses: "pascalgn/automerge-action@v0.15.6"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
