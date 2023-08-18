@@ -52,6 +52,6 @@ jobs:
           delete-branch: true
           title: "Update database"
           draft: false
-          body-path: ./logs/en-vi.log
+          body-path: 
           labels: |
             update-database
