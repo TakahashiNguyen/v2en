@@ -1,10 +1,4 @@
-import logging, os, contextlib, time, resource, librosa, numpy as np
-import hashlib, soundfile as sf, platform, subprocess
-from v2enlib import const
-from tqdm import tqdm
-from difflib import SequenceMatcher
-from multiprocess.pool import ThreadPool
-from multiprocess.context import TimeoutError as TLE
+from v2enlib.libs import *
 
 
 # debug utils
@@ -46,10 +40,7 @@ def measureFunction(func):
         execution_time = end_time - start_time
         before = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
         resource_consumption = before / 1024 / 1024  # Memory usage in MB
-        if (
-            execution_time < const.time_allow
-            and resource_consumption < const.resource_allow
-        ):
+        if execution_time < const.time_allow and resource_consumption < const.resource_allow:
             return result
 
         logging.warn(
@@ -70,13 +61,13 @@ def printError(text, error, important):
 # terminal utils
 def terminalWidth():
     try:
-        return os.get_terminal_size().columns
+        return const.os.get_terminal_size().columns
     except Exception:
         return 0
 
 
 def cleanScreen() -> None:
-    os.system("cls" if os.name == "nt" else "clear")
+    const.os.system("cls" if const.os.name == "nt" else "clear")
 
 
 # sound utils
@@ -84,7 +75,7 @@ def playNotes(notes, durations, note_start_times):
     """
     Plays multiple notes simultaneously with varying durations and decreasing volume using a thread pool.
     """
-    pool = ThreadPool(len(notes))
+    pool = const.ThreadPool(len(notes))
     for i in range(len(notes)):
         pool.apply_async(
             playNote,
@@ -167,16 +158,12 @@ def functionPool(
     if (len(cmds)) == 0:
         return []
     with executor(
-        processes=min(
-            len(cmds), const.thread_limit if const.thread_limit > 0 else len(cmds)
-        ),
+        processes=min(len(cmds), const.thread_limit if const.thread_limit > 0 else len(cmds)),
     ) as ex:
         if (not const.thread_alow or not isAllowThread) and not alwaysThread:
             return [
                 func(cmd)
-                for cmd in tqdm(
-                    cmds, leave=False, desc=poolName, disable=const.disableTQDM
-                )
+                for cmd in tqdm(cmds, leave=False, desc=poolName, disable=const.disableTQDM)
             ]
         with tqdm(
             total=len(cmds), leave=False, desc=poolName, disable=const.disableTQDM
@@ -201,16 +188,12 @@ def argsPool(
     **kwargs,
 ) -> list:
     with executor(
-        processes=min(
-            len(funcs), const.thread_limit if const.thread_limit > 0 else len(funcs)
-        ),
+        processes=min(len(funcs), const.thread_limit if const.thread_limit > 0 else len(funcs)),
     ) as ex:
         if (not const.thread_alow or not isAllowThread) and not alwaysThread:
             return [
                 subexecutor([func, kwargs])
-                for func in tqdm(
-                    funcs, leave=False, desc=poolName, disable=const.disableTQDM
-                )
+                for func in tqdm(funcs, leave=False, desc=poolName, disable=const.disableTQDM)
             ]
         with tqdm(
             total=len(funcs), leave=False, desc=poolName, disable=const.disableTQDM

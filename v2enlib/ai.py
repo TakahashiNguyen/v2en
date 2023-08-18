@@ -1,6 +1,4 @@
-import tensorflow as tf
-from v2enlib import const
-
+from v2enlib.libs import *
 
 def lr_schedule(epoch, lr):
     return lr if epoch < 10 else lr * tf.math.exp(-0.1)
@@ -45,7 +43,7 @@ def language_model(
 
     model.compile(
         loss=tf.keras.losses.SparseCategoricalCrossentropy(),
-        optimizer=tf.keras.optimizers.Adam(learning_rate=const.learning_rate * 10),
+        optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate * 10),
         metrics=["accuracy"],
     )
 

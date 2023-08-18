@@ -1,6 +1,5 @@
 import v2enlib.utils as utils
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+from v2enlib.libs import *
 
 
 scope = [
@@ -17,7 +16,7 @@ googleSheet = client.open("Moon'sVoiceDatabase")
 def createOBJ(obj):
     try:
         if obj[0] and obj[1]:
-            googleSheet.worksheet("sentences").append_row([obj[0], obj[1]])
+            googleSheet.worksheet(const.worksheet_name).append_row([obj[0], obj[1]])
     except Exception as e:
         utils.printError(createOBJ.__name__, e, False)
 

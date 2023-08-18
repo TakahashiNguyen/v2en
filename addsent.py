@@ -1,56 +1,28 @@
-import contextlib
-import yaml, signal, time, gc, os, argparse
-from multiprocessing import Process
-from multiprocessing.pool import Pool
-from v2enlib import utils, language, SQL, const
-
-# read config.yml and init path
-try:
-    with open("config.yml", "r") as ymlfile:
-        cfg = yaml.safe_load(ymlfile)
-    target = cfg["v2en"]["target"]
-    num_sent = cfg["v2en"]["num_sent"]
-    allow_GUI = cfg["v2en"]["allow"]["GUI"]
-    first_lang = target[:2]
-    second_lang = target[-2:]
-    safe_execute = cfg["v2en"]["safe_execute"]
-    limit_false_translation = cfg["v2en"]["allow"]["FalseTranslation"]
-    if allow_GUI:
-        import tkinter as tk
-except Exception as e:
-    utils.printError("importing config", e, True)
-    exit(0)
-first_dictionary_path, second_dictionary_path = (
-    f"./cache/{first_lang}.dic",
-    f"./cache/{second_lang}.dic",
-)
-first_path, second_path = f"./data/{first_lang}.txt", f"./data/{second_lang}.txt"
-main_execute = True
-false_allow = num_sent / 2 * 3
+import v2enlib as v2l
 
 
 def signalHandler(sig, handle):
-    global main_execute
-    if main_execute:
+    if v2l.libs.const.main_execute:
         print("\tStop program!")
         main_execute = False
 
 
 def on_press(key):
-    global main_execute
-    with contextlib.suppress(AttributeError):
-        if key.char == "z" and main_execute:
-            os.kill(os.getpid(), signal.SIGINT)
+    with v2l.libs.contextlib.suppress(AttributeError):
+        if key.char == "z" and v2l.libs.const.main_execute:
+            v2l.libs.os.kill(v2l.libs.os.getpid(), v2l.libs.signal.SIGINT)
 
 
 class ExitButton:
     def __init__(self, func, **kwargs):
-        if allow_GUI:
-            self.root = tk.Tk()
+        if v2l.libs.const.allow_GUI:
+            self.root = v2l.libs.tk.Tk()
             self.root.title("My App")
-            self.button = tk.Button(self.root, text="Turn Off", command=self.turn_off)
+            self.button = v2l.tk.Button(
+                self.root, text="Turn Off", command=self.turn_off
+            )
             self.button.pack()
-            self.thread = Process(
+            self.thread = v2l.libs.Process(
                 target=self.run_loop, kwargs={"func": func, "kwargs": kwargs}
             )
             self.thread.start()
@@ -62,14 +34,13 @@ class ExitButton:
     def run_loop(self, func, kwargs):
         func(**kwargs)
 
-        if allow_GUI and self.root.winfo_exists():
+        if v2l.libs.const.allow_GUI and self.root.winfo_exists():
             self.root.destroy()
 
     def turn_off(self):
         self.root.destroy()
-        global main_execute
-        if main_execute:
-            os.kill(os.getpid(), signal.SIGINT)
+        if v2l.libs.const.main_execute:
+            v2l.libs.os.kill(v2l.libs.os.getpid(), v2l.libs.signal.SIGINT)
 
 
 def saveFiles(
@@ -82,47 +53,48 @@ def saveFiles(
     first_dictionary,
     second_dictionary,
 ):
-    language.saveDictionary(first_dictionary_path, first_dictionary)
-    language.saveDictionary(second_dictionary_path, second_dictionary)
-    with open(first_path, "w") as file:
+    v2l.language.saveDictionary(first_dictionary_path, first_dictionary)
+    v2l.language.saveDictionary(second_dictionary_path, second_dictionary)
+    with open(v2l.libs.const.first_path, "w") as file:
         file.writelines(saveIN)
-    with open(second_path, "w") as file:
+    with open(v2l.libs.const.second_path, "w") as file:
         file.writelines(saveOU)
-    with open(f"./data/{first_lang}.dump", "a") as f:
+    with open(f"./data/{v2l.libs.const.first_lang}.dump", "a") as f:
         for sent in first_dump_sents:
             f.write(f"{sent}\n")
-    with open(f"./data/{second_lang}.dump", "a") as f:
+    with open(f"./data/{v2l.libs.const.second_lang}.dump", "a") as f:
         for sent in second_dump_sents:
             f.write(f"{sent}\n")
 
 
 def safeExecute(saveIN, saveOU, first_dictionary, second_dictionary, fargs):
     false_count, first_dump_sents, second_dump_sents, exe_count, cmds = 0, [], [], 0, []
-    global main_execute
-    while main_execute:
+    while v2l.libs.const.main_execute:
         # pre run section
-        time_start = time.time()
-        if utils.emptyFile(first_path) or utils.emptyFile(second_path):
+        time_start = v2l.libs.time.time()
+        if v2l.utils.emptyFile(v2l.libs.const.first_path) or v2l.utils.emptyFile(
+            v2l.libs.const.second_path
+        ):
             print("Done!")
             break
         first_dump_sent, second_dump_sent = [], []
 
         # run section
-        for e in utils.functionPool(
-            language.addSentExecutor,
+        for e in v2l.utils.functionPool(
+            v2l.language.addSentExecutor,
             [
                 [
-                    language.InputSent(saveIN[idx], saveOU[idx]),
+                    v2l.language.InputSent(saveIN[idx], saveOU[idx]),
                     first_dictionary,
                     second_dictionary,
                 ]
                 for idx in range(
-                    num_sent
-                    if min(len(saveIN), len(saveOU)) > num_sent
+                    v2l.libs.const.num_sent
+                    if min(len(saveIN), len(saveOU)) > v2l.libs.const.num_sent
                     else min(len(saveIN), len(saveOU))
                 )
             ],
-            Pool,
+            v2l.libs.Pool,
             strictOrder=True,
             poolName="addSent",
         ):
@@ -132,41 +104,41 @@ def safeExecute(saveIN, saveOU, first_dictionary, second_dictionary, fargs):
             cmds.extend(i for i in e[2] if i)
             false_count += -false_count if e[3] else 1
             if (
-                false_count > false_allow
-                and main_execute
-                and not limit_false_translation
+                false_count > v2l.libs.const.false_allow
+                and v2l.libs.const.main_execute
+                and not v2l.libs.const.limit_false_translation
             ):
-                utils.printError(
+                v2l.utils.printError(
                     "mainModule", Exception("Too many fatal translation!"), True
                 )
-                main_execute = False
+                v2l.libs.const.main_execute = False
 
         # post run section
         second_dump_sents += second_dump_sent
         first_dump_sents += first_dump_sent
-        saveOU = saveOU[num_sent:]
-        saveIN = saveIN[num_sent:]
+        saveOU = saveOU[v2l.libs.const.num_sent :]
+        saveIN = saveIN[v2l.libs.const.num_sent :]
         cmds = [list(x) for x in {tuple(x) for x in cmds}]
 
         print(
-            f"\t\t(mainModule) time consume: {(time.time()-time_start):0,.2f} ({len(cmds)})",
+            f"\t\t(mainModule) time consume: {(v2l.libs.time.time()-time_start):0,.2f} ({len(cmds)})",
         )
         del first_dump_sent, second_dump_sent
-        gc.collect()
+        v2l.libs.gc.collect()
         exe_count += len(cmds)
         if exe_count >= fargs.amount_exe:
             break
 
     # save files
-    if main_execute:
-        SQL.createOBJPool(cmds)
+    if v2l.libs.const.main_execute:
+        v2l.SQL.createOBJPool(cmds)
         saveFiles(
             saveIN,
             saveOU,
             first_dump_sents,
             second_dump_sents,
-            first_dictionary_path,
-            second_dictionary_path,
+            v2l.libs.const.first_dictionary_path,
+            v2l.libs.const.second_dictionary_path,
             first_dictionary,
             second_dictionary,
         )
@@ -179,25 +151,25 @@ def unsafeExecute(saveIN, saveOU, sql_connection, first_dictionary, second_dicti
 
 def main(fargs):
     # premain section
-    utils.playNotes(*const.sound_tracks["macos_startup"])
     if not fargs.ci_cd:
+        v2l.utils.playNotes(*v2l.libs.const.sound_tracks["macos_startup"])
         listener = keyboard.Listener(on_press=on_press)
         listener.start()
-    signal.signal(signal.SIGINT, signalHandler)
+    v2l.libs.signal.signal(v2l.libs.signal.SIGINT, signalHandler)
 
     # init dictionaries
-    language.checkLangFile(first_lang, second_lang)
-    first_dictionary = language.loadDictionary(first_dictionary_path)
-    second_dictionary = language.loadDictionary(second_dictionary_path)
+    v2l.language.checkLangFile(v2l.libs.const.first_lang, v2l.libs.const.second_lang)
+    first_dictionary = v2l.language.loadDictionary(v2l.libs.const.first_dictionary_path)
+    second_dictionary = v2l.language.loadDictionary(v2l.libs.const.second_dictionary_path)
     # init inputs
-    with open(first_path, "r") as first_file:
-        with open(second_path, "r") as second_file:
+    with open(v2l.libs.const.first_path, "r") as first_file:
+        with open(v2l.libs.const.second_path, "r") as second_file:
             saveIN, saveOU = first_file.read().splitlines(
                 True
             ), second_file.read().splitlines(True)
 
     # main section
-    if safe_execute:
+    if v2l.libs.const.safe_execute:
         ExitButton(
             safeExecute,
             saveIN=saveIN,
@@ -208,12 +180,13 @@ def main(fargs):
         )
 
     # postmain section
-    utils.playNotes(*const.sound_tracks["windows7_shutdown"])
+    if not fargs.ci_cd:
+        v2l.utils.playNotes(*v2l.libs.const.sound_tracks["windows7_shutdown"])
 
 
 if __name__ == "__main__":
     # init program parse
-    parser = argparse.ArgumentParser()
+    parser = v2l.libs.argparse.ArgumentParser()
     parser.add_argument(
         "--amount-exe",
         type=int,
@@ -230,6 +203,13 @@ if __name__ == "__main__":
         const=True,
     )
     parser.add_argument(
+        "--test",
+        help="worksheet name to save output",
+        nargs="?",
+        const="test",
+        default="sentences",
+    )
+    parser.add_argument(
         "--disable-thread",
         type=bool,
         help="disable thread feature for addsent.py",
@@ -240,10 +220,11 @@ if __name__ == "__main__":
     fargs = parser.parse_args()
     # reconfig program value
     if fargs.disable_thread:
-        const.thread_alow = False
+        v2l.libs.const.thread_alow = False
     if not fargs.ci_cd:
         from pynput import keyboard
     else:
-        const.disableTQDM = True
+        v2l.libs.const.disableTQDM = True
+    v2l.libs.const.worksheet_name = fargs.test
     # execute program
     main(fargs)

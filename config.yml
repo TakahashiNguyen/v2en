@@ -1,25 +1,25 @@
 v2en:
-    target: en-vi
-    accept_percentage: 0.64
-    num_sent: 10
-    thread:
-        allow: true
-        limit: 50
-    trans_timeout: 60
-    safe_execute: true
-    allow:
-        GUI: false
-        FalseTranslation: true
-        time: 30
-        resource: 1
-        tqdm: true
+  target: en-vi
+  accept_percentage: 0.64
+  num_sent: 10
+  thread:
+    allow: true
+    limit: 50
+  trans_timeout: 60
+  safe_execute: true
+  allow:
+    GUI: false
+    FalseTranslation: true
+    time: 30
+    resource: 1
+    tqdm: true
 training:
-    learning_rate: 0.001
-    initial_sparsity: 0.0
-    final_sparsity: 0.9
-    allow_pruning: false
-    begin_step: 1
-    end_step: 1000
-    val_cache_path: ./cache/var.pkl
-    model_shape_path: ./cache/shape.pkl
-    checkpoint_path: ./models/best.ckpt
+  learning_rate: 0.001
+  initial_sparsity: 0.0
+  final_sparsity: 0.9
+  allow_pruning: false
+  begin_step: 1
+  end_step: 1000
+  val_cache_path: ./cache/var.pkl
+  model_shape_path: ./cache/shape.pkl
+  checkpoint_path: ./models/best.ckpt

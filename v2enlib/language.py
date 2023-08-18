@@ -1,9 +1,5 @@
-import string, httpx, string, gc, contextlib, os
-import deep_translator.exceptions, langcodes, requests
-from translators import server as TransServer
-from v2enlib import const, utils
-from tabulate import tabulate
-from functools import lru_cache
+from v2enlib import utils
+from v2enlib.libs import *
 
 
 # * classes
@@ -147,9 +143,7 @@ def transIntoList(sent, source_lang, target_lang, target_dictionary):
         checkSpellingExecutor,
         [
             [convert(e[0]), target_dictionary, target_lang, e[1]]
-            for e in translatorsTrans(
-                [sent, source_lang, target_lang], const.trans_timeout
-            )
+            for e in translatorsTrans([sent, source_lang, target_lang], const.trans_timeout)
         ],
         utils.ThreadPool,
         alwaysThread=True,
