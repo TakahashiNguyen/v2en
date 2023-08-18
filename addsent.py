@@ -101,7 +101,6 @@ def safeExecute(saveIN, saveOU, first_dictionary, second_dictionary, fargs):
     global main_execute
     while main_execute:
         # pre run section
-        exe_count += num_sent
         time_start = time.time()
         if utils.emptyFile(first_path) or utils.emptyFile(second_path):
             print("Done!")
@@ -147,17 +146,18 @@ def safeExecute(saveIN, saveOU, first_dictionary, second_dictionary, fargs):
         first_dump_sents += first_dump_sent
         saveOU = saveOU[num_sent:]
         saveIN = saveIN[num_sent:]
+        cmds = [list(x) for x in {tuple(x) for x in cmds}]
 
         print(
             f"\t\t(mainModule) time consume: {(time.time()-time_start):0,.2f} ({len(cmds)})",
         )
-        del cmds, first_dump_sent, second_dump_sent
+        del first_dump_sent, second_dump_sent
         gc.collect()
+        exe_count += len(cmds)
         if exe_count >= fargs.amount_exe:
             break
 
     # save files
-    cmds = [list(x) for x in {tuple(x) for x in cmds}]
     if main_execute:
         SQL.createOBJPool(cmds)
         saveFiles(
