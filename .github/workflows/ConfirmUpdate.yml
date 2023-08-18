@@ -5,7 +5,7 @@ on:
     types:
       - opened
       - assigned
-  status:
+  status: {}
 jobs:
   automerge:
     name: Merge update action
