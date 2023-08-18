@@ -1,4 +1,4 @@
-import sqlite3, v2enlib.utils as utils
+import v2enlib.utils as utils
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
