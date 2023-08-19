@@ -3,6 +3,12 @@ name: Confirm Database Update
 on:
   pull_request_target:
     types: [opened]
+  pull_request_review:
+    types:
+      - submitted
+  check_suite:
+    types:
+      - completed
 jobs:
   automerge:
     name: Merge update action
@@ -16,6 +22,6 @@ jobs:
           MERGE_LABELS: "update-database"
           MERGE_DELETE_BRANCH: true
       - name: Feedback
-        if: steps.automerge.outputs.automerge == 'merged'
+        if: steps.automerge.outputs.automerge == success()
         run: |
           echo "Pull request ${{ steps.automerge.outputs.pullRequestNumber }} merged!"
