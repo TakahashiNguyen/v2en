@@ -53,6 +53,6 @@ jobs:
           delete-branch: true
           title: "Update database"
           draft: false
-          body-path:
+          body:
           labels: |
             update-database
