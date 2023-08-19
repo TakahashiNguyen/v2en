@@ -7,7 +7,6 @@ on:
 
 jobs:
   execute_python_script:
-    if: ((github.action.pull_request.closed && github.event.pull_request.merged) || github.action.workflow_dispatch)
     name: Update database
     runs-on: ubuntu-latest
     steps:
