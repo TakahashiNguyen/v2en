@@ -2,7 +2,8 @@ name: Confirm Database Update
 
 on:
   pull_request:
-    types: [opened]
+    branches:
+      - update-database
 jobs:
   automerge:
     name: Merge update action
