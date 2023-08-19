@@ -12,7 +12,7 @@ on:
       - reopened
       - unlocked
     branches:
-      - main
+      - update-database
   pull_request_review:
     types:
       - submitted
