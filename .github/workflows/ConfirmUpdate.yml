@@ -2,24 +2,7 @@ name: Confirm Database Update
 
 on:
   pull_request:
-    types:
-      - labeled
-      - unlabeled
-      - synchronize
-      - opened
-      - edited
-      - ready_for_review
-      - reopened
-      - unlocked
-    branches:
-      - update-database
-  pull_request_review:
-    types:
-      - submitted
-  check_suite:
-    types:
-      - completed
-  status: {}
+    types: [labeled]
 jobs:
   automerge:
     name: Merge update action
@@ -27,12 +10,11 @@ jobs:
     steps:
       - id: automerge
         name: Merge update
-        uses: "pascalgn/automerge-action@v0.15.6"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "update-database"
-          MERGE_DELETE_BRANCH: true
-      - name: Feedback
-        if: steps.automerge.outputs.automerge == success()
-        run: |
-          echo "Pull request ${{ steps.automerge.outputs.pullRequestNumber }} merged!"
+        uses: plm9606/automerge_actions@1.2.2
+        with:
+          # The label name to automatically merge. Default is "automerge".
+          label-name: "update-database"
+          # Let the bot delete the merged branch. true or false.
+          auto-delete: true
+          # GitHub WebHook Secret Token
+          github-token: ${{ secrets.GITHUB_TOKEN }}
