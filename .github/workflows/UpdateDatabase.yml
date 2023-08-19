@@ -2,9 +2,12 @@ name: Execute addsent.py
 
 on:
   workflow_dispatch:
+  pull_request:
+    types: [closed]
 
 jobs:
   execute_python_script:
+    if: (!(github.event.action == 'closed' && github.event.pull_request.merged != true))
     name: Update database
     runs-on: ubuntu-latest
     steps:
@@ -33,8 +36,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-venv-
       # Build a virtualenv, but only if it doesn't already exist
-      - run:
-          pip install wheel && python setup.py bdist_wheel && 
+      - run: pip install wheel && python setup.py bdist_wheel &&
           python -m venv ./venv && . ./venv/bin/activate &&
           pip install -r requirements.txt
         if: steps.cache-venv.outputs.cache-hit != 'true'
@@ -52,6 +54,16 @@ jobs:
           delete-branch: true
           title: "Update database"
           draft: false
-          body-path: 
+          body-path:
           labels: |
             update-database
+
+      - name: Merge update
+        uses: plm9606/automerge_actions@1.2.2
+        with:
+          # The label name to automatically merge. Default is "automerge".
+          label-name: "update-database"
+          # Let the bot delete the merged branch. true or false.
+          auto-delete: true
+          # GitHub WebHook Secret Token
+          github-token: ${{ secrets.GITHUB_TOKEN }}
