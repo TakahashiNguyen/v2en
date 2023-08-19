@@ -2,8 +2,8 @@ name: Confirm Database Update
 
 on:
   pull_request:
-    branches:
-      - update-database
+    types:
+      - opened
 jobs:
   automerge:
     name: Merge update action
@@ -16,7 +16,7 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_LABELS: "update-database"
           MERGE_DELETE_BRANCH: true
-      - name: feedback
+      - name: Feedback
         if: steps.automerge.outputs.automerge == 'merged'
         run: |
           echo "Pull request ${{ steps.automerge.outputs.pullRequestNumber }} merged!"
