@@ -14,6 +14,10 @@ name: "Check code vulnerability"
 on:
   push:
     branches: ["main"]
+    paths:
+        - '**.ts'
+        - '**.py'
+        - '**.js'
 
 jobs:
   analyze:
