@@ -7,7 +7,7 @@ on:
 
 jobs:
   execute_python_script:
-    if: (!(github.event.action == 'closed' && github.event.pull_request.merged != true))
+    if: ((github.event.action == 'closed' && github.event.pull_request.merged == true))
     name: Update database
     runs-on: ubuntu-latest
     steps:
