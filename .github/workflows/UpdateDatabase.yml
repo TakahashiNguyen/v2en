@@ -57,13 +57,15 @@ jobs:
           body-path:
           labels: |
             update-database
-      
-      - name: Delay for updates
-        run: sleep 2
 
       - name: Merge update
-        uses: "pascalgn/automerge-action@v0.15.6"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "update-database"
-          MERGE_DELETE_BRANCH: "true"
+        uses: plm9606/automerge_actions@1.2.2
+        with:
+          # The label name to automatically merge. Default is "automerge".
+          label-name: "update-database"
+          # Let the bot delete the merged branch. true or false.
+          auto-delete: true
+          # GitHub WebHook Secret Token
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # The number of reviewers to automatically merge. Default is 1.
+          reviewers-number: 0
