@@ -11,6 +11,8 @@ on:
       - ready_for_review
       - reopened
       - unlocked
+    branches:
+      - update-database
   pull_request_review:
     types:
       - submitted
