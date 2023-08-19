@@ -1,10 +1,6 @@
 name: Confirm Database Update
 
 on:
-  pull_request:
-    types:
-      - labeled
-      - opened
   pull_request_target:
     types: [opened]
   pull_request_review:
@@ -13,7 +9,12 @@ on:
   check_suite:
     types:
       - completed
-  status: {}
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: ["main"]
+    types:
+      - labeled
+      - opened
 jobs:
   automerge:
     name: Merge update action
