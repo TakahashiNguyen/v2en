@@ -57,6 +57,9 @@ jobs:
           body-path:
           labels: |
             update-database
+      
+      - name: Delay for updates
+        run: sleep 2
 
       - name: Merge update
         uses: "pascalgn/automerge-action@v0.15.6"
