@@ -10,7 +10,7 @@ export class UserInput {
 		familyName = '',
 		givenName = '',
 		gender = '',
-		password = Math.random().toString(36).substring(2, 18),
+		password = '',
 		birthDay: Date = new Date('1999-12-31'),
 		userFace = '',
 	) {
