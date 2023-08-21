@@ -65,6 +65,3 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-
-      - name: Delete unused branch
-        run: gh pr close ${{ steps.cpr.outputs.pull-request-number }} --delete-branch
