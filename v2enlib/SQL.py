@@ -13,17 +13,8 @@ client = gspread.authorize(creds)
 googleSheet = client.open("MyDatabase")
 
 
-def createOBJ(obj):
-    try:
-        if obj[0] and obj[1]:
-            googleSheet.worksheet(const.worksheet_name).append_row([obj[0], obj[1]])
-    except Exception as e:
-        utils.printError(createOBJ.__name__, e, False)
-
-
 def createOBJPool(cmds):
-    for cmd in cmds:
-        createOBJ(*cmd)
+    googleSheet.worksheet(const.worksheet_name).append_rows(cmds)
 
 
 def getSQL(conn, request):

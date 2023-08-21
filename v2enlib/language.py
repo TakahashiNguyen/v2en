@@ -21,7 +21,7 @@ class InputSent:
         return bool(self.first and self.second)
 
     def SQLFormat(self) -> tuple:
-        return self.first, self.second, bool(self.isAdd)
+        return self.first, self.second
 
 
 # * executors
@@ -143,7 +143,9 @@ def transIntoList(sent, source_lang, target_lang, target_dictionary):
         checkSpellingExecutor,
         [
             [convert(e[0]), target_dictionary, target_lang, e[1]]
-            for e in translatorsTrans([sent, source_lang, target_lang], const.trans_timeout)
+            for e in translatorsTrans(
+                [sent, source_lang, target_lang], const.trans_timeout
+            )
         ],
         utils.ThreadPool,
         alwaysThread=True,
@@ -261,8 +263,8 @@ def addSent(input_sent: InputSent, first_dictionary, second_dictionary):
             is_agree = True
             is_error = False
         if is_agree and not is_error:
-            cmds = [[(input_sent.first, input_sent.second, True)]] + [
-                [e.SQLFormat()] for e in trans_data if e.isAdd
+            cmds = [[input_sent.first, input_sent.second]] + [
+                e.SQLFormat() for e in trans_data if e.isAdd
             ]
         if is_error:
             first_dump_sent, second_dump_sent = input_sent.first, input_sent.second
