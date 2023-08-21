@@ -47,6 +47,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v5
         with:
+          token: ${{ secrets.PAT }}
           commit-message: Update database
           signoff: false
           branch: update-database
