@@ -9,7 +9,7 @@ jobs:
   execute_python_script:
     name: Update database
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.labels.name == 'update-database' || github.event.workflow.workflow_dispatch }}
+    if: ${{ github.event.pull_request.labels.*.name == 'update-database' ||  github.event_name == 'workflow_dispatch' }}
     steps:
       - name: Checkout repo content
         uses: actions/checkout@v2 # checkout the repository content
