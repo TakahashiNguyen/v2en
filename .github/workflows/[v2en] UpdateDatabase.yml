@@ -9,6 +9,7 @@ jobs:
   execute_python_script:
     name: Update database
     runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.labels.name == 'update-database' || github.event.workflow.workflow_dispatch }}
     steps:
       - name: Checkout repo content
         uses: actions/checkout@v2 # checkout the repository content
@@ -57,10 +58,13 @@ jobs:
           body:
           labels: |
             update-database
-      
+
       - name: Enable Pull Request Automerge
         if: steps.cpr.outputs.pull-request-operation == 'created'
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: ${{ secrets.PAT }}
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+
+      - name: Delete unused branch
+        run: gh pr close ${{ steps.cpr.outputs.pull-request-number }} --delete-branch
