@@ -1,4 +1,4 @@
-name: Testing
+name: Test UX/UI
 run-name: ${{ github.actor }} is testing fullstack
 on:
   pull_request:
