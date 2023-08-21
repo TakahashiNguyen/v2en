@@ -71,7 +71,7 @@ def safeExecute(saveIN, saveOU, first_dictionary, second_dictionary, fargs):
     false_count, first_dump_sents, second_dump_sents, exe_count, cmds = 0, [], [], 0, []
     while v2l.libs.const.main_execute:
         # pre run section
-        time_start = v2l.libs.time.time()
+        time_start, pre_cmd = v2l.libs.time.time(), len(cmds)
         if v2l.utils.emptyFile(v2l.libs.const.first_path) or v2l.utils.emptyFile(
             v2l.libs.const.second_path
         ):
@@ -125,7 +125,7 @@ def safeExecute(saveIN, saveOU, first_dictionary, second_dictionary, fargs):
         )
         del first_dump_sent, second_dump_sent
         v2l.libs.gc.collect()
-        exe_count += len(cmds)
+        exe_count += len(cmds) - pre_cmd
         if exe_count >= fargs.amount_exe:
             break
 
@@ -146,7 +146,6 @@ def safeExecute(saveIN, saveOU, first_dictionary, second_dictionary, fargs):
 
 def unsafeExecute(saveIN, saveOU, sql_connection, first_dictionary, second_dictionary):
     false_count, first_dump_sents, second_dump_sents = 0, [], []
-    global main_execute
 
 
 def main(fargs):
@@ -160,7 +159,9 @@ def main(fargs):
     # init dictionaries
     v2l.language.checkLangFile(v2l.libs.const.first_lang, v2l.libs.const.second_lang)
     first_dictionary = v2l.language.loadDictionary(v2l.libs.const.first_dictionary_path)
-    second_dictionary = v2l.language.loadDictionary(v2l.libs.const.second_dictionary_path)
+    second_dictionary = v2l.language.loadDictionary(
+        v2l.libs.const.second_dictionary_path
+    )
     # init inputs
     with open(v2l.libs.const.first_path, "r") as first_file:
         with open(v2l.libs.const.second_path, "r") as second_file:
