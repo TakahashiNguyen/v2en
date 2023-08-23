@@ -43,7 +43,10 @@ class Executor:
 
     @staticmethod
     def addSent(cmd):
-        return Language.addSent(*cmd)
+        try:
+            return Language.addSent(*cmd)
+        except Exception as e:
+            debuger.printError("addSent", e, True)
 
     @staticmethod
     def checkSpelling(cmd):
@@ -80,7 +83,12 @@ class Translator:
 
             def execute(cmd: list):
                 ou = ""
-                allow_error = (JSONDecodeError, TranslatorError, HTTPError)
+                allow_error = (
+                    JSONDecodeError,
+                    TranslatorError,
+                    HTTPError,
+                    ConnectionError,
+                )
                 if function_timeout:
                     del cmd[1]["function_timeout"]
                 if cmd[0]:
