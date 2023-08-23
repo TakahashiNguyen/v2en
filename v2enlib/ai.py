@@ -1,7 +1,9 @@
-from v2enlib.libs import *
+from tensorflow import math, keras
+from v2enlib.config import config
+
 
 def lr_schedule(epoch, lr):
-    return lr if epoch < 10 else lr * tf.math.exp(-0.1)
+    return lr if epoch < 10 else lr * math.exp(-0.1)
 
 
 def language_model(
@@ -17,10 +19,10 @@ def language_model(
     """
     # Config Hyperparameters
     latent_dim = 128
-    layers = tf.keras.layers
+    layers = keras.layers
 
     # Build the layers
-    model = tf.keras.models.Sequential()
+    model = keras.models.Sequential()
     # Embedding
     model.add(
         layers.Embedding(
@@ -42,8 +44,10 @@ def language_model(
     )
 
     model.compile(
-        loss=tf.keras.losses.SparseCategoricalCrossentropy(),
-        optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate * 10),
+        loss=keras.losses.SparseCategoricalCrossentropy(),
+        optimizer=keras.optimizers.Adam(
+            learning_rate=config.training.learning_rate * 10
+        ),
         metrics=["accuracy"],
     )
 
