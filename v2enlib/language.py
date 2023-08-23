@@ -361,7 +361,7 @@ class Language:
         try:
             sheet = GSQLClass(config.v2en.sheet, f"dictionary_{lang}")
             sheet.clear()
-            sheet.writeLRow([list(dict.fromkeys(dictionary))])
+            sheet.writeLRow([[e] for e in list(dict.fromkeys(dictionary))])
             sheet.autoFit()
         except Exception as e:
             debuger.printError("saveDictionary", e, False)
