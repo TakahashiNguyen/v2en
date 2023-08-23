@@ -153,38 +153,40 @@ def transIntoList(sent, source_lang, target_lang, target_dictionary):
     )
 
 
-# * language utils
-def checkSpelling(text: str, dictionary: list, lang: str, tname: str = ""):
-    word = ""
-    try:
-        words = text.split()
-        outstr = ""
-        for idx, word in enumerate(words):
-            if (
-                word in dictionary
-                or word.isnumeric()
-                or word in string.punctuation
-                or existOnWiki(word, lang)
-                or existOnWiki(f"{words[idx-1]} {word}", lang)
-                or (
-                    idx + 1 < len(words) and existOnWiki(f"{word} {words[idx+1]}", lang)
-                )
-            ):
-                outstr += f"{word} "
-            else:
-                raise ValueError(f"{word} not existed")
-            if word.isalpha() and word not in dictionary:
-                dictionary.insert(0, word)
-        return [outstr, tname] if tname else outstr
-    except ValueError:
-        utils.printError(
-            f"add word for {lang}",
-            Exception(f"{word} isn't existed on Wikitionary!"),
-            False,
-        )
-    except Exception as e:
-        utils.printError(checkSpelling.__name__, e, False)
-    return ["", ""] if tname else ""
+class Language:
+    @staticmethod
+    def checkSpelling(text: str, dictionary: list, lang: str, tname: str = ""):
+        word = ""
+        try:
+            words = text.split()
+            outstr = ""
+            for idx, word in enumerate(words):
+                if (
+                    word in dictionary
+                    or word.isnumeric()
+                    or word in punctuation
+                    or Language.existOnWiki(word, lang)
+                    or Language.existOnWiki(f"{words[idx-1]} {word}", lang)
+                    or (
+                        idx + 1 < len(words)
+                        and Language.existOnWiki(f"{word} {words[idx+1]}", lang)
+                    )
+                ):
+                    outstr += f"{word} "
+                else:
+                    raise ValueError(f"{word} not existed")
+                if word.isalpha() and word not in dictionary:
+                    dictionary.append(word)
+            return [outstr, tname] if tname else outstr
+        except ValueError:
+            debuger.printError(
+                f"add word for {lang}",
+                Exception(f"{word} isn't existed on Wikitionary!"),
+                False,
+            )
+        except Exception as e:
+            debuger.printError(Language.checkSpelling.__name__, e, False)
+        return ["", ""] if tname else ""
 
 
 @utils.measureFunction
@@ -269,23 +271,23 @@ def addSent(input_sent: InputSent, first_dictionary, second_dictionary):
         if is_error:
             first_dump_sent, second_dump_sent = input_sent.first, input_sent.second
 
-        print_data += [
-            [e.isFrom, e.first, e.second, e.accurate] for e in trans_data if e.isAdd
-        ]
-        if len(print_data) < 10:
-            utils.logging.info(
-                tabulate(
-                    tabular_data=print_data,
-                    headers=["From", "Source", "Target", "Accuracy?"],
-                    tablefmt="fancy_grid",
-                    showindex="always",
-                    maxcolwidths=[None, None, 45, 45, 7],
-                    floatfmt=(".2f" * 5),
-                ),
-            )
-    del trans_data
-    gc.collect()
-    return first_dump_sent, second_dump_sent, cmds, is_agree
+            print_data += [
+                [e.isFrom, e.first, e.second, e.accurate] for e in trans_data if e.isAdd
+            ]
+            if len(print_data) < 10:
+                debuger.printInfo(
+                    tabulate(
+                        tabular_data=print_data,
+                        headers=["From", "Source", "Target", "Accuracy?"],
+                        tablefmt="fancy_grid",
+                        showindex="always",
+                        maxcolwidths=[None, None, 45, 45, 7],
+                        floatfmt=(".2f" * 5),
+                    ),
+                )
+        del trans_data
+        collect()
+        return first_dump_sent, second_dump_sent, cmds, is_agree, fdictionary, sdictionary
 
 
 def convert(x: str) -> str:

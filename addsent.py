@@ -103,6 +103,8 @@ def safeExecute(saveIN, saveOU, first_dictionary, second_dictionary, fargs):
                 second_dump_sent.append(e[1])
             cmds.extend(i for i in e[2] if i)
             false_count += -false_count if e[3] else 1
+            fdictionary += e[4]
+            sdictionary += e[5]
             if (
                 false_count > v2l.libs.const.false_allow
                 and v2l.libs.const.main_execute
