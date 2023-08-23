@@ -12,7 +12,7 @@ from string import punctuation
 from tabulate import tabulate
 from functools import lru_cache
 from gc import collect
-import httpx, os
+import httpx
 
 
 class InputSent:
@@ -299,7 +299,14 @@ class Language:
                 )
         del trans_data
         collect()
-        return first_dump_sent, second_dump_sent, cmds, is_agree, fdictionary, sdictionary
+        return (
+            first_dump_sent,
+            second_dump_sent,
+            cmds,
+            is_agree,
+            fdictionary,
+            sdictionary,
+        )
 
     @staticmethod
     def convert(x: str) -> str:
