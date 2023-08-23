@@ -11,8 +11,10 @@ v2en:
     GUI: false
     FalseTranslation: true
     time: 30
-    resource: 1
+    resource: 10
     tqdm: true
+  worksheet: sentences
+  sheet: MyDatabase
 training:
   learning_rate: 0.001
   initial_sparsity: 0.0

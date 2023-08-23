@@ -1,1 +1,5 @@
-from v2enlib import ai, language, SQL, libs, utils
+from v2enlib.ai import *
+from v2enlib.language import *
+from v2enlib.gSQL import *
+from v2enlib.config import config
+from v2enlib.utils import *
