@@ -2,7 +2,7 @@ from multiprocess.pool import ThreadPool
 from multiprocess.context import TimeoutError
 from contextlib import suppress
 from os import makedirs, get_terminal_size, system as ossys, path, stat
-from logging import Formatter, FileHandler, INFO, basicConfig, DEBUG, warn, fatal, info
+from logging import Formatter, FileHandler, INFO, basicConfig, DEBUG, warn, fatal, info, getLogger, WARNING
 from v2enlib.config import config
 from time import monotonic, sleep
 from resource import getrusage, RUSAGE_SELF
@@ -27,6 +27,7 @@ class Debugging:
         file_handler.setFormatter(formatter)
 
         basicConfig(level=DEBUG, handlers=[file_handler])
+        getLogger('httpx').setLevel(WARNING)
 
     def functionTimeoutWrapper(self, s):
         def outer(fn):
