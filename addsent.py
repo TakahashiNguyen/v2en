@@ -183,9 +183,9 @@ class Main:
                 f.writelines(self.ssent)
 
             for e in [[self.config.v2en.flang, fdump], [self.config.v2en.slang, sdump]]:
-                with GSQLClass(self.config.v2en.sheet, f"dump_{e[0]}") as sheet:
-                    sheet.writeLRow([[e] for e in e[1]])
-                    sheet.autoFit()
+                sheet = GSQLClass(self.config.v2en.sheet, f"dump_{e[0]}")
+                sheet.writeLRow([[e] for e in e[1]])
+                sheet.autoFit()
 
     def exit(self):
         if not self.args.ci_cd:
