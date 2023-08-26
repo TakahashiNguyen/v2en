@@ -146,7 +146,7 @@ class Main:
                 if (
                     false_count > self.config.v2en.false_allow
                     and self.config.main_execute
-                    and self.config.v2en.allow.FalseTranslation
+                    and not self.config.v2en.allow.FalseTranslation
                 ):
                     utils.debuger.printError(
                         self.mainExecute.__name__,
