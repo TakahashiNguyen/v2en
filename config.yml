@@ -12,7 +12,7 @@ v2en:
     FalseTranslation: true
     time: 120
     resource: 10
-    tqdm: true
+    tqdm: false
   worksheet: sentences
   sheet: MyDatabase
 training:
