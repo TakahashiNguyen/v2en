@@ -142,7 +142,7 @@ class Main:
                 if e[0] and e[1]:
                     fdump_sents.append(e[0])
                     sdump_sents.append(e[1])
-                false_count += -false_count if e[3] else 1
+                false_count += -false_count if e[2] else 1
                 if (
                     false_count > self.config.v2en.false_allow
                     and self.config.main_execute

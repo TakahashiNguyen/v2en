@@ -44,23 +44,8 @@ class Debugging:
         getLogger("httpx").setLevel(WARNING)
 
     @staticmethod
-    def functionTimeoutWrapper(s):
-        def outer(fn):
-            def inner(*args, **kwargs):
-                with mpPool(processes=1) as pool:
-                    result = pool.apply_async(fn, args=args, kwds=kwargs)
-                    output = kwargs.get("default_value", None)
-                    with suppress(TimeoutError):
-                        output = result.get(timeout=s) if s else result.get()
-                    return output
-
-            return inner
-
-        return outer
-
-    @staticmethod
     def functionTimeout(timeout, func, *args, **kwargs):
-        with mpPool(processes=1) as pool:
+        with mpThreadPool(processes=1) as pool:
             result = pool.apply_async(func=func, args=args, kwds=kwargs)
             output = kwargs.get("default_value", None)
             with suppress(TimeoutError):

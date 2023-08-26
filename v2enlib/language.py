@@ -11,7 +11,6 @@ from string import punctuation
 from tabulate import tabulate
 from functools import lru_cache
 from gc import collect
-from math import ceil
 import httpx
 
 
@@ -267,18 +266,22 @@ class Language:
                     )
                 )
 
-        if any(e.isAdd for e in trans_data):
+        if any(e.accurate > config.v2en.accept_percentage for e in trans_data):
             is_agree = True
             is_error = False
         if is_agree and not is_error:
             cmds += [[input_sent.first, input_sent.second]] + [
-                e.SQLFormat() for e in trans_data if e.isAdd
+                e.SQLFormat()
+                for e in trans_data
+                if e.accurate > config.v2en.accept_percentage
             ]
         if is_error:
             fdump, sdump = input_sent.first, input_sent.second
 
         print_data += [
-            [e.isFrom, e.first, e.second, e.accurate] for e in trans_data if e.isAdd
+            [e.isFrom, e.first, e.second, e.accurate]
+            for e in trans_data
+            if e.accurate > config.v2en.accept_percentage
         ]
         if len(print_data) < 10:
             debuger.printInfo(

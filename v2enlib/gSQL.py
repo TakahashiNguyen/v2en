@@ -31,9 +31,9 @@ class GSQLClass:
     # Section:_Write
     def writeLRow(self, value: list) -> None:
         if len(value) and isinstance(value[0], list):
-            self.table.append_rows(value)
+            self.table.append_rows(list(value))
         else:
-            self.table.append_row(value)
+            self.table.append_row(list(value))
 
     # Section:_Delete
     def deleteRow(self, row: int) -> None:
