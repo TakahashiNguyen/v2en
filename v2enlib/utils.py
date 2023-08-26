@@ -1,5 +1,5 @@
 from multiprocessing.context import TimeoutError
-from contextlib import suppress
+from contextlib import suppress, closing
 from os import makedirs, get_terminal_size, system as ossys, path, stat
 from logging import (
     Formatter,
@@ -13,6 +13,7 @@ from logging import (
     getLogger,
     WARNING,
 )
+from typing import Any
 from v2enlib.config import config
 from time import monotonic, sleep
 from resource import getrusage, RUSAGE_SELF
@@ -211,11 +212,7 @@ class Pool(mpPool):
         super(Pool, self).__init__(*args, **kwargs)
 
     @classmethod
-    def function(
-        cls,
-        func,
-        iterable,
-    ) -> list:
+    def function(cls, func, iterable, force_pro: int = None) -> list:
         if (len(iterable)) == 0:
             return []
         elif not config.v2en.thread.allow:
@@ -228,8 +225,11 @@ class Pool(mpPool):
                     disable=not config.v2en.allow.tqdm,
                 )
             ]
-        with cls(
-            processes=min(len(iterable), max(1, config.v2en.thread.limit)),
+        with closing(
+            cls(
+                processes=force_pro
+                or min(len(iterable), max(1, config.v2en.thread.limit)),
+            )
         ) as p, tqdm(
             total=len(iterable),
             leave=False,
@@ -260,8 +260,76 @@ class Pool(mpPool):
                     disable=not config.v2en.allow.tqdm,
                 )
             ]
-        with cls(
-            processes=min(len(funcs), max(1, config.v2en.thread.limit))
+        with closing(
+            cls(processes=min(len(funcs), max(1, config.v2en.thread.limit)))
+        ) as ex, tqdm(
+            total=len(funcs),
+            leave=False,
+            desc=poolName,
+            disable=not config.v2en.allow.tqdm,
+        ) as pbar:
+            results = []
+            kwargsc = [dict(kwargs) for _ in range(len(funcs))]
+            for res in ex.imap(
+                subexecutor, [[func, kwargsc[i]] for i, func in enumerate(funcs)]
+            ):
+                pbar.update(1)
+                results.append(res)
+            return results
+
+
+class ThreadPool(mpThreadPool):
+    @classmethod
+    def function(cls, func, iterable, force_pro: int = None) -> list:
+        if (len(iterable)) == 0:
+            return []
+        elif not config.v2en.thread.allow:
+            return [
+                func(cmd)
+                for cmd in tqdm(
+                    iterable,
+                    leave=False,
+                    desc=func.__name__,
+                    disable=not config.v2en.allow.tqdm,
+                )
+            ]
+        with closing(
+            cls(
+                processes=force_pro
+                or min(len(iterable), max(1, config.v2en.thread.limit)),
+            )
+        ) as p, tqdm(
+            total=len(iterable),
+            leave=False,
+            desc=func.__name__,
+            disable=not config.v2en.allow.tqdm,
+        ) as pbar:
+            results = []
+            for res in p.imap(func, iterable):
+                pbar.update(1)
+                results.append(res)
+            return results
+
+    @classmethod
+    def args(
+        cls,
+        funcs: list,
+        subexecutor,
+        poolName: str = "",
+        **kwargs,
+    ) -> list:
+        if not config.v2en.thread.allow:
+            return [
+                subexecutor([func, kwargs])
+                for func in tqdm(
+                    funcs,
+                    leave=False,
+                    desc=poolName,
+                    disable=not config.v2en.allow.tqdm,
+                )
+            ]
+        with closing(
+            cls(processes=min(len(funcs), max(1, config.v2en.thread.limit)))
         ) as ex, tqdm(
             total=len(funcs),
             leave=False,

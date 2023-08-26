@@ -1,4 +1,4 @@
-from v2enlib.utils import debuger, getKeyByValue, differentRatio, Pool
+from v2enlib.utils import debuger, getKeyByValue, differentRatio, Pool, ThreadPool
 from v2enlib.gSQL import GSQLClass
 from v2enlib.config import config
 from deep_translator import GoogleTranslator
@@ -7,13 +7,11 @@ from requests.exceptions import *
 from langcodes import Language as lcLanguage
 from translators.server import TranslatorError
 from contextlib import suppress
-from multiprocess.pool import ThreadPool
 from string import punctuation
 from tabulate import tabulate
 from functools import lru_cache
 from gc import collect
 from math import ceil
-from contextlib import closing
 import httpx
 
 
@@ -121,7 +119,7 @@ class Translator:
 
     @staticmethod
     def translatorsTrans(cmd: list, trans_timeout, config) -> list:
-        return Pool.args(
+        return ThreadPool.args(
             funcs=config.v2en.trans_dict.values(),
             subexecutor=Translator.translatorsTransSub,
             poolName="translationPool",
@@ -159,7 +157,7 @@ class Translator:
 
     @staticmethod
     def intoList(sent, source_lang, target_lang, target_dictionary, timeout, config):
-        return Pool.function(
+        return ThreadPool.function(
             func=Executor.checkSpelling,
             iterable=[
                 [Language.convert(e[0]), target_dictionary, target_lang, e[1]]
@@ -214,7 +212,7 @@ class Language:
         is_agree, fdump = False, []
         print_data = ["Data set", input_sent.first, input_sent.second, "N/A"]
         fdump, sdump = "", ""
-        input_sent.first, input_sent.second = Pool.function(
+        input_sent.first, input_sent.second = ThreadPool.function(
             func=Executor.checkSpelling,
             iterable=[
                 [Language.convert(e[0].replace("\n", "")), e[1], e[2]]

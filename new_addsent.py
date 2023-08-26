@@ -113,7 +113,7 @@ class Main:
             self.ssent = sfile.read().splitlines(True)
         self.config.main_execute = self.fsent and self.ssent
 
-    def inputList(self, num_exe: int, num_pro: int):
+    def inputList(self, num_exe: int):
         return [
             [
                 InputSent(self.fsent[idx], self.ssent[idx]),
@@ -134,10 +134,10 @@ class Main:
             time_start, pre_cmds = time.time(), len(self.cmds)
 
             num_exe = min(len(self.fsent), len(self.ssent), self.config.v2en.num_sent)
-            num_pro = min(self.config.v2en.thread.limit, num_exe)
             for e in Pool.function(
                 func=Executor.addSent,
-                iterable=self.inputList(num_exe=num_exe, num_pro=num_pro),
+                iterable=self.inputList(num_exe=num_exe),
+                force_pro=num_exe,
             ):
                 if e[0] and e[1]:
                     fdump_sents.append(e[0])
