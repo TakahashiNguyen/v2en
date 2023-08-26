@@ -1,6 +1,6 @@
-from v2enlib.config import config
-from v2enlib.utils import debuger, Pool, getKeyByValue, differentRatio, emptyFile
+from v2enlib.utils import debuger, getKeyByValue, differentRatio, Pool
 from v2enlib.gSQL import GSQLClass
+from v2enlib.config import config
 from deep_translator import GoogleTranslator
 from deep_translator.exceptions import *
 from requests.exceptions import *
@@ -12,6 +12,8 @@ from string import punctuation
 from tabulate import tabulate
 from functools import lru_cache
 from gc import collect
+from math import ceil
+from contextlib import closing
 import httpx
 
 
@@ -27,7 +29,6 @@ class InputSent:
         self.first = first or "N/A"
         self.second = second or "N/A"
         self.accurate = accurate
-        self.isAdd: bool = accurate > config.v2en.accept_percentage
 
     def isValid(self) -> bool:
         return bool(self.first and self.second)
@@ -43,10 +44,7 @@ class Executor:
 
     @staticmethod
     def addSent(cmd):
-        try:
-            return Language.addSent(*cmd)
-        except Exception as e:
-            debuger.printError("addSent", e, True)
+        return Language.addSent(*cmd)
 
     @staticmethod
     def checkSpelling(cmd):
@@ -74,62 +72,64 @@ class Translator:
             return ""
 
     @staticmethod
-    @debuger.measureFunction
-    def translatorsTrans(cmd: list, trans_timeout) -> list:
-        @debuger.measureFunction
-        def translatorsTransSub(cmd: list):
-            function_timeout = cmd[1].get("function_timeout", None)
-            trans_name = getKeyByValue(config.v2en.trans_dict, cmd[0])[0]
+    def translatorsTransSub(cmd: list):
+        function_timeout = cmd[1].get("function_timeout", None)
+        config = cmd[1].get("config")
+        trans_name = getKeyByValue(config.v2en.trans_dict, cmd[0])[0]
 
-            def execute(cmd: list):
-                ou = ""
-                allow_error = (
-                    JSONDecodeError,
-                    TranslatorError,
-                    HTTPError,
-                    ConnectionError,
-                )
-                if function_timeout:
-                    del cmd[1]["function_timeout"]
-                if cmd[0]:
-                    try:
-                        ou = debuger.functionTimeout(
-                            function_timeout, cmd[0], kwargs=cmd[1]
-                        )
-                    except TranslatorError as e:
-                        with suppress(*allow_error):
-                            if tcmd := Translator.handleCodes(cmd[1].values(), e):
-                                ou = debuger.functionTimeout(
-                                    function_timeout / 2, cmd[0], args=tcmd
-                                )
-                            else:
-                                ou = debuger.functionTimeout(
-                                    function_timeout,
-                                    Translator.deepGoogle,
-                                    kwargs=cmd[1],
-                                )
-                    except allow_error:
-                        ou = debuger.functionTimeout(
-                            function_timeout / 2, Translator.deepGoogle, kwargs=cmd[1]
-                        )
-                    except Exception as e:
-                        debuger.printError("translatorsTransSub", e, False)
-                if function_timeout:
-                    cmd[1]["function_timeout"] = function_timeout
-                return [ou, trans_name]
+        def execute(cmd: list):
+            ou = ""
+            allow_error = (
+                JSONDecodeError,
+                TranslatorError,
+                HTTPError,
+                ConnectionError,
+            )
+            if function_timeout:
+                del cmd[1]["function_timeout"]
+                del cmd[1]["config"]
+            if cmd[0]:
+                try:
+                    ou = debuger.functionTimeout(
+                        function_timeout, cmd[0], kwargs=cmd[1]
+                    )
+                except TranslatorError as e:
+                    with suppress(*allow_error):
+                        if tcmd := Translator.handleCodes(cmd[1].values(), e):
+                            ou = debuger.functionTimeout(
+                                function_timeout / 2, cmd[0], args=tcmd
+                            )
+                        else:
+                            ou = debuger.functionTimeout(
+                                function_timeout,
+                                Translator.deepGoogle,
+                                **cmd[1],
+                            )
+                except allow_error:
+                    ou = debuger.functionTimeout(
+                        function_timeout / 2, Translator.deepGoogle, kwargs=cmd[1]
+                    )
+                except Exception as e:
+                    debuger.printError("translatorsTransSub", e, False)
+            if function_timeout:
+                cmd[1]["function_timeout"] = function_timeout
+            if config:
+                cmd[1]["config"] = config
+            return [ou, trans_name]
 
-            return execute(cmd)
+        return execute(cmd)
 
+    @staticmethod
+    def translatorsTrans(cmd: list, trans_timeout, config) -> list:
         return Pool.args(
-            config.v2en.trans_dict.values(),
-            ThreadPool,
-            translatorsTransSub,
-            alwaysThread=True,
+            funcs=config.v2en.trans_dict.values(),
+            subexecutor=Translator.translatorsTransSub,
             poolName="translationPool",
             query_text=cmd[0],
             from_language=cmd[1],
             to_language=cmd[2],
             function_timeout=trans_timeout,
+            config=config,
         )
 
     # TODO Rename this here and in `translatorsTrans`
@@ -158,24 +158,23 @@ class Translator:
         return []
 
     @staticmethod
-    @debuger.measureFunction
-    def intoList(sent, source_lang, target_lang, target_dictionary):
+    def intoList(sent, source_lang, target_lang, target_dictionary, timeout, config):
         return Pool.function(
-            Executor.checkSpelling,
-            [
+            func=Executor.checkSpelling,
+            iterable=[
                 [Language.convert(e[0]), target_dictionary, target_lang, e[1]]
                 for e in Translator.translatorsTrans(
-                    [sent, source_lang, target_lang], config.v2en.trans_timeout
+                    cmd=[sent, source_lang, target_lang],
+                    trans_timeout=timeout,
+                    config=config,
                 )
             ],
-            ThreadPool,
-            alwaysThread=True,
-            poolName="transCheckSpelling",
         )
 
 
 class Language:
     @staticmethod
+    @debuger.measureFunction
     def checkSpelling(text: str, dictionary: list, lang: str, tname: str = ""):
         word = ""
         try:
@@ -209,112 +208,94 @@ class Language:
             debuger.printError(Language.checkSpelling.__name__, e, False)
         return ["", ""] if tname else ""
 
+    @staticmethod
     @debuger.measureFunction
-    def addSent(input_sent: InputSent, fdictionary, sdictionary):
-        is_agree, first_dump_sent, second_dump_sent, cmds, trans_data, print_data = (
-            False,
-            "",
-            "",
-            [],
-            [],
-            ["Data set", input_sent.first, input_sent.second, "N/A"],
-        )
+    def addSent(input_sent: InputSent, fdictionary, sdictionary, cmds, config):
+        is_agree, fdump = False, []
+        print_data = ["Data set", input_sent.first, input_sent.second, "N/A"]
+        fdump, sdump = "", ""
         input_sent.first, input_sent.second = Pool.function(
-            Executor.checkSpelling,
-            [
-                [
-                    Language.convert(input_sent.first.replace("\n", "")),
-                    fdictionary,
-                    config.v2en.flang,
-                ],
-                [
-                    Language.convert(input_sent.second.replace("\n", "")),
-                    sdictionary,
-                    config.v2en.slang,
-                ],
-            ],
-            ThreadPool,
-            strictOrder=True,
-            alwaysThread=True,
-            poolName="sentsCheckSpelling",
-        )
-        if input_sent.isValid():
-            is_error, trans_data = True, []
-            for first_tran, second_tran in zip(
-                *Pool.function(
-                    Executor.transIntoList,
-                    [
-                        [
-                            input_sent.first,
-                            config.v2en.flang,
-                            config.v2en.slang,
-                            sdictionary,
-                        ],
-                        [
-                            input_sent.second,
-                            config.v2en.slang,
-                            config.v2en.flang,
-                            fdictionary,
-                        ],
-                    ],
-                    ThreadPool,
-                    strictOrder=True,
-                    poolName="intoList",
-                )
-            ):
-                if first_tran[0]:
-                    trans_data.append(
-                        InputSent(
-                            input_sent.first,
-                            first_tran[0],
-                            first_tran[1],
-                            differentRatio(input_sent.second, first_tran[0]),
-                        )
-                    )
-                if second_tran[0]:
-                    trans_data.append(
-                        InputSent(
-                            second_tran[0],
-                            input_sent.second,
-                            second_tran[1],
-                            differentRatio(input_sent.first, second_tran[0]),
-                        )
-                    )
-
-            if any(e.isAdd for e in trans_data):
-                is_agree = True
-                is_error = False
-            if is_agree and not is_error:
-                cmds = [[input_sent.first, input_sent.second]] + [
-                    e.SQLFormat() for e in trans_data if e.isAdd
+            func=Executor.checkSpelling,
+            iterable=[
+                [Language.convert(e[0].replace("\n", "")), e[1], e[2]]
+                for e in [
+                    [input_sent.first, fdictionary, config.v2en.flang],
+                    [input_sent.second, sdictionary, config.v2en.slang],
                 ]
-            if is_error:
-                first_dump_sent, second_dump_sent = input_sent.first, input_sent.second
-
-            print_data += [
-                [e.isFrom, e.first, e.second, e.accurate] for e in trans_data if e.isAdd
-            ]
-            if len(print_data) < 10:
-                debuger.printInfo(
-                    tabulate(
-                        tabular_data=print_data,
-                        headers=["From", "Source", "Target", "Accuracy?"],
-                        tablefmt="fancy_grid",
-                        showindex="always",
-                        maxcolwidths=[None, None, 45, 45, 7],
-                        floatfmt=(".2f" * 5),
-                    ),
-                )
-        del trans_data
-        collect()
-        return (
-            first_dump_sent,
-            second_dump_sent,
-            cmds,
-            is_agree,
-            fdictionary,
-            sdictionary,
+            ],
         )
+        if not input_sent.isValid():
+            return "", "", False
+        is_error, trans_data = True, []
+        for first_tran, second_tran in zip(
+            *Pool.function(
+                func=Executor.transIntoList,
+                iterable=[
+                    [
+                        input_sent.first,
+                        config.v2en.flang,
+                        config.v2en.slang,
+                        sdictionary,
+                        config.v2en.trans_timeout,
+                        config,
+                    ],
+                    [
+                        input_sent.second,
+                        config.v2en.slang,
+                        config.v2en.flang,
+                        fdictionary,
+                        config.v2en.trans_timeout,
+                        config,
+                    ],
+                ],
+            )
+        ):
+            if first_tran[0]:
+                trans_data.append(
+                    InputSent(
+                        input_sent.first,
+                        first_tran[0],
+                        first_tran[1],
+                        differentRatio(input_sent.second, first_tran[0]),
+                    )
+                )
+            if second_tran[0]:
+                trans_data.append(
+                    InputSent(
+                        second_tran[0],
+                        input_sent.second,
+                        second_tran[1],
+                        differentRatio(input_sent.first, second_tran[0]),
+                    )
+                )
+
+        if any(e.isAdd for e in trans_data):
+            is_agree = True
+            is_error = False
+        if is_agree and not is_error:
+            cmds += [[input_sent.first, input_sent.second]] + [
+                e.SQLFormat() for e in trans_data if e.isAdd
+            ]
+        if is_error:
+            fdump, sdump = input_sent.first, input_sent.second
+
+        print_data += [
+            [e.isFrom, e.first, e.second, e.accurate] for e in trans_data if e.isAdd
+        ]
+        if len(print_data) < 10:
+            debuger.printInfo(
+                tabulate(
+                    tabular_data=print_data,
+                    headers=["From", "Source", "Target", "Accuracy?"],
+                    tablefmt="fancy_grid",
+                    showindex="always",
+                    maxcolwidths=[None, None, 45, 45, 7],
+                    floatfmt=(".2f" * 5),
+                ),
+            )
+        del trans_data, print_data
+        collect()
+        return fdump, sdump, is_agree
 
     @staticmethod
     def convert(x: str) -> str:
@@ -349,9 +330,9 @@ class Language:
         )
 
     @staticmethod
-    def loadDictionary(lang: str) -> list:
+    def loadDictionary(lang: str, sheet: str) -> list:
         try:
-            return GSQLClass(config.v2en.sheet, f"dictionary_{lang}").getCol(1)
+            return GSQLClass(sheet, f"dictionary_{lang}").getCol(1)
         except Exception as e:
             debuger.printError(Language.loadDictionary.__name__, e, False)
         return []

@@ -23,6 +23,8 @@ class GSQLClass:
 
     # Section:_Find
     def findRow(self, value: any):
+        if isinstance(value, int):
+            value = str(value)
         row = self.table.find(value)
         return False if row is None else row.row
 
@@ -32,6 +34,12 @@ class GSQLClass:
             self.table.append_rows(value)
         else:
             self.table.append_row(value)
+
+    # Section:_Delete
+    def deleteRow(self, row: int) -> None:
+        if self.col_len() == 1:
+            self.writeLRow([""])
+        self.table.delete_row(row)
 
     def writeCell(self, row: int, col: int, value: any) -> None:
         self.table.update_cell(row, col, value)

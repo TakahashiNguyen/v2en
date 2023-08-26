@@ -88,8 +88,8 @@ def safeExecute(saveIN, saveOU, fdictionary, sdictionary, fargs):
 
         # run section
         for e in v2l.Pool.function(
-            v2l.Executor.addSent,
-            [
+            func=v2l.Executor.addSent,
+            iterable=[
                 [
                     v2l.InputSent(saveIN[idx], saveOU[idx]),
                     fdictionary,
@@ -101,9 +101,6 @@ def safeExecute(saveIN, saveOU, fdictionary, sdictionary, fargs):
                     else min(len(saveIN), len(saveOU))
                 )
             ],
-            mpPool,
-            strictOrder=True,
-            poolName="addSent",
         ):
             if e[0] != "" and e[1] != "":
                 first_dump_sent.append(e[0])

@@ -4,7 +4,7 @@ v2en:
   num_sent: 10
   thread:
     allow: true
-    limit: 50
+    limit: 7
   trans_timeout: 60
   safe_execute: true
   allow:
