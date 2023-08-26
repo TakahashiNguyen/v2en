@@ -24,14 +24,14 @@
             "name": "Python: Debug addsent",
             "type": "python",
             "request": "launch",
-            "program": "new_addsent.py",
+            "program": "addsent.py",
             "console": "integratedTerminal",
             "justMyCode": true,
             "subProcess": true,
             "args": [
                 "--ci_cd",
                 "--amount-exe",
-                "4000",
+                "2000",
                 "--test"
             ]
         }
