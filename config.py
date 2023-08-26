@@ -25,7 +25,7 @@ class ExtraConfig(Config):
             f"./data/{self.v2en.slang}.txt",
         )
         self.v2en.trans_dict = TranslatorsServer().translators_dict
-        self.v2en.false_allow = self.v2en.num_sent / 2 * 3
+        self.v2en.false_allow = self.v2en.num_sent * 10
         self.training.pruning_params = {
             "pruning_schedule": sparsity.keras.PolynomialDecay(
                 initial_sparsity=self.training.initial_sparsity,
