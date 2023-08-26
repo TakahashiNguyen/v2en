@@ -1,19 +1,33 @@
-from multiprocess.pool import ThreadPool
-from multiprocess.context import TimeoutError
-from contextlib import suppress
+from multiprocessing.context import TimeoutError
+from contextlib import suppress, closing
 from os import makedirs, get_terminal_size, system as ossys, path, stat
-from logging import Formatter, FileHandler, INFO, basicConfig, DEBUG, warn, fatal, info, getLogger, WARNING
+from logging import (
+    Formatter,
+    FileHandler,
+    INFO,
+    basicConfig,
+    DEBUG,
+    warn,
+    fatal,
+    info,
+    getLogger,
+    WARNING,
+)
+from typing import Any
 from v2enlib.config import config
 from time import monotonic, sleep
 from resource import getrusage, RUSAGE_SELF
 from platform import system
 from librosa import note_to_hz
-from numpy import pi, arange, linspace, max, abs
 from hashlib import sha256
 from soundfile import write as sfwrite
 from subprocess import Popen
 from difflib import SequenceMatcher
+from multiprocessing.pool import Pool as mpPool, ThreadPool as mpThreadPool
+from multiprocessing import Process as mpProcess, get_context
 from tqdm import tqdm
+
+import numpy as np
 
 
 class Debugging:
@@ -27,37 +41,19 @@ class Debugging:
         file_handler.setFormatter(formatter)
 
         basicConfig(level=DEBUG, handlers=[file_handler])
-        getLogger('httpx').setLevel(WARNING)
+        getLogger("httpx").setLevel(WARNING)
 
-    def functionTimeoutWrapper(self, s):
-        def outer(fn):
-            def inner(*args, **kwargs):
-                with ThreadPool(processes=1) as pool:
-                    result = pool.apply_async(fn, args=args, kwds=kwargs)
-                    output = kwargs.get("default_value", None)
-                    with suppress(TimeoutError):
-                        output = result.get(timeout=s) if s else result.get()
-                    return output
+    @staticmethod
+    def functionTimeout(timeout, func, *args, **kwargs):
+        with mpThreadPool(processes=1) as pool:
+            result = pool.apply_async(func=func, args=args, kwds=kwargs)
+            output = kwargs.get("default_value", None)
+            with suppress(TimeoutError):
+                output = result.get(timeout=timeout or None)
+            return output
 
-            return inner
-
-        return outer
-
-    def functionTimeout(self, timeout, func, **kwargs):
-        @self.functionTimeoutWrapper(timeout)
-        def execute(func, **kwargs):
-            args, kwargs = kwargs.get("args", None), kwargs.get("kwargs", None)
-            return (
-                func(*args, **kwargs)
-                if args and kwargs
-                else func(**kwargs)
-                if kwargs
-                else func(*args)
-            )
-
-        return execute(func, **kwargs)
-
-    def measureFunction(self, func):
+    @staticmethod
+    def measureFunction(func):
         def wrapper(*args, **kwargs):
             start_time = monotonic()
             result = func(*args, **kwargs)
@@ -78,13 +74,15 @@ class Debugging:
 
         return wrapper
 
-    def printError(self, text, error, important):
+    @staticmethod
+    def printError(text, error, important):
         text = f"{'_'*50}\n\tExpectation while {text}\n\tError type: {type(error)}\n\t{error}\n{chr(8254)*50}"
         fatal(text)
         if important:
             print(text)
 
-    def printInfo(self, text):
+    @staticmethod
+    def printInfo(text):
         info(text)
 
 
@@ -107,7 +105,7 @@ class Sound:
         """
         Plays multiple notes simultaneously with varying durations and decreasing volume using a thread pool.
         """
-        pool = ThreadPool(len(notes))
+        pool = mpThreadPool(len(notes))
         for i in range(len(notes)):
             pool.apply_async(
                 Sound.playNote,
@@ -130,11 +128,11 @@ class Sound:
         sr = 44100  # sample rate
         freq = note_to_hz(note)
         samples = scipy.signal.sawtooth(  # type: ignore
-            2 * pi * arange(sr * note_duration) * freq / sr, 0.5
+            2 * np.pi * np.arange(sr * note_duration) * freq / sr, 0.5
         )
-        decay = linspace(volume, 0, int(sr * note_duration))
+        decay = np.linspace(volume, 0, int(sr * note_duration))
         scaled = samples * decay
-        scaled /= max(abs(scaled))
+        scaled /= np.max(np.abs(scaled))
 
         # Compute hash of audio data
         hashname = sha256(scaled).hexdigest()
@@ -179,102 +177,158 @@ def getKeyByValue(d, value):
     return [k for k, v in d.items() if v == value]
 
 
-class Pool:
-    @staticmethod
-    def function(
-        func,
-        cmds,
-        executor,
-        isAllowThread=True,
-        strictOrder=False,
-        alwaysThread: bool = False,
-        poolName: str = "",
-    ) -> list:
-        if (len(cmds)) == 0:
-            return []
-        with executor(
-            processes=min(
-                len(cmds),
-                config.v2en.thread.limit if config.v2en.thread.limit > 0 else len(cmds),
-            ),
-        ) as ex:
-            if (not config.v2en.thread.allow or not isAllowThread) and not alwaysThread:
-                return [
-                    func(cmd)
-                    for cmd in tqdm(
-                        cmds,
-                        leave=False,
-                        desc=poolName,
-                        disable=not config.v2en.allow.tqdm,
-                    )
-                ]
-            with tqdm(
-                total=len(cmds),
-                leave=False,
-                desc=poolName,
-                disable=not config.v2en.allow.tqdm,
-            ) as pbar:
-                results = []
-                for res in (
-                    ex.imap(func, cmds)
-                    if strictOrder
-                    else ex.imap_unordered(func, cmds)
-                ):
-                    pbar.update(1)
-                    results.append(res)
-                return results
+class NoDaemonProcess(mpProcess):
+    @property
+    def daemon(self):
+        return False
 
-    @staticmethod
+    @daemon.setter
+    def daemon(self, val):
+        pass
+
+
+class NoDaemonContext(type(get_context())):
+    Process = NoDaemonProcess
+
+
+class Pool(mpPool):
+    def __init__(self, *args, **kwargs):
+        kwargs["context"] = NoDaemonContext()
+        super(Pool, self).__init__(*args, **kwargs)
+
+    @classmethod
+    def function(cls, func, iterable, force_pro: int = None) -> list:
+        if (len(iterable)) == 0:
+            return []
+        elif not config.v2en.thread.allow:
+            return [
+                func(cmd)
+                for cmd in tqdm(
+                    iterable,
+                    leave=False,
+                    desc=func.__name__,
+                    disable=not config.v2en.allow.tqdm,
+                )
+            ]
+        with closing(
+            cls(
+                processes=force_pro
+                or min(len(iterable), max(1, config.v2en.thread.limit)),
+            )
+        ) as p, tqdm(
+            total=len(iterable),
+            leave=False,
+            desc=func.__name__,
+            disable=not config.v2en.allow.tqdm,
+        ) as pbar:
+            results = []
+            for res in p.imap(func, iterable):
+                pbar.update(1)
+                results.append(res)
+            return results
+
+    @classmethod
     def args(
+        cls,
         funcs: list,
-        executor,
         subexecutor,
-        isAllowThread: bool = True,
-        strictOrder: bool = False,
-        alwaysThread: bool = False,
         poolName: str = "",
         **kwargs,
     ) -> list:
-        with executor(
-            processes=min(
-                len(funcs),
-                config.v2en.thread.limit
-                if config.v2en.thread.limit > 0
-                else len(funcs),
-            ),
-        ) as ex:
-            if (not config.v2en.thread.allow or not isAllowThread) and not alwaysThread:
-                return [
-                    subexecutor([func, kwargs])
-                    for func in tqdm(
-                        funcs,
-                        leave=False,
-                        desc=poolName,
-                        disable=not config.v2en.allow.tqdm,
-                    )
-                ]
-            with tqdm(
-                total=len(funcs),
-                leave=False,
-                desc=poolName,
-                disable=not config.v2en.allow.tqdm,
-            ) as pbar:
-                results = []
-                kwargsc = [dict(kwargs) for _ in range(len(funcs))]
-                for res in (
-                    ex.imap(
-                        subexecutor,
-                        [[func, kwargsc[i]] for i, func in enumerate(funcs)],
-                    )
-                    if strictOrder
-                    else ex.imap_unordered(
-                        subexecutor,
-                        [[func, kwargsc[i]] for i, func in enumerate(funcs)],
-                    )
-                ):
-                    pbar.update(1)
-                    results.append(res)
-                return results
+        if not config.v2en.thread.allow:
+            return [
+                subexecutor([func, kwargs])
+                for func in tqdm(
+                    funcs,
+                    leave=False,
+                    desc=poolName,
+                    disable=not config.v2en.allow.tqdm,
+                )
+            ]
+        with closing(
+            cls(processes=min(len(funcs), max(1, config.v2en.thread.limit)))
+        ) as ex, tqdm(
+            total=len(funcs),
+            leave=False,
+            desc=poolName,
+            disable=not config.v2en.allow.tqdm,
+        ) as pbar:
+            results = []
+            kwargsc = [dict(kwargs) for _ in range(len(funcs))]
+            for res in ex.imap(
+                subexecutor, [[func, kwargsc[i]] for i, func in enumerate(funcs)]
+            ):
+                pbar.update(1)
+                results.append(res)
+            return results
+
+
+class ThreadPool(mpThreadPool):
+    @classmethod
+    def function(cls, func, iterable, force_pro: int = None) -> list:
+        if (len(iterable)) == 0:
+            return []
+        elif not config.v2en.thread.allow:
+            return [
+                func(cmd)
+                for cmd in tqdm(
+                    iterable,
+                    leave=False,
+                    desc=func.__name__,
+                    disable=not config.v2en.allow.tqdm,
+                )
+            ]
+        with closing(
+            cls(
+                processes=force_pro
+                or min(len(iterable), max(1, config.v2en.thread.limit)),
+            )
+        ) as p, tqdm(
+            total=len(iterable),
+            leave=False,
+            desc=func.__name__,
+            disable=not config.v2en.allow.tqdm,
+        ) as pbar:
+            results = []
+            for res in p.imap(func, iterable):
+                pbar.update(1)
+                results.append(res)
+            return results
+
+    @classmethod
+    def args(
+        cls,
+        funcs: list,
+        subexecutor,
+        poolName: str = "",
+        **kwargs,
+    ) -> list:
+        if not config.v2en.thread.allow:
+            return [
+                subexecutor([func, kwargs])
+                for func in tqdm(
+                    funcs,
+                    leave=False,
+                    desc=poolName,
+                    disable=not config.v2en.allow.tqdm,
+                )
+            ]
+        with closing(
+            cls(processes=min(len(funcs), max(1, config.v2en.thread.limit)))
+        ) as ex, tqdm(
+            total=len(funcs),
+            leave=False,
+            desc=poolName,
+            disable=not config.v2en.allow.tqdm,
+        ) as pbar:
+            results = []
+            kwargsc = [dict(kwargs) for _ in range(len(funcs))]
+            for res in ex.imap(
+                subexecutor, [[func, kwargsc[i]] for i, func in enumerate(funcs)]
+            ):
+                pbar.update(1)
+                results.append(res)
+            return results
 
 
 debuger = Debugging()
