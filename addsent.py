@@ -158,6 +158,7 @@ class Main:
             self.ssent = self.ssent[self.config.v2en.num_sent :]
 
             gc.collect()
+            self.cmds = [list(x) for x in {tuple(x) for x in self.cmds}]
             print(
                 f"\t\t({self.mainExecute.__name__}@{current_process().name}) time consume:\
                 {(time.time()-time_start):0,.2f} ({len(self.cmds)}) ({len(self.cmds)-pre_cmds})"
