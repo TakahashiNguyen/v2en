@@ -42,7 +42,7 @@ jobs:
         if: steps.cache-venv.outputs.cache-hit != 'true'
 
       - name: Execute Python script # run main.py
-        run: . ./venv/bin/activate && python addsent.py --amount-exe 500 --ci_cd --test 
+        run: . ./venv/bin/activate && python addsent.py --amount-exe 500 --ci_cd 
 
       - name: Create Pull Request
         id: cpr
