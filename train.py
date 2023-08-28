@@ -1,4 +1,5 @@
-from v2enlib import config, GSQLClass
+from v2enlib import GSQLClass
+from config import config
 
 import tensorflow as tf, pandas as pd, tensorflow_model_optimization as tfmot
 import os, math
@@ -6,31 +7,21 @@ import os, math
 
 class V2ENLanguageModel:
     class Language:
-        def __init__(self, sentences, tokenizer) -> None:
-            self.sentences = tokenizer.texts_to_sequences(sentences)
+        def __init__(self, lang: str, df) -> None:
+            self.tokenizer = tf.keras.preprocessing.text.Tokenizer()
+            sheet = GSQLClass(config.v2en.sheet, f"dictionary_{lang}")
+            self.tokenizer.fit_on_texts(sheet.getAll())
+            self.sentences = self.tokenizer.texts_to_sequences(df[lang].tolist())
 
     @staticmethod
     def lr_schedule(epoch, lr):
         return lr if epoch < 10 else lr * math.exp(-0.1)
 
-    def initTokenizer(self) -> None:
-        self.tokenizer = tf.keras.preprocessing.text.Tokenizer()
-        self.tokenizer.fit_on_texts(
-            [
-                str(e)
-                for e in [
-                    GSQLClass(config.v2en.sheet, f"dictionary_{i}").getAll()
-                    for i in ["vi", "en"]
-                ]
-            ]
-        )
-
     def importData(self) -> None:
-        self.initTokenizer()
         data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
         df = pd.DataFrame(data[1:], columns=data[0])
-        self.source = self.Language(df["English"].tolist(), self.tokenizer)
-        self.target = self.Language(df["Vietnamese"].tolist(), self.tokenizer)
+        self.source = self.Language(config.v2en.flang, df)
+        self.target = self.Language(config.v2en.slang, df)
 
     def syncData(self) -> None:
         self.max_len = max(
@@ -42,12 +33,14 @@ class V2ENLanguageModel:
         self.target.sentences = tf.keras.preprocessing.sequence.pad_sequences(
             self.target.sentences, maxlen=self.max_len
         )
+
+        self.source.sentences = tf.expand_dims(self.source.sentences, axis=-1)
+        self.target.sentences = tf.expand_dims(self.target.sentences, axis=-1)
         self.dataset = tf.data.Dataset.from_tensor_slices(
             (self.source.sentences, self.target.sentences)
         )
 
     def initModel(self):
-        # Config Hyperparameters
         latent_dim = 128
         layers = tf.keras.layers
 
@@ -56,15 +49,14 @@ class V2ENLanguageModel:
         # Embedding
         model.add(
             layers.Embedding(
-                len(self.tokenizer.word_index),
-                latent_dim,
+                input_dim=len(self.source.tokenizer.word_index) + 1,
+                output_dim=latent_dim,
                 input_length=self.max_len,
-                input_shape=self.max_len,
             )
         )
         # Encoder
         model.add(layers.Bidirectional(layers.LSTM(latent_dim)))
-        model.add(layers.RepeatVector(self.max_len))
+        model.add(layers.RepeatVector(len(self.target.tokenizer.word_index) + 1))
         # Decoder
         model.add(layers.Bidirectional(layers.LSTM(latent_dim, return_sequences=True)))
         model.add(
@@ -73,7 +65,9 @@ class V2ENLanguageModel:
         model.add(layers.Dropout(0.5))
         model.add(
             layers.TimeDistributed(
-                layers.Dense(len(self.tokenizer.word_index), activation="softmax")
+                layers.Dense(
+                    len(self.target.tokenizer.word_index) + 1, activation="softmax"
+                )
             )
         )
 
@@ -108,16 +102,17 @@ class V2ENLanguageModel:
             earlystop_accuracy,
             earlystop_loss,
             tf.keras.callbacks.LearningRateScheduler(self.lr_schedule),
+            update_pruning,
         ]
 
     def fitModel(self) -> None:
+        self.initCallbacks()
         self.model.summary()
         batch_size = 475
         self.model.fit(
             self.dataset,
             batch_size=batch_size,
             epochs=50,
-            validation_split=0.2,
             callbacks=self.callbacks,
             use_multiprocessing=True,
         )
