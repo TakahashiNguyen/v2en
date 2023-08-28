@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repo content
         uses: actions/checkout@v2 # checkout the repository content
+        with:
+          ref: update-database-run
 
       - name: Setup python
         uses: actions/setup-python@v4
@@ -42,7 +44,7 @@ jobs:
         if: steps.cache-venv.outputs.cache-hit != 'true'
 
       - name: Execute Python script # run main.py
-        run: . ./venv/bin/activate && python addsent.py --amount-exe 500 --ci_cd 
+        run: . ./venv/bin/activate && python addsent.py --amount-exe 500 --ci_cd
 
       - name: Create Pull Request
         id: cpr
