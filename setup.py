@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="v2enlib",
-    packages=find_packages(include=["v2enlib"]),
+    packages=find_packages(include=["v2enlib_src"]),
     version="0.0.2",
     description="library support for add data set to .db file and training base on those data",
     author="TakahashiNguyen",
