@@ -17,8 +17,11 @@ class V2ENLanguageModel:
         self.tokenizer = tf.keras.preprocessing.text.Tokenizer()
         self.tokenizer.fit_on_texts(
             [
-                GSQLClass(config.v2en.sheet, f"dictionary_{i}").getAll()
-                for i in ["vi", "en"]
+                str(e)
+                for e in [
+                    GSQLClass(config.v2en.sheet, f"dictionary_{i}").getAll()
+                    for i in ["vi", "en"]
+                ]
             ]
         )
 
@@ -128,19 +131,6 @@ class V2ENLanguageModel:
         if len(gpus) == 0:
             print("test is only applicable on GPU")
             exit(0)
-        else:
-            try:
-                # Currently, memory growth needs to be the same across GPUs
-                for gpu in gpus:
-                    tf.config.experimental.set_memory_growth(gpu, True)
-                    tf.config.set_logical_device_configuration(
-                        gpu, [tf.config.LogicalDeviceConfiguration(memory_limit=10000)]
-                    )
-                logical_gpus = tf.config.list_logical_devices("GPU")
-                print(len(gpus), "Physical GPUs,", len(logical_gpus), "Logical GPUs")
-            except RuntimeError as e:
-                # Memory growth must be set before GPUs have been initialized
-                print(e)
         os.environ["TF_GPU_ALLOCATOR"] = "cuda_malloc_async"
 
         self.importData()
