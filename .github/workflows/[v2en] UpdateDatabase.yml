@@ -52,6 +52,7 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           commit-message: Update database
+          base: update-database-run
           signoff: false
           branch: update-database
           delete-branch: true
