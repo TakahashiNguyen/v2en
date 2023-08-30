@@ -14,7 +14,8 @@ v2en:
     resource: 10
     tqdm: false
   worksheet: sentences
-  sheet: MyDatabase
+  sheet: TestDatabase
+  amount_exe: 0
 training:
   learning_rate: 0.001
   initial_sparsity: 0.0
