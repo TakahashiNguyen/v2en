@@ -61,21 +61,19 @@ class Debugging:
             execution_time = end_time - start_time
             before = getrusage(RUSAGE_SELF).ru_maxrss
             resource_consumption = before / 1024 / 1024  # Memory usage in MB
-            if (
+            if not (
                 execution_time < config.v2en.allow.time
                 and resource_consumption < config.v2en.allow.resource
             ):
-                return result
-
-            warn(
-                f"{func.__name__}'s result:\n\tExecution time: {execution_time} seconds\n\tMemory consumption: {resource_consumption} MB"
-            )
+                warn(
+                    f"{func.__name__}'s result:\n\tExecution time: {execution_time} seconds\n\tMemory consumption: {resource_consumption} MB"
+                )
             return result
 
         return wrapper
 
     @staticmethod
-    def printError(text, error, important):
+    def printError(text, error, important=False):
         text = f"{'_'*50}\n\tExpectation while {text}\n\tError type: {type(error)}\n\t{error}\n{chr(8254)*50}"
         fatal(text)
         if important:
@@ -171,10 +169,6 @@ def differentRatio(x, y):
 
 def emptyFile(path):
     return stat(path).st_size == 0
-
-
-def getKeyByValue(d, value):
-    return [k for k, v in d.items() if v == value]
 
 
 class NoDaemonProcess(mpProcess):
@@ -322,9 +316,8 @@ class ThreadPool(mpThreadPool):
             disable=not config.v2en.allow.tqdm,
         ) as pbar:
             results = []
-            kwargsc = [dict(kwargs) for _ in range(len(funcs))]
             for res in ex.imap(
-                subexecutor, [[func, kwargsc[i]] for i, func in enumerate(funcs)]
+                subexecutor, [(func, kwargs.copy()) for i, func in enumerate(funcs)]
             ):
                 pbar.update(1)
                 results.append(res)

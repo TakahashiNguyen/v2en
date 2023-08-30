@@ -8,10 +8,18 @@ import os, math
 class V2ENLanguageModel:
     class Language:
         def __init__(self, lang: str, df) -> None:
-            self.tokenizer = tf.keras.preprocessing.text.Tokenizer()
+            self.tokenizer = tf.keras.preprocessing.text.Tokenizer(
+                filters="", lower=False
+            )
             sheet = GSQLClass(config.v2en.sheet, f"dictionary_{lang}")
             self.tokenizer.fit_on_texts(sheet.getAll())
             self.sentences = self.tokenizer.texts_to_sequences(df[lang].tolist())
+            self.sentences = tf.keras.utils.pad_sequences(
+                self.sentences, padding="post"
+            )
+
+        def reshape(self):
+            self.sentences.reshape(*self.sentences.shape, 1)
 
     @staticmethod
     def lr_schedule(epoch, lr):
@@ -24,39 +32,32 @@ class V2ENLanguageModel:
         self.target = self.Language(config.v2en.slang, df)
 
     def syncData(self) -> None:
-        self.max_len = max(
-            len(seq) for seq in self.source.sentences + self.target.sentences
-        )
-        self.source.sentences = tf.keras.preprocessing.sequence.pad_sequences(
-            self.source.sentences, maxlen=self.max_len
-        )
-        self.target.sentences = tf.keras.preprocessing.sequence.pad_sequences(
-            self.target.sentences, maxlen=self.max_len
-        )
-
-        self.source.sentences = tf.expand_dims(self.source.sentences, axis=-1)
-        self.target.sentences = tf.expand_dims(self.target.sentences, axis=-1)
-        self.dataset = tf.data.Dataset.from_tensor_slices(
-            (self.source.sentences, self.target.sentences)
-        )
+        self.target.reshape()
 
     def initModel(self):
-        latent_dim = 128
+        latent_dim = 256
         layers = tf.keras.layers
+
+        modelInput = tf.keras.utils.pad_sequences(
+            self.source.sentences, self.target.sentences.shape[1]
+        )
+        modelInput.reshape((-1, self.target.sentences.shape[-2]))
 
         # Build the layers
         model = tf.keras.models.Sequential()
         # Embedding
         model.add(
             layers.Embedding(
-                input_dim=len(self.source.tokenizer.word_index) + 1,
-                output_dim=latent_dim,
-                input_length=self.max_len,
+                len(self.source.tokenizer.word_index) + 1,
+                latent_dim,
+                input_length=modelInput.shape[1],
+                input_shape=modelInput.shape[1:],
             )
         )
         # Encoder
+        model.add(layers.Bidirectional(layers.LSTM(latent_dim, return_sequences=True)))
         model.add(layers.Bidirectional(layers.LSTM(latent_dim)))
-        model.add(layers.RepeatVector(len(self.target.tokenizer.word_index) + 1))
+        model.add(layers.RepeatVector(self.target.sentences.shape[1]))
         # Decoder
         model.add(layers.Bidirectional(layers.LSTM(latent_dim, return_sequences=True)))
         model.add(
@@ -79,6 +80,7 @@ class V2ENLanguageModel:
             metrics=["accuracy"],
         )
 
+        self.modelInput = modelInput
         self.model = model
 
     def initCallbacks(self) -> None:
@@ -110,7 +112,8 @@ class V2ENLanguageModel:
         self.model.summary()
         batch_size = 475
         self.model.fit(
-            self.dataset,
+            self.modelInput,
+            self.target.sentences,
             batch_size=batch_size,
             epochs=50,
             callbacks=self.callbacks,

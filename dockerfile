@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:latest
 FROM tensorflow/tensorflow:latest-gpu-jupyter
 
 # init section
@@ -7,9 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-c"] 
 USER root
 
-RUN apt update && apt -y install curl ca-certificates \ 
-    # necessary nvidia's package
-    libcublas-12-1 libcublas-dev-12-1 nvidia-cuda-toolkit \
+RUN apt update && apt upgrade -y && apt -y install curl ca-certificates \ 
     # fixed slow apt download: https://github.com/NobodyXu/apt-fast-docker/blob/master/Dockerfile
     software-properties-common
 RUN add-apt-repository ppa:apt-fast/stable
@@ -24,17 +23,20 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
 
 # install nodejs
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-
+RUN apt-fast install -f
 RUN apt-fast install gcc git git-lfs vim firefox gh \
     # xrdp features at https://github.com/danchitnis/container-xrdp/blob/master/ubuntu-xfce/Dockerfile
-    xfce4 xfce4-terminal xfce4-xkb-plugin \
+    # xfce4 xfce4-terminal xfce4-xkb-plugin \
     sudo xorgxrdp xrdp \
     # ssh server
     openssh-server \
     # nodejs 
     nodejs \
-    # clean stage
-    -y && apt-fast clean && \
+    # necessary nvidia's package
+    libcublas-12-1 libcublas-dev-12-1 nvidia-cuda-toolkit cuda \
+    -y
+# clean stage 
+RUN apt-fast clean && \
     apt-fast remove -y light-locker xscreensaver && \
     apt-fast autoremove -y && \
     rm -rf /var/cache/apt /var/lib/apt/lists/*
