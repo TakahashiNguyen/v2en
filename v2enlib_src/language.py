@@ -73,6 +73,7 @@ class Translator:
             return ""
 
     @staticmethod
+    @lru_cache(maxsize=1024)
     def translatorsTransSub(cmd):
         def execute(func, **kwargs):
             ou = ""
@@ -122,6 +123,7 @@ class Translator:
     # TODO Rename this here and in `translatorsTrans`
     @staticmethod
     @debuger.measureFunction
+    @lru_cache(maxsize=1024)
     def handleCodes(cmd, e) -> list:
         try:
             if len(e.args):
@@ -155,6 +157,7 @@ class Translator:
 class Language:
     @staticmethod
     @debuger.measureFunction
+    @lru_cache(maxsize=1024)
     def checkSpelling(text: str, dictionary: list, lang: str, tname: str = ""):
         word = ""
         try:
@@ -274,6 +277,7 @@ class Language:
         return fdump, sdump, is_agree
 
     @staticmethod
+    @lru_cache(maxsize=1024)
     def convert(x: str) -> str:
         if not x:
             return ""
@@ -296,6 +300,7 @@ class Language:
         return httpx.get(f"https://en.wiktionary.org/wiki/{word}")
 
     @staticmethod
+    @lru_cache(maxsize=1024)
     def existOnWiki(word: str, lang: str) -> bool:
         display_name = lcLanguage.make(language=lang).display_name()
 
