@@ -13,7 +13,6 @@ from logging import (
     getLogger,
     WARNING,
 )
-from typing import Any
 from v2enlib.config import config
 from time import monotonic, sleep
 from resource import getrusage, RUSAGE_SELF
@@ -316,9 +315,7 @@ class ThreadPool(mpThreadPool):
             disable=not config.v2en.allow.tqdm,
         ) as pbar:
             results = []
-            for res in ex.imap(
-                subexecutor, [(func, kwargs.copy()) for i, func in enumerate(funcs)]
-            ):
+            for res in ex.imap(subexecutor, [(func, kwargs.copy()) for func in funcs]):
                 pbar.update(1)
                 results.append(res)
             return results

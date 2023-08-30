@@ -51,7 +51,6 @@ class Executor:
 
 class Translator:
     @staticmethod
-    @lru_cache(maxsize=1024)
     def deepGoogle(
         query_text: str, from_language: str, to_language: str, *args, **kwargs
     ) -> str:
@@ -73,7 +72,6 @@ class Translator:
             return ""
 
     @staticmethod
-    @lru_cache(maxsize=1024)
     def translatorsTransSub(cmd):
         def execute(func, **kwargs):
             ou = ""
@@ -123,7 +121,6 @@ class Translator:
     # TODO Rename this here and in `translatorsTrans`
     @staticmethod
     @debuger.measureFunction
-    @lru_cache(maxsize=1024)
     def handleCodes(cmd, e) -> list:
         try:
             if len(e.args):
