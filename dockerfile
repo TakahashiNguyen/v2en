@@ -24,6 +24,7 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
 # install nodejs
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 RUN apt-fast install -f
+RUN dpkg --configure -a
 RUN apt-fast install gcc git git-lfs vim firefox gh \
     # xrdp features at https://github.com/danchitnis/container-xrdp/blob/master/ubuntu-xfce/Dockerfile
     xfce4 xfce4-terminal xfce4-xkb-plugin \
