@@ -25,16 +25,17 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 RUN apt-fast install -f
 RUN dpkg --configure -a
-RUN apt-fast install gcc git git-lfs vim firefox gh \
+RUN apt-fast install \
+    # gcc git git-lfs vim gh \
     # xrdp features at https://github.com/danchitnis/container-xrdp/blob/master/ubuntu-xfce/Dockerfile
     xfce4 xfce4-terminal xfce4-xkb-plugin \
-    sudo xorgxrdp xrdp \
+    #sudo xorgxrdp xrdp \
     # ssh server
-    openssh-server \
+    #openssh-server \
     # nodejs 
-    nodejs \
+    #nodejs \
     # necessary nvidia's package
-    libcublas-12-1 libcublas-dev-12-1 nvidia-cuda-toolkit cuda \
+    #libcublas-12-1 libcublas-dev-12-1 nvidia-cuda-toolkit cuda \
     -y
 # clean stage 
 RUN apt-fast clean && \
