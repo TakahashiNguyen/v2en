@@ -1,17 +1,18 @@
-from v2enlib.utils import debuger, getKeyByValue, differentRatio, Pool, ThreadPool
-from v2enlib.gSQL import GSQLClass
-from v2enlib.config import config
+from v2enlib_src.utils import debuger, differentRatio, Pool, ThreadPool
+from v2enlib_src.gSQL import GSQLClass
+from v2enlib_src.config import config
 from deep_translator import GoogleTranslator
-from deep_translator.exceptions import *
-from requests.exceptions import *
 from langcodes import Language as lcLanguage
 from translators.server import TranslatorError
-from contextlib import suppress
 from string import punctuation
 from tabulate import tabulate
 from functools import lru_cache
 from gc import collect
 import httpx
+
+# Exceptions
+from requests.exceptions import *
+from deep_translator.exceptions import *
 
 
 class InputSent:
@@ -50,7 +51,10 @@ class Executor:
 
 class Translator:
     @staticmethod
-    def deepGoogle(query_text: str, from_language: str, to_language: str) -> str:
+    @lru_cache(maxsize=1024)
+    def deepGoogle(
+        query_text: str, from_language: str, to_language: str, *args, **kwargs
+    ) -> str:
         try:
             return GoogleTranslator(source=from_language, target=to_language).translate(
                 query_text
@@ -65,56 +69,41 @@ class Translator:
                 str(lcLanguage.get(to_language)),
             )
         except Exception as e:
-            debuger.printError(Translator.deepGoogle.__name__, e, False)
+            debuger.printError(Translator.deepGoogle.__name__, e)
             return ""
 
     @staticmethod
-    def translatorsTransSub(cmd: list):
-        function_timeout = cmd[1].get("function_timeout", None)
-        config = cmd[1].get("config")
-        trans_name = getKeyByValue(config.v2en.trans_dict, cmd[0])[0]
-
-        def execute(cmd: list):
+    def translatorsTransSub(cmd):
+        def execute(func, **kwargs):
             ou = ""
             allow_error = (
-                JSONDecodeError,
-                TranslatorError,
+                ChunkedEncodingError,
                 HTTPError,
-                ConnectionError,
+                ReadTimeout,
+                KeyError,
+                JSONDecodeError,
             )
-            if function_timeout:
-                del cmd[1]["function_timeout"]
-                del cmd[1]["config"]
             if cmd[0]:
                 try:
-                    ou = debuger.functionTimeout(
-                        function_timeout, cmd[0], kwargs=cmd[1]
-                    )
+                    ou = func(**kwargs)
                 except TranslatorError as e:
-                    with suppress(*allow_error):
-                        if tcmd := Translator.handleCodes(cmd[1].values(), e):
-                            ou = debuger.functionTimeout(
-                                function_timeout / 2, cmd[0], args=tcmd
-                            )
-                        else:
-                            ou = debuger.functionTimeout(
-                                function_timeout,
-                                Translator.deepGoogle,
-                                **cmd[1],
-                            )
+                    if tcmd := Translator.handleCodes(cmd[1], e):
+                        ou = func(**tcmd)
+                    else:
+                        ou = debuger.functionTimeout(
+                            func=Translator.deepGoogle,
+                            **cmd[1],
+                        )
                 except allow_error:
                     ou = debuger.functionTimeout(
-                        function_timeout / 2, Translator.deepGoogle, kwargs=cmd[1]
+                        func=Translator.deepGoogle,
+                        **cmd[1],
                     )
                 except Exception as e:
-                    debuger.printError("translatorsTransSub", e, False)
-            if function_timeout:
-                cmd[1]["function_timeout"] = function_timeout
-            if config:
-                cmd[1]["config"] = config
-            return [ou, trans_name]
+                    debuger.printError(Translator.translatorsTransSub.__name__, e)
+            return [ou, func.__name__]
 
-        return execute(cmd)
+        return execute(cmd[0], **cmd[1])
 
     @staticmethod
     def translatorsTrans(cmd: list, trans_timeout, config) -> list:
@@ -125,33 +114,27 @@ class Translator:
             query_text=cmd[0],
             from_language=cmd[1],
             to_language=cmd[2],
-            function_timeout=trans_timeout,
+            timeout=trans_timeout,
             config=config,
+            if_print_warning=False,
         )
 
     # TODO Rename this here and in `translatorsTrans`
     @staticmethod
     @debuger.measureFunction
-    def handleCodes(cmd: list, e) -> list:
+    def handleCodes(cmd, e) -> list:
         try:
-            if not len(e.args):
-                return []
-            tcmd, execute = list(cmd), False
-            if (e.args[0]).find("vie") != -1:
-                tcmd[2 if (e.args[0]).find("to_language") != -1 else 1] = "vie"
-                execute = True
-
-            if (e.args[0]).find("vi_VN") != -1:
-                tcmd[2 if (e.args[0]).find("to_language") != -1 else 1] = "vi_VN"
-                execute = True
-
-            if (e.args[0]).find("vi-VN") != -1:
-                tcmd[2 if (e.args[0]).find("to_language") != -1 else 1] = "vi-VN"
-                execute = True
-            if execute:
-                return tcmd
+            if len(e.args):
+                tcmd, execute = cmd.copy(), False
+                target = e.args[0].split(" ")[1][:-4]
+                for i in ["vie", "vi_VN", "vi-VN"]:
+                    if (e.args[0]).find(i) != -1:
+                        tcmd[target] = i
+                        execute = True
+                if execute:
+                    return tcmd
         except Exception as e:
-            debuger.printError("change format language", e, False)
+            debuger.printError("change format language", e)
         return []
 
     @staticmethod
@@ -199,10 +182,9 @@ class Language:
             debuger.printError(
                 f"add word for {lang}",
                 Exception(f"{word} isn't existed on Wikitionary!"),
-                False,
             )
         except Exception as e:
-            debuger.printError(Language.checkSpelling.__name__, e, False)
+            debuger.printError(Language.checkSpelling.__name__, e)
         return ["", ""] if tname else ""
 
     @staticmethod
@@ -312,7 +294,7 @@ class Language:
         try:
             return x.lower().replace("  ", " ").replace("  ", " ")
         except Exception as e:
-            debuger.printError(Language.convert.__name__, e, False)
+            debuger.printError(Language.convert.__name__, e)
             return ""
 
     @staticmethod
@@ -335,7 +317,7 @@ class Language:
         try:
             return GSQLClass(sheet, f"dictionary_{lang}").getCol(1)
         except Exception as e:
-            debuger.printError(Language.loadDictionary.__name__, e, False)
+            debuger.printError(Language.loadDictionary.__name__, e)
         return []
 
     @staticmethod
@@ -346,4 +328,4 @@ class Language:
             sheet.writeLRow([[e] for e in list(dict.fromkeys(dictionary))])
             sheet.autoFit()
         except Exception as e:
-            debuger.printError("saveDictionary", e, False)
+            debuger.printError("saveDictionary", e)
