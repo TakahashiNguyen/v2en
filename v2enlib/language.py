@@ -51,7 +51,6 @@ class Executor:
 
 class Translator:
     @staticmethod
-    @lru_cache(maxsize=1024)
     def deepGoogle(
         query_text: str, from_language: str, to_language: str, *args, **kwargs
     ) -> str:
@@ -155,6 +154,7 @@ class Translator:
 class Language:
     @staticmethod
     @debuger.measureFunction
+    @lru_cache(maxsize=1024)
     def checkSpelling(text: str, dictionary: list, lang: str, tname: str = ""):
         word = ""
         try:
@@ -173,16 +173,9 @@ class Language:
                     )
                 ):
                     outstr += f"{word} "
-                else:
-                    raise ValueError(f"{word} not existed")
                 if word.isalpha() and word not in dictionary:
                     dictionary.append(word)
             return [outstr, tname] if tname else outstr
-        except ValueError:
-            debuger.printError(
-                f"add word for {lang}",
-                Exception(f"{word} isn't existed on Wikitionary!"),
-            )
         except Exception as e:
             debuger.printError(Language.checkSpelling.__name__, e)
         return ["", ""] if tname else ""
@@ -281,6 +274,7 @@ class Language:
         return fdump, sdump, is_agree
 
     @staticmethod
+    @lru_cache(maxsize=1024)
     def convert(x: str) -> str:
         if not x:
             return ""
@@ -303,6 +297,7 @@ class Language:
         return httpx.get(f"https://en.wiktionary.org/wiki/{word}")
 
     @staticmethod
+    @lru_cache(maxsize=1024)
     def existOnWiki(word: str, lang: str) -> bool:
         display_name = lcLanguage.make(language=lang).display_name()
 
