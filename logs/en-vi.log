@@ -4434,3 +4434,1328 @@ __________________________________________________
 	Error type: <class 'requests.exceptions.SSLError'>
 	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:57:32,228 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:57:35,046 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:57:35,592 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=khi+b%E1%BA%A1n+l%C3%A0m+%C4%91%C6%B0%E1%BB%A3c+%2C+b%E1%BA%A1n+mu%E1%BB%91n+%C4%91i%E1%BB%81u+khi%E1%BB%83n+c%C3%A1i+g%C3%AC+%3F (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:57:37,508 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:57:39,449 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=where+will+we+take+it+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:57:40,788 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:57:58,880 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%C6%B0ng+t%C3%B4i+c%C3%B3+m%E1%BB%99t+c%C3%A2u+h%E1%BB%8Fi+l%E1%BB%9Bn+d%C3%A0nh+cho+b%E1%BA%A1n+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:58:00,337 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%C6%B0ng+t%C3%B4i+c%C3%B3+m%E1%BB%99t+c%C3%A2u+h%E1%BB%8Fi+l%E1%BB%9Bn+d%C3%A0nh+cho+b%E1%BA%A1n+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:58:01,422 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:58:28,067 - root - INFO
+╒════╤══════════════════════╤═══════════════════════════════════════════════╤═══════════════════════════════════════════════╤════════════════════╤════════╤══════════╤══════════╤═════════════╕
+│    │                      │                                               │                                               │                    │ From   │ Source   │ Target   │ Accuracy?   │
+╞════╪══════════════════════╪═══════════════════════════════════════════════╪═══════════════════════════════════════════════╪════════════════════╪════════╪══════════╪══════════╪═════════════╡
+│  0 │ D                    │ a                                             │ t                                             │ a                  │        │ s        │ e        │ t           │
+├────┼──────────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  1 │ B                    │ u                                             │ t                                             │                    │ I      │          │ w        │ a           │
+├────┼──────────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  2 │ N                    │ h                                             │ ư                                             │ n                  │ g      │          │ t        │ ô           │
+├────┼──────────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  3 │ N                    │ /                                             │ A                                             │                    │        │          │          │             │
+├────┼──────────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  4 │ baidu_api            │ but i want to leave with you the big question │ nhưng tôi muốn để lại câu hỏi lớn cho bạn .   │ 0.7727272727272727 │        │          │          │             │
+│    │                      │ .                                             │                                               │                    │        │          │          │             │
+├────┼──────────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  5 │ cloudTranslation_api │ but i want to leave with you the big question │ nhưng tôi muốn đưa ra một câu hỏi lớn .       │ 0.6904761904761905 │        │          │          │             │
+│    │                      │ .                                             │                                               │                    │        │          │          │             │
+├────┼──────────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  6 │ qqFanyi_api          │ but i want to leave with you the big question │ nhưng tôi muốn để lại một câu hỏi lớn cho các │ 0.7708333333333334 │        │          │          │             │
+│    │                      │ .                                             │ bạn .                                         │                    │        │          │          │             │
+╘════╧══════════════════════╧═══════════════════════════════════════════════╧═══════════════════════════════════════════════╧════════════════════╧════════╧══════════╧══════════╧═════════════╛
+2023-08-30 11:59:09,882 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:10,694 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:10,719 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:11,345 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=from+mother+to+daughter+%2C+preacher+to+congregant+%2C+teacher+to+pupil+%2C+storyteller+to+audience+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:11,659 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=from+mother+to+daughter+%2C+preacher+to+congregant+%2C+teacher+to+pupil+%2C+storyteller+to+audience+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:12,112 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%E1%BA%B1ng+ch%E1%BB%A9ng+cho+th%E1%BA%A5y+r%E1%BA%B1ng+con+ng%C6%B0%E1%BB%9Di+%E1%BB%9F+m%E1%BB%8Di+l%E1%BB%A9a+tu%E1%BB%95i+v%C3%A0+t%E1%BB%AB+m%E1%BB%8Di+n%E1%BB%81n+v%C4%83n+ho%C3%A1+t%E1%BA%A1o+ra+danh+t%C3%ADnh+c%E1%BB%A7a+h%E1%BB%8D+theo+m%E1%BB%99t+d%E1%BA%A1ng+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%C4%91%C3%B3+. (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:12,631 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=%3A+the+shared+wonder+of+film (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:12,719 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:12,977 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=%3A+the+shared+wonder+of+film (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:13,262 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=%3A+the+shared+wonder+of+film (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:14,393 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=%3A+the+shared+wonder+of+film (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:14,409 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=%3A+the+shared+wonder+of+film (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:14,768 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=t%E1%BB%AB+m%E1%BA%B9+%C4%91%E1%BA%BFn+con+g%C3%A1i+%2C+ng%C6%B0%E1%BB%9Di+thuy%E1%BA%BFt+gi%C3%A1o+%C4%91%E1%BA%BFn+ng%C6%B0%E1%BB%9Di+theo+h%E1%BB%99i+%2C+gi%C3%A1o+vi%C3%AAn+%C4%91%E1%BA%BFn+h%E1%BB%8Dc+sinh+%2C+ng%C6%B0%E1%BB%9Di+k%E1%BB%83+chuy%E1%BB%87n+%C4%91%E1%BA%BFn+kh%C3%A1n+th%C3%ADnh+gi%E1%BA%A3+. (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:14,847 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=t%E1%BB%AB+m%E1%BA%B9+%C4%91%E1%BA%BFn+con+g%C3%A1i+%2C+ng%C6%B0%E1%BB%9Di+thuy%E1%BA%BFt+gi%C3%A1o+%C4%91%E1%BA%BFn+ng%C6%B0%E1%BB%9Di+theo+h%E1%BB%99i+%2C+gi%C3%A1o+vi%C3%AAn+%C4%91%E1%BA%BFn+h%E1%BB%8Dc+sinh+%2C+ng%C6%B0%E1%BB%9Di+k%E1%BB%83+chuy%E1%BB%87n+%C4%91%E1%BA%BFn+kh%C3%A1n+th%C3%ADnh+gi%E1%BA%A3+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:15,629 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=%3A+the+shared+wonder+of+film (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:15,817 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=t%E1%BB%AB+m%E1%BA%B9+%C4%91%E1%BA%BFn+con+g%C3%A1i+%2C+ng%C6%B0%E1%BB%9Di+thuy%E1%BA%BFt+gi%C3%A1o+%C4%91%E1%BA%BFn+ng%C6%B0%E1%BB%9Di+theo+h%E1%BB%99i+%2C+gi%C3%A1o+vi%C3%AAn+%C4%91%E1%BA%BFn+h%E1%BB%8Dc+sinh+%2C+ng%C6%B0%E1%BB%9Di+k%E1%BB%83+chuy%E1%BB%87n+%C4%91%E1%BA%BFn+kh%C3%A1n+th%C3%ADnh+gi%E1%BA%A3+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:39,730 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:40,571 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:44,975 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=but+where+%2C+in+our+increasingly+secular+and+fragmented+world+%2C+do+we+offer+communality+of+experience+%2C+unmediated+by+our+own+furious+consumerism+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:45,617 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=and+what+narrative+%2C+what+history+%2C+what+identity+%2C+what+moral+code+are+we+imparting+to+our+young+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:45,690 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:45,813 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=but+where+%2C+in+our+increasingly+secular+and+fragmented+world+%2C+do+we+offer+communality+of+experience+%2C+unmediated+by+our+own+furious+consumerism+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:46,490 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:47,456 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=but+where+%2C+in+our+increasingly+secular+and+fragmented+world+%2C+do+we+offer+communality+of+experience+%2C+unmediated+by+our+own+furious+consumerism+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:48,406 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=and+what+narrative+%2C+what+history+%2C+what+identity+%2C+what+moral+code+are+we+imparting+to+our+young+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:48,585 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:48,602 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:48,605 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:49,134 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:49,365 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:49,725 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=and+what+narrative+%2C+what+history+%2C+what+identity+%2C+what+moral+code+are+we+imparting+to+our+young+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:49,740 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:50,034 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:50,037 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:50,292 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%E1%BA%A5t+k%E1%BB%83+%E1%BB%9F+c%C3%A1c+h%C3%ACnh+v%E1%BA%BD+trong+hang+%C4%91%E1%BB%99ng+hay+c%C3%A1c+c%C3%A1ch+d%C3%B9ng+m%E1%BB%9Bi+nh%E1%BA%A5t+c%E1%BB%A7a+%2C+con+ng%C6%B0%E1%BB%9Di+lu%C3%B4n+k%E1%BB%83+c%C3%A2u+chuy%E1%BB%87n+l%E1%BB%8Bch+s%E1%BB%AD+v%C3%A0+v%E1%BB%81+nh%E1%BB%AFng+s%E1%BB%B1+th%E1%BA%ADt+qua+d%E1%BB%A5+ng%C3%B4n+v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:50,316 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=and+what+narrative+%2C+what+history+%2C+what+identity+%2C+what+moral+code+are+we+imparting+to+our+young+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:50,320 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:50,885 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=and+what+narrative+%2C+what+history+%2C+what+identity+%2C+what+moral+code+are+we+imparting+to+our+young+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:50,934 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:50,955 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:51,005 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=its+artists+told+stories+across+national+boundaries+%2C+in+as+many+languages+%2C+genres+and+philosophies+as+one+can+imagine+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:51,365 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=and+what+narrative+%2C+what+history+%2C+what+identity+%2C+what+moral+code+are+we+imparting+to+our+young+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:51,512 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=its+artists+told+stories+across+national+boundaries+%2C+in+as+many+languages+%2C+genres+and+philosophies+as+one+can+imagine+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:51,798 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:51,846 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:51,871 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:51,971 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=its+artists+told+stories+across+national+boundaries+%2C+in+as+many+languages+%2C+genres+and+philosophies+as+one+can+imagine+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:52,042 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:52,187 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:52,563 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%E1%BA%A5t+k%E1%BB%83+%E1%BB%9F+c%C3%A1c+h%C3%ACnh+v%E1%BA%BD+trong+hang+%C4%91%E1%BB%99ng+hay+c%C3%A1c+c%C3%A1ch+d%C3%B9ng+m%E1%BB%9Bi+nh%E1%BA%A5t+c%E1%BB%A7a+%2C+con+ng%C6%B0%E1%BB%9Di+lu%C3%B4n+k%E1%BB%83+c%C3%A2u+chuy%E1%BB%87n+l%E1%BB%8Bch+s%E1%BB%AD+v%C3%A0+v%E1%BB%81+nh%E1%BB%AFng+s%E1%BB%B1+th%E1%BA%ADt+qua+d%E1%BB%A5+ng%C3%B4n+v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:52,769 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:52,830 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:53,048 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%E1%BA%A5t+k%E1%BB%83+%E1%BB%9F+c%C3%A1c+h%C3%ACnh+v%E1%BA%BD+trong+hang+%C4%91%E1%BB%99ng+hay+c%C3%A1c+c%C3%A1ch+d%C3%B9ng+m%E1%BB%9Bi+nh%E1%BA%A5t+c%E1%BB%A7a+%2C+con+ng%C6%B0%E1%BB%9Di+lu%C3%B4n+k%E1%BB%83+c%C3%A2u+chuy%E1%BB%87n+l%E1%BB%8Bch+s%E1%BB%AD+v%C3%A0+v%E1%BB%81+nh%E1%BB%AFng+s%E1%BB%B1+th%E1%BA%ADt+qua+d%E1%BB%A5+ng%C3%B4n+v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:53,235 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:53,274 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=and+what+narrative+%2C+what+history+%2C+what+identity+%2C+what+moral+code+are+we+imparting+to+our+young+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:53,306 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=its+artists+told+stories+across+national+boundaries+%2C+in+as+many+languages+%2C+genres+and+philosophies+as+one+can+imagine+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:53,721 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:54,032 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:54,282 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:54,577 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=n%C3%B3+l%C3%A0+nh%E1%BB%AFng+c%C3%A2u+chuy%E1%BB%87n+k%E1%BB%83+c%E1%BB%A7a+c%C3%A1c+ngh%E1%BB%87+s%C4%A9+v%C6%B0%E1%BB%A3t+qua+c%C3%A1c+ranh+gi%E1%BB%9Bi+qu%E1%BB%91c+gia+%2C+d%C6%B0%E1%BB%9Bi+v%C3%B4+ng%C3%B4n+ng%E1%BB%AF+%2C+th%E1%BB%83+lo%E1%BA%A1i+v%C3%A0+tri%E1%BA%BFt+l%C3%BD+m%C3%A0+m%E1%BB%99t+ng%C6%B0%E1%BB%9Di+c%C3%B3+th%E1%BB%83+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng+ra+%C4%91%C6%B0%E1%BB%A3c+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:54,589 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=and+what+narrative+%2C+what+history+%2C+what+identity+%2C+what+moral+code+are+we+imparting+to+our+young+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:55,063 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:55,415 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=n%C3%B3+l%C3%A0+nh%E1%BB%AFng+c%C3%A2u+chuy%E1%BB%87n+k%E1%BB%83+c%E1%BB%A7a+c%C3%A1c+ngh%E1%BB%87+s%C4%A9+v%C6%B0%E1%BB%A3t+qua+c%C3%A1c+ranh+gi%E1%BB%9Bi+qu%E1%BB%91c+gia+%2C+d%C6%B0%E1%BB%9Bi+v%C3%B4+ng%C3%B4n+ng%E1%BB%AF+%2C+th%E1%BB%83+lo%E1%BA%A1i+v%C3%A0+tri%E1%BA%BFt+l%C3%BD+m%C3%A0+m%E1%BB%99t+ng%C6%B0%E1%BB%9Di+c%C3%B3+th%E1%BB%83+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng+ra+%C4%91%C6%B0%E1%BB%A3c+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:55,458 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%C6%B0ng+%E1%BB%9F+%C4%91%C3%A2u+%2C+trong+th%E1%BA%BF+gi%E1%BB%9Bi+gi%C3%A0+nhanh+ch%C3%B3ng+gi%C3%A0+c%E1%BB%97i+v%C3%A0+chia+nh%E1%BB%8F+c%E1%BB%A7a+ch%C3%BAng+ta+%2C+ch%C3%BAng+ta+trao+t%E1%BA%B7ng+nh%E1%BB%AFng+kinh+nghi%E1%BB%87m+mang+t%C3%ADnh+c%E1%BB%99ng+%C4%91%E1%BB%93ng+%2C+kh%C3%B4ng+qua+trung+gian+b%E1%BB%9Fi+quy%E1%BB%81n+l%E1%BB%A3i+ti%C3%AAu+d%C3%B9ng+k%E1%BB%8Bch+li%E1%BB%87t+c%E1%BB%A7a+ch%C3%ADnh+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:55,259 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%E1%BA%A5t+k%E1%BB%83+%E1%BB%9F+c%C3%A1c+h%C3%ACnh+v%E1%BA%BD+trong+hang+%C4%91%E1%BB%99ng+hay+c%C3%A1c+c%C3%A1ch+d%C3%B9ng+m%E1%BB%9Bi+nh%E1%BA%A5t+c%E1%BB%A7a+%2C+con+ng%C6%B0%E1%BB%9Di+lu%C3%B4n+k%E1%BB%83+c%C3%A2u+chuy%E1%BB%87n+l%E1%BB%8Bch+s%E1%BB%AD+v%C3%A0+v%E1%BB%81+nh%E1%BB%AFng+s%E1%BB%B1+th%E1%BA%ADt+qua+d%E1%BB%A5+ng%C3%B4n+v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:55,688 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:55,755 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%C6%B0ng+%E1%BB%9F+%C4%91%C3%A2u+%2C+trong+th%E1%BA%BF+gi%E1%BB%9Bi+gi%C3%A0+nhanh+ch%C3%B3ng+gi%C3%A0+c%E1%BB%97i+v%C3%A0+chia+nh%E1%BB%8F+c%E1%BB%A7a+ch%C3%BAng+ta+%2C+ch%C3%BAng+ta+trao+t%E1%BA%B7ng+nh%E1%BB%AFng+kinh+nghi%E1%BB%87m+mang+t%C3%ADnh+c%E1%BB%99ng+%C4%91%E1%BB%93ng+%2C+kh%C3%B4ng+qua+trung+gian+b%E1%BB%9Fi+quy%E1%BB%81n+l%E1%BB%A3i+ti%C3%AAu+d%C3%B9ng+k%E1%BB%8Bch+li%E1%BB%87t+c%E1%BB%A7a+ch%C3%ADnh+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:55,848 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=n%C3%B3+l%C3%A0+nh%E1%BB%AFng+c%C3%A2u+chuy%E1%BB%87n+k%E1%BB%83+c%E1%BB%A7a+c%C3%A1c+ngh%E1%BB%87+s%C4%A9+v%C6%B0%E1%BB%A3t+qua+c%C3%A1c+ranh+gi%E1%BB%9Bi+qu%E1%BB%91c+gia+%2C+d%C6%B0%E1%BB%9Bi+v%C3%B4+ng%C3%B4n+ng%E1%BB%AF+%2C+th%E1%BB%83+lo%E1%BA%A1i+v%C3%A0+tri%E1%BA%BFt+l%C3%BD+m%C3%A0+m%E1%BB%99t+ng%C6%B0%E1%BB%9Di+c%C3%B3+th%E1%BB%83+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng+ra+%C4%91%C6%B0%E1%BB%A3c+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:55,850 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%E1%BA%A5t+k%E1%BB%83+%E1%BB%9F+c%C3%A1c+h%C3%ACnh+v%E1%BA%BD+trong+hang+%C4%91%E1%BB%99ng+hay+c%C3%A1c+c%C3%A1ch+d%C3%B9ng+m%E1%BB%9Bi+nh%E1%BA%A5t+c%E1%BB%A7a+%2C+con+ng%C6%B0%E1%BB%9Di+lu%C3%B4n+k%E1%BB%83+c%C3%A2u+chuy%E1%BB%87n+l%E1%BB%8Bch+s%E1%BB%AD+v%C3%A0+v%E1%BB%81+nh%E1%BB%AFng+s%E1%BB%B1+th%E1%BA%ADt+qua+d%E1%BB%A5+ng%C3%B4n+v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:56,018 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%C6%B0ng+%E1%BB%9F+%C4%91%C3%A2u+%2C+trong+th%E1%BA%BF+gi%E1%BB%9Bi+gi%C3%A0+nhanh+ch%C3%B3ng+gi%C3%A0+c%E1%BB%97i+v%C3%A0+chia+nh%E1%BB%8F+c%E1%BB%A7a+ch%C3%BAng+ta+%2C+ch%C3%BAng+ta+trao+t%E1%BA%B7ng+nh%E1%BB%AFng+kinh+nghi%E1%BB%87m+mang+t%C3%ADnh+c%E1%BB%99ng+%C4%91%E1%BB%93ng+%2C+kh%C3%B4ng+qua+trung+gian+b%E1%BB%9Fi+quy%E1%BB%81n+l%E1%BB%A3i+ti%C3%AAu+d%C3%B9ng+k%E1%BB%8Bch+li%E1%BB%87t+c%E1%BB%A7a+ch%C3%ADnh+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:56,038 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%C6%B0ng+%E1%BB%9F+%C4%91%C3%A2u+%2C+trong+th%E1%BA%BF+gi%E1%BB%9Bi+gi%C3%A0+nhanh+ch%C3%B3ng+gi%C3%A0+c%E1%BB%97i+v%C3%A0+chia+nh%E1%BB%8F+c%E1%BB%A7a+ch%C3%BAng+ta+%2C+ch%C3%BAng+ta+trao+t%E1%BA%B7ng+nh%E1%BB%AFng+kinh+nghi%E1%BB%87m+mang+t%C3%ADnh+c%E1%BB%99ng+%C4%91%E1%BB%93ng+%2C+kh%C3%B4ng+qua+trung+gian+b%E1%BB%9Fi+quy%E1%BB%81n+l%E1%BB%A3i+ti%C3%AAu+d%C3%B9ng+k%E1%BB%8Bch+li%E1%BB%87t+c%E1%BB%A7a+ch%C3%ADnh+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:56,122 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=t%E1%BB%AB+m%E1%BA%B9+%C4%91%E1%BA%BFn+con+g%C3%A1i+%2C+ng%C6%B0%E1%BB%9Di+thuy%E1%BA%BFt+gi%C3%A1o+%C4%91%E1%BA%BFn+ng%C6%B0%E1%BB%9Di+theo+h%E1%BB%99i+%2C+gi%C3%A1o+vi%C3%AAn+%C4%91%E1%BA%BFn+h%E1%BB%8Dc+sinh+%2C+ng%C6%B0%E1%BB%9Di+k%E1%BB%83+chuy%E1%BB%87n+%C4%91%E1%BA%BFn+kh%C3%A1n+th%C3%ADnh+gi%E1%BA%A3+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:56,231 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%E1%BA%A5t+k%E1%BB%83+%E1%BB%9F+c%C3%A1c+h%C3%ACnh+v%E1%BA%BD+trong+hang+%C4%91%E1%BB%99ng+hay+c%C3%A1c+c%C3%A1ch+d%C3%B9ng+m%E1%BB%9Bi+nh%E1%BA%A5t+c%E1%BB%A7a+%2C+con+ng%C6%B0%E1%BB%9Di+lu%C3%B4n+k%E1%BB%83+c%C3%A2u+chuy%E1%BB%87n+l%E1%BB%8Bch+s%E1%BB%AD+v%C3%A0+v%E1%BB%81+nh%E1%BB%AFng+s%E1%BB%B1+th%E1%BA%ADt+qua+d%E1%BB%A5+ng%C3%B4n+v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:56,400 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=but+where+%2C+in+our+increasingly+secular+and+fragmented+world+%2C+do+we+offer+communality+of+experience+%2C+unmediated+by+our+own+furious+consumerism+%3F (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:56,818 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:57,163 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=n%C3%B3+l%C3%A0+nh%E1%BB%AFng+c%C3%A2u+chuy%E1%BB%87n+k%E1%BB%83+c%E1%BB%A7a+c%C3%A1c+ngh%E1%BB%87+s%C4%A9+v%C6%B0%E1%BB%A3t+qua+c%C3%A1c+ranh+gi%E1%BB%9Bi+qu%E1%BB%91c+gia+%2C+d%C6%B0%E1%BB%9Bi+v%C3%B4+ng%C3%B4n+ng%E1%BB%AF+%2C+th%E1%BB%83+lo%E1%BA%A1i+v%C3%A0+tri%E1%BA%BFt+l%C3%BD+m%C3%A0+m%E1%BB%99t+ng%C6%B0%E1%BB%9Di+c%C3%B3+th%E1%BB%83+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng+ra+%C4%91%C6%B0%E1%BB%A3c+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:58,195 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=and+what+narrative+%2C+what+history+%2C+what+identity+%2C+what+moral+code+are+we+imparting+to+our+young+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:58,211 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=and+what+narrative+%2C+what+history+%2C+what+identity+%2C+what+moral+code+are+we+imparting+to+our+young+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:58,369 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%E1%BA%A5t+k%E1%BB%83+%E1%BB%9F+c%C3%A1c+h%C3%ACnh+v%E1%BA%BD+trong+hang+%C4%91%E1%BB%99ng+hay+c%C3%A1c+c%C3%A1ch+d%C3%B9ng+m%E1%BB%9Bi+nh%E1%BA%A5t+c%E1%BB%A7a+%2C+con+ng%C6%B0%E1%BB%9Di+lu%C3%B4n+k%E1%BB%83+c%C3%A2u+chuy%E1%BB%87n+l%E1%BB%8Bch+s%E1%BB%AD+v%C3%A0+v%E1%BB%81+nh%E1%BB%AFng+s%E1%BB%B1+th%E1%BA%ADt+qua+d%E1%BB%A5+ng%C3%B4n+v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:59,062 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%E1%BA%A5t+k%E1%BB%83+%E1%BB%9F+c%C3%A1c+h%C3%ACnh+v%E1%BA%BD+trong+hang+%C4%91%E1%BB%99ng+hay+c%C3%A1c+c%C3%A1ch+d%C3%B9ng+m%E1%BB%9Bi+nh%E1%BA%A5t+c%E1%BB%A7a+%2C+con+ng%C6%B0%E1%BB%9Di+lu%C3%B4n+k%E1%BB%83+c%C3%A2u+chuy%E1%BB%87n+l%E1%BB%8Bch+s%E1%BB%AD+v%C3%A0+v%E1%BB%81+nh%E1%BB%AFng+s%E1%BB%B1+th%E1%BA%ADt+qua+d%E1%BB%A5+ng%C3%B4n+v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:59,583 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:59,796 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%E1%BA%A5t+k%E1%BB%83+%E1%BB%9F+c%C3%A1c+h%C3%ACnh+v%E1%BA%BD+trong+hang+%C4%91%E1%BB%99ng+hay+c%C3%A1c+c%C3%A1ch+d%C3%B9ng+m%E1%BB%9Bi+nh%E1%BA%A5t+c%E1%BB%A7a+%2C+con+ng%C6%B0%E1%BB%9Di+lu%C3%B4n+k%E1%BB%83+c%C3%A2u+chuy%E1%BB%87n+l%E1%BB%8Bch+s%E1%BB%AD+v%C3%A0+v%E1%BB%81+nh%E1%BB%AFng+s%E1%BB%B1+th%E1%BA%ADt+qua+d%E1%BB%A5+ng%C3%B4n+v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:59,862 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 11:59:59,932 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:00,045 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=but+where+%2C+in+our+increasingly+secular+and+fragmented+world+%2C+do+we+offer+communality+of+experience+%2C+unmediated+by+our+own+furious+consumerism+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:00,274 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:00,313 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=but+where+%2C+in+our+increasingly+secular+and+fragmented+world+%2C+do+we+offer+communality+of+experience+%2C+unmediated+by+our+own+furious+consumerism+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:00,366 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=but+where+%2C+in+our+increasingly+secular+and+fragmented+world+%2C+do+we+offer+communality+of+experience+%2C+unmediated+by+our+own+furious+consumerism+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:00,513 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=but+where+%2C+in+our+increasingly+secular+and+fragmented+world+%2C+do+we+offer+communality+of+experience+%2C+unmediated+by+our+own+furious+consumerism+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:00,949 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%E1%BA%A5t+k%E1%BB%83+%E1%BB%9F+c%C3%A1c+h%C3%ACnh+v%E1%BA%BD+trong+hang+%C4%91%E1%BB%99ng+hay+c%C3%A1c+c%C3%A1ch+d%C3%B9ng+m%E1%BB%9Bi+nh%E1%BA%A5t+c%E1%BB%A7a+%2C+con+ng%C6%B0%E1%BB%9Di+lu%C3%B4n+k%E1%BB%83+c%C3%A2u+chuy%E1%BB%87n+l%E1%BB%8Bch+s%E1%BB%AD+v%C3%A0+v%E1%BB%81+nh%E1%BB%AFng+s%E1%BB%B1+th%E1%BA%ADt+qua+d%E1%BB%A5+ng%C3%B4n+v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:00,987 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:02,190 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+n%C3%A0o+%2C+l%E1%BB%8Bch+s%E1%BB%AD+n%C3%A0o+%2C+b%E1%BA%A3n+s%E1%BA%AFc+n%C3%A0o+%2C+qui+t%E1%BA%AFc+%C4%91%E1%BA%A1o+%C4%91%E1%BB%A9c+n%C3%A0o+m%C3%A0+ch%C3%BAng+ta+%C4%91ang+truy%E1%BB%81n+%C4%91%E1%BA%A1t+l%E1%BA%A1i+cho+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+c%E1%BB%A7a+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:02,224 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=but+where+%2C+in+our+increasingly+secular+and+fragmented+world+%2C+do+we+offer+communality+of+experience+%2C+unmediated+by+our+own+furious+consumerism+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:02,288 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:02,299 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=its+artists+told+stories+across+national+boundaries+%2C+in+as+many+languages+%2C+genres+and+philosophies+as+one+can+imagine+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:02,283 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:02,800 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=but+where+%2C+in+our+increasingly+secular+and+fragmented+world+%2C+do+we+offer+communality+of+experience+%2C+unmediated+by+our+own+furious+consumerism+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:02,840 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=but+where+%2C+in+our+increasingly+secular+and+fragmented+world+%2C+do+we+offer+communality+of+experience+%2C+unmediated+by+our+own+furious+consumerism+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:03,230 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=whether+in+cave+paintings+or+the+latest+uses+of+the+internet+%2C+human+beings+have+always+told+their+histories+and+truths+through+parable+and+fable+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:03,361 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=its+artists+told+stories+across+national+boundaries+%2C+in+as+many+languages+%2C+genres+and+philosophies+as+one+can+imagine+. (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:03,576 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%E1%BA%A5t+k%E1%BB%83+%E1%BB%9F+c%C3%A1c+h%C3%ACnh+v%E1%BA%BD+trong+hang+%C4%91%E1%BB%99ng+hay+c%C3%A1c+c%C3%A1ch+d%C3%B9ng+m%E1%BB%9Bi+nh%E1%BA%A5t+c%E1%BB%A7a+%2C+con+ng%C6%B0%E1%BB%9Di+lu%C3%B4n+k%E1%BB%83+c%C3%A2u+chuy%E1%BB%87n+l%E1%BB%8Bch+s%E1%BB%AD+v%C3%A0+v%E1%BB%81+nh%E1%BB%AFng+s%E1%BB%B1+th%E1%BA%ADt+qua+d%E1%BB%A5+ng%C3%B4n+v%C3%A0+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:03,901 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=but+where+%2C+in+our+increasingly+secular+and+fragmented+world+%2C+do+we+offer+communality+of+experience+%2C+unmediated+by+our+own+furious+consumerism+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:03,904 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:04,180 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=its+artists+told+stories+across+national+boundaries+%2C+in+as+many+languages+%2C+genres+and+philosophies+as+one+can+imagine+. (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:04,460 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='web-api.itranslateapp.com', port=443): Max retries exceeded with url: /v3/texts/translate (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:06,465 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=n%C3%B3+l%C3%A0+nh%E1%BB%AFng+c%C3%A2u+chuy%E1%BB%87n+k%E1%BB%83+c%E1%BB%A7a+c%C3%A1c+ngh%E1%BB%87+s%C4%A9+v%C6%B0%E1%BB%A3t+qua+c%C3%A1c+ranh+gi%E1%BB%9Bi+qu%E1%BB%91c+gia+%2C+d%C6%B0%E1%BB%9Bi+v%C3%B4+ng%C3%B4n+ng%E1%BB%AF+%2C+th%E1%BB%83+lo%E1%BA%A1i+v%C3%A0+tri%E1%BA%BFt+l%C3%BD+m%C3%A0+m%E1%BB%99t+ng%C6%B0%E1%BB%9Di+c%C3%B3+th%E1%BB%83+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng+ra+%C4%91%C6%B0%E1%BB%A3c+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:06,489 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:06,974 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%C6%B0ng+%E1%BB%9F+%C4%91%C3%A2u+%2C+trong+th%E1%BA%BF+gi%E1%BB%9Bi+gi%C3%A0+nhanh+ch%C3%B3ng+gi%C3%A0+c%E1%BB%97i+v%C3%A0+chia+nh%E1%BB%8F+c%E1%BB%A7a+ch%C3%BAng+ta+%2C+ch%C3%BAng+ta+trao+t%E1%BA%B7ng+nh%E1%BB%AFng+kinh+nghi%E1%BB%87m+mang+t%C3%ADnh+c%E1%BB%99ng+%C4%91%E1%BB%93ng+%2C+kh%C3%B4ng+qua+trung+gian+b%E1%BB%9Fi+quy%E1%BB%81n+l%E1%BB%A3i+ti%C3%AAu+d%C3%B9ng+k%E1%BB%8Bch+li%E1%BB%87t+c%E1%BB%A7a+ch%C3%ADnh+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:07,983 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%C6%B0ng+%E1%BB%9F+%C4%91%C3%A2u+%2C+trong+th%E1%BA%BF+gi%E1%BB%9Bi+gi%C3%A0+nhanh+ch%C3%B3ng+gi%C3%A0+c%E1%BB%97i+v%C3%A0+chia+nh%E1%BB%8F+c%E1%BB%A7a+ch%C3%BAng+ta+%2C+ch%C3%BAng+ta+trao+t%E1%BA%B7ng+nh%E1%BB%AFng+kinh+nghi%E1%BB%87m+mang+t%C3%ADnh+c%E1%BB%99ng+%C4%91%E1%BB%93ng+%2C+kh%C3%B4ng+qua+trung+gian+b%E1%BB%9Fi+quy%E1%BB%81n+l%E1%BB%A3i+ti%C3%AAu+d%C3%B9ng+k%E1%BB%8Bch+li%E1%BB%87t+c%E1%BB%A7a+ch%C3%ADnh+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:08,006 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:08,828 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=n%C3%B3+l%C3%A0+nh%E1%BB%AFng+c%C3%A2u+chuy%E1%BB%87n+k%E1%BB%83+c%E1%BB%A7a+c%C3%A1c+ngh%E1%BB%87+s%C4%A9+v%C6%B0%E1%BB%A3t+qua+c%C3%A1c+ranh+gi%E1%BB%9Bi+qu%E1%BB%91c+gia+%2C+d%C6%B0%E1%BB%9Bi+v%C3%B4+ng%C3%B4n+ng%E1%BB%AF+%2C+th%E1%BB%83+lo%E1%BA%A1i+v%C3%A0+tri%E1%BA%BFt+l%C3%BD+m%C3%A0+m%E1%BB%99t+ng%C6%B0%E1%BB%9Di+c%C3%B3+th%E1%BB%83+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng+ra+%C4%91%C6%B0%E1%BB%A3c+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:09,791 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=n%C3%B3+l%C3%A0+nh%E1%BB%AFng+c%C3%A2u+chuy%E1%BB%87n+k%E1%BB%83+c%E1%BB%A7a+c%C3%A1c+ngh%E1%BB%87+s%C4%A9+v%C6%B0%E1%BB%A3t+qua+c%C3%A1c+ranh+gi%E1%BB%9Bi+qu%E1%BB%91c+gia+%2C+d%C6%B0%E1%BB%9Bi+v%C3%B4+ng%C3%B4n+ng%E1%BB%AF+%2C+th%E1%BB%83+lo%E1%BA%A1i+v%C3%A0+tri%E1%BA%BFt+l%C3%BD+m%C3%A0+m%E1%BB%99t+ng%C6%B0%E1%BB%9Di+c%C3%B3+th%E1%BB%83+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng+ra+%C4%91%C6%B0%E1%BB%A3c+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:10,079 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=its+artists+told+stories+across+national+boundaries+%2C+in+as+many+languages+%2C+genres+and+philosophies+as+one+can+imagine+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:10,205 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:10,359 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%C6%B0ng+%E1%BB%9F+%C4%91%C3%A2u+%2C+trong+th%E1%BA%BF+gi%E1%BB%9Bi+gi%C3%A0+nhanh+ch%C3%B3ng+gi%C3%A0+c%E1%BB%97i+v%C3%A0+chia+nh%E1%BB%8F+c%E1%BB%A7a+ch%C3%BAng+ta+%2C+ch%C3%BAng+ta+trao+t%E1%BA%B7ng+nh%E1%BB%AFng+kinh+nghi%E1%BB%87m+mang+t%C3%ADnh+c%E1%BB%99ng+%C4%91%E1%BB%93ng+%2C+kh%C3%B4ng+qua+trung+gian+b%E1%BB%9Fi+quy%E1%BB%81n+l%E1%BB%A3i+ti%C3%AAu+d%C3%B9ng+k%E1%BB%8Bch+li%E1%BB%87t+c%E1%BB%A7a+ch%C3%ADnh+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:11,261 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=n%C3%B3+l%C3%A0+nh%E1%BB%AFng+c%C3%A2u+chuy%E1%BB%87n+k%E1%BB%83+c%E1%BB%A7a+c%C3%A1c+ngh%E1%BB%87+s%C4%A9+v%C6%B0%E1%BB%A3t+qua+c%C3%A1c+ranh+gi%E1%BB%9Bi+qu%E1%BB%91c+gia+%2C+d%C6%B0%E1%BB%9Bi+v%C3%B4+ng%C3%B4n+ng%E1%BB%AF+%2C+th%E1%BB%83+lo%E1%BA%A1i+v%C3%A0+tri%E1%BA%BFt+l%C3%BD+m%C3%A0+m%E1%BB%99t+ng%C6%B0%E1%BB%9Di+c%C3%B3+th%E1%BB%83+t%C6%B0%E1%BB%9Fng+t%C6%B0%E1%BB%A3ng+ra+%C4%91%C6%B0%E1%BB%A3c+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:11,442 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%C6%B0ng+%E1%BB%9F+%C4%91%C3%A2u+%2C+trong+th%E1%BA%BF+gi%E1%BB%9Bi+gi%C3%A0+nhanh+ch%C3%B3ng+gi%C3%A0+c%E1%BB%97i+v%C3%A0+chia+nh%E1%BB%8F+c%E1%BB%A7a+ch%C3%BAng+ta+%2C+ch%C3%BAng+ta+trao+t%E1%BA%B7ng+nh%E1%BB%AFng+kinh+nghi%E1%BB%87m+mang+t%C3%ADnh+c%E1%BB%99ng+%C4%91%E1%BB%93ng+%2C+kh%C3%B4ng+qua+trung+gian+b%E1%BB%9Fi+quy%E1%BB%81n+l%E1%BB%A3i+ti%C3%AAu+d%C3%B9ng+k%E1%BB%8Bch+li%E1%BB%87t+c%E1%BB%A7a+ch%C3%ADnh+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:11,749 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%C6%B0ng+%E1%BB%9F+%C4%91%C3%A2u+%2C+trong+th%E1%BA%BF+gi%E1%BB%9Bi+gi%C3%A0+nhanh+ch%C3%B3ng+gi%C3%A0+c%E1%BB%97i+v%C3%A0+chia+nh%E1%BB%8F+c%E1%BB%A7a+ch%C3%BAng+ta+%2C+ch%C3%BAng+ta+trao+t%E1%BA%B7ng+nh%E1%BB%AFng+kinh+nghi%E1%BB%87m+mang+t%C3%ADnh+c%E1%BB%99ng+%C4%91%E1%BB%93ng+%2C+kh%C3%B4ng+qua+trung+gian+b%E1%BB%9Fi+quy%E1%BB%81n+l%E1%BB%A3i+ti%C3%AAu+d%C3%B9ng+k%E1%BB%8Bch+li%E1%BB%87t+c%E1%BB%A7a+ch%C3%ADnh+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:11,775 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%C6%B0ng+%E1%BB%9F+%C4%91%C3%A2u+%2C+trong+th%E1%BA%BF+gi%E1%BB%9Bi+gi%C3%A0+nhanh+ch%C3%B3ng+gi%C3%A0+c%E1%BB%97i+v%C3%A0+chia+nh%E1%BB%8F+c%E1%BB%A7a+ch%C3%BAng+ta+%2C+ch%C3%BAng+ta+trao+t%E1%BA%B7ng+nh%E1%BB%AFng+kinh+nghi%E1%BB%87m+mang+t%C3%ADnh+c%E1%BB%99ng+%C4%91%E1%BB%93ng+%2C+kh%C3%B4ng+qua+trung+gian+b%E1%BB%9Fi+quy%E1%BB%81n+l%E1%BB%A3i+ti%C3%AAu+d%C3%B9ng+k%E1%BB%8Bch+li%E1%BB%87t+c%E1%BB%A7a+ch%C3%ADnh+ch%C3%BAng+ta+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:12,984 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:13,129 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=its+artists+told+stories+across+national+boundaries+%2C+in+as+many+languages+%2C+genres+and+philosophies+as+one+can+imagine+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:00:41,594 - root - WARNING
+addSent's result:
+	Execution time: 123.75651918400001 seconds
+	Memory consumption: 0.5044784545898438 MB
+2023-08-30 12:00:44,479 - root - WARNING
+addSent's result:
+	Execution time: 127.48761535 seconds
+	Memory consumption: 0.5179367065429688 MB
+2023-08-30 12:00:46,331 - root - WARNING
+addSent's result:
+	Execution time: 129.14102152700002 seconds
+	Memory consumption: 0.5133857727050781 MB
+2023-08-30 12:01:05,942 - root - WARNING
+addSent's result:
+	Execution time: 149.410075362 seconds
+	Memory consumption: 0.5141220092773438 MB
+2023-08-30 12:01:06,611 - root - WARNING
+addSent's result:
+	Execution time: 148.332950026 seconds
+	Memory consumption: 0.4795570373535156 MB
+2023-08-30 12:01:12,017 - root - WARNING
+addSent's result:
+	Execution time: 154.503316734 seconds
+	Memory consumption: 0.5176048278808594 MB
+2023-08-30 12:01:12,897 - root - WARNING
+addSent's result:
+	Execution time: 153.843353132 seconds
+	Memory consumption: 0.5162467956542969 MB
+2023-08-30 12:01:21,284 - root - WARNING
+addSent's result:
+	Execution time: 163.34523503099996 seconds
+	Memory consumption: 0.5193328857421875 MB
+2023-08-30 12:01:40,187 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=indeed+%2C+it+is+hard+to+find+a+subject+that+film+has+yet+to+tackle+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:02:20,232 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=n%E1%BA%BFu+ch%C3%BAng+ta+c%C3%B3+th%E1%BB%83+tra+so%C3%A1t+bi%C3%AAn+ni%C3%AAn+s%E1%BB%AD+100+n%C4%83m+c%E1%BB%A7a+phim+%2C+c%C3%B3+l%E1%BA%BD+ch%C3%BAng+ta+c%C3%B3+th%E1%BB%83+x%C3%A2y+d%E1%BB%B1ng+m%E1%BB%99t+chuy%E1%BB%87n+t%C6%B0%E1%BB%9Dng+thu%E1%BA%ADt+mang+%C3%BD+ngh%C4%A9a+%C4%91%E1%BA%BFn+th%E1%BA%BF+gi%E1%BB%9Bi+ph%C3%A2n+m%E1%BA%A3nh+v%C3%A0+kh%C3%B4ng+ng%E1%BB%ABng+ngh%E1%BB%89+c%E1%BB%A7a+th%E1%BA%BF+h%E1%BB%87+tr%E1%BA%BB+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:02:20,470 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:02:21,559 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=and+so+in+2006+we+set+up+%2C+an+organization+that+ran+weekly+film+screenings+in+schools+followed+by+discussions+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:02:24,880 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+v%C3%AC+v%E1%BA%ADy+v%C3%A0o+n%C4%83m+2006+ch%C3%BAng+t%C3%B4i+l%E1%BA%ADp+%2C+m%E1%BB%99t+t%E1%BB%95+ch%E1%BB%A9c+%C4%91%E1%BB%8Bnh+k%C3%AC+h%C3%A0ng+tu%E1%BA%A7n+chi%E1%BA%BFu+phim+trong+c%C3%A1c+tr%C6%B0%E1%BB%9Dng+h%E1%BB%8Dc+v%C3%A0+sau+%C4%91%C3%B3+l%C3%A0+c%C3%A1c+cu%E1%BB%99c+th%E1%BA%A3o+lu%E1%BA%ADn+. (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:02:25,428 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+v%C3%AC+v%E1%BA%ADy+v%C3%A0o+n%C4%83m+2006+ch%C3%BAng+t%C3%B4i+l%E1%BA%ADp+%2C+m%E1%BB%99t+t%E1%BB%95+ch%E1%BB%A9c+%C4%91%E1%BB%8Bnh+k%C3%AC+h%C3%A0ng+tu%E1%BA%A7n+chi%E1%BA%BFu+phim+trong+c%C3%A1c+tr%C6%B0%E1%BB%9Dng+h%E1%BB%8Dc+v%C3%A0+sau+%C4%91%C3%B3+l%C3%A0+c%C3%A1c+cu%E1%BB%99c+th%E1%BA%A3o+lu%E1%BA%ADn+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:02:25,714 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+v%C3%AC+v%E1%BA%ADy+v%C3%A0o+n%C4%83m+2006+ch%C3%BAng+t%C3%B4i+l%E1%BA%ADp+%2C+m%E1%BB%99t+t%E1%BB%95+ch%E1%BB%A9c+%C4%91%E1%BB%8Bnh+k%C3%AC+h%C3%A0ng+tu%E1%BA%A7n+chi%E1%BA%BFu+phim+trong+c%C3%A1c+tr%C6%B0%E1%BB%9Dng+h%E1%BB%8Dc+v%C3%A0+sau+%C4%91%C3%B3+l%C3%A0+c%C3%A1c+cu%E1%BB%99c+th%E1%BA%A3o+lu%E1%BA%ADn+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:03:22,703 - root - WARNING
+addSent's result:
+	Execution time: 120.51290914299994 seconds
+	Memory consumption: 0.5144271850585938 MB
+2023-08-30 12:03:25,604 - root - WARNING
+addSent's result:
+	Execution time: 120.89935156100006 seconds
+	Memory consumption: 0.5205879211425781 MB
+2023-08-30 12:03:33,649 - root - WARNING
+addSent's result:
+	Execution time: 128.63269591000005 seconds
+	Memory consumption: 0.5139503479003906 MB
+2023-08-30 12:03:35,482 - root - INFO
+╒════╤════════════╤═══════════════════════════════════════════════╤═══════════════════════════════════════════════╤════════════════════╤════════╤══════════╤══════════╤═════════════╕
+│    │            │                                               │                                               │                    │ From   │ Source   │ Target   │ Accuracy?   │
+╞════╪════════════╪═══════════════════════════════════════════════╪═══════════════════════════════════════════════╪════════════════════╪════════╪══════════╪══════════╪═════════════╡
+│  0 │ D          │ a                                             │ t                                             │ a                  │        │ s        │ e        │ t           │
+├────┼────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  1 │ T          │ h                                             │ e                                             │                    │ i      │ r        │ o        │ n           │
+├────┼────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  2 │ T          │ h                                             │ ậ                                             │ t                  │        │ q        │ u        │ á           │
+├────┼────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  3 │ N          │ /                                             │ A                                             │                    │        │          │          │             │
+├────┼────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  4 │ argos_api  │ the irony is palpable ; technical access has  │ sự mỉa mai là dễ chịu , quyền truy cập kỹ     │ 0.6636771300448431 │        │          │          │             │
+│    │            │ never been greater , cultural access never    │ thuật chưa bao giờ lớn hơn , văn hóa không    │                    │        │          │          │             │
+│    │            │ weaker .                                      │ bao giờ yếu hơn .                             │                    │        │          │          │             │
+├────┼────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  5 │ papago_api │ it ' s so ironic ; technological              │ thật quá mỉa mai ; cơ hội nắm bắt kĩ thuật    │ 0.6788990825688074 │        │          │          │             │
+│    │            │ opportunities have never been greater ,       │ chưa bao giờ lớn hơn thế , cơ hội nắm bắt văn │                    │        │          │          │             │
+│    │            │ cultural opportunities have never been weaker │ hoá chưa bao giờ yếu hơn thế .                │                    │        │          │          │             │
+│    │            │ .                                             │                                               │                    │        │          │          │             │
+╘════╧════════════╧═══════════════════════════════════════════════╧═══════════════════════════════════════════════╧════════════════════╧════════╧══════════╧══════════╧═════════════╛
+2023-08-30 12:03:35,717 - root - WARNING
+addSent's result:
+	Execution time: 131.33983061400005 seconds
+	Memory consumption: 0.5133552551269531 MB
+2023-08-30 12:03:54,544 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:03:55,981 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%E1%BB%AFng+b%E1%BB%99+phim+%C4%91%C6%B0%E1%BB%A3c+bi%C3%AAn+%C4%91%E1%BA%A1o+v%C3%A0+c%E1%BA%A3nh+ho%C3%A1+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:03:56,485 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%E1%BB%AFng+b%E1%BB%99+phim+%C4%91%C6%B0%E1%BB%A3c+bi%C3%AAn+%C4%91%E1%BA%A1o+v%C3%A0+c%E1%BA%A3nh+ho%C3%A1+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:03:56,885 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:03:57,923 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=it+was+an+education+of+the+most+profound+and+transformative+kind+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:03:58,298 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=%C4%91%C3%B3+l%C3%A0+c%C3%A1ch+gi%C3%A1o+d%E1%BB%A5c+th%C3%A2m+v%C3%A0+c%C3%B3+kh%E1%BA%A3+n%C4%83ng+truy%E1%BB%81n+t%E1%BA%A3i+nh%E1%BA%A5t+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:04,570 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:06,238 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:09,550 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=nh%E1%BB%AFng+b%E1%BB%99+phim+%C4%91%C6%B0%E1%BB%A3c+bi%C3%AAn+%C4%91%E1%BA%A1o+v%C3%A0+c%E1%BA%A3nh+ho%C3%A1+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:41,020 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=in+groups+as+large+as+150+and+as+small+as+three+%2C+these+young+people+discovered+new+places+%2C+new+thoughts+%2C+new+perspectives+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:41,133 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=in+the+first+nine+months+we+ran+25+clubs+across+the+u+.+k+.+%2C+with+kids+in+age+groups+between+five+and+18+watching+a+film+uninterrupted+for+90+minutes+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:41,270 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=in+groups+as+large+as+150+and+as+small+as+three+%2C+these+young+people+discovered+new+places+%2C+new+thoughts+%2C+new+perspectives+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:41,303 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:41,415 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=in+the+first+nine+months+we+ran+25+clubs+across+the+u+.+k+.+%2C+with+kids+in+age+groups+between+five+and+18+watching+a+film+uninterrupted+for+90+minutes+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:41,579 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:41,640 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:42,264 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=in+the+first+nine+months+we+ran+25+clubs+across+the+u+.+k+.+%2C+with+kids+in+age+groups+between+five+and+18+watching+a+film+uninterrupted+for+90+minutes+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:42,890 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=trong+9+th%C3%A1ng+%C4%91%E1%BA%A7u+ti%C3%AAn+ch%C3%BAng+t%C3%B4i+cho+ch%E1%BA%A1y+25+c%C3%A2u+l%E1%BA%A1c+b%E1%BB%99+d%E1%BB%8Dc+n%C6%B0%E1%BB%9Bc+anh+%2C+cho+nh%E1%BB%AFng+nh%C3%B3m+tr%E1%BA%BB+em+t%E1%BB%AB+5+%C4%91%E1%BA%BFn+18+tu%E1%BB%95i+xem+m%E1%BB%99t+b%E1%BB%99+phim+kh%C3%B4ng+b%E1%BB%8B+ng%E1%BA%AFt+qu%C3%A3ng+trong+90+ph%C3%BAt+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:42,965 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=in+groups+as+large+as+150+and+as+small+as+three+%2C+these+young+people+discovered+new+places+%2C+new+thoughts+%2C+new+perspectives+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:43,105 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=ngay+khi+th%E1%BB%AD+nghi%E1%BB%87m+k%E1%BA%BFt+th%C3%BAc+%2C+ch%C3%BAng+ta+%C4%91%C3%A3+c%C3%B3+t%C3%AAn+c%E1%BB%A7a+h%C3%A0ng+ng%C3%A0n+tr%C6%B0%E1%BB%9Dng+h%E1%BB%8Dc+mong+mu%E1%BB%91n+%C4%91%C6%B0%E1%BB%A3c+tham+gia+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:44,196 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=trong+9+th%C3%A1ng+%C4%91%E1%BA%A7u+ti%C3%AAn+ch%C3%BAng+t%C3%B4i+cho+ch%E1%BA%A1y+25+c%C3%A2u+l%E1%BA%A1c+b%E1%BB%99+d%E1%BB%8Dc+n%C6%B0%E1%BB%9Bc+anh+%2C+cho+nh%E1%BB%AFng+nh%C3%B3m+tr%E1%BA%BB+em+t%E1%BB%AB+5+%C4%91%E1%BA%BFn+18+tu%E1%BB%95i+xem+m%E1%BB%99t+b%E1%BB%99+phim+kh%C3%B4ng+b%E1%BB%8B+ng%E1%BA%AFt+qu%C3%A3ng+trong+90+ph%C3%BAt+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:44,326 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=trong+9+th%C3%A1ng+%C4%91%E1%BA%A7u+ti%C3%AAn+ch%C3%BAng+t%C3%B4i+cho+ch%E1%BA%A1y+25+c%C3%A2u+l%E1%BA%A1c+b%E1%BB%99+d%E1%BB%8Dc+n%C6%B0%E1%BB%9Bc+anh+%2C+cho+nh%E1%BB%AFng+nh%C3%B3m+tr%E1%BA%BB+em+t%E1%BB%AB+5+%C4%91%E1%BA%BFn+18+tu%E1%BB%95i+xem+m%E1%BB%99t+b%E1%BB%99+phim+kh%C3%B4ng+b%E1%BB%8B+ng%E1%BA%AFt+qu%C3%A3ng+trong+90+ph%C3%BAt+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:44,702 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=ngay+khi+th%E1%BB%AD+nghi%E1%BB%87m+k%E1%BA%BFt+th%C3%BAc+%2C+ch%C3%BAng+ta+%C4%91%C3%A3+c%C3%B3+t%C3%AAn+c%E1%BB%A7a+h%C3%A0ng+ng%C3%A0n+tr%C6%B0%E1%BB%9Dng+h%E1%BB%8Dc+mong+mu%E1%BB%91n+%C4%91%C6%B0%E1%BB%A3c+tham+gia+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:44,913 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=in+groups+as+large+as+150+and+as+small+as+three+%2C+these+young+people+discovered+new+places+%2C+new+thoughts+%2C+new+perspectives+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:45,074 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=ngay+khi+th%E1%BB%AD+nghi%E1%BB%87m+k%E1%BA%BFt+th%C3%BAc+%2C+ch%C3%BAng+ta+%C4%91%C3%A3+c%C3%B3+t%C3%AAn+c%E1%BB%A7a+h%C3%A0ng+ng%C3%A0n+tr%C6%B0%E1%BB%9Dng+h%E1%BB%8Dc+mong+mu%E1%BB%91n+%C4%91%C6%B0%E1%BB%A3c+tham+gia+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:45,162 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:45,368 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=ngay+khi+th%E1%BB%AD+nghi%E1%BB%87m+k%E1%BA%BFt+th%C3%BAc+%2C+ch%C3%BAng+ta+%C4%91%C3%A3+c%C3%B3+t%C3%AAn+c%E1%BB%A7a+h%C3%A0ng+ng%C3%A0n+tr%C6%B0%E1%BB%9Dng+h%E1%BB%8Dc+mong+mu%E1%BB%91n+%C4%91%C6%B0%E1%BB%A3c+tham+gia+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:45,369 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=ngay+khi+th%E1%BB%AD+nghi%E1%BB%87m+k%E1%BA%BFt+th%C3%BAc+%2C+ch%C3%BAng+ta+%C4%91%C3%A3+c%C3%B3+t%C3%AAn+c%E1%BB%A7a+h%C3%A0ng+ng%C3%A0n+tr%C6%B0%E1%BB%9Dng+h%E1%BB%8Dc+mong+mu%E1%BB%91n+%C4%91%C6%B0%E1%BB%A3c+tham+gia+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:45,389 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:45,585 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=ngay+khi+th%E1%BB%AD+nghi%E1%BB%87m+k%E1%BA%BFt+th%C3%BAc+%2C+ch%C3%BAng+ta+%C4%91%C3%A3+c%C3%B3+t%C3%AAn+c%E1%BB%A7a+h%C3%A0ng+ng%C3%A0n+tr%C6%B0%E1%BB%9Dng+h%E1%BB%8Dc+mong+mu%E1%BB%91n+%C4%91%C6%B0%E1%BB%A3c+tham+gia+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:46,070 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=ngay+khi+th%E1%BB%AD+nghi%E1%BB%87m+k%E1%BA%BFt+th%C3%BAc+%2C+ch%C3%BAng+ta+%C4%91%C3%A3+c%C3%B3+t%C3%AAn+c%E1%BB%A7a+h%C3%A0ng+ng%C3%A0n+tr%C6%B0%E1%BB%9Dng+h%E1%BB%8Dc+mong+mu%E1%BB%91n+%C4%91%C6%B0%E1%BB%A3c+tham+gia+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:46,090 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=ngay+khi+th%E1%BB%AD+nghi%E1%BB%87m+k%E1%BA%BFt+th%C3%BAc+%2C+ch%C3%BAng+ta+%C4%91%C3%A3+c%C3%B3+t%C3%AAn+c%E1%BB%A7a+h%C3%A0ng+ng%C3%A0n+tr%C6%B0%E1%BB%9Dng+h%E1%BB%8Dc+mong+mu%E1%BB%91n+%C4%91%C6%B0%E1%BB%A3c+tham+gia+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:46,131 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=m%E1%BB%99t+nh%C3%B3m+c%C3%B3+t%E1%BB%91i+%C4%91a+150+v%C3%A0+t%E1%BB%91i+3+ng%C6%B0%E1%BB%9Di+%2C+nh%E1%BB%AFng+b%E1%BA%A1n+tr%E1%BA%BB+n%C3%A0y+kh%C3%A1m+ph%C3%A1+nh%E1%BB%AFng+n%C6%A1i+m%E1%BB%9Bi+%2C+nh%E1%BB%AFng+suy+ngh%C4%A9+m%E1%BB%9Bi+%2C+nh%E1%BB%AFng+g%C3%B3c+nh%C3%ACn+m%E1%BB%9Bi+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:46,515 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=m%E1%BB%99t+nh%C3%B3m+c%C3%B3+t%E1%BB%91i+%C4%91a+150+v%C3%A0+t%E1%BB%91i+3+ng%C6%B0%E1%BB%9Di+%2C+nh%E1%BB%AFng+b%E1%BA%A1n+tr%E1%BA%BB+n%C3%A0y+kh%C3%A1m+ph%C3%A1+nh%E1%BB%AFng+n%C6%A1i+m%E1%BB%9Bi+%2C+nh%E1%BB%AFng+suy+ngh%C4%A9+m%E1%BB%9Bi+%2C+nh%E1%BB%AFng+g%C3%B3c+nh%C3%ACn+m%E1%BB%9Bi+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:46,843 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=m%E1%BB%99t+nh%C3%B3m+c%C3%B3+t%E1%BB%91i+%C4%91a+150+v%C3%A0+t%E1%BB%91i+3+ng%C6%B0%E1%BB%9Di+%2C+nh%E1%BB%AFng+b%E1%BA%A1n+tr%E1%BA%BB+n%C3%A0y+kh%C3%A1m+ph%C3%A1+nh%E1%BB%AFng+n%C6%A1i+m%E1%BB%9Bi+%2C+nh%E1%BB%AFng+suy+ngh%C4%A9+m%E1%BB%9Bi+%2C+nh%E1%BB%AFng+g%C3%B3c+nh%C3%ACn+m%E1%BB%9Bi+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:04:48,704 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=m%E1%BB%99t+nh%C3%B3m+c%C3%B3+t%E1%BB%91i+%C4%91a+150+v%C3%A0+t%E1%BB%91i+3+ng%C6%B0%E1%BB%9Di+%2C+nh%E1%BB%AFng+b%E1%BA%A1n+tr%E1%BA%BB+n%C3%A0y+kh%C3%A1m+ph%C3%A1+nh%E1%BB%AFng+n%C6%A1i+m%E1%BB%9Bi+%2C+nh%E1%BB%AFng+suy+ngh%C4%A9+m%E1%BB%9Bi+%2C+nh%E1%BB%AFng+g%C3%B3c+nh%C3%ACn+m%E1%BB%9Bi+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:05:15,421 - root - INFO
+╒════╤═════════════════╤════════════════════════════════════════════╤═════════════════════════════════════════╤════════════════════╤════════╤══════════╤══════════╤═════════════╕
+│    │                 │                                            │                                         │                    │ From   │ Source   │ Target   │ Accuracy?   │
+╞════╪═════════════════╪════════════════════════════════════════════╪═════════════════════════════════════════╪════════════════════╪════════╪══════════╪══════════╪═════════════╡
+│  0 │ D               │ a                                          │ t                                       │ a                  │        │ s        │ e        │ t           │
+├────┼─────────────────┼────────────────────────────────────────────┼─────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  1 │ I               │ t                                          │                                         │ w                  │ a      │ s        │          │ a           │
+├────┼─────────────────┼────────────────────────────────────────────┼─────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  2 │ Đ               │ ó                                          │                                         │ l                  │ à      │          │ c        │ á           │
+├────┼─────────────────┼────────────────────────────────────────────┼─────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  3 │ N               │ /                                          │ A                                       │                    │        │          │          │             │
+├────┼─────────────────┼────────────────────────────────────────────┼─────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  4 │ qqTranSmart_api │ it is the most profound and transformative │ đó là cách giáo dục thâm và có khả năng │ 0.7230769230769231 │        │          │          │             │
+│    │                 │ form of education .                        │ truyền tải nhất .                       │                    │        │          │          │             │
+╘════╧═════════════════╧════════════════════════════════════════════╧═════════════════════════════════════════╧════════════════════╧════════╧══════════╧══════════╧═════════════╛
+2023-08-30 12:05:50,690 - root - WARNING
+addSent's result:
+	Execution time: 134.129658877 seconds
+	Memory consumption: 0.5128898620605469 MB
+2023-08-30 12:05:53,144 - root - WARNING
+addSent's result:
+	Execution time: 134.90594053000007 seconds
+	Memory consumption: 0.5145645141601562 MB
+2023-08-30 12:05:54,192 - root - WARNING
+addSent's result:
+	Execution time: 135.57268271700002 seconds
+	Memory consumption: 0.512603759765625 MB
+2023-08-30 12:05:55,392 - root - WARNING
+addSent's result:
+	Execution time: 138.593375434 seconds
+	Memory consumption: 0.5247154235839844 MB
+2023-08-30 12:07:32,713 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:33,002 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:33,679 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:36,638 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=after+all+%2C+jimmy+filibustered+for+two+entire+reels+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:37,451 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=as+they+watch+more+films+their+lives+got+palpably+richer+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:44,507 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:44,519 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:45,591 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:45,651 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:46,040 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+th%E1%BA%ADt+vui+v%C3%B4+c%C3%B9ng+khi+ch%C3%BAng+t%C3%B4i+th%E1%BA%A5y+nh%E1%BB%AFng+b%E1%BA%A1n+tr%E1%BA%BB+tr%C3%AAn+kh%E1%BA%AFp+%C4%91%E1%BA%A5t+n%C6%B0%E1%BB%9Bc+gi%E1%BA%A3i+th%C3%ADch+v%E1%BB%9Bi+nh%C3%A0+c%E1%BA%A7m+quy%E1%BB%81n+r%E1%BA%B1ng+c%E1%BA%A3n+tr%E1%BB%9F+c%C3%A1c+%C4%91%E1%BA%A1o+lu%E1%BA%ADt+l%C3%A0+g%C3%AC+v%C3%A0+t%E1%BA%A1i+sao+c%C3%A1c+nh%C3%A0+c%E1%BA%A7m+quy%E1%BB%81n+c%C3%B3+th%E1%BB%83+%C4%91%E1%BB%8Bnh+gi%E1%BB%9D+ng%E1%BB%A7+c%E1%BB%A7a+h%E1%BB%8D+theo+m%E1%BB%99t+nguy%C3%AAn+t%E1%BA%AFc+n%C3%A0o+%C4%91%C3%B3+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:46,056 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:46,808 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+th%E1%BA%ADt+vui+v%C3%B4+c%C3%B9ng+khi+ch%C3%BAng+t%C3%B4i+th%E1%BA%A5y+nh%E1%BB%AFng+b%E1%BA%A1n+tr%E1%BA%BB+tr%C3%AAn+kh%E1%BA%AFp+%C4%91%E1%BA%A5t+n%C6%B0%E1%BB%9Bc+gi%E1%BA%A3i+th%C3%ADch+v%E1%BB%9Bi+nh%C3%A0+c%E1%BA%A7m+quy%E1%BB%81n+r%E1%BA%B1ng+c%E1%BA%A3n+tr%E1%BB%9F+c%C3%A1c+%C4%91%E1%BA%A1o+lu%E1%BA%ADt+l%C3%A0+g%C3%AC+v%C3%A0+t%E1%BA%A1i+sao+c%C3%A1c+nh%C3%A0+c%E1%BA%A7m+quy%E1%BB%81n+c%C3%B3+th%E1%BB%83+%C4%91%E1%BB%8Bnh+gi%E1%BB%9D+ng%E1%BB%A7+c%E1%BB%A7a+h%E1%BB%8D+theo+m%E1%BB%99t+nguy%C3%AAn+t%E1%BA%AFc+n%C3%A0o+%C4%91%C3%B3+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:47,288 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:47,368 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=after+all+%2C+jimmy+filibustered+for+two+entire+reels+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:47,478 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=v%C3%A0+th%E1%BA%ADt+vui+v%C3%B4+c%C3%B9ng+khi+ch%C3%BAng+t%C3%B4i+th%E1%BA%A5y+nh%E1%BB%AFng+b%E1%BA%A1n+tr%E1%BA%BB+tr%C3%AAn+kh%E1%BA%AFp+%C4%91%E1%BA%A5t+n%C6%B0%E1%BB%9Bc+gi%E1%BA%A3i+th%C3%ADch+v%E1%BB%9Bi+nh%C3%A0+c%E1%BA%A7m+quy%E1%BB%81n+r%E1%BA%B1ng+c%E1%BA%A3n+tr%E1%BB%9F+c%C3%A1c+%C4%91%E1%BA%A1o+lu%E1%BA%ADt+l%C3%A0+g%C3%AC+v%C3%A0+t%E1%BA%A1i+sao+c%C3%A1c+nh%C3%A0+c%E1%BA%A7m+quy%E1%BB%81n+c%C3%B3+th%E1%BB%83+%C4%91%E1%BB%8Bnh+gi%E1%BB%9D+ng%E1%BB%A7+c%E1%BB%A7a+h%E1%BB%8D+theo+m%E1%BB%99t+nguy%C3%AAn+t%E1%BA%AFc+n%C3%A0o+%C4%91%C3%B3+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:07:48,159 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=khi+b%E1%BB%8Dn+tr%E1%BA%BB+xem+nhi%E1%BB%81u+phim+h%C6%A1n+%2C+cu%E1%BB%99c+s%E1%BB%91ng+c%E1%BB%A7a+ch%C3%BAng+phong+ph%C3%BA+h%C6%A1n+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:08:11,429 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=it+provoked+tears+as+well+as+incisive+questions+about+unarmed+peace+-+keeping+forces+and+the+double+-+dealing+of+a+western+society+that+picks+its+moral+fights+with+commodities+in+mind+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:08:25,183 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-08-30 12:08:39,722 - root - INFO
+╒════╤═════════════════╤═══════════════════════════════════════════════╤═══════════════════════════════════════════════╤════════════════════╤════════╤══════════╤══════════╤═════════════╕
+│    │                 │                                               │                                               │                    │ From   │ Source   │ Target   │ Accuracy?   │
+╞════╪═════════════════╪═══════════════════════════════════════════════╪═══════════════════════════════════════════════╪════════════════════╪════════╪══════════╪══════════╪═════════════╡
+│  0 │ D               │ a                                             │ t                                             │ a                  │        │ s        │ e        │ t           │
+├────┼─────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  1 │ A               │ n                                             │ d                                             │                    │ i      │ t        │          │ w           │
+├────┼─────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  2 │ v               │ à                                             │                                               │ t                  │ h      │ ậ        │ t        │             │
+├────┼─────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  3 │ N               │ /                                             │ A                                             │                    │        │          │          │             │
+├────┼─────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  4 │ argos_api       │ and it ’ s so fun that we see young people    │ và thật vui vô cùng khi chúng tôi thấy những  │ 0.6531645569620254 │        │          │          │             │
+│    │                 │ across the country explaining to the          │ bạn trẻ trên khắp đất nước giải thích với nhà │                    │        │          │          │             │
+│    │                 │ authorities that hinder what the laws are and │ cầm quyền rằng cản trở các đạo luật là gì và  │                    │        │          │          │             │
+│    │                 │ why the authorities can set their sleep time  │ tại sao các nhà cầm quyền có thể định giờ ngủ │                    │        │          │          │             │
+│    │                 │ in a certain principle .                      │ của họ theo một nguyên tắc nào đó .           │                    │        │          │          │             │
+├────┼─────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  5 │ bing_api        │ and it was with great delight that we found   │ và thật vui mừng khi chúng tôi thấy những     │ 0.7902439024390244 │        │          │          │             │
+│    │                 │ young people up and down the country          │ người trẻ tuổi trên khắp đất nước giải thích  │                    │        │          │          │             │
+│    │                 │ explaining with authority what filibustering  │ với thẩm quyền về là gì và tại sao các lãnh   │                    │        │          │          │             │
+│    │                 │ was and why the lords might defy their        │ chúa có thể bất chấp giờ đi ngủ của họ theo   │                    │        │          │          │             │
+│    │                 │ bedtime on a point of principle .             │ một nguyên tắc .                              │                    │        │          │          │             │
+├────┼─────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  6 │ itranslate_api  │ and it ’ s incredibly fun that we see young   │ và thật vui vô cùng khi chúng tôi thấy những  │ 0.6632390745501285 │        │          │          │             │
+│    │                 │ people across the country explain to          │ bạn trẻ trên khắp đất nước giải thích với nhà │                    │        │          │          │             │
+│    │                 │ authorities what are obstructing laws and why │ cầm quyền rằng cản trở các đạo luật là gì và  │                    │        │          │          │             │
+│    │                 │ authorities can set their sleep hours in a    │ tại sao các nhà cầm quyền có thể định giờ ngủ │                    │        │          │          │             │
+│    │                 │ certain principle .                           │ của họ theo một nguyên tắc nào đó .           │                    │        │          │          │             │
+├────┼─────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  7 │ papago_api      │ and it ' s incredibly fun for us to see young │ và thật vui vô cùng khi chúng tôi thấy những  │ 0.6472148541114059 │        │          │          │             │
+│    │                 │ people all over the country explain to the    │ bạn trẻ trên khắp đất nước giải thích với nhà │                    │        │          │          │             │
+│    │                 │ authorities what obstructions are and why     │ cầm quyền rằng cản trở các đạo luật là gì và  │                    │        │          │          │             │
+│    │                 │ they can set their bedtime on some principle  │ tại sao các nhà cầm quyền có thể định giờ ngủ │                    │        │          │          │             │
+│    │                 │ .                                             │ của họ theo một nguyên tắc nào đó .           │                    │        │          │          │             │
+├────┼─────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────────┼────────────────────┼────────┼──────────┼──────────┼─────────────┤
+│  8 │ qqTranSmart_api │ and it was with great delight that we found   │ và thật vui mừng khi chúng tôi thấy những     │ 0.762589928057554  │        │          │          │             │
+│    │                 │ young people up and down the country          │ người trẻ tuổi trên khắp đất nước giải thích  │                    │        │          │          │             │
+│    │                 │ explaining with authority what filibustering  │ với thẩm quyền về là gì và tại sao các lãnh   │                    │        │          │          │             │
+│    │                 │ was and why the lords might defy their        │ chúa có thể thách thức giờ đi ngủ của họ trên │                    │        │          │          │             │
+│    │                 │ bedtime on a point of principle .             │ một điểm nguyên tắc .                         │                    │        │          │          │             │
+╘════╧═════════════════╧═══════════════════════════════════════════════╧═══════════════════════════════════════════════╧════════════════════╧════════╧══════════╧══════════╧═════════════╛
+2023-08-30 12:08:59,465 - root - INFO
+╒════╤════╤════╤════╤════╤════════╤══════════╤══════════╤═════════════╕
+│    │    │    │    │    │ From   │ Source   │ Target   │ Accuracy?   │
+╞════╪════╪════╪════╪════╪════════╪══════════╪══════════╪═════════════╡
+│  0 │ D  │ a  │ t  │ a  │        │ s        │ e        │ t           │
+├────┼────┼────┼────┼────┼────────┼──────────┼──────────┼─────────────┤
+│  1 │ A  │ f  │ t  │ e  │ r      │          │ a        │ l           │
+├────┼────┼────┼────┼────┼────────┼──────────┼──────────┼─────────────┤
+│  2 │ N  │ ó  │ i  │    │ c      │ h        │ u        │ n           │
+├────┼────┼────┼────┼────┼────────┼──────────┼──────────┼─────────────┤
+│  3 │ N  │ /  │ A  │    │        │          │          │             │
+╘════╧════╧════╧════╧════╧════════╧══════════╧══════════╧═════════════╛
+2023-08-30 12:09:20,200 - root - WARNING
+addSent's result:
+	Execution time: 130.08009454199998 seconds
+	Memory consumption: 0.5164680480957031 MB
