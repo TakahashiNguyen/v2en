@@ -173,16 +173,9 @@ class Language:
                     )
                 ):
                     outstr += f"{word} "
-                else:
-                    raise ValueError(f"{word} not existed")
                 if word.isalpha() and word not in dictionary:
                     dictionary.append(word)
             return [outstr, tname] if tname else outstr
-        except ValueError:
-            debuger.printError(
-                f"add word for {lang}",
-                Exception(f"{word} isn't existed on Wikitionary!"),
-            )
         except Exception as e:
             debuger.printError(Language.checkSpelling.__name__, e)
         return ["", ""] if tname else ""
