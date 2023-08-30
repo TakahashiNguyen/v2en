@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:latest
-FROM tensorflow/tensorflow:latest-gpu-jupyter
+FROM tensorflow/tensorflow:2.13.0-gpu
 
 # init section
 WORKDIR /home
