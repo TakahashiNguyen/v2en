@@ -175,7 +175,13 @@ class Language:
                     outstr += f"{word} "
                 if word.isalpha() and word not in dictionary:
                     dictionary.append(word)
+                else:
+                    raise ValueError(
+                        f"https://{lang}.wiktionary.org/wiki/{word} not existed"
+                    )
             return [outstr, tname] if tname else outstr
+        except ValueError as e:
+            debuger.printError(Language.checkSpelling.__name__, e, False)
         except Exception as e:
             debuger.printError(Language.checkSpelling.__name__, e)
         return ["", ""] if tname else ""
@@ -293,15 +299,15 @@ class Language:
 
     @staticmethod
     @lru_cache(maxsize=1024)
-    def getWikitionaryHeaders(word: str) -> httpx.Response:
-        return httpx.get(f"https://en.wiktionary.org/wiki/{word}")
+    def getWikitionaryHeaders(word: str, lang: str) -> httpx.Response:
+        return httpx.get(f"https://{lang}.wiktionary.org/wiki/{word}")
 
     @staticmethod
     @lru_cache(maxsize=1024)
     def existOnWiki(word: str, lang: str) -> bool:
         display_name = lcLanguage.make(language=lang).display_name()
 
-        response = Language.getWikitionaryHeaders(word)
+        response = Language.getWikitionaryHeaders(word=word, lang=lang)
         return (
             f'href="#{display_name}"' in response.headers.get("link", "")
             or f'id="{display_name}"' in response.text
