@@ -1,4 +1,4 @@
-from v2enlib_src.config import Config
+from v2enlib.config import Config
 from tensorflow_model_optimization import sparsity
 from translators.server import TranslatorsServer
 
