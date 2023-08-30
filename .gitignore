@@ -9,6 +9,6 @@ client_secret.json
 logs/*
 logs/en-vi.log
 *\.venv
-*.egg*/*
+*.egg*
 *build*/*
 dist/

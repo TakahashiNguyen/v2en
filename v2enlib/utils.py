@@ -14,7 +14,7 @@ from logging import (
     WARNING,
 )
 from typing import Any
-from v2enlib_src.config import config
+from v2enlib.config import config
 from time import monotonic, sleep
 from resource import getrusage, RUSAGE_SELF
 from platform import system

@@ -1,3 +1,4 @@
+#main
 from argparse import ArgumentParser
 from config import ExtraConfig, config as cconfig
 from v2enlib import utils, Language, Executor, InputSent, GSQLClass, Pool
