@@ -8368,3 +8368,549 @@ __________________________________________________
 	Error type: <class 'requests.exceptions.ConnectionError'>
 	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:28,345 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08dc3c0a0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:29,041 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08dc13d90>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:31,431 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08edf8940>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:31,661 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:31,671 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08edd3c40>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:33,499 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08dddbe50>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:34,291 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08ed99930>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:35,093 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08ddeace0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:35,667 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08dc23ca0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:35,693 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:35,732 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:36,611 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:36,991 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:37,578 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08dc2e770>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:38,007 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:39,533 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:52,608 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08dc61570>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:27:57,622 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08ec7c190>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:28:00,392 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08ec555d0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:28:27,506 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0830cce80>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:28:27,796 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0830cd120>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:28:30,432 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0830a1ea0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:28:31,916 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc080bde350>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:28:33,779 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc092314df0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:28:34,649 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc092315270>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:28:41,018 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09231d000>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:28:41,019 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0922ff6d0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:28:41,023 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09231d0c0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:28:45,659 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc092318370>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:12,203 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09240a0e0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:12,476 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09240df00>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:15,947 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc078e38a30>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:16,190 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc080a391e0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:16,648 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0831a3df0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:18,017 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0831c41f0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:18,062 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc092230250>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:23,019 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc07b1d0c10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:23,022 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09222c550>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:24,379 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:27,468 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:30,469 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc08300d270>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:56,864 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0830cd180>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:29:56,908 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0830cdab0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:30:03,267 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc080be6a10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:30:03,343 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc092312860>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:30:23,412 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0831d13c0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:30:23,771 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0831d1870>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:30:23,966 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc080a11600>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:30:24,008 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc080a09b70>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:30:35,299 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc080be6a40>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:30:36,348 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc080beaa10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:30:57,515 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09a6c0f10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:30:57,764 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc07894d180>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:30:57,856 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09a6c12a0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:30:58,005 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09a6c1d20>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:00,030 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09a6bdbd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:01,085 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09a6c1240>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:39,041 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0831cd480>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:39,551 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0831d1d80>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:40,113 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc080adbf70>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:40,118 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc080adbc40>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:42,896 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc07b0aeb00>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:43,452 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc092316e90>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:44,228 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:44,741 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0923160e0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:45,096 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:45,753 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09231a650>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:31:58,725 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc078faadd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:32:02,068 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc080aeaaa0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:32:28,666 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09a8966e0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:32:28,672 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc09a8960e0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:32:30,083 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc080a395a0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:32:30,226 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc080a35840>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:32:49,952 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0831d54e0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:32:50,571 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0831d57b0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:32:51,264 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0831d57e0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:32:53,094 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc0831d19f0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:32:58,830 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	HTTPConnectionPool(host='mt.utibet.edu.cn', port=80): Max retries exceeded with url: /mt (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc07b0b8ee0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:37,099 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:39,848 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:40,536 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:40,850 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:42,520 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:42,589 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:44,510 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:44,621 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:44,788 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='www.systran.net', port=443): Max retries exceeded with url: /translate/ (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:45,507 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:45,862 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='www.translate.com', port=443): Max retries exceeded with url: /machine-translation (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:46,111 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-02 18:33:49,299 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
