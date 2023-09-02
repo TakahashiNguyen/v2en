@@ -1,224 +1,340 @@
-#main
-from argparse import ArgumentParser
-from config import ExtraConfig, config as cconfig
-from v2enlib import utils, Language, Executor, InputSent, GSQLClass, Pool
-from multiprocessing import Manager, Process
+from v2enlib.utils import debuger, differentRatio, Pool, ThreadPool
+from v2enlib.gSQL import GSQLClass
+from v2enlib.config import config
+from deep_translator import GoogleTranslator
+from langcodes import Language as lcLanguage
+from translators.server import TranslatorError
+from string import punctuation
+from tabulate import tabulate
+from functools import lru_cache
+from gc import collect
+import httpx
 
-import signal, os, time, gc
-
-
-def initArgs(config: ExtraConfig):
-    parser = ArgumentParser()
-
-    parser.add_argument(
-        "--amount-exe",
-        type=int,
-        help="enter amount of execute to translate a number of sentence and add to .db",
-        nargs="?",
-        default=config.v2en.amount_exe,
-    )
-
-    parser.add_argument(
-        "--ci_cd",
-        type=bool,
-        help="run addsent.py on ci/cd environment",
-        nargs="?",
-        default=False,
-        const=True,
-    )
-
-    parser.add_argument(
-        "--test",
-        help="worksheet name to save output",
-        nargs="?",
-        const="test",
-        default=config.v2en.worksheet,
-    )
-
-    parser.add_argument(
-        "--disable-thread",
-        type=bool,
-        help="disable thread feature for addsent.py",
-        nargs="?",
-        default=False,
-        const=True,
-    )
-
-    return parser.parse_args()
+# Exceptions
+from requests.exceptions import *
+from deep_translator.exceptions import *
 
 
-class Execute:
-    def __init__(self, med, config: ExtraConfig) -> None:
-        self.config = config
-        if config.v2en.allow.GUI:
-            import tkinter as tk
+class InputSent:
+    def __init__(
+        self,
+        first: str = "",
+        second: str = "",
+        isFrom: str = "",
+        accurate: float = 0,
+    ) -> None:
+        self.isFrom = isFrom or "Data set"
+        self.first = first or "N/A"
+        self.second = second or "N/A"
+        self.accurate = accurate
 
-            self.root = tk.Tk()
-            self.root.title("[v2en] AddSent.py")
-            self.button = tk.Button(self.root, text="Exit", command=self.exit)
-            self.button.pack()
-            self.thread = Process(target=self.loop, args=(med, config))
-            self.thread.start()
-            self.root.mainloop()
-            self.thread.join()
-        else:
-            med(config)
+    def isValid(self) -> bool:
+        return bool(self.first and self.second)
 
-    def loop(self, med, config: ExtraConfig):
-        med(config)
-
-        if self.config.v2en.allow.GUI and self.root.winfo_exists():
-            self.root.destroy()
-
-    def exit(self):
-        self.root.destroy()
-        if self.config.main_execute:
-            os.kill(os.getpid(), signal.SIGINT)
+    def SQLFormat(self) -> tuple:
+        return self.first, self.second
 
 
-class Main:
-    class FileExecute:
-        def __init__(self, config) -> None:
-            self.config = config
-            self.manager = Manager()
-            self.initValues()
-            self.execute()
+class Executor:
+    @staticmethod
+    def transIntoList(cmd):
+        return Translator.intoList(*cmd)
 
-        def initValues(self):
-            self.fdictionary = self.manager.list(
-                Language.loadDictionary(self.config.v2en.flang, self.config.v2en.sheet)
+    @staticmethod
+    def addSent(cmd):
+        return Language.addSent(*cmd)
+
+    @staticmethod
+    def checkSpelling(cmd):
+        return Language.checkSpelling(*cmd)
+
+
+class Translator:
+    @staticmethod
+    def deepGoogle(
+        query_text: str, from_language: str, to_language: str, *args, **kwargs
+    ) -> str:
+        try:
+            return GoogleTranslator(source=from_language, target=to_language).translate(
+                query_text
             )
-            self.sdictionary = self.manager.list(
-                Language.loadDictionary(self.config.v2en.slang, self.config.v2en.sheet)
+        except (
+            LanguageNotSupportedException,
+            InvalidSourceOrTargetLanguage,
+        ):
+            return Translator.deepGoogle(
+                query_text,
+                str(lcLanguage.get(from_language)),
+                str(lcLanguage.get(to_language)),
             )
-            self.cmds = self.manager.list([])
+        except Exception as e:
+            debuger.printError(Translator.deepGoogle.__name__, e)
+            return ""
 
-            with open(self.config.v2en.fpath, "r") as ffile:
-                self.fsent = ffile.read().splitlines(True)
-            with open(self.config.v2en.spath, "r") as sfile:
-                self.ssent = sfile.read().splitlines(True)
-            self.config.main_execute = self.fsent and self.ssent
+    @staticmethod
+    def translatorsTransSub(cmd):
+        def execute(func, **kwargs):
+            ou = ""
+            allow_error = (
+                ChunkedEncodingError,
+                HTTPError,
+                ReadTimeout,
+                KeyError,
+                JSONDecodeError,
+            )
+            if cmd[0]:
+                try:
+                    ou = func(**kwargs)
+                except Exception as e:
+                    if isinstance(e, TranslatorError):
+                        try:
+                            if tcmd := Translator.handleCodes(cmd[1], e):
+                                ou = func(**tcmd)
+                        except HTTPError as e:
+                            raise e
+                        except Exception as e:
+                            debuger.printError(
+                                Translator.translatorsTransSub.__name__, e
+                            )
+                    elif any(isinstance(e, i) for i in allow_error):
+                        try:
+                            ou = debuger.functionTimeout(
+                                func=Translator.deepGoogle,
+                                **cmd[1],
+                            )
+                        except Exception as e:
+                            debuger.printError(
+                                Translator.translatorsTransSub.__name__, e
+                            )
+                    else:
+                        debuger.printError(Translator.translatorsTransSub.__name__, e)
+            return [ou, func.__name__]
 
-        def inputList(self, num_exe: int):
-            return [
-                [
-                    InputSent(self.fsent[idx], self.ssent[idx]),
-                    self.fdictionary,
-                    self.sdictionary,
-                    self.cmds,
-                    self.config,
-                ]
-                for idx in range(num_exe)
-            ]
+        return execute(cmd[0], **cmd[1])
 
-        def execute(self):
-            false_count, fdump_sents, sdump_sents = 0, [], []
-            while self.config.main_execute and self.fsent and self.ssent:
-                time_start, pre_cmds = time.time(), len(self.cmds)
+    @staticmethod
+    def translatorsTrans(cmd: list, trans_timeout, config) -> list:
+        return ThreadPool.args(
+            funcs=config.v2en.trans_dict.values(),
+            subexecutor=Translator.translatorsTransSub,
+            poolName="translationPool",
+            query_text=cmd[0],
+            from_language=cmd[1],
+            to_language=cmd[2],
+            timeout=trans_timeout,
+            config=config,
+            if_print_warning=False,
+        )
 
-                num_exe = min(
-                    len(self.fsent), len(self.ssent), self.config.v2en.num_sent
+    # TODO Rename this here and in `translatorsTrans`
+    @staticmethod
+    @debuger.measureFunction
+    def handleCodes(cmd, e) -> list:
+        try:
+            if len(e.args):
+                tcmd, execute = cmd.copy(), False
+                target = e.args[0].split(" ")[1][:-4]
+                for i in ["vie", "vi_VN", "vi-VN"]:
+                    if (e.args[0]).find(i) != -1:
+                        tcmd[target] = i
+                        execute = True
+                if execute:
+                    return tcmd
+        except Exception as e:
+            debuger.printError("change format language", e)
+        return []
+
+    @staticmethod
+    def intoList(sent, source_lang, target_lang, target_dictionary, timeout, config):
+        return ThreadPool.function(
+            func=Executor.checkSpelling,
+            iterable=[
+                [Language.convert(e[0]), target_dictionary, target_lang, e[1]]
+                for e in Translator.translatorsTrans(
+                    cmd=[sent, source_lang, target_lang],
+                    trans_timeout=timeout,
+                    config=config,
                 )
-                for e in Pool.function(
-                    func=Executor.addSent,
-                    iterable=self.inputList(num_exe=num_exe),
-                    force_pro=num_exe,
-                ):
-                    if e[0] and e[1]:
-                        fdump_sents.append(e[0])
-                        sdump_sents.append(e[1])
-                    false_count += -false_count if e[2] else 1
-                    if (
-                        false_count > self.config.v2en.false_allow
-                        and self.config.main_execute
-                        and not self.config.v2en.allow.FalseTranslation
-                    ):
-                        utils.debuger.printError(
-                            self.fileExecute.__name__,
-                            Exception("Too many fatal traslation!"),
-                            True,
-                        )
-                        self.config.main_execute = False
-                self.fsent = self.fsent[self.config.v2en.num_sent :]
-                self.ssent = self.ssent[self.config.v2en.num_sent :]
+            ],
+        )
 
-                gc.collect()
-                self.cmds = self.manager.list(
-                    [
-                        elem
-                        for i, elem in enumerate(self.cmds)
-                        if elem not in self.cmds[:i]
-                    ]
-                )
-                print(
-                    f"Time Consume/Total output/Individual output: {(time.time()-time_start):0,.2f}/{len(self.cmds)}/{len(self.cmds)-pre_cmds}"
-                )
+
+class Language:
+    @staticmethod
+    @debuger.measureFunction
+    @lru_cache(maxsize=1024)
+    def checkSpelling(text: str, dictionary: list, lang: str, tname: str = ""):
+        word = ""
+        try:
+            words = text.split()
+            outstr = ""
+            for idx, word in enumerate(words):
                 if (
-                    self.config.v2en.amount_exe
-                    and len(self.cmds) >= self.config.v2en.amount_exe
+                    word not in dictionary
+                    and not word.isnumeric()
+                    and word not in punctuation
+                    and not Language.existOnWiki(word, lang)
+                    and not Language.existOnWiki(f"{words[idx-1]} {word}", lang)
+                    and (
+                        idx + 1 >= len(words)
+                        or not Language.existOnWiki(f"{word} {words[idx+1]}", lang)
+                    )
                 ):
+                    if config.v2en.raise_on_error_word:
+                        raise ValueError(
+                            f"https://{lang}.wiktionary.org/wiki/{word} not existed"
+                        )
+                    outstr = ""
                     break
-            self.save(fdump=fdump_sents, sdump=sdump_sents)
+                outstr += f"{word} "
+                if word.isalpha() and word not in dictionary:
+                    dictionary.append(word)
+            return [outstr, tname] if tname else outstr
+        except Exception as e:
+            debuger.printError(Language.checkSpelling.__name__, e)
+        return ["", ""] if tname else ""
 
-        def save(self, fdump: list, sdump: list):
-            if self.config.main_execute:
-                sh = GSQLClass(self.config.v2en.sheet, self.config.v2en.worksheet)
-                sh.writeLRow(self.cmds)
-                data = sh.getAll()
-                data = [elem for i, elem in enumerate(data) if elem not in data[:i]]
-                sh.clear(), sh.writeLRow(data), sh.autoFit()
-
-                Language.saveDictionary(self.config.v2en.flang, self.fdictionary)
-                Language.saveDictionary(self.config.v2en.slang, self.sdictionary)
-
-                with open(self.config.v2en.fpath, "w") as f:
-                    f.writelines(self.fsent)
-                with open(self.config.v2en.spath, "w") as f:
-                    f.writelines(self.ssent)
-
+    @staticmethod
+    @debuger.measureFunction
+    def addSent(input_sent: InputSent, dictionary, cmds, config):
+        is_agree, fdump = False, []
+        print_data = ["Data set", input_sent.first, input_sent.second, "N/A"]
+        fdump, sdump = "", ""
+        input_sent.first, input_sent.second = ThreadPool.function(
+            func=Executor.checkSpelling,
+            iterable=[
+                [Language.convert(e[0].replace("\n", "")), dictionary, e[1]]
                 for e in [
-                    [self.config.v2en.flang, fdump],
-                    [self.config.v2en.slang, sdump],
-                ]:
-                    sheet = GSQLClass(self.config.v2en.sheet, f"dump_{e[0]}")
-                    sheet.writeLRow([[e] for e in e[1]])
-                    sheet.autoFit()
+                    [input_sent.first, config.v2en.flang],
+                    [input_sent.second, config.v2en.slang],
+                ]
+            ],
+        )
+        if not input_sent.isValid():
+            return "", "", False
+        is_error, trans_data = True, []
+        for first_tran, second_tran in zip(
+            *Pool.function(
+                func=Executor.transIntoList,
+                iterable=[
+                    [
+                        input_sent.first,
+                        config.v2en.flang,
+                        config.v2en.slang,
+                        dictionary,
+                        config.v2en.trans_timeout,
+                        config,
+                    ],
+                    [
+                        input_sent.second,
+                        config.v2en.slang,
+                        config.v2en.flang,
+                        dictionary,
+                        config.v2en.trans_timeout,
+                        config,
+                    ],
+                ],
+            )
+        ):
+            if first_tran[0]:
+                trans_data.append(
+                    InputSent(
+                        input_sent.first,
+                        first_tran[0],
+                        first_tran[1],
+                        differentRatio(input_sent.second, first_tran[0]),
+                    )
+                )
+            if second_tran[0]:
+                trans_data.append(
+                    InputSent(
+                        second_tran[0],
+                        input_sent.second,
+                        second_tran[1],
+                        differentRatio(input_sent.first, second_tran[0]),
+                    )
+                )
 
-    def __init__(self, args, config: ExtraConfig) -> None:
-        if args.disable_thread:
-            config.v2en.thread.allow = False
-        if args.ci_cd:
-            config.v2en.allow.tqdm = False
-        config.v2en.worksheet = args.test
-        config.v2en.amount_exe = args.amount_exe
+        if any(e.accurate > config.v2en.accept_percentage for e in trans_data):
+            is_agree = True
+            is_error = False
+        if is_agree and not is_error:
+            cmds += [[input_sent.first, input_sent.second]] + [
+                e.SQLFormat()
+                for e in trans_data
+                if e.accurate > config.v2en.accept_percentage
+            ]
+        if is_error:
+            fdump, sdump = input_sent.first, input_sent.second
 
-        self.args = args
-        self.config = config
-        self.main()
+        print_data += [
+            [e.isFrom, e.first, e.second, e.accurate]
+            for e in trans_data
+            if e.accurate > config.v2en.accept_percentage
+        ]
+        if len(print_data) < config.v2en.allow.sentences:
+            debuger.printInfo(
+                tabulate(
+                    tabular_data=print_data,
+                    headers=["From", "Source", "Target", "Accuracy?"],
+                    tablefmt="fancy_grid",
+                    showindex="always",
+                    maxcolwidths=[None, None, 45, 45, 7],
+                    floatfmt=(".2f" * 5),
+                ),
+            )
+        del trans_data, print_data
+        collect()
+        return fdump, sdump, is_agree
 
-    def signalHandler(self):
-        if self.config.main_execute:
-            print("Stop programme!")
-            self.config.main_execute = False
+    @staticmethod
+    @lru_cache(maxsize=1024)
+    def convert(x: str) -> str:
+        if not x:
+            return ""
+        # fix bad data
+        if "apos" in x or "quot" in x or "amp" in x or "&#91;" in x or "--" in x:
+            return ""
 
-    def handelEnvironment(self):
-        if not self.args.ci_cd:
-            utils.Sound.playNotes(*self.config.v2en.sound_tracks["macos_startup"])
-        signal.signal(signal.SIGINT, self.signalHandler)
+        x = x.replace("“", " “ ").replace("”", " ” ").replace("’", " ’ ")
+        for punc in punctuation:
+            x = x.replace(punc, f" {punc} ")
+        try:
+            return x.lower().replace("  ", " ").replace("  ", " ")
+        except Exception as e:
+            debuger.printError(Language.convert.__name__, e)
+            return ""
 
-    def execute(self):
-        Execute(med=self.FileExecute, config=self.config)
+    @staticmethod
+    @lru_cache(maxsize=1024)
+    def getWikitionaryHeaders(word: str) -> httpx.Response:
+        return httpx.get(f"https://en.wiktionary.org/wiki/{word}")
 
-    def exit(self):
-        if not self.args.ci_cd:
-            utils.Sound.playNotes(*self.config.v2en.sound_tracks["windows7_shutdown"])
+    @staticmethod
+    @lru_cache(maxsize=1024)
+    def existOnWiki(word: str, lang: str) -> bool:
+        display_name = lcLanguage.make(language=lang).display_name()
 
-    def main(self) -> None:
-        self.handelEnvironment()
-        self.execute()
-        self.exit()
+        response = Language.getWikitionaryHeaders(word=word)
+        return (
+            f'href="#{display_name}"' in response.headers.get("link", "")
+            or f'id="{display_name}"' in response.text
+        )
 
+    @staticmethod
+    def loadDictionary(sheet: str) -> list:
+        try:
+            return GSQLClass(sheet, "dictionary").getCol(1)
+        except Exception as e:
+            debuger.printError(Language.loadDictionary.__name__, e)
+        return []
 
-if __name__ == "__main__":
-    args = initArgs(config=cconfig)
-    main = Main(args=args, config=cconfig)
+    @staticmethod
+    def saveDictionary(dictionary):
+        try:
+            sheet = GSQLClass(config.v2en.sheet, "dictionary")
+            sheet.clear()
+            sheet.writeLRow([[e] for e in sorted(list(dict.fromkeys(dictionary)))])
+            sheet.autoFit()
+        except Exception as e:
+            debuger.printError(Language.saveDictionary.__name__, e)
