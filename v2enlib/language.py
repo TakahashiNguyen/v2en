@@ -95,8 +95,10 @@ class Translator:
                                 func=Translator.deepGoogle,
                                 **cmd[1],
                             )
-                        except:
-                            print()
+                        except Exception as e:
+                            debuger.printError(
+                                Translator.translatorsTransSub.__name__, e
+                            )
                     else:
                         debuger.printError(Translator.translatorsTransSub.__name__, e)
             return [ou, func.__name__]
@@ -161,23 +163,23 @@ class Language:
             outstr = ""
             for idx, word in enumerate(words):
                 if (
-                    word in dictionary
-                    or word.isnumeric()
-                    or word in punctuation
-                    or Language.existOnWiki(word, lang)
-                    or Language.existOnWiki(f"{words[idx-1]} {word}", lang)
-                    or (
-                        idx + 1 < len(words)
-                        and Language.existOnWiki(f"{word} {words[idx+1]}", lang)
+                    word not in dictionary
+                    and not word.isnumeric()
+                    and word not in punctuation
+                    and not Language.existOnWiki(word, lang)
+                    and not Language.existOnWiki(f"{words[idx-1]} {word}", lang)
+                    and (
+                        idx + 1 >= len(words)
+                        or not Language.existOnWiki(f"{word} {words[idx+1]}", lang)
                     )
+                    and config.v2en.raise_on_word_error
                 ):
-                    outstr += f"{word} "
-                    if word.isalpha() and word not in dictionary:
-                        dictionary.append(word)
-                else:
                     raise ValueError(
                         f"https://{lang}.wiktionary.org/wiki/{word} not existed"
                     )
+                outstr += f"{word} "
+                if word.isalpha() and word not in dictionary:
+                    dictionary.append(word)
             return [outstr, tname] if tname else outstr
         except Exception as e:
             debuger.printError(Language.checkSpelling.__name__, e)
@@ -261,7 +263,7 @@ class Language:
             for e in trans_data
             if e.accurate > config.v2en.accept_percentage
         ]
-        if len(print_data) < 10:
+        if len(print_data) < config.v2en.allow.sentences:
             debuger.printInfo(
                 tabulate(
                     tabular_data=print_data,
