@@ -85,21 +85,29 @@ class Translator:
             if cmd[0]:
                 try:
                     ou = func(**kwargs)
-                except TranslatorError as e:
-                    if tcmd := Translator.handleCodes(cmd[1], e):
-                        ou = func(**tcmd)
-                    else:
-                        ou = debuger.functionTimeout(
-                            func=Translator.deepGoogle,
-                            **cmd[1],
-                        )
-                except allow_error:
-                    ou = debuger.functionTimeout(
-                        func=Translator.deepGoogle,
-                        **cmd[1],
-                    )
                 except Exception as e:
-                    debuger.printError(Translator.translatorsTransSub.__name__, e)
+                    if isinstance(e, TranslatorError):
+                        try:
+                            if tcmd := Translator.handleCodes(cmd[1], e):
+                                ou = func(**tcmd)
+                        except HTTPError as e:
+                            raise e
+                        except Exception as e:
+                            debuger.printError(
+                                Translator.translatorsTransSub.__name__, e
+                            )
+                    elif any(isinstance(e, i) for i in allow_error):
+                        try:
+                            ou = debuger.functionTimeout(
+                                func=Translator.deepGoogle,
+                                **cmd[1],
+                            )
+                        except Exception as e:
+                            debuger.printError(
+                                Translator.translatorsTransSub.__name__, e
+                            )
+                    else:
+                        debuger.printError(Translator.translatorsTransSub.__name__, e)
             return [ou, func.__name__]
 
         return execute(cmd[0], **cmd[1])
@@ -162,17 +170,23 @@ class Language:
             outstr = ""
             for idx, word in enumerate(words):
                 if (
-                    word in dictionary
-                    or word.isnumeric()
-                    or word in punctuation
-                    or Language.existOnWiki(word, lang)
-                    or Language.existOnWiki(f"{words[idx-1]} {word}", lang)
-                    or (
-                        idx + 1 < len(words)
-                        and Language.existOnWiki(f"{word} {words[idx+1]}", lang)
+                    word not in dictionary
+                    and not word.isnumeric()
+                    and word not in punctuation
+                    and not Language.existOnWiki(word, lang)
+                    and not Language.existOnWiki(f"{words[idx-1]} {word}", lang)
+                    and (
+                        idx + 1 >= len(words)
+                        or not Language.existOnWiki(f"{word} {words[idx+1]}", lang)
                     )
                 ):
-                    outstr += f"{word} "
+                    if config.v2en.raise_on_error_word:
+                        raise ValueError(
+                            f"https://{lang}.wiktionary.org/wiki/{word} not existed"
+                        )
+                    outstr = ""
+                    break
+                outstr += f"{word} "
                 if word.isalpha() and word not in dictionary:
                     dictionary.append(word)
             return [outstr, tname] if tname else outstr
@@ -182,17 +196,17 @@ class Language:
 
     @staticmethod
     @debuger.measureFunction
-    def addSent(input_sent: InputSent, fdictionary, sdictionary, cmds, config):
+    def addSent(input_sent: InputSent, dictionary, cmds, config):
         is_agree, fdump = False, []
         print_data = ["Data set", input_sent.first, input_sent.second, "N/A"]
         fdump, sdump = "", ""
         input_sent.first, input_sent.second = ThreadPool.function(
             func=Executor.checkSpelling,
             iterable=[
-                [Language.convert(e[0].replace("\n", "")), e[1], e[2]]
+                [Language.convert(e[0].replace("\n", "")), dictionary, e[1]]
                 for e in [
-                    [input_sent.first, fdictionary, config.v2en.flang],
-                    [input_sent.second, sdictionary, config.v2en.slang],
+                    [input_sent.first, config.v2en.flang],
+                    [input_sent.second, config.v2en.slang],
                 ]
             ],
         )
@@ -207,7 +221,7 @@ class Language:
                         input_sent.first,
                         config.v2en.flang,
                         config.v2en.slang,
-                        sdictionary,
+                        dictionary,
                         config.v2en.trans_timeout,
                         config,
                     ],
@@ -215,7 +229,7 @@ class Language:
                         input_sent.second,
                         config.v2en.slang,
                         config.v2en.flang,
-                        fdictionary,
+                        dictionary,
                         config.v2en.trans_timeout,
                         config,
                     ],
@@ -258,7 +272,7 @@ class Language:
             for e in trans_data
             if e.accurate > config.v2en.accept_percentage
         ]
-        if len(print_data) < 10:
+        if len(print_data) < config.v2en.allow.sentences:
             debuger.printInfo(
                 tabulate(
                     tabular_data=print_data,
@@ -301,26 +315,26 @@ class Language:
     def existOnWiki(word: str, lang: str) -> bool:
         display_name = lcLanguage.make(language=lang).display_name()
 
-        response = Language.getWikitionaryHeaders(word)
+        response = Language.getWikitionaryHeaders(word=word)
         return (
             f'href="#{display_name}"' in response.headers.get("link", "")
             or f'id="{display_name}"' in response.text
         )
 
     @staticmethod
-    def loadDictionary(lang: str, sheet: str) -> list:
+    def loadDictionary(sheet: str) -> list:
         try:
-            return GSQLClass(sheet, f"dictionary_{lang}").getCol(1)
+            return GSQLClass(sheet, "dictionary").getCol(1)
         except Exception as e:
             debuger.printError(Language.loadDictionary.__name__, e)
         return []
 
     @staticmethod
-    def saveDictionary(lang, dictionary):
+    def saveDictionary(dictionary):
         try:
-            sheet = GSQLClass(config.v2en.sheet, f"dictionary_{lang}")
+            sheet = GSQLClass(config.v2en.sheet, "dictionary")
             sheet.clear()
-            sheet.writeLRow([[e] for e in list(dict.fromkeys(dictionary))])
+            sheet.writeLRow([[e] for e in sorted(list(dict.fromkeys(dictionary)))])
             sheet.autoFit()
         except Exception as e:
-            debuger.printError("saveDictionary", e)
+            debuger.printError(Language.saveDictionary.__name__, e)
