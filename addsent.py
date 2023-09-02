@@ -2,6 +2,7 @@ from argparse import ArgumentParser
 from config import ExtraConfig, config as cconfig
 from v2enlib import utils, Language, Executor, InputSent, GSQLClass, Pool
 from multiprocessing import Manager, Process
+from requests import HTTPError
 
 import signal, os, time, gc
 
@@ -84,11 +85,8 @@ class Main:
             self.execute()
 
         def initValues(self):
-            self.fdictionary = self.manager.list(
-                Language.loadDictionary(self.config.v2en.flang, self.config.v2en.sheet)
-            )
-            self.sdictionary = self.manager.list(
-                Language.loadDictionary(self.config.v2en.slang, self.config.v2en.sheet)
+            self.dictionary = self.manager.list(
+                Language.loadDictionary(self.config.v2en.sheet)
             )
             self.cmds = self.manager.list([])
 
@@ -102,8 +100,7 @@ class Main:
             return [
                 [
                     InputSent(self.fsent[idx], self.ssent[idx]),
-                    self.fdictionary,
-                    self.sdictionary,
+                    self.dictionary,
                     self.cmds,
                     self.config,
                 ]
@@ -118,44 +115,48 @@ class Main:
                 num_exe = min(
                     len(self.fsent), len(self.ssent), self.config.v2en.num_sent
                 )
-                for e in Pool.function(
-                    func=Executor.addSent,
-                    iterable=self.inputList(num_exe=num_exe),
-                    force_pro=num_exe,
-                ):
-                    if e[0] and e[1]:
-                        fdump_sents.append(e[0])
-                        sdump_sents.append(e[1])
-                    false_count += -false_count if e[2] else 1
-                    if (
-                        false_count > self.config.v2en.false_allow
-                        and self.config.main_execute
-                        and not self.config.v2en.allow.FalseTranslation
+                try:
+                    for e in Pool.function(
+                        func=Executor.addSent,
+                        iterable=self.inputList(num_exe=num_exe),
+                        force_pro=num_exe,
                     ):
-                        utils.debuger.printError(
-                            self.fileExecute.__name__,
-                            Exception("Too many fatal traslation!"),
-                            True,
-                        )
-                        self.config.main_execute = False
-                self.fsent = self.fsent[self.config.v2en.num_sent :]
-                self.ssent = self.ssent[self.config.v2en.num_sent :]
+                        if e[0] and e[1]:
+                            fdump_sents.append(e[0])
+                            sdump_sents.append(e[1])
+                        false_count += -false_count if e[2] else 1
+                        if (
+                            false_count > self.config.v2en.false_allow
+                            and self.config.main_execute
+                            and not self.config.v2en.allow.FalseTranslation
+                        ):
+                            utils.debuger.printError(
+                                self.fileExecute.__name__,
+                                Exception("Too many fatal traslation!"),
+                                True,
+                            )
+                            self.config.main_execute = False
+                    self.fsent = self.fsent[self.config.v2en.num_sent :]
+                    self.ssent = self.ssent[self.config.v2en.num_sent :]
 
-                gc.collect()
-                self.cmds = self.manager.list(
-                    [
-                        elem
-                        for i, elem in enumerate(self.cmds)
-                        if elem not in self.cmds[:i]
-                    ]
-                )
-                print(
-                    f"Time Consume/Total output/Individual output: {(time.time()-time_start):0,.2f}/{len(self.cmds)}/{len(self.cmds)-pre_cmds}"
-                )
-                if (
-                    self.config.v2en.amount_exe
-                    and len(self.cmds) >= self.config.v2en.amount_exe
-                ):
+                    gc.collect()
+                    self.cmds = self.manager.list(
+                        [
+                            elem
+                            for i, elem in enumerate(self.cmds)
+                            if elem not in self.cmds[:i]
+                        ]
+                    )
+                    print(
+                        f"Time Consume/Total output/Individual output: {(time.time()-time_start):0,.2f}/{len(self.cmds)}/{len(self.cmds)-pre_cmds}"
+                    )
+                    if (
+                        self.config.v2en.amount_exe
+                        and len(self.cmds) >= self.config.v2en.amount_exe
+                    ):
+                        break
+                except HTTPError as e:
+                    utils.debuger.printError(self.execute.__name__, e, True)
                     break
             self.save(fdump=fdump_sents, sdump=sdump_sents)
 
@@ -167,8 +168,7 @@ class Main:
                 data = [elem for i, elem in enumerate(data) if elem not in data[:i]]
                 sh.clear(), sh.writeLRow(data), sh.autoFit()
 
-                Language.saveDictionary(self.config.v2en.flang, self.fdictionary)
-                Language.saveDictionary(self.config.v2en.slang, self.sdictionary)
+                Language.saveDictionary(self.dictionary)
 
                 with open(self.config.v2en.fpath, "w") as f:
                     f.writelines(self.fsent)
