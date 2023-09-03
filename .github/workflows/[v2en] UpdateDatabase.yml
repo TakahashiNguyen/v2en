@@ -40,7 +40,7 @@ jobs:
       # Build a virtualenv, but only if it doesn't already exist
       - run: pip install wheel && python setup.py bdist_wheel &&
           python -m venv ./.venv && . ./.venv/bin/activate &&
-          pip install -r requirements.txt
+          ./install_lib.sh
         if: steps.cache-venv.outputs.cache-hit != 'true'
 
       - name: Execute Python script # run main.py
