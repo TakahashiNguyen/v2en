@@ -41,8 +41,8 @@ class Executor:
         return Translator.intoList(*cmd)
 
     @staticmethod
-    def addSent(cmd):
-        return Language.addSent(*cmd)
+    def addPair(cmd):
+        return Language.addPair(*cmd)
 
     @staticmethod
     def checkSpelling(cmd):
@@ -196,7 +196,7 @@ class Language:
 
     @staticmethod
     @debuger.measureFunction
-    def addSent(input_sent: InputSent, dictionary, cmds, config):
+    def addPair(input_sent: InputSent, dictionary, cmds, config):
         is_agree, fdump = False, []
         print_data = ["Data set", input_sent.first, input_sent.second, "N/A"]
         fdump, sdump = "", ""
