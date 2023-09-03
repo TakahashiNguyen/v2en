@@ -25,15 +25,15 @@ RUN mkdir -p /etc/apt/keyrings && \
 RUN apt install \
     gcc git git-lfs vim gh nodejs \
     # xrdp features at https://github.com/danchitnis/container-xrdp/blob/master/ubuntu-xfce/Dockerfile
-    #xfce4 xfce4-terminal xfce4-xkb-plugin \
-    #sudo xorgxrdp xrdp \
+    xfce4 xfce4-terminal xfce4-xkb-plugin \
+    sudo xorgxrdp xrdp \
     # ssh server
     openssh-server \
     # nodejs 
     nodejs \
     # necessary nvidia's package
     #libcublas-12-1 libcublas-dev-12-1 nvidia-cuda-toolkit cuda \
-    -y
+    -y  --no-install-recommends
 # clean stage 
 RUN apt clean && \
     apt remove -y light-locker xscreensaver && \
@@ -52,9 +52,6 @@ ENTRYPOINT ["/bin/bash", "-c", "/usr/bin/run.sh ${name} ${pass} ${issudo}"]
 #    sed -i "s/xrdp\/xorg/xorg/g" /etc/xrdp/sesman.ini && \
 #    echo "xfce4-session" >> /etc/skel/.Xsession
 EXPOSE 3389
-
-COPY ./.sh/run.sh /usr/bin/
-RUN chmod +x /usr/bin/run.sh
 
 RUN service ssh start
 EXPOSE 24444
@@ -78,4 +75,6 @@ RUN chmod 600 /root/.ssh/authorized_keys && \
 EXPOSE 22/tcp
 
 # Set command to run on container start
+COPY ./.sh/run.sh /usr/bin/
+RUN chmod +x /usr/bin/run.sh
 CMD ["/usr/sbin/sshd", "-D"]
