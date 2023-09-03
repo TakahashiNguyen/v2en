@@ -17056,3 +17056,135 @@ __________________________________________________
 	Error type: <class 'requests.exceptions.SSLError'>
 	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 22:53:15,504 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectTimeout'>
+	HTTPConnectionPool(host='fy.mglip.com', port=80): Max retries exceeded with url: /pc (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7cf65b8e80>, 'Connection to fy.mglip.com timed out. (connect timeout=60)'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 22:55:13,648 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectTimeout'>
+	HTTPConnectionPool(host='fy.mglip.com', port=80): Max retries exceeded with url: /pc (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7ce727ef80>, 'Connection to fy.mglip.com timed out. (connect timeout=60)'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 22:56:28,100 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectTimeout'>
+	HTTPConnectionPool(host='fy.mglip.com', port=80): Max retries exceeded with url: /pc (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7cf6be2da0>, 'Connection to fy.mglip.com timed out. (connect timeout=60)'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 22:57:59,641 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectTimeout'>
+	HTTPConnectionPool(host='fy.mglip.com', port=80): Max retries exceeded with url: /pc (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7cf6b9eec0>, 'Connection to fy.mglip.com timed out. (connect timeout=60)'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 22:59:16,657 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectTimeout'>
+	HTTPConnectionPool(host='fy.mglip.com', port=80): Max retries exceeded with url: /pc (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7cf44d2da0>, 'Connection to fy.mglip.com timed out. (connect timeout=60)'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:00:48,750 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectTimeout'>
+	HTTPConnectionPool(host='fy.mglip.com', port=80): Max retries exceeded with url: /pc (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7cf6b9ee90>, 'Connection to fy.mglip.com timed out. (connect timeout=60)'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:02:11,689 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectTimeout'>
+	HTTPConnectionPool(host='fy.mglip.com', port=80): Max retries exceeded with url: /pc (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7cf6ba29b0>, 'Connection to fy.mglip.com timed out. (connect timeout=60)'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:03:02,916 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:03:03,310 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:03:04,010 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:03:04,175 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:03:04,440 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:03:07,113 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:03:52,330 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectTimeout'>
+	HTTPConnectionPool(host='fy.mglip.com', port=80): Max retries exceeded with url: /pc (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7ce64f34f0>, 'Connection to fy.mglip.com timed out. (connect timeout=60)'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:04:26,575 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:05:20,996 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectTimeout'>
+	HTTPConnectionPool(host='fy.mglip.com', port=80): Max retries exceeded with url: /pc (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7cf6ba3220>, 'Connection to fy.mglip.com timed out. (connect timeout=60)'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:07:01,567 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectTimeout'>
+	HTTPConnectionPool(host='fy.mglip.com', port=80): Max retries exceeded with url: /pc (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7cf43aa080>, 'Connection to fy.mglip.com timed out. (connect timeout=60)'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:08:53,550 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectTimeout'>
+	HTTPConnectionPool(host='fy.mglip.com', port=80): Max retries exceeded with url: /pc (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7cf6ba34c0>, 'Connection to fy.mglip.com timed out. (connect timeout=60)'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:09:27,444 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:09:27,550 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:09:31,827 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-03 23:10:02,040 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectTimeout'>
+	HTTPConnectionPool(host='fy.mglip.com', port=80): Max retries exceeded with url: /pc (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7cf9a06fe0>, 'Connection to fy.mglip.com timed out. (connect timeout=60)'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
