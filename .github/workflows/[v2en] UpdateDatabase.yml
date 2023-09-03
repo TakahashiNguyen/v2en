@@ -1,0 +1,16 @@
+name: Execute addsent.py
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [closed]
+
+jobs:
+  execute_python_script:
+    name: Update database
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content
+        with:
+          ref: update-database-run
