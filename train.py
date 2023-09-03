@@ -11,7 +11,7 @@ class V2ENLanguageModel:
             self.tokenizer = tf.keras.preprocessing.text.Tokenizer(
                 filters="", lower=False
             )
-            sheet = GSQLClass(config.v2en.sheet, f"dictionary_{lang}")
+            sheet = GSQLClass(config.v2en.sheet, "dictionary")
             self.tokenizer.fit_on_texts(sheet.getAll())
             self.sentences = self.tokenizer.texts_to_sequences(df[lang].tolist())
             self.sentences = tf.keras.utils.pad_sequences(
@@ -23,7 +23,7 @@ class V2ENLanguageModel:
 
     @staticmethod
     def lr_schedule(epoch, lr):
-        return lr if epoch < 10 else lr * math.exp(-0.1)
+        return lr * math.exp(-0.1) * (10 / (epoch+1))
 
     def importData(self) -> None:
         data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
@@ -39,9 +39,9 @@ class V2ENLanguageModel:
         layers = tf.keras.layers
 
         modelInput = tf.keras.utils.pad_sequences(
-            self.source.sentences, self.target.sentences.shape[1]
+            self.source.sentences, maxlen=self.target.sentences.shape[1], padding="post"
         )
-        modelInput.reshape((-1, self.target.sentences.shape[-2]))
+        modelInput.reshape((-1, self.target.sentences.shape[-2], 1))
 
         # Build the layers
         model = tf.keras.models.Sequential()
@@ -75,7 +75,7 @@ class V2ENLanguageModel:
         model.compile(
             loss=tf.keras.losses.SparseCategoricalCrossentropy(),
             optimizer=tf.keras.optimizers.Adam(
-                learning_rate=config.training.learning_rate * 10
+                learning_rate=config.training.learning_rate
             ),
             metrics=["accuracy"],
         )
@@ -110,7 +110,7 @@ class V2ENLanguageModel:
     def fitModel(self) -> None:
         self.initCallbacks()
         self.model.summary()
-        batch_size = 475
+        batch_size = 126
         self.model.fit(
             self.modelInput,
             self.target.sentences,
