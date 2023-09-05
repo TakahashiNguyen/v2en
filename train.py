@@ -1,35 +1,35 @@
-from v2enlib import GSQLClass
+from v2enlib import GSQLClass, utils
 from config import config
+from tensorflow.python.keras import mixed_precision
 
 import tensorflow as tf, pandas as pd, tensorflow_model_optimization as tfmot
-import os, math
+import os, numpy as np
 
 
 class V2ENLanguageModel:
     class Language:
-        def __init__(self, lang: str, df) -> None:
-            self.tokenizer = tf.keras.preprocessing.text.Tokenizer(
-                filters="", lower=False
-            )
-            sheet = GSQLClass(config.v2en.sheet, "dictionary")
-            self.tokenizer.fit_on_texts(sheet.getAll())
-            self.sentences = self.tokenizer.texts_to_sequences(df[lang].tolist())
+        def __init__(
+            self, lang: str, df, tk: tf.keras.preprocessing.text.Tokenizer
+        ) -> None:
+            self._sentences = tk.texts_to_sequences(df[lang].tolist())
             self.sentences = tf.keras.utils.pad_sequences(
-                self.sentences, padding="post"
+                self._sentences, padding="post"
             )
 
         def reshape(self):
             self.sentences.reshape(*self.sentences.shape, 1)
 
-    @staticmethod
-    def lr_schedule(epoch, lr):
-        return lr * math.exp(-0.1) * (10 / (epoch+1))
-
     def importData(self) -> None:
         data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
         df = pd.DataFrame(data[1:], columns=data[0])
-        self.source = self.Language(config.v2en.flang, df)
-        self.target = self.Language(config.v2en.slang, df)
+
+        self.tokenizer = tf.keras.preprocessing.text.Tokenizer(filters="", lower=False)
+        sheet = GSQLClass(config.v2en.sheet, "dictionary")
+        self.tokenizer.fit_on_texts(sheet.getAll())
+        df = df.sample(frac=1).reset_index(drop=True)
+
+        self.source = self.Language(config.v2en.flang, df, self.tokenizer)
+        self.target = self.Language(config.v2en.slang, df, self.tokenizer)
 
     def syncData(self) -> None:
         self.target.reshape()
@@ -48,7 +48,7 @@ class V2ENLanguageModel:
         # Embedding
         model.add(
             layers.Embedding(
-                len(self.source.tokenizer.word_index) + 1,
+                len(self.tokenizer.word_index) + 1,
                 latent_dim,
                 input_length=modelInput.shape[1],
                 input_shape=modelInput.shape[1:],
@@ -66,9 +66,7 @@ class V2ENLanguageModel:
         model.add(layers.Dropout(0.5))
         model.add(
             layers.TimeDistributed(
-                layers.Dense(
-                    len(self.target.tokenizer.word_index) + 1, activation="softmax"
-                )
+                layers.Dense(len(self.tokenizer.word_index) + 1, activation="softmax")
             )
         )
 
@@ -81,43 +79,66 @@ class V2ENLanguageModel:
         )
 
         self.modelInput = modelInput
-        self.model = model
+        try:
+            self.model = tf.keras.models.load_model(config.training.checkpoint_path)
+        except Exception as e:
+            utils.debuger.printError(self.initModel.__name__, e)
+            self.model = model
 
     def initCallbacks(self) -> None:
         checkpoint = tf.keras.callbacks.ModelCheckpoint(
             config.training.checkpoint_path,
+            mode="max",
+            monitor="accuracy",
+            verbose=2,
             save_best_only=True,
             save_weights_only=True,
-            verbose=1,
-            monitor="val_accuracy",
-            mode="max",
         )
         earlystop_accuracy = tf.keras.callbacks.EarlyStopping(
-            monitor="val_accuracy", patience=30, verbose=1, mode="max"
+            monitor="accuracy", patience=30, verbose=1, mode="max"
         )
         earlystop_loss = tf.keras.callbacks.EarlyStopping(
-            monitor="val_loss", patience=30, verbose=1, mode="min"
+            monitor="loss", patience=30, verbose=1, mode="min"
         )
         update_pruning = tfmot.sparsity.keras.UpdatePruningStep()
         self.callbacks = [
             checkpoint,
             earlystop_accuracy,
             earlystop_loss,
-            tf.keras.callbacks.LearningRateScheduler(self.lr_schedule),
             update_pruning,
         ]
 
     def fitModel(self) -> None:
+        utils.Terminal.cleanScreen()
         self.initCallbacks()
         self.model.summary()
-        batch_size = 126
         self.model.fit(
             self.modelInput,
             self.target.sentences,
-            batch_size=batch_size,
-            epochs=50,
+            batch_size=self.config.training.batch_size,
+            epochs=self.config.training.num_train,
             callbacks=self.callbacks,
             use_multiprocessing=True,
+        )
+
+        print(self.generateText())
+
+    def logits_to_text(self, logits):
+        index_to_words = {id: word for word, id in self.tokenizer.word_index.items()}
+
+        return " ".join(
+            [index_to_words[prediction] for prediction in logits if prediction != 0]
+        )
+
+    def generateText(self) -> str:
+        return "\t" + "\n\t".join(
+            [
+                self.logits_to_text(
+                    np.argmax(self.model.predict(self.modelInput[:1])[0], 1)
+                ),
+                self.logits_to_text(self.target._sentences[0]),
+                self.logits_to_text(self.source._sentences[0]),
+            ]
         )
 
     def __init__(self) -> None:

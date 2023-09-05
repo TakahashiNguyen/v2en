@@ -17,12 +17,12 @@ v2en:
   sheet: MyDatabase
   amount_exe: 0
 training:
+  num_train: 5
   learning_rate: 0.001
-  initial_sparsity: 0.0
+  initial_sparsity: 0.01
   final_sparsity: 0.9
+  batch_size: 100
   allow_pruning: false
   begin_step: 1
   end_step: 1000
-  val_cache_path: ./cache/var.pkl
-  model_shape_path: ./cache/shape.pkl
-  checkpoint_path: ./models/best.ckpt
+  checkpoint_path: ./models/best.hdf5
