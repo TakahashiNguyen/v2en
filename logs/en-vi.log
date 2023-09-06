@@ -37924,3 +37924,681 @@ __________________________________________________
 	Error type: <class 'requests.exceptions.SSLError'>
 	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:54:39,573 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:56:53,372 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:56:53,650 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:56:55,100 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:56:55,135 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:56:55,530 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=h%E1%BA%AFn+ta+ti%E1%BA%BFp+t%E1%BB%A5c+quay+l%E1%BA%A1i+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:56:59,685 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:57:06,179 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:58:32,298 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:58:38,807 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:58:39,923 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:58:40,795 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:58:40,814 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 05:58:41,395 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:00:23,397 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:30,004 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:31,222 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:33,535 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:37,680 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:38,703 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:40,052 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='web-api.itranslateapp.com', port=443): Max retries exceeded with url: /v3/texts/translate (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:40,305 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:40,875 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=fifty+percent+of+crashes+happen+at+intersections+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:41,368 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='www.translate.com', port=443): Max retries exceeded with url: /machine-translation (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:41,633 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:41,803 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:41,860 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=so+%2C+27+years+ago+i+got+a+traffic+ticket+that+got+me+thinking+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:42,425 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='www.translate.com', port=443): Max retries exceeded with url: /machine-translation (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:42,431 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:43,530 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lingvanex.com', port=443): Max retries exceeded with url: /demo/ (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:43,846 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='web-api.itranslateapp.com', port=443): Max retries exceeded with url: /v3/texts/translate (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:44,561 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='www.systran.net', port=443): Max retries exceeded with url: /translate/ (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:45,898 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:46,809 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:47,169 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=27+n%C4%83m+tr%C6%B0%E1%BB%9Bc+t%C3%B4i+b%E1%BB%8B+ph%E1%BA%A1t+do+l%E1%BB%97i+vi+ph%E1%BA%A1m+giao+th%C3%B4ng+%C4%91i%E1%BB%81u+%C4%91%C3%B3+%C4%91%C3%A3+l%C3%A0m+t%C3%B4i+suy+ngh%C4%A9+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:47,875 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:48,567 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:49,558 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=50+%25+s%E1%BB%91+v%E1%BB%A5+va+ch%E1%BA%A1m+giao+th%C3%B4ng+x%E1%BA%A3y+ra+%E1%BB%9F+c%C3%A1c+%C4%91i%E1%BB%83m+giao+c%E1%BA%AFt+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:49,853 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:50,123 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=50+%25+s%E1%BB%91+v%E1%BB%A5+va+ch%E1%BA%A1m+giao+th%C3%B4ng+x%E1%BA%A3y+ra+%E1%BB%9F+c%C3%A1c+%C4%91i%E1%BB%83m+giao+c%E1%BA%AFt+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:50,295 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=injury+crashes+have+dropped+76+percent+%2C+fatal+crashes+down+90+percent+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:51,020 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=th%C6%B0%C6%A1ng+t%E1%BA%ADt+do+va+ch%E1%BA%A1m+gi%E1%BA%A3m+76+%25+.+s%E1%BB%91+ca+t%E1%BB%AD+vong+gi%E1%BA%A3m+90+%25+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:51,629 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='www.translate.com', port=443): Max retries exceeded with url: /machine-translation (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:51,646 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:51,864 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:51,867 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='www.systran.net', port=443): Max retries exceeded with url: /translate/ (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:52,748 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:52,786 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='web-api.itranslateapp.com', port=443): Max retries exceeded with url: /v3/texts/translate (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:52,836 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=fifty+percent+of+crashes+happen+at+intersections+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:52,875 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=th%C6%B0%C6%A1ng+t%E1%BA%ADt+do+va+ch%E1%BA%A1m+gi%E1%BA%A3m+76+%25+.+s%E1%BB%91+ca+t%E1%BB%AD+vong+gi%E1%BA%A3m+90+%25+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:53,491 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:56,576 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=road+design+makes+a+difference+%2C+particularly+intersections+%2C+of+which+there+are+two+types+%3A+signalized+and+unsignalized+%2C+which+means+stop+signs+. (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:04:57,690 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:05:42,551 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:07,963 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:08,103 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:14,588 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:15,548 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=chi%E1%BA%BFt+kh%E1%BA%A5u+m%E1%BB%A9c+hi%E1%BB%87n+t%E1%BA%A1i+5+%25+%3A+kho%E1%BA%A3ng+h%C6%A1n+2+tri%E1%BB%87u+%C4%91%C3%B4+cho+m%E1%BB%97i+bi%E1%BB%83n+d%E1%BB%ABng+%2C+%E1%BB%9F+m%E1%BB%97i+h%C6%B0%E1%BB%9Bng+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:17,174 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:17,428 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='web-api.itranslateapp.com', port=443): Max retries exceeded with url: /v3/texts/translate (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:18,954 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:18,964 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:18,990 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='www.translate.com', port=443): Max retries exceeded with url: /machine-translation (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:19,209 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=chi%E1%BA%BFt+kh%E1%BA%A5u+m%E1%BB%A9c+hi%E1%BB%87n+t%E1%BA%A1i+5+%25+%3A+kho%E1%BA%A3ng+h%C6%A1n+2+tri%E1%BB%87u+%C4%91%C3%B4+cho+m%E1%BB%97i+bi%E1%BB%83n+d%E1%BB%ABng+%2C+%E1%BB%9F+m%E1%BB%97i+h%C6%B0%E1%BB%9Bng+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:21,135 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:21,563 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:22,176 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=i+mean+%2C+why+is+there+that+stop+sign+in+each+direction+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:22,679 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:22,823 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:23,083 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lingvanex.com', port=443): Max retries exceeded with url: /demo/ (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:23,285 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='web-api.itranslateapp.com', port=443): Max retries exceeded with url: /v3/texts/translate (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:23,288 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:23,751 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='www.systran.net', port=443): Max retries exceeded with url: /translate/ (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:24,673 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:25,101 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:25,107 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:26,083 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='www.systran.net', port=443): Max retries exceeded with url: /translate/ (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:27,322 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=now+%2C+if+you+look+at+what+that+adjacent+property+is+worth+%2C+you+could+actually+buy+the+property+%2C+cut+down+the+shrubbery+to+improve+the+sight+line+%2C+and+then+sell+it+off+again+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:27,668 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=%C3%BD+c%E1%BB%A7a+t%C3%B4i+l%C3%A0+%2C+t%E1%BA%A1i+sao+l%E1%BA%A1i+%C4%91%E1%BA%B7t+bi%E1%BB%83n+d%E1%BB%ABng+t%E1%BA%A1i+t%E1%BB%ABng+h%C6%B0%E1%BB%9Bng+%C4%91i+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:28,259 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=%C3%BD+c%E1%BB%A7a+t%C3%B4i+l%C3%A0+%2C+t%E1%BA%A1i+sao+l%E1%BA%A1i+%C4%91%E1%BA%B7t+bi%E1%BB%83n+d%E1%BB%ABng+t%E1%BA%A1i+t%E1%BB%ABng+h%C6%B0%E1%BB%9Bng+%C4%91i+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:28,705 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:29,040 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=chi%E1%BA%BFt+kh%E1%BA%A5u+m%E1%BB%A9c+hi%E1%BB%87n+t%E1%BA%A1i+5+%25+%3A+kho%E1%BA%A3ng+h%C6%A1n+2+tri%E1%BB%87u+%C4%91%C3%B4+cho+m%E1%BB%97i+bi%E1%BB%83n+d%E1%BB%ABng+%2C+%E1%BB%9F+m%E1%BB%97i+h%C6%B0%E1%BB%9Bng+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:31,847 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:31,926 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='cdn.reverso.net', port=443): Max retries exceeded with url: /trans/v2.11.0/main.js (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:32,134 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:32,624 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:33,771 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=because+it+is+saving+lives+.+so+%2C+is+there+a+better+way+to+accomplish+that+goal+%3F (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:35,949 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lingvanex.com', port=443): Max retries exceeded with url: /demo/ (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:35,995 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='www.systran.net', port=443): Max retries exceeded with url: /translate/ (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:36,719 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:36,809 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%C3%A2y+gi%E1%BB%9D+%2C+n%E1%BA%BFu+c%C3%A1c+b%E1%BA%A1n+nh%C3%ACn+v%C3%A0o+gi%C3%A1+tr%E1%BB%8B+c%E1%BB%A7a+mi%E1%BA%BFng+%C4%91%E1%BA%A5t+li%E1%BB%81n+%C4%91%C3%B3+%2C+c%C3%A1c+b%E1%BA%A1n+th%E1%BB%B1c+s%E1%BB%B1+c%C3%B3+th%E1%BB%83+mua+n%C3%B3+%2C+ch%E1%BA%B7t+b%E1%BB%9Bt+b%E1%BB%A5i+c%C3%A2y+%C4%91%E1%BB%83+c%E1%BA%A3i+thi%E1%BB%87n+t%E1%BA%A7m+nh%C3%ACn+sau+%C4%91%C3%B3+l%E1%BA%A1i+b%C3%A1n+n%C3%B3+%C4%91i+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:36,816 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:36,983 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='web-api.itranslateapp.com', port=443): Max retries exceeded with url: /v3/texts/translate (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:37,398 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=en&sl=vi&q=b%C3%A2y+gi%E1%BB%9D+%2C+n%E1%BA%BFu+c%C3%A1c+b%E1%BA%A1n+nh%C3%ACn+v%C3%A0o+gi%C3%A1+tr%E1%BB%8B+c%E1%BB%A7a+mi%E1%BA%BFng+%C4%91%E1%BA%A5t+li%E1%BB%81n+%C4%91%C3%B3+%2C+c%C3%A1c+b%E1%BA%A1n+th%E1%BB%B1c+s%E1%BB%B1+c%C3%B3+th%E1%BB%83+mua+n%C3%B3+%2C+ch%E1%BA%B7t+b%E1%BB%9Bt+b%E1%BB%A5i+c%C3%A2y+%C4%91%E1%BB%83+c%E1%BA%A3i+thi%E1%BB%87n+t%E1%BA%A7m+nh%C3%ACn+sau+%C4%91%C3%B3+l%E1%BA%A1i+b%C3%A1n+n%C3%B3+%C4%91i+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:38,008 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='www.translate.com', port=443): Max retries exceeded with url: /machine-translation (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:38,477 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=now+%2C+if+you+look+at+what+that+adjacent+property+is+worth+%2C+you+could+actually+buy+the+property+%2C+cut+down+the+shrubbery+to+improve+the+sight+line+%2C+and+then+sell+it+off+again+. (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:39,613 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:40,753 - root - CRITICAL
+__________________________________________________
+	Expectation while deepGoogle
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=vi&sl=en&q=can+that+be+accomplished+with+existing+signs+%3F (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:08:43,399 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:11:55,540 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:11:56,605 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:11:56,702 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:12:01,558 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:12:02,245 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='lwt.languagewire.com', port=443): Max retries exceeded with url: /f/api/v1/auth/cookie (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:12:02,250 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:12:03,028 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.ConnectionError'>
+	('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:12:05,147 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:12:06,085 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:14:01,340 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2396)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:18:51,331 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:18:51,909 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:18:52,655 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+2023-09-06 06:18:53,604 - root - CRITICAL
+__________________________________________________
+	Expectation while translatorsTransSub
+	Error type: <class 'requests.exceptions.SSLError'>
+	HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:997)')))
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
