@@ -17,11 +17,11 @@ v2en:
   sheet: MyDatabase
   amount_exe: 0
 training:
-  num_train: 5
+  num_train: 10
   learning_rate: 0.001
   initial_sparsity: 0.01
   final_sparsity: 0.9
-  batch_size: 100
+  batch_size: 110
   allow_pruning: false
   begin_step: 1
   end_step: 1000

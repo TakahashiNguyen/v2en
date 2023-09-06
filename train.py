@@ -31,7 +31,6 @@ class V2ENLanguageModel:
         self.source = self.Language(config.v2en.flang, df, self.tokenizer)
         self.target = self.Language(config.v2en.slang, df, self.tokenizer)
 
-    def syncData(self) -> None:
         self.target.reshape()
 
     def initModel(self):
@@ -89,16 +88,15 @@ class V2ENLanguageModel:
         checkpoint = tf.keras.callbacks.ModelCheckpoint(
             config.training.checkpoint_path,
             mode="max",
-            monitor="accuracy",
+            monitor="val_accuracy",
             verbose=2,
             save_best_only=True,
-            save_weights_only=True,
         )
         earlystop_accuracy = tf.keras.callbacks.EarlyStopping(
-            monitor="accuracy", patience=30, verbose=1, mode="max"
+            monitor="val_accuracy", patience=30, verbose=1, mode="max"
         )
         earlystop_loss = tf.keras.callbacks.EarlyStopping(
-            monitor="loss", patience=30, verbose=1, mode="min"
+            monitor="val_loss", patience=30, verbose=1, mode="min"
         )
         update_pruning = tfmot.sparsity.keras.UpdatePruningStep()
         self.callbacks = [
@@ -119,6 +117,7 @@ class V2ENLanguageModel:
             epochs=self.config.training.num_train,
             callbacks=self.callbacks,
             use_multiprocessing=True,
+            validation_split=0.2,
         )
 
         print(self.generateText())
@@ -151,9 +150,9 @@ class V2ENLanguageModel:
             print("test is only applicable on GPU")
             exit(0)
         os.environ["TF_GPU_ALLOCATOR"] = "cuda_malloc_async"
+        os.environ["TF_FORCE_GPU_ALLOW_GROWTH"] = "true"
 
         self.importData()
-        self.syncData()
         self.initModel()
         self.fitModel()
 
