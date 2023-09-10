@@ -13,16 +13,18 @@ v2en:
     time: 120
     resource: 10
     tqdm: false
-  worksheet: test
+  worksheet: sentences
   sheet: MyDatabase
   amount_exe: 0
 training:
   num_train: 10
+  sent_len: 1000
   learning_rate: 0.001
   initial_sparsity: 0.01
   final_sparsity: 0.9
-  batch_size: 110
+  batch_size: 50
   allow_pruning: false
   begin_step: 1
   end_step: 1000
   checkpoint_path: ./models/best.hdf5
+  data_size: 5000

@@ -3,7 +3,7 @@ from config import config
 from tensorflow.python.keras import mixed_precision
 
 import tensorflow as tf, pandas as pd, tensorflow_model_optimization as tfmot
-import os, numpy as np
+import os, numpy as np, math
 
 
 class V2ENLanguageModel:
@@ -13,14 +13,19 @@ class V2ENLanguageModel:
         ) -> None:
             self._sentences = tk.texts_to_sequences(df[lang].tolist())
             self.sentences = tf.keras.utils.pad_sequences(
-                self._sentences, padding="post"
+                self._sentences, padding="post", maxlen=config.training.sent_len
             )
 
         def reshape(self):
             self.sentences.reshape(*self.sentences.shape, 1)
 
     def importData(self) -> None:
-        data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
+        if config.training.data_size:
+            data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()[
+                : config.training.data_size
+            ]
+        else:
+            data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
         df = pd.DataFrame(data[1:], columns=data[0])
 
         self.tokenizer = tf.keras.preprocessing.text.Tokenizer(filters="", lower=False)
@@ -38,7 +43,7 @@ class V2ENLanguageModel:
         layers = tf.keras.layers
 
         modelInput = tf.keras.utils.pad_sequences(
-            self.source.sentences, maxlen=self.target.sentences.shape[1], padding="post"
+            self.source.sentences, maxlen=config.training.sent_len, padding="post"
         )
         modelInput.reshape((-1, self.target.sentences.shape[-2], 1))
 
@@ -56,7 +61,7 @@ class V2ENLanguageModel:
         # Encoder
         model.add(layers.Bidirectional(layers.LSTM(latent_dim, return_sequences=True)))
         model.add(layers.Bidirectional(layers.LSTM(latent_dim)))
-        model.add(layers.RepeatVector(self.target.sentences.shape[1]))
+        model.add(layers.RepeatVector(config.training.sent_len))
         # Decoder
         model.add(layers.Bidirectional(layers.LSTM(latent_dim, return_sequences=True)))
         model.add(
@@ -80,9 +85,11 @@ class V2ENLanguageModel:
         self.modelInput = modelInput
         try:
             self.model = tf.keras.models.load_model(config.training.checkpoint_path)
+            self.fitModel()
         except Exception as e:
             utils.debuger.printError(self.initModel.__name__, e)
             self.model = model
+            self.fitModel()
 
     def initCallbacks(self) -> None:
         checkpoint = tf.keras.callbacks.ModelCheckpoint(
@@ -107,18 +114,31 @@ class V2ENLanguageModel:
         ]
 
     def fitModel(self) -> None:
-        utils.Terminal.cleanScreen()
         self.initCallbacks()
-        self.model.summary()
-        self.model.fit(
-            self.modelInput,
-            self.target.sentences,
-            batch_size=self.config.training.batch_size,
-            epochs=self.config.training.num_train,
-            callbacks=self.callbacks,
-            use_multiprocessing=True,
-            validation_split=0.2,
-        )
+        try:
+            utils.Terminal.cleanScreen()
+            self.model.summary()
+            self.model.fit(
+                self.modelInput,
+                self.target.sentences,
+                batch_size=config.training.batch_size,
+                epochs=config.training.num_train,
+                callbacks=self.callbacks,
+                use_multiprocessing=True,
+                validation_split=0.2,
+            )
+        except Exception:
+            utils.Terminal.cleanScreen()
+            self.model.summary()
+            self.model.fit(
+                self.modelInput,
+                self.target.sentences,
+                batch_size=math.ceil(math.sqrt(config.training.batch_size)),
+                epochs=config.training.num_train,
+                callbacks=self.callbacks,
+                use_multiprocessing=True,
+                validation_split=0.2,
+            )
 
         print(self.generateText())
 
@@ -141,20 +161,24 @@ class V2ENLanguageModel:
         )
 
     def __init__(self) -> None:
-        self.config = config
-
         os.makedirs("models", exist_ok=True)
-
-        gpus = tf.config.list_physical_devices("GPU")
-        if len(gpus) == 0:
+        os.environ["TF_GPU_ALLOCATOR"] = "cuda_malloc_async"
+        if gpus := tf.config.list_physical_devices("GPU"):
+            try:
+                # Currently, memory growth needs to be the same across GPUs
+                for gpu in gpus:
+                    tf.config.experimental.set_memory_growth(gpu, True)
+                logical_gpus = tf.config.list_logical_devices("GPU")
+                print(len(gpus), "Physical GPUs,", len(logical_gpus), "Logical GPUs")
+            except RuntimeError as e:
+                # Memory growth must be set before GPUs have been initialized
+                print(e)
+        else:
             print("test is only applicable on GPU")
             exit(0)
-        os.environ["TF_GPU_ALLOCATOR"] = "cuda_malloc_async"
-        os.environ["TF_FORCE_GPU_ALLOW_GROWTH"] = "true"
 
         self.importData()
         self.initModel()
-        self.fitModel()
 
 
 if __name__ == "__main__":
