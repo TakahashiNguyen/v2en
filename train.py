@@ -3,10 +3,44 @@ from config import config
 from tensorflow.python.keras import mixed_precision
 
 import tensorflow as tf, pandas as pd, tensorflow_model_optimization as tfmot
-import os, numpy as np, math
+from tensorflow.python.framework.errors_impl import *
+import os, numpy as np, math, random
 
 
 class V2ENLanguageModel:
+    class PrintLearningRateCallback(tf.keras.callbacks.Callback):
+        def __init__(self, source, target_sentences, tokenizer_items):
+            self.target_sentences = target_sentences
+            self.source = source
+            self.tokenizer_items = tokenizer_items
+
+        def logits_to_text(self, logits):
+            index_to_words = {id: word for word, id in self.tokenizer_items}
+
+            return " ".join(
+                [index_to_words[prediction] for prediction in logits if prediction != 0]
+            )
+
+        def generateText(self) -> str:
+            ran_num = random.randrange(0, len(self.target_sentences))
+            return "\t" + "\n\t".join(
+                [
+                    self.logits_to_text(
+                        np.argmax(
+                            self.model.predict(
+                                self.source.sentences[ran_num : ran_num + 1]
+                            )[0],
+                            1,
+                        )
+                    ),
+                    self.logits_to_text(self.target_sentences[ran_num]),
+                    self.logits_to_text(self.source._sentences[ran_num]),
+                ]
+            )
+
+        def on_epoch_end(self, epoch, logs=None):
+            print(f"Prediction after epoch {epoch + 1}\n {self.generateText()}")
+
     class Language:
         def __init__(
             self, lang: str, df, tk: tf.keras.preprocessing.text.Tokenizer
@@ -42,11 +76,6 @@ class V2ENLanguageModel:
         latent_dim = 256
         layers = tf.keras.layers
 
-        modelInput = tf.keras.utils.pad_sequences(
-            self.source.sentences, maxlen=config.training.sent_len, padding="post"
-        )
-        modelInput.reshape((-1, self.target.sentences.shape[-2], 1))
-
         # Build the layers
         model = tf.keras.models.Sequential()
         # Embedding
@@ -54,8 +83,8 @@ class V2ENLanguageModel:
             layers.Embedding(
                 len(self.tokenizer.word_index) + 1,
                 latent_dim,
-                input_length=modelInput.shape[1],
-                input_shape=modelInput.shape[1:],
+                input_length=self.source.sentences.shape[1],
+                input_shape=self.source.sentences.shape[1:],
             )
         )
         # Encoder
@@ -79,10 +108,9 @@ class V2ENLanguageModel:
             optimizer=tf.keras.optimizers.Adam(
                 learning_rate=config.training.learning_rate
             ),
-            metrics=["accuracy"],
+            metrics=['accuracy'],
         )
 
-        self.modelInput = modelInput
         try:
             self.model = tf.keras.models.load_model(config.training.checkpoint_path)
             self.fitModel()
@@ -107,6 +135,11 @@ class V2ENLanguageModel:
         )
         update_pruning = tfmot.sparsity.keras.UpdatePruningStep()
         self.callbacks = [
+            self.PrintLearningRateCallback(
+                self.source,
+                self.target._sentences,
+                self.tokenizer.word_index.items(),
+            ),
             checkpoint,
             earlystop_accuracy,
             earlystop_loss,
@@ -119,7 +152,7 @@ class V2ENLanguageModel:
             utils.Terminal.cleanScreen()
             self.model.summary()
             self.model.fit(
-                self.modelInput,
+                self.source.sentences,
                 self.target.sentences,
                 batch_size=config.training.batch_size,
                 epochs=config.training.num_train,
@@ -127,11 +160,12 @@ class V2ENLanguageModel:
                 use_multiprocessing=True,
                 validation_split=0.2,
             )
-        except Exception:
+        except ResourceExhaustedError as e:
+            utils.debuger.printError(self.fitModel.__name__, e)
             utils.Terminal.cleanScreen()
             self.model.summary()
             self.model.fit(
-                self.modelInput,
+                self.source.sentences,
                 self.target.sentences,
                 batch_size=math.ceil(math.sqrt(config.training.batch_size)),
                 epochs=config.training.num_train,
@@ -140,40 +174,11 @@ class V2ENLanguageModel:
                 validation_split=0.2,
             )
 
-        print(self.generateText())
-
-    def logits_to_text(self, logits):
-        index_to_words = {id: word for word, id in self.tokenizer.word_index.items()}
-
-        return " ".join(
-            [index_to_words[prediction] for prediction in logits if prediction != 0]
-        )
-
-    def generateText(self) -> str:
-        return "\t" + "\n\t".join(
-            [
-                self.logits_to_text(
-                    np.argmax(self.model.predict(self.modelInput[:1])[0], 1)
-                ),
-                self.logits_to_text(self.target._sentences[0]),
-                self.logits_to_text(self.source._sentences[0]),
-            ]
-        )
-
     def __init__(self) -> None:
         os.makedirs("models", exist_ok=True)
         os.environ["TF_GPU_ALLOCATOR"] = "cuda_malloc_async"
-        if gpus := tf.config.list_physical_devices("GPU"):
-            try:
-                # Currently, memory growth needs to be the same across GPUs
-                for gpu in gpus:
-                    tf.config.experimental.set_memory_growth(gpu, True)
-                logical_gpus = tf.config.list_logical_devices("GPU")
-                print(len(gpus), "Physical GPUs,", len(logical_gpus), "Logical GPUs")
-            except RuntimeError as e:
-                # Memory growth must be set before GPUs have been initialized
-                print(e)
-        else:
+        os.environ["TF_FORCE_GPU_ALLOW_GROWTH"] = "true"
+        if len(tf.config.list_physical_devices("GPU")) == 0:
             print("test is only applicable on GPU")
             exit(0)
 
