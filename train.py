@@ -53,6 +53,38 @@ class V2ENLanguageModel:
         def reshape(self):
             self.sentences.reshape(*self.sentences.shape, 1)
 
+    class AccuracyCalculation(tf.keras.metrics.Accuracy):
+        def __init__(self, name="accuracy_test", **kwargs):
+            super(V2ENLanguageModel.AccuracyCalculation, self).__init__(
+                name=name, **kwargs
+            )
+            self.total = self.add_weight(name="total", initializer="zeros")
+            self.count = self.add_weight(name="count", initializer="zeros")
+
+        def update_state(self, y_true, y_pred, sample_weight=None):
+            x = tf.argmax(y_pred[0], axis=1, output_type=tf.int32)
+            y = y_true
+            c = tf.constant(0, dtype=tf.float32)
+            z = tf.constant(0, dtype=tf.float32)
+
+            min_length = tf.minimum(tf.shape(x)[0], tf.shape(y)[0])
+            for i in range(min_length):
+                if tf.reduce_all(tf.equal(x[i], y[i])):
+                    if tf.reduce_all(tf.equal(x[i], 0)):
+                        break
+                    else:
+                        c += 1
+                z += 1
+            self.total.assign_add(c)
+            self.count.assign_add(z)
+
+        def result(self):
+            return self.total / self.count
+
+        def reset_state(self):
+            self.total.assign(0)
+            self.count.assign(0)
+
     def importData(self) -> None:
         if config.training.data_size:
             data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()[
@@ -108,11 +140,13 @@ class V2ENLanguageModel:
             optimizer=tf.keras.optimizers.Adam(
                 learning_rate=config.training.learning_rate
             ),
-            metrics=['accuracy'],
+            metrics=[self.AccuracyCalculation(), "accuracy"],
         )
 
         try:
-            self.model = tf.keras.models.load_model(config.training.checkpoint_path)
+            self.model = tf.keras.models.load_model(
+                f"{config.training.checkpoint_path}_{config.training.sent_len}.{config.training.extension}"
+            )
             self.fitModel()
         except Exception as e:
             utils.debuger.printError(self.initModel.__name__, e)
@@ -121,7 +155,7 @@ class V2ENLanguageModel:
 
     def initCallbacks(self) -> None:
         checkpoint = tf.keras.callbacks.ModelCheckpoint(
-            config.training.checkpoint_path,
+            f"{config.training.checkpoint_path}_{config.training.sent_len}.{config.training.extension}",
             mode="max",
             monitor="val_accuracy",
             verbose=2,
