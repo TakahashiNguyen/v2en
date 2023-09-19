@@ -6,6 +6,7 @@ import pandas as pd
 import random
 import tensorflow_model_optimization as tfmot
 import os
+import keras
 
 
 class V2ENLanguageModel:
@@ -23,7 +24,7 @@ class V2ENLanguageModel:
 
         def generateText(self) -> str:
             ran_num = random.randrange(0, len(self.target._sentences))
-            V2ENLanguageModel.accuracy(
+            V2ENLanguageModel.languageAccuracy(
                 self.target.sentences[ran_num],
                 self.model.predict(self.source.sentences[ran_num : ran_num + 1]),
             )
@@ -58,7 +59,7 @@ class V2ENLanguageModel:
             self.sentences.reshape(*self.sentences.shape, 1)
 
     @staticmethod
-    def accuracy(y_true, y_pred):
+    def languageAccuracy(y_true, y_pred):
         y_pred = tf.argmax(y_pred[0], axis=1)
         y_true = tf.cast(y_true, tf.int64)
 
@@ -141,15 +142,21 @@ class V2ENLanguageModel:
             optimizer=tf.keras.optimizers.Adam(
                 learning_rate=config.training.learning_rate
             ),
-            metrics=[self.accuracy],
+            metrics=[self.languageAccuracy],
         )
 
         try:
-            self.model = tf.keras.models.load_model(
-                f"{config.training.checkpoint_path}_{config.training.sent_len}.{config.training.extension}"
-            )
+            utils.Terminal.cleanScreen()
+            with keras.saving.custom_object_scope(
+                {"languageAccuracy": self.languageAccuracy}
+            ):
+                self.model = tf.keras.models.load_model(
+                    f"{config.training.checkpoint_path}_{config.training.sent_len}.{config.training.extension}"
+                )
             self.fitModel()
         except Exception as e:
+            utils.Terminal.cleanScreen()
+            print("Using blank model!")
             utils.debuger.printError(self.initModel.__name__, e)
             self.model = model
             self.fitModel()
@@ -158,12 +165,12 @@ class V2ENLanguageModel:
         checkpoint = tf.keras.callbacks.ModelCheckpoint(
             f"{config.training.checkpoint_path}_{config.training.sent_len}.{config.training.extension}",
             mode="max",
-            monitor="val_accuracy",
+            monitor="val_languageAccuracy",
             verbose=2,
             save_best_only=True,
         )
         earlystop_accuracy = tf.keras.callbacks.EarlyStopping(
-            monitor="val_accuracy",
+            monitor="val_languageAccuracy",
             patience=divmod(config.training.num_epochs, 3)[0],
             verbose=1,
             mode="max",
@@ -190,7 +197,6 @@ class V2ENLanguageModel:
     def fitModel(self) -> None:
         self.initCallbacks()
         try:
-            utils.Terminal.cleanScreen()
             self.model.summary()
             self.model.fit(
                 self.source.sentences,
