@@ -18,13 +18,3 @@ v2en:
   sheet: MyDatabase
   amount_exe: 0
   raise_on_error_word: false
-training:
-  learning_rate: 0.001
-  initial_sparsity: 0.0
-  final_sparsity: 0.9
-  allow_pruning: false
-  begin_step: 1
-  end_step: 1000
-  val_cache_path: ./cache/var.pkl
-  model_shape_path: ./cache/shape.pkl
-  checkpoint_path: ./models/best.ckpt
