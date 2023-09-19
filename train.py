@@ -1,9 +1,11 @@
 from v2enlib import GSQLClass, utils
 from config import config
 from tensorflow.python.framework.errors_impl import *
-
-import tensorflow as tf, pandas as pd, tensorflow_model_optimization as tfmot
-import os, numpy as np, math, random
+import tensorflow as tf
+import pandas as pd
+import random
+import tensorflow_model_optimization as tfmot
+import os
 
 
 class V2ENLanguageModel:
@@ -15,7 +17,6 @@ class V2ENLanguageModel:
 
         def logits_to_text(self, logits):
             index_to_words = {id: word for word, id in self.tokenizer_items}
-
             return " ".join(
                 [index_to_words[prediction] for prediction in logits if prediction != 0]
             )
@@ -29,12 +30,12 @@ class V2ENLanguageModel:
             return "\t" + "\n\t".join(
                 [
                     self.logits_to_text(
-                        np.argmax(
+                        tf.argmax(
                             self.model.predict(
                                 self.source.sentences[ran_num : ran_num + 1]
                             )[0],
-                            1,
-                        )
+                            axis=1,
+                        ).numpy()
                     ),
                     self.logits_to_text(self.target._sentences[ran_num]),
                     self.logits_to_text(self.source._sentences[ran_num]),
@@ -54,7 +55,7 @@ class V2ENLanguageModel:
             )
 
         def reshape(self):
-            self.sentences.reshape(*self.sentences.shape, 1)
+            self.sentences = tf.reshape(self.sentences, (*self.sentences.shape, 1))
 
     @staticmethod
     def accuracy(y_true, y_pred):
@@ -111,13 +112,24 @@ class V2ENLanguageModel:
         )
         model.add(layers.Dropout(0.5))
         model.add(
-            layers.TimeDistributed(
-                layers.Dense(len(self.tokenizer.word_index) + 1, activation="softmax")
-            )
+            layers.TimeDistributed(layers.Dense(len(self.tokenizer.word_index) + 1))
         )
 
+        pruning_params = {
+            "pruning_schedule": tfmot.sparsity.keras.PolynomialDecay(
+                initial_sparsity=config.training.initial_sparsity,
+                final_sparsity=config.training.final_sparsity,
+                begin_step=config.training.begin_step,
+                end_step=config.training.num_epochs * len(self.source.sentences),
+            ),
+            "block_size": (1, 1),
+            "block_pooling_type": "AVG",
+        }
+
+        #model = tfmot.sparsity.keras.prune_low_magnitude(model, **pruning_params)
+
         model.compile(
-            loss=tf.keras.losses.SparseCategoricalCrossentropy(),
+            loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
             optimizer=tf.keras.optimizers.Adam(
                 learning_rate=config.training.learning_rate
             ),
@@ -143,10 +155,16 @@ class V2ENLanguageModel:
             save_best_only=True,
         )
         earlystop_accuracy = tf.keras.callbacks.EarlyStopping(
-            monitor="val_accuracy", patience=30, verbose=1, mode="max"
+            monitor="val_accuracy",
+            patience=divmod(config.training.num_epochs, 3)[0],
+            verbose=1,
+            mode="max",
         )
         earlystop_loss = tf.keras.callbacks.EarlyStopping(
-            monitor="val_loss", patience=30, verbose=1, mode="min"
+            monitor="val_loss",
+            patience=divmod(config.training.num_epochs, 3)[0],
+            verbose=1,
+            mode="min",
         )
         update_pruning = tfmot.sparsity.keras.UpdatePruningStep()
         self.callbacks = [
@@ -169,25 +187,13 @@ class V2ENLanguageModel:
             self.model.fit(
                 self.source.sentences,
                 self.target.sentences,
+                validation_split=config.training.validation_split,
                 batch_size=config.training.batch_size,
-                epochs=config.training.num_train,
+                epochs=config.training.num_epochs,
                 callbacks=self.callbacks,
-                use_multiprocessing=True,
-                validation_split=0.2,
             )
         except ResourceExhaustedError as e:
             utils.debuger.printError(self.fitModel.__name__, e)
-            utils.Terminal.cleanScreen()
-            self.model.summary()
-            self.model.fit(
-                self.source.sentences,
-                self.target.sentences,
-                batch_size=math.ceil(math.sqrt(config.training.batch_size)),
-                epochs=config.training.num_train,
-                callbacks=self.callbacks,
-                use_multiprocessing=True,
-                validation_split=0.2,
-            )
 
     def __init__(self) -> None:
         os.makedirs("models", exist_ok=True)
@@ -201,7 +207,8 @@ class V2ENLanguageModel:
             exit(0)
 
         self.importData()
-        self.initModel()
+        for _ in range(config.training.num_train):
+            self.initModel()
 
 
 if __name__ == "__main__":

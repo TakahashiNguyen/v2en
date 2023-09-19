@@ -1,5 +1,4 @@
 from v2enlib.config import Config
-from tensorflow_model_optimization import sparsity
 from translators.server import TranslatorsServer
 
 
@@ -26,14 +25,6 @@ class ExtraConfig(Config):
         )
         self.v2en.trans_dict = TranslatorsServer().translators_dict
         self.v2en.false_allow = self.v2en.num_sent * 10
-        self.training.pruning_params = {
-            "pruning_schedule": sparsity.keras.PolynomialDecay(
-                initial_sparsity=self.training.initial_sparsity,
-                final_sparsity=self.training.final_sparsity,
-                begin_step=self.training.begin_step,
-                end_step=self.training.end_step,
-            ),
-        }
         self.main_execute = True
 
 
