@@ -27,5 +27,8 @@ class ExtraConfig(Config):
         self.v2en.false_allow = self.v2en.num_sent * 10
         self.main_execute = True
 
+    def reset(self):
+        self.__init__()
+
 
 config = ExtraConfig()

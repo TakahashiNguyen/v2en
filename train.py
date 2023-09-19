@@ -55,17 +55,25 @@ class V2ENLanguageModel:
             )
 
         def reshape(self):
-            self.sentences = tf.reshape(self.sentences, (*self.sentences.shape, 1))
+            self.sentences.reshape(*self.sentences.shape, 1)
 
     @staticmethod
     def accuracy(y_true, y_pred):
         y_pred = tf.argmax(y_pred[0], axis=1)
         y_true = tf.cast(y_true, tf.int64)
-        c = tf.reduce_sum(
+
+        t = tf.reduce_sum(
             tf.where(tf.equal(y_pred, y_true) & tf.not_equal(y_true, 0), 1, 0)
         )
-        z = tf.reduce_sum(tf.cast(tf.not_equal(y_true, 0), tf.int32))
-        return tf.divide(c, z)
+        f = tf.reduce_sum(
+            tf.where(tf.not_equal(y_pred, y_true) & tf.not_equal(y_true, 0), 1, 0)
+        )
+        e = tf.reduce_sum(
+            tf.where(tf.not_equal(y_pred, y_true) & tf.equal(y_pred, 0), 1, 0)
+        )
+
+        a = tf.reduce_sum(tf.cast(tf.not_equal(y_true, 0), tf.int32))
+        return tf.divide(3 * t - f - 2 * e, a)
 
     def importData(self) -> None:
         if config.training.data_size:
@@ -126,7 +134,7 @@ class V2ENLanguageModel:
             "block_pooling_type": "AVG",
         }
 
-        #model = tfmot.sparsity.keras.prune_low_magnitude(model, **pruning_params)
+        # model = tfmot.sparsity.keras.prune_low_magnitude(model, **pruning_params)
 
         model.compile(
             loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
@@ -209,6 +217,7 @@ class V2ENLanguageModel:
         self.importData()
         for _ in range(config.training.num_train):
             self.initModel()
+            config.reset()
 
 
 if __name__ == "__main__":
