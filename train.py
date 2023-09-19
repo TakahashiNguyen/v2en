@@ -1,16 +1,15 @@
 from v2enlib import GSQLClass, utils
 from config import config
-from tensorflow.python.keras import mixed_precision
+from tensorflow.python.framework.errors_impl import *
 
 import tensorflow as tf, pandas as pd, tensorflow_model_optimization as tfmot
-from tensorflow.python.framework.errors_impl import *
 import os, numpy as np, math, random
 
 
 class V2ENLanguageModel:
     class PrintLearningRateCallback(tf.keras.callbacks.Callback):
-        def __init__(self, source, target_sentences, tokenizer_items):
-            self.target_sentences = target_sentences
+        def __init__(self, source, target, tokenizer_items):
+            self.target = target
             self.source = source
             self.tokenizer_items = tokenizer_items
 
@@ -22,7 +21,11 @@ class V2ENLanguageModel:
             )
 
         def generateText(self) -> str:
-            ran_num = random.randrange(0, len(self.target_sentences))
+            ran_num = random.randrange(0, len(self.target._sentences))
+            V2ENLanguageModel.accuracy(
+                self.target.sentences[ran_num],
+                self.model.predict(self.source.sentences[ran_num : ran_num + 1]),
+            )
             return "\t" + "\n\t".join(
                 [
                     self.logits_to_text(
@@ -33,7 +36,7 @@ class V2ENLanguageModel:
                             1,
                         )
                     ),
-                    self.logits_to_text(self.target_sentences[ran_num]),
+                    self.logits_to_text(self.target._sentences[ran_num]),
                     self.logits_to_text(self.source._sentences[ran_num]),
                 ]
             )
@@ -53,37 +56,15 @@ class V2ENLanguageModel:
         def reshape(self):
             self.sentences.reshape(*self.sentences.shape, 1)
 
-    class AccuracyCalculation(tf.keras.metrics.Accuracy):
-        def __init__(self, name="accuracy_test", **kwargs):
-            super(V2ENLanguageModel.AccuracyCalculation, self).__init__(
-                name=name, **kwargs
-            )
-            self.total = self.add_weight(name="total", initializer="zeros")
-            self.count = self.add_weight(name="count", initializer="zeros")
-
-        def update_state(self, y_true, y_pred, sample_weight=None):
-            x = tf.argmax(y_pred[0], axis=1, output_type=tf.int32)
-            y = y_true
-            c = tf.constant(0, dtype=tf.float32)
-            z = tf.constant(0, dtype=tf.float32)
-
-            min_length = tf.minimum(tf.shape(x)[0], tf.shape(y)[0])
-            for i in range(min_length):
-                if tf.reduce_all(tf.equal(x[i], y[i])):
-                    if tf.reduce_all(tf.equal(x[i], 0)):
-                        break
-                    else:
-                        c += 1
-                z += 1
-            self.total.assign_add(c)
-            self.count.assign_add(z)
-
-        def result(self):
-            return self.total / self.count
-
-        def reset_state(self):
-            self.total.assign(0)
-            self.count.assign(0)
+    @staticmethod
+    def accuracy(y_true, y_pred):
+        y_pred = tf.argmax(y_pred[0], axis=1)
+        y_true = tf.cast(y_true, tf.int64)
+        c = tf.reduce_sum(
+            tf.where(tf.equal(y_pred, y_true) & tf.not_equal(y_true, 0), 1, 0)
+        )
+        z = tf.reduce_sum(tf.cast(tf.not_equal(y_true, 0), tf.int32))
+        return tf.divide(c, z)
 
     def importData(self) -> None:
         if config.training.data_size:
@@ -140,7 +121,7 @@ class V2ENLanguageModel:
             optimizer=tf.keras.optimizers.Adam(
                 learning_rate=config.training.learning_rate
             ),
-            metrics=[self.AccuracyCalculation(), "accuracy"],
+            metrics=[self.accuracy],
         )
 
         try:
@@ -171,7 +152,7 @@ class V2ENLanguageModel:
         self.callbacks = [
             self.PrintLearningRateCallback(
                 self.source,
-                self.target._sentences,
+                self.target,
                 self.tokenizer.word_index.items(),
             ),
             checkpoint,
@@ -212,7 +193,10 @@ class V2ENLanguageModel:
         os.makedirs("models", exist_ok=True)
         os.environ["TF_GPU_ALLOCATOR"] = "cuda_malloc_async"
         os.environ["TF_FORCE_GPU_ALLOW_GROWTH"] = "true"
-        if len(tf.config.list_physical_devices("GPU")) == 0:
+        if gpus := tf.config.list_physical_devices("GPU"):
+            for gpu in gpus:
+                tf.config.experimental.set_memory_growth(enable=True, device=gpu)
+        else:
             print("test is only applicable on GPU")
             exit(0)
 

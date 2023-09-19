@@ -17,15 +17,15 @@ v2en:
   sheet: MyDatabase
   amount_exe: 0
 training:
-  num_train: 10
+  num_train: 100
   sent_len: 500
   learning_rate: 0.001
   initial_sparsity: 0.01
   final_sparsity: 0.9
-  batch_size: 126
+  batch_size: 256
   allow_pruning: false
   begin_step: 1
   end_step: 1000
   checkpoint_path: ./models/best
-  data_size: 5000
+  data_size: 7500
   extension: hdf5
