@@ -7,6 +7,7 @@ import random
 import tensorflow_model_optimization as tfmot
 import os
 import keras
+import math
 
 
 class V2ENLanguageModel:
@@ -50,7 +51,12 @@ class V2ENLanguageModel:
         def __init__(
             self, lang: str, df, tk: tf.keras.preprocessing.text.Tokenizer
         ) -> None:
-            self._sentences = tk.texts_to_sequences(df[lang].tolist())
+            if config.training.data_size:
+                self._sentences = tk.texts_to_sequences(
+                    df[lang].tolist()[: config.training.data_size]
+                )
+            else:
+                self._sentences = tk.texts_to_sequences(df[lang].tolist())
             self.sentences = tf.keras.utils.pad_sequences(
                 self._sentences, padding="post", maxlen=config.training.sent_len
             )
@@ -77,12 +83,7 @@ class V2ENLanguageModel:
         return tf.divide(3 * t - f - 2 * e, a)
 
     def importData(self) -> None:
-        if config.training.data_size:
-            data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()[
-                : config.training.data_size
-            ]
-        else:
-            data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
+        data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
         df = pd.DataFrame(data[1:], columns=data[0])
 
         self.tokenizer = tf.keras.preprocessing.text.Tokenizer(filters="", lower=False)
@@ -206,6 +207,8 @@ class V2ENLanguageModel:
                 batch_size=config.training.batch_size,
                 epochs=config.training.num_epochs,
                 callbacks=self.callbacks,
+                validation_batch_size=math.ceil(config.training.batch_size / 3)
+                + config.training.batch_size,
             )
         except ResourceExhaustedError as e:
             utils.debuger.printError(self.fitModel.__name__, e)
@@ -221,8 +224,8 @@ class V2ENLanguageModel:
             print("test is only applicable on GPU")
             exit(0)
 
-        self.importData()
         for _ in range(config.training.num_train):
+            self.importData()
             self.initModel()
             config.reset()
 
