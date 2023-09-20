@@ -98,18 +98,30 @@ class V2ENLanguageModel:
     def initModel(self):
         latent_dim = 256
         layers = tf.keras.layers
+        pruning_params = {
+            "pruning_schedule": tfmot.sparsity.keras.PolynomialDecay(
+                initial_sparsity=config.training.initial_sparsity,
+                final_sparsity=config.training.final_sparsity,
+                begin_step=config.training.begin_step,
+                end_step=config.training.num_epochs * len(self.source.sentences),
+            ),
+            "block_size": (1, 1),
+            "block_pooling_type": "AVG",
+        }
 
         # Build the layers
         model = tf.keras.models.Sequential()
         # Embedding
-        model.add(
+        pruneEmbedding = tfmot.sparsity.keras.prune_low_magnitude(
             layers.Embedding(
                 len(self.tokenizer.word_index) + 1,
                 latent_dim,
                 input_length=self.source.sentences.shape[1],
                 input_shape=self.source.sentences.shape[1:],
-            )
+            ),
+            **pruning_params,
         )
+        model.add(pruneEmbedding)
         # Encoder
         model.add(layers.Bidirectional(layers.LSTM(latent_dim, return_sequences=True)))
         model.add(layers.Bidirectional(layers.LSTM(latent_dim)))
@@ -124,31 +136,13 @@ class V2ENLanguageModel:
             layers.TimeDistributed(layers.Dense(len(self.tokenizer.word_index) + 1))
         )
 
-        pruning_params = {
-            "pruning_schedule": tfmot.sparsity.keras.PolynomialDecay(
-                initial_sparsity=config.training.initial_sparsity,
-                final_sparsity=config.training.final_sparsity,
-                begin_step=config.training.begin_step,
-                end_step=config.training.num_epochs * len(self.source.sentences),
-            ),
-            "block_size": (1, 1),
-            "block_pooling_type": "AVG",
-        }
-
-        # model = tfmot.sparsity.keras.prune_low_magnitude(model, **pruning_params)
-
-        model.compile(
-            loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-            optimizer=tf.keras.optimizers.Adam(
-                learning_rate=config.training.learning_rate
-            ),
-            metrics=[self.languageAccuracy],
-        )
-
         try:
             utils.Terminal.cleanScreen()
             with keras.saving.custom_object_scope(
-                {"languageAccuracy": self.languageAccuracy}
+                {
+                    "languageAccuracy": self.languageAccuracy,
+                    "PruneLowMagnitude": pruneEmbedding,
+                }
             ):
                 self.model = tf.keras.models.load_model(
                     f"{config.training.checkpoint_path}_{config.training.sent_len}.{config.training.extension}"
@@ -183,6 +177,7 @@ class V2ENLanguageModel:
         )
         update_pruning = tfmot.sparsity.keras.UpdatePruningStep()
         self.callbacks = [
+            update_pruning,
             self.PrintLearningRateCallback(
                 self.source,
                 self.target,
@@ -191,10 +186,16 @@ class V2ENLanguageModel:
             checkpoint,
             earlystop_accuracy,
             earlystop_loss,
-            update_pruning,
         ]
 
     def fitModel(self) -> None:
+        self.model.compile(
+            loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+            optimizer=tf.keras.optimizers.Adam(
+                learning_rate=config.training.learning_rate
+            ),
+            metrics=[self.languageAccuracy],
+        )
         self.initCallbacks()
         try:
             self.model.summary()
