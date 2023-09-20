@@ -17,14 +17,14 @@ v2en:
   sheet: MyDatabase
   amount_exe: 0
 training:
-  num_epochs: 30
+  num_epochs: 25
   num_train: 10
   sent_len: 500
   validation_split: 0.2
-  learning_rate: 0.001
-  initial_sparsity: 0.01
+  learning_rate: 0.01
+  initial_sparsity: 0.001
   final_sparsity: 0.9
-  batch_size: 25
+  batch_size: 40
   begin_step: 1
   checkpoint_path: ./models/best
   data_size: 7500

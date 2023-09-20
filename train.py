@@ -80,7 +80,7 @@ class V2ENLanguageModel:
         )
 
         a = tf.reduce_sum(tf.cast(tf.not_equal(y_true, 0), tf.int32))
-        return tf.divide(3 * t - f - 2 * e, a)
+        return tf.divide(3 * t - f - e, a)
 
     def importData(self) -> None:
         data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
