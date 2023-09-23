@@ -207,7 +207,7 @@ class V2ENLanguageModel:
             ),
             checkpoint,
             earlystop_accuracy,
-            # earlystop_loss,
+            earlystop_loss,
         ]
 
     def fitModel(self) -> None:
