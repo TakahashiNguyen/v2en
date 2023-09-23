@@ -17,16 +17,17 @@ v2en:
   sheet: MyDatabase
   amount_exe: 0
 training:
+  eagerly: false
   use_cpu: false
-  num_epochs: 45
+  num_epochs: 40
   num_train: 10
   sent_len: 500
   validation_split: 0.2
-  learning_rate: 0.01
+  learning_rate: 0.001
   initial_sparsity: 0.01
   final_sparsity: 0.9
-  batch_size: 25
+  batch_size: 35
   begin_step: 1
   checkpoint_path: ./models/best
-  data_size: 5000
+  data_size: 7500
   extension: hdf5

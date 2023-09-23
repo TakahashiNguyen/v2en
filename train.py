@@ -88,6 +88,21 @@ class V2ENLanguageModel:
             self.custom_metric_values.assign(0.0)
             self.values_len.assign(0.0)
 
+    @staticmethod
+    def LanguageLoss(y_true, y_pred):
+        y_true = tf.cast(y_true, tf.int64)
+        y_pred_shape = tf.shape(y_pred)
+
+        y_true = tf.reshape(y_true, shape=(y_pred_shape[0], y_pred_shape[1]))
+
+        mask = tf.math.logical_not(tf.math.equal(y_true, 0))
+        loss = tf.nn.sparse_softmax_cross_entropy_with_logits(
+            labels=y_true, logits=y_pred
+        )
+        masked_loss = tf.boolean_mask(loss, mask)
+
+        return tf.reduce_mean(masked_loss)
+
     def importData(self) -> None:
         data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
         df = pd.DataFrame(data[1:], columns=data[0])
@@ -192,20 +207,21 @@ class V2ENLanguageModel:
             ),
             checkpoint,
             earlystop_accuracy,
-            earlystop_loss,
+            # earlystop_loss,
         ]
 
     def fitModel(self) -> None:
         self.model.compile(
-            loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+            loss=self.LanguageLoss,
             optimizer=tf.keras.optimizers.Adam(
                 learning_rate=config.training.learning_rate
             ),
             metrics=[self.LanguageAccuracy()],
+            run_eagerly=config.training.eagerly,
         )
         self.initCallbacks()
+        self.model.summary()
         try:
-            self.model.summary()
             self.model.fit(
                 self.source.sentences,
                 self.target.sentences,
@@ -213,8 +229,6 @@ class V2ENLanguageModel:
                 batch_size=config.training.batch_size,
                 epochs=config.training.num_epochs,
                 callbacks=self.callbacks,
-                validation_batch_size=math.ceil(config.training.batch_size / 3)
-                + config.training.batch_size,
             )
         except ResourceExhaustedError as e:
             utils.debuger.printError(self.fitModel.__name__, e)
