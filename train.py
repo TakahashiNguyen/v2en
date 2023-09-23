@@ -25,10 +25,6 @@ class V2ENLanguageModel:
 
         def generateText(self) -> str:
             ran_num = random.randrange(0, len(self.target._sentences))
-            V2ENLanguageModel.languageAccuracy(
-                self.target.sentences[ran_num],
-                self.model.predict(self.source.sentences[ran_num : ran_num + 1]),
-            )
             return "\t" + "\n\t".join(
                 [
                     self.logits_to_text(
@@ -64,23 +60,33 @@ class V2ENLanguageModel:
         def reshape(self):
             self.sentences.reshape(*self.sentences.shape, 1)
 
-    @staticmethod
-    def languageAccuracy(y_true, y_pred):
-        y_pred = tf.argmax(y_pred[0], axis=1)
-        y_true = tf.cast(y_true, tf.int64)
+    class LanguageAccuracy(keras.metrics.Metric):
+        def __init__(self, name="languageAccuracy", **kwargs):
+            super(V2ENLanguageModel.LanguageAccuracy, self).__init__(
+                name=name, **kwargs
+            )
+            self.custom_metric_values = self.add_weight(
+                name="each_accuracy", initializer="zeros"
+            )
+            self.values_len = self.add_weight(name="len", initializer="zeros")
 
-        t = tf.reduce_sum(
-            tf.where(tf.equal(y_pred, y_true) & tf.not_equal(y_true, 0), 1, 0)
-        )
-        f = tf.reduce_sum(
-            tf.where(tf.not_equal(y_pred, y_true) & tf.not_equal(y_true, 0), 1, 0)
-        )
-        e = tf.reduce_sum(
-            tf.where(tf.not_equal(y_pred, y_true) & tf.equal(y_pred, 0), 1, 0)
-        )
+        def update_state(self, y_true, y_pred, sample_weight=None):
+            y_true = tf.cast(y_true, tf.int64)
+            y_pred = tf.argmax(y_pred, axis=2)
 
-        a = tf.reduce_sum(tf.cast(tf.not_equal(y_true, 0), tf.int32))
-        return tf.divide(3 * t - f - e, a)
+            ryt = tf.boolean_mask(y_true, tf.not_equal(y_true, 0))
+            ryp = tf.boolean_mask(y_pred, tf.not_equal(y_true, 0))
+
+            acur = tf.reduce_mean(tf.cast(tf.equal(ryt, ryp), tf.float32))
+            self.custom_metric_values.assign_add(acur)
+            self.values_len.assign_add(1)
+
+        def result(self):
+            return self.custom_metric_values / self.values_len
+
+        def reset_state(self):
+            self.custom_metric_values.assign(0.0)
+            self.values_len.assign(0.0)
 
     def importData(self) -> None:
         data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
@@ -141,7 +147,7 @@ class V2ENLanguageModel:
             utils.Terminal.cleanScreen()
             with keras.saving.custom_object_scope(
                 {
-                    "languageAccuracy": self.languageAccuracy,
+                    "LanguageAccuracy": self.LanguageAccuracy,
                     "PruneLowMagnitude": pruneEmbedding,
                 }
             ):
@@ -195,7 +201,7 @@ class V2ENLanguageModel:
             optimizer=tf.keras.optimizers.Adam(
                 learning_rate=config.training.learning_rate
             ),
-            metrics=[self.languageAccuracy],
+            metrics=[self.LanguageAccuracy()],
         )
         self.initCallbacks()
         try:
@@ -217,7 +223,9 @@ class V2ENLanguageModel:
         os.makedirs("models", exist_ok=True)
         os.environ["TF_GPU_ALLOCATOR"] = "cuda_malloc_async"
         os.environ["TF_FORCE_GPU_ALLOW_GROWTH"] = "true"
-        if gpus := tf.config.list_physical_devices("GPU"):
+        if config.training.use_cpu:
+            tf.config.set_visible_devices([], "GPU")
+        elif gpus := tf.config.list_physical_devices("GPU"):
             for gpu in gpus:
                 tf.config.experimental.set_memory_growth(enable=True, device=gpu)
         else:

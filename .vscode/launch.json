@@ -13,13 +13,16 @@
             "justMyCode": true
         },
         {
-            "name": "Python: Training model",
+            "name": "Python: Debug train.py",
             "type": "python",
             "request": "launch",
-            "program": "train.py",
+            "program": "${workspaceFolder}/train.py",
             "console": "integratedTerminal",
-            "justMyCode": true,
-            "subProcess": true
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false
         },
         {
             "name": "Python: Debug addsent",
