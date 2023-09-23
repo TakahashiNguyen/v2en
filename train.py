@@ -91,17 +91,26 @@ class V2ENLanguageModel:
     @staticmethod
     def LanguageLoss(y_true, y_pred):
         y_true = tf.cast(y_true, tf.int64)
-        y_pred_shape = tf.shape(y_pred)
-
-        y_true = tf.reshape(y_true, shape=(y_pred_shape[0], y_pred_shape[1]))
-
-        mask = tf.math.logical_not(tf.math.equal(y_true, 0))
         loss = tf.nn.sparse_softmax_cross_entropy_with_logits(
             labels=y_true, logits=y_pred
         )
-        masked_loss = tf.boolean_mask(loss, mask)
+        y_pred = tf.argmax(y_pred, axis=2)
 
-        return tf.reduce_mean(masked_loss)
+        masknonzero = tf.math.equal(y_true, 0)
+        maskzero = tf.math.logical_and(
+            tf.math.logical_not(masknonzero), tf.math.equal(y_pred, 0)
+        )
+        maskgetzero = tf.math.logical_and(masknonzero, tf.math.not_equal(y_pred, 0))
+
+        maskednonzero_loss = tf.boolean_mask(loss, tf.math.logical_not(masknonzero))
+        maskedzero_loss = tf.boolean_mask(loss, maskzero)
+        maskedgetzero_loss = tf.boolean_mask(loss, maskgetzero)
+
+        return (
+            tf.reduce_sum(maskednonzero_loss)
+            + tf.reduce_sum(maskedzero_loss)
+            + tf.reduce_sum(maskedgetzero_loss)
+        )
 
     def importData(self) -> None:
         data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()

@@ -17,13 +17,13 @@ v2en:
   sheet: MyDatabase
   amount_exe: 0
 training:
-  eagerly: false
+  eagerly: true
   use_cpu: false
   num_epochs: 40
   num_train: 10
   sent_len: 500
   validation_split: 0.2
-  learning_rate: 0.05
+  learning_rate: 0.5
   initial_sparsity: 0.01
   final_sparsity: 0.9
   batch_size: 40
