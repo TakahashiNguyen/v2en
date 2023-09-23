@@ -164,6 +164,7 @@ class V2ENLanguageModel:
                 {
                     "LanguageAccuracy": self.LanguageAccuracy,
                     "PruneLowMagnitude": pruneEmbedding,
+                    "LanguageLoss": self.LanguageLoss,
                 }
             ):
                 self.model = tf.keras.models.load_model(
