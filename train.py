@@ -96,20 +96,18 @@ class V2ENLanguageModel:
         )
         y_pred = tf.argmax(y_pred, axis=2)
 
-        masknonzero = tf.math.equal(y_true, 0)
-        maskzero = tf.math.logical_and(
-            tf.math.logical_not(masknonzero), tf.math.equal(y_pred, 0)
-        )
-        maskgetzero = tf.math.logical_and(masknonzero, tf.math.not_equal(y_pred, 0))
+        masknonzero = tf.math.not_equal(y_true, 0)
+        maskzero = tf.math.logical_not(masknonzero) & tf.math.not_equal(y_pred, 0)
+        maskgetzero = masknonzero & tf.math.not_equal(y_pred, 0)
 
-        maskednonzero_loss = tf.boolean_mask(loss, tf.math.logical_not(masknonzero))
+        maskednonzero_loss = tf.boolean_mask(loss, masknonzero)
         maskedzero_loss = tf.boolean_mask(loss, maskzero)
         maskedgetzero_loss = tf.boolean_mask(loss, maskgetzero)
 
         return (
-            tf.reduce_sum(maskednonzero_loss)
-            + tf.reduce_sum(maskedzero_loss)
-            + tf.reduce_sum(maskedgetzero_loss)
+            tf.reduce_mean(maskednonzero_loss)
+            #+ tf.reduce_mean(maskedzero_loss)
+            #+ tf.reduce_mean(maskedgetzero_loss)
         )
 
     def importData(self) -> None:

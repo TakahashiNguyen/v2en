@@ -17,7 +17,7 @@ v2en:
   sheet: MyDatabase
   amount_exe: 0
 training:
-  eagerly: true
+  eagerly: false
   use_cpu: false
   num_epochs: 40
   num_train: 10
@@ -26,8 +26,8 @@ training:
   learning_rate: 0.5
   initial_sparsity: 0.01
   final_sparsity: 0.9
-  batch_size: 40
+  batch_size: 45
   begin_step: 1
   checkpoint_path: ./models/best
-  data_size: 7500
+  data_size: 5500
   extension: hdf5
