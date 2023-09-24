@@ -117,7 +117,7 @@ class Main:
                 )
                 try:
                     for e in Pool.function(
-                        func=Executor.addSent,
+                        func=Executor.addPair,
                         iterable=self.inputList(num_exe=num_exe),
                         force_pro=num_exe,
                     ):
