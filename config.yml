@@ -23,7 +23,7 @@ training:
   num_train: 10
   sent_len: 500
   validation_split: 0.2
-  learning_rate: 0.01
+  learning_rate: 0.1
   initial_sparsity: 0.01
   final_sparsity: 0.9
   batch_size: 55

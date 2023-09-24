@@ -73,10 +73,7 @@ class V2ENLanguageModel:
             y_true = tf.cast(y_true, tf.int64)
             y_pred = tf.argmax(y_pred, axis=2)
 
-            ryt = tf.boolean_mask(y_true, tf.not_equal(y_true, 0))
-            ryp = tf.boolean_mask(y_pred, tf.not_equal(y_true, 0))
-
-            acur = tf.reduce_mean(tf.cast(tf.equal(ryt, ryp), tf.float32))
+            acur = tf.reduce_mean(tf.cast(tf.equal(y_true, y_pred), tf.float32))
             self.custom_metric_values.assign_add(acur)
             self.values_len.assign_add(1)
 
@@ -89,17 +86,12 @@ class V2ENLanguageModel:
 
     @staticmethod
     def LanguageLoss(y_true, y_pred):
-        y_true = tf.cast(y_true, tf.int64)
         loss = tf.nn.sparse_softmax_cross_entropy_with_logits(
             labels=y_true, logits=y_pred
         )
-        y_pred = tf.argmax(y_pred, axis=2)
 
         masknonzero = tf.math.not_equal(y_true, 0)
-        maskzero = tf.math.logical_not(masknonzero) & tf.math.not_equal(y_pred, 0)
-        maskgetzero = masknonzero & tf.math.equal(y_pred, 0)
-
-        maskednonzero_loss = tf.boolean_mask(loss, maskgetzero | maskzero)
+        maskednonzero_loss = tf.boolean_mask(loss, masknonzero)
 
         return tf.reduce_mean(maskednonzero_loss)
 
