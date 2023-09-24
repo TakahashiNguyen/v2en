@@ -73,6 +73,9 @@ class V2ENLanguageModel:
             y_true = tf.cast(y_true, tf.int64)
             y_pred = tf.argmax(y_pred, axis=2)
 
+            y_pred = tf.boolean_mask(y_pred, tf.not_equal(y_true, 0))
+            y_true = tf.boolean_mask(y_true, tf.not_equal(y_true, 0))
+
             acur = tf.reduce_mean(tf.cast(tf.equal(y_true, y_pred), tf.float32))
             self.custom_metric_values.assign_add(acur)
             self.values_len.assign_add(1)
@@ -86,14 +89,9 @@ class V2ENLanguageModel:
 
     @staticmethod
     def LanguageLoss(y_true, y_pred):
-        loss = tf.nn.sparse_softmax_cross_entropy_with_logits(
+        return tf.nn.sparse_softmax_cross_entropy_with_logits(
             labels=y_true, logits=y_pred
         )
-
-        masknonzero = tf.math.not_equal(y_true, 0)
-        maskednonzero_loss = tf.boolean_mask(loss, masknonzero)
-
-        return tf.reduce_mean(maskednonzero_loss)
 
     def importData(self) -> None:
         data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
@@ -117,10 +115,8 @@ class V2ENLanguageModel:
                 initial_sparsity=config.training.initial_sparsity,
                 final_sparsity=config.training.final_sparsity,
                 begin_step=config.training.begin_step,
-                end_step=config.training.num_epochs * len(self.source.sentences),
+                end_step=10**6,
             ),
-            "block_size": (1, 1),
-            "block_pooling_type": "AVG",
         }
 
         # Build the layers

@@ -19,15 +19,15 @@ v2en:
 training:
   eagerly: false
   use_cpu: false
-  num_epochs: 40
+  num_epochs: 50
   num_train: 10
   sent_len: 500
-  validation_split: 0.2
-  learning_rate: 0.1
-  initial_sparsity: 0.01
-  final_sparsity: 0.9
-  batch_size: 55
-  begin_step: 1
+  validation_split: 0.15
+  begin_step: 25
+  initial_sparsity: 0.001
+  final_sparsity: 0.95
+  learning_rate: 0.01
+  batch_size: 45
+  data_size: 100000
   checkpoint_path: ./models/best
-  data_size: 7500
   extension: hdf5
