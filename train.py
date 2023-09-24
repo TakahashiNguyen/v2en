@@ -133,17 +133,18 @@ class V2ENLanguageModel:
         )
         model.add(pruneEmbedding)
         # Encoder
-        model.add(layers.Bidirectional(layers.LSTM(latent_dim, return_sequences=True)))
-        model.add(layers.Bidirectional(layers.LSTM(latent_dim)))
+        model.add(layers.Bidirectional(layers.GRU(latent_dim)))
         model.add(layers.RepeatVector(config.training.sent_len))
         # Decoder
-        model.add(layers.Bidirectional(layers.LSTM(latent_dim, return_sequences=True)))
+        model.add(layers.Bidirectional(layers.GRU(latent_dim, return_sequences=True)))
         model.add(
             layers.TimeDistributed(layers.Dense(latent_dim * 4, activation="relu"))
         )
         model.add(layers.Dropout(0.5))
         model.add(
-            layers.TimeDistributed(layers.Dense(len(self.tokenizer.word_index) + 1))
+            layers.TimeDistributed(
+                layers.Dense(len(self.tokenizer.word_index) + 1, activation="softmax")
+            )
         )
 
         try:
@@ -152,7 +153,7 @@ class V2ENLanguageModel:
                 {
                     "LanguageAccuracy": self.LanguageAccuracy,
                     "PruneLowMagnitude": pruneEmbedding,
-                    "LanguageLoss": self.LanguageLoss,
+                    # "LanguageLoss": self.LanguageLoss,
                 }
             ):
                 self.model = tf.keras.models.load_model(
@@ -187,13 +188,14 @@ class V2ENLanguageModel:
             mode="min",
         )
         update_pruning = tfmot.sparsity.keras.UpdatePruningStep()
+        check_pred = self.PrintLearningRateCallback(
+            self.source,
+            self.target,
+            self.tokenizer.word_index.items(),
+        )
         self.callbacks = [
             update_pruning,
-            self.PrintLearningRateCallback(
-                self.source,
-                self.target,
-                self.tokenizer.word_index.items(),
-            ),
+            #check_pred,
             checkpoint,
             earlystop_accuracy,
             earlystop_loss,
@@ -201,7 +203,7 @@ class V2ENLanguageModel:
 
     def fitModel(self) -> None:
         self.model.compile(
-            loss=self.LanguageLoss,
+            loss=tf.keras.losses.sparse_categorical_crossentropy,
             optimizer=tf.keras.optimizers.Adam(
                 learning_rate=config.training.learning_rate
             ),

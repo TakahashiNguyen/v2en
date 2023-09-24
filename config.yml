@@ -21,13 +21,13 @@ training:
   use_cpu: false
   num_epochs: 50
   num_train: 10
-  sent_len: 500
+  sent_len: 250
   validation_split: 0.15
   begin_step: 25
   initial_sparsity: 0.001
   final_sparsity: 0.95
-  learning_rate: 0.01
+  learning_rate: 0.003
   batch_size: 45
-  data_size: 100000
+  data_size: 75000
   checkpoint_path: ./models/best
   extension: hdf5
