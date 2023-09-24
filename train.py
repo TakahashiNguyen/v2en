@@ -7,7 +7,6 @@ import random
 import tensorflow_model_optimization as tfmot
 import os
 import keras
-import math
 
 
 class V2ENLanguageModel:
@@ -98,17 +97,11 @@ class V2ENLanguageModel:
 
         masknonzero = tf.math.not_equal(y_true, 0)
         maskzero = tf.math.logical_not(masknonzero) & tf.math.not_equal(y_pred, 0)
-        maskgetzero = masknonzero & tf.math.not_equal(y_pred, 0)
+        maskgetzero = masknonzero & tf.math.equal(y_pred, 0)
 
-        maskednonzero_loss = tf.boolean_mask(loss, masknonzero)
-        maskedzero_loss = tf.boolean_mask(loss, maskzero)
-        maskedgetzero_loss = tf.boolean_mask(loss, maskgetzero)
+        maskednonzero_loss = tf.boolean_mask(loss, maskgetzero | maskzero)
 
-        return (
-            tf.reduce_mean(maskednonzero_loss)
-            #+ tf.reduce_mean(maskedzero_loss)
-            #+ tf.reduce_mean(maskedgetzero_loss)
-        )
+        return tf.reduce_mean(maskednonzero_loss)
 
     def importData(self) -> None:
         data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
@@ -125,7 +118,7 @@ class V2ENLanguageModel:
         self.target.reshape()
 
     def initModel(self):
-        latent_dim = 256
+        latent_dim = 128
         layers = tf.keras.layers
         pruning_params = {
             "pruning_schedule": tfmot.sparsity.keras.PolynomialDecay(
