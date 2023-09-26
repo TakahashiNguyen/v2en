@@ -195,7 +195,7 @@ class V2ENLanguageModel:
         )
         self.callbacks = [
             update_pruning,
-            #check_pred,
+            check_pred,
             checkpoint,
             earlystop_accuracy,
             earlystop_loss,
@@ -203,6 +203,7 @@ class V2ENLanguageModel:
 
     def fitModel(self) -> None:
         self.model.compile(
+            # loss=self.LanguageLoss,
             loss=tf.keras.losses.sparse_categorical_crossentropy,
             optimizer=tf.keras.optimizers.Adam(
                 learning_rate=config.training.learning_rate
