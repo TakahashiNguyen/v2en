@@ -48,7 +48,7 @@ def initArgs(config: ExtraConfig):
 
 
 class Execute:
-    def __init__(self, med, config: ExtraConfig) -> None:
+    def __init__(self, menthod, config: ExtraConfig) -> None:
         self.config = config
         if config.v2en.allow.GUI:
             import tkinter as tk
@@ -57,12 +57,12 @@ class Execute:
             self.root.title("[v2en] AddSent.py")
             self.button = tk.Button(self.root, text="Exit", command=self.exit)
             self.button.pack()
-            self.thread = Process(target=self.loop, args=(med, config))
+            self.thread = Process(target=self.loop, args=(menthod, config))
             self.thread.start()
             self.root.mainloop()
             self.thread.join()
         else:
-            med(config)
+            menthod(config)
 
     def loop(self, med, config: ExtraConfig):
         med(config)
@@ -206,7 +206,7 @@ class Main:
         signal.signal(signal.SIGINT, self.signalHandler)
 
     def execute(self):
-        Execute(med=self.FileExecute, config=self.config)
+        Execute(menthod=self.FileExecute, config=self.config)
 
     def exit(self):
         if not self.args.ci_cd:
