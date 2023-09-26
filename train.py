@@ -18,7 +18,7 @@ class V2ENLanguageModel:
 
         def logits_to_text(self, logits):
             index_to_words = {id: word for word, id in self.tokenizer_items}
-            return " ".join(
+            return "".join(
                 [index_to_words[prediction] for prediction in logits if prediction != 0]
             )
 
@@ -97,9 +97,15 @@ class V2ENLanguageModel:
         data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
         df = pd.DataFrame(data[1:], columns=data[0])
 
-        self.tokenizer = tf.keras.preprocessing.text.Tokenizer(filters="", lower=False)
+        self.tokenizer = tf.keras.preprocessing.text.Tokenizer(
+            filters="", lower=False, split="", char_level=True
+        )
         sheet = GSQLClass(config.v2en.sheet, "dictionary")
-        self.tokenizer.fit_on_texts(sheet.getAll())
+        self.tokenizer.fit_on_texts(
+            "".join(
+                [element for sublist in sheet.getAll() for element in sublist] + [" "]
+            )
+        )
         df = df.sample(frac=1).reset_index(drop=True)
 
         self.source = self.Language(config.v2en.flang, df, self.tokenizer)
