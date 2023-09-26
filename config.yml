@@ -22,12 +22,11 @@ training:
   num_epochs: 25
   num_train: 100
   sent_len: 500
-  validation_split: 0.15
-  begin_step: 25
+  validation_split: 0.2
   initial_sparsity: 0.01
   final_sparsity: 0.95
-  learning_rate: 0.003
-  batch_size: 300
-  data_size: 75000
+  learning_rate: 0.005
+  batch_size: 175
+  data_size: 50000
   checkpoint_path: ./models/best
   extension: hdf5

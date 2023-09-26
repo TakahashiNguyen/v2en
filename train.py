@@ -20,7 +20,7 @@ class V2ENLanguageModel:
             index_to_words = {id: word for word, id in self.tokenizer_items}
             return "".join(
                 [index_to_words[prediction] for prediction in logits if prediction != 0]
-            )
+            ).replace(" ", "_")
 
         def generateText(self) -> str:
             ran_num = random.randrange(0, len(self.target._sentences))
@@ -73,12 +73,31 @@ class V2ENLanguageModel:
             y_true = tf.cast(y_true, tf.int64)
             y_pred = tf.argmax(y_pred, axis=2)
 
-            y_pred = tf.boolean_mask(y_pred, tf.not_equal(y_true, 0))
-            y_true = tf.boolean_mask(y_true, tf.not_equal(y_true, 0))
+            y_pred_overall = tf.boolean_mask(y_pred, tf.not_equal(y_true, 0))
+            y_true_overall = tf.boolean_mask(y_true, tf.not_equal(y_true, 0))
+
+            y_pred_space = tf.boolean_mask(
+                y_pred, tf.not_equal(y_true, 0) & tf.not_equal(y_true, 1)
+            )
+            y_true_space = tf.boolean_mask(
+                y_true, tf.not_equal(y_true, 0) & tf.not_equal(y_true, 1)
+            )
 
             acur = tf.reduce_mean(tf.cast(tf.equal(y_true, y_pred), tf.float32))
+            acur_overall = tf.reduce_mean(
+                tf.cast(tf.equal(y_true_overall, y_pred_overall), tf.float32)
+            )
+            acur_space = tf.reduce_mean(
+                tf.cast(tf.equal(y_true_space, y_pred_space), tf.float32)
+            )
+
             self.custom_metric_values.assign_add(acur)
-            self.values_len.assign_add(1)
+            self.custom_metric_values.assign_add(acur_overall)
+            self.custom_metric_values.assign_add(acur_overall)
+            self.custom_metric_values.assign_add(acur_space)
+            self.custom_metric_values.assign_add(acur_space)
+            self.custom_metric_values.assign_add(acur_space)
+            self.values_len.assign_add(6)
 
         def result(self):
             return self.custom_metric_values / self.values_len
@@ -86,12 +105,6 @@ class V2ENLanguageModel:
         def reset_state(self):
             self.custom_metric_values.assign(0.0)
             self.values_len.assign(0.0)
-
-    @staticmethod
-    def LanguageLoss(y_true, y_pred):
-        return tf.nn.sparse_softmax_cross_entropy_with_logits(
-            labels=y_true, logits=y_pred
-        )
 
     def importData(self) -> None:
         data = GSQLClass(config.v2en.sheet, config.v2en.worksheet).getAll()
@@ -114,13 +127,13 @@ class V2ENLanguageModel:
         self.target.reshape()
 
     def initModel(self):
-        latent_dim = 128
+        latent_dim = 256
         layers = tf.keras.layers
         pruning_params = {
             "pruning_schedule": tfmot.sparsity.keras.PolynomialDecay(
                 initial_sparsity=config.training.initial_sparsity,
                 final_sparsity=config.training.final_sparsity,
-                begin_step=config.training.begin_step,
+                begin_step=1,
                 end_step=10**6,
             ),
         }
@@ -159,7 +172,6 @@ class V2ENLanguageModel:
                 {
                     "LanguageAccuracy": self.LanguageAccuracy,
                     "PruneLowMagnitude": pruneEmbedding,
-                    # "LanguageLoss": self.LanguageLoss,
                 }
             ):
                 self.model = tf.keras.models.load_model(
@@ -209,8 +221,7 @@ class V2ENLanguageModel:
 
     def fitModel(self) -> None:
         self.model.compile(
-            # loss=self.LanguageLoss,
-            loss=tf.keras.losses.sparse_categorical_crossentropy,
+            loss=tf.keras.losses.SparseCategoricalCrossentropy(),
             optimizer=tf.keras.optimizers.Adam(
                 learning_rate=config.training.learning_rate
             ),
